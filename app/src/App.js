@@ -1,22 +1,17 @@
 import React, { Component } from 'react';
 import './App.css';
-import leftPane from './components/leftPane';
-import matrix from './components/matrix';
+import LeftPane from './components/LeftPane';
+import Matrix from './components/Matrix';
 
 
 class App extends Component {
 
-    /*
-            Make two subcomponents. The left pane component and the centre
-
-     */
-
     render() {
         //console.log(store.getState());
         return (
-         <div>
-            <leftPane />
-            <matrix />
+         <div className="layout">
+            <LeftPane />
+            <Matrix />
          </div>
     );
   }

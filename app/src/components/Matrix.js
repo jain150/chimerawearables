@@ -1,16 +1,17 @@
 import React, { Component } from 'react';
+import './matrix.css'
 
-class matrix extends Component {
+class Matrix extends Component {
 
     render() {
             //console.log(store.getState());
             return (
 
-             <div style={{backgroundColor: "#87A2A0"}}>
+             <div className="matrixBody">
                 <h3>CENTRE</h3>
             </div>
         );
     }
 }
 
-export default matrix;
+export default Matrix;

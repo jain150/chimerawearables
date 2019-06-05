@@ -1,17 +1,30 @@
 import React, { Component } from 'react';
+import './leftPane.css'
+import LeftPaneTab from './LeftPaneTab';
 
-class leftPane extends Component {
+class LeftPane extends Component {
 
     render() {
-            //console.log(store.getState());
+
+            let my_array = [];
+                for(let i = 0; i < 4; i++)
+            my_array.push(i + 1)
+
+           let listItems = '';
+           listItems = my_array.map((listItem) => {
+                return (
+                    <LeftPaneTab name={listItem} />
+                )
+            });
+
             return (
 
-             /*<div style={{backgroundColor: "#68AA86"}}>
-                <h3>LEFT PANE</h3>
-            </div>*/
-            leftPane
+             <div className="leftPaneBody">
+                {listItems}
+            </div>
+
         );
     }
 }
 
-export default leftPane;
+export default LeftPane;
