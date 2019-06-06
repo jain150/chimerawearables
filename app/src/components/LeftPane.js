@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
+
 import './leftPane.css'
 import LeftPaneTab from './LeftPaneTab';
 
@@ -6,12 +8,8 @@ class LeftPane extends Component {
 
     render() {
 
-            let my_array = [];
-                for(let i = 0; i < 4; i++)
-            my_array.push(i + 1)
-
            let listItems = '';
-           listItems = my_array.map((listItem) => {
+           listItems = this.props.categories.map((listItem) => {
                 return (
                     <LeftPaneTab name={listItem} />
                 )
@@ -27,4 +25,11 @@ class LeftPane extends Component {
     }
 }
 
-export default LeftPane;
+const mapStateToProps = state => {
+    return {
+        categories: state.categories,
+    }
+};
+
+
+export default connect(mapStateToProps)(LeftPane);

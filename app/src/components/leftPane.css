@@ -1,4 +1,10 @@
 .leftPaneBody {
     background-color: #68AA86;
-    width: 8%
+    width: 6%;
+}
+
+.leftPaneModal {
+    background-color: #87A2A0;
+    color: black;
+    width: 15%;
 }

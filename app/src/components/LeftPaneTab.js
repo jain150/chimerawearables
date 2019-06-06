@@ -8,7 +8,7 @@ class LeftPaneTab extends Component {
             return (
 
              <div className="leftPaneTabBody">
-                 <h4>{this.props.name}</h4>
+                 <div className="rotate move">{this.props.name}</div>
             </div>
 
         );
