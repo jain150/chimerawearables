@@ -8,7 +8,8 @@ class LeftPaneTab extends Component {
             return (
 
              <div className="leftPaneTabBody">
-                 <div className="rotate move">{this.props.name}</div>
+                 <div className="rotate move" onClick={() => this.props.clicked(this.props.name)}>{this.props
+                 .name}</div>
             </div>
 
         );

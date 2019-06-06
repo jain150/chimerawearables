@@ -3,30 +3,32 @@ import { connect } from 'react-redux';
 import './leftPane.css'
 import LeftPaneModalTab from './LeftPaneModalTab';
 
+import { Button, Fade } from 'reactstrap';
+
 class LeftPaneModal extends Component {
 
     render() {
-            //console.log(store.getState());
 
-            /*
 
-            */
-            console.log(this.props);
 
-            /*
-                You have 4 arrays, map each of them to a LeftPaneModalTab element
+            let funcModal = <Fade style={{height: '25%'}} in={this.props.showFunc}><LeftPaneModalTab
+            type='Function'
+            subtypes={this.props.functions} /></Fade>;
 
-                onclick for displaying the leftpanemodal
+            let bodyModal = <Fade id='2' style={{height: '25%'}} in={this.props.showBod}><LeftPaneModalTab
+             type='BodyZones'
+            subtypes={this.props.bodyZones} /></Fade>;
 
-                LeftPaneModal - props - types and subtypes and onclick
-            */
+            let fabModal = <Fade id='3' style={{height: '25%'}} in={this.props.showFab}><LeftPaneModalTab
+            type='Fabrication'
+            subtypes={this.props.fabrication} /></Fade>;
 
-            let funcModal = <LeftPaneModalTab type='Function' subtypes={this.props.functions} />;
-            let bodyModal = <LeftPaneModalTab type='Body Zones' subtypes={this.props.bodyZones} />;
-            let fabModal = <LeftPaneModalTab type='Fabrication' subtypes={this.props.fabrication} />;
-            let matModal = <LeftPaneModalTab type='Material' subtypes={this.props.material} />;
+            let matModal = <Fade id='4' style={{height: '25%'}} in={this.props.showMat}><LeftPaneModalTab
+            type='Material'
+            subtypes={this.props.material} /></Fade>;
 
             return (
+
 
             <div className="leftPaneModal">
                 {funcModal}
@@ -34,6 +36,7 @@ class LeftPaneModal extends Component {
                 {fabModal}
                 {matModal}
             </div>
+
             );
     }
 }
@@ -44,6 +47,11 @@ const mapStateToProps = state => {
         bodyZones: state.bodyZones,
         fabrication: state.fabrication,
         material: state.material,
+
+        showFunc: state.showFunc,
+        showBod: state.showBod,
+        showFab: state.showFab,
+        showMat: state.showMat,
     }
 };
 

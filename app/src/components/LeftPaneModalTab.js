@@ -9,16 +9,18 @@ class LeftPaneModalTab extends Component {
 
     onSelect = (input, type) => {
 
-        console.log(input)
+        console.log(type)
 
-        if(type === 'Function') {
+        if(type == 'Function') {
 
             this.props.onSelectFunction(input);
         }
-        else if(type === 'Body Zones') {
+        else if(type == 'BodyZones') {
+
+
             this.props.onSelectBodyZones(input);
         }
-        else if(type === 'Fabrication') {
+        else if(type == 'Fabrication') {
             this.props.onSelectFabrication(input);
         }
         else {
