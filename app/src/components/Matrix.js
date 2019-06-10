@@ -9,97 +9,97 @@ class Matrix extends Component {
     render() {
             //console.log(store.getState());
 
-            let outFunc = '';
+
             let isOutFunc = false;
 
-            if(this.props.selFunction === null) {
-                outFunc = 'Function'
+            let name_array = [];
+            name_array.push('Function');
+            name_array.push('BodyZones');
+            name_array.push('Fabrication');
+            name_array.push('Material');
+
+
+            if(this.props.selFunction === null)
                 isOutFunc = true;
-            }
-            else
-                outFunc = this.props.selFunction;
 
-
-
-            let outBod = '';
             let isOutBod = false;
-
-            if(this.props.selBodyZones === null) {
-                outBod = 'Body Zones'
+            if(this.props.selBodyZones === null)
                 isOutBod = true;
-            }
-            else
-                outBod = this.props.selBodyZones;
 
 
-
-            let outFab = '';
             let isOutFab = false;
-
-            if(this.props.selFabrication === null) {
-                outFab = 'Fabrication'
+            if(this.props.selFabrication === null)
                 isOutFab = true;
-            }
-            else
-                outFab = this.props.selFabrication;
 
 
-            let outMat = '';
             let isOutMat = false;
-
-            if(this.props.selMaterial === null) {
-                outMat = 'Material'
+            if(this.props.selMaterial === null)
                 isOutMat = true;
-            }
-            else
-                outMat = this.props.selMaterial;
+
+            let bool_array = [];
+            bool_array.push(isOutFunc);
+            if(!isOutFunc)
+                name_array[0] = this.props.selFunction;
+
+            bool_array.push(isOutBod);
+            if(!isOutFunc)
+                name_array[1] = this.props.selBodyZones;
+
+            bool_array.push(isOutFab);
+            if(!isOutFunc)
+
+                name_array[2] = this.props.selFabrication;
+            bool_array.push(isOutMat);
+            if(!isOutFunc)
+                name_array[3] = this.props.selMaterial;
 
             let outFuncBod = '';
             let isOutFuncBod = false;
 
-            if(this.props.selFunc !== null && this.props.selBodyZones !== null) {
-                outFuncBod = this.props.selFunction + "+" + this.props.selBodyZones;
+
+            if(this.props.selFunction === null || this.props.selBodyZones === null) {
+
+                 outFuncBod = 'Function + Body Zones';
+                 isOutFuncBod = true;
+
 
             }
             else {
-                 outFuncBod = 'Function + Body Zones';
-                 isOutFuncBod = true;
+                outFuncBod = this.props.selFunction + "+" + this.props.selBodyZones;
             }
 
+            console.log(name_array);
 
-            console.log(this.props.selFunction);
-            console.log(this.props.selBodyZones);
-            console.log(outFuncBod);
             return (
 
              <div className="matrixBody">
                 <div style={{marginTop: '10px', marginLeft: '30px'}}>
                     <Card body inverse style={{ backgroundColor: '#333', borderColor:
                     '#1249A8', width:'auto', height:'20%' }}>
-                          <CardTitle>{outFunc}</CardTitle>
+                          <CardTitle>{name_array[0]}</CardTitle>
 
-                          {(!isOutFunc) ? (<CardText style={{color:"#1249A8"}}>Function</CardText>) : (<div />)}
+                          {(!bool_array[0]) ? (<CardText style={{color:"#1249A8"}}>Function</CardText>) : (<div />)}
                     </Card>
 
                     <Card body inverse style={{ backgroundColor: '#333', borderColor:
                     '#1249A8', width:'auto', height:'20%' }}>
-                          <CardTitle>{outBod}</CardTitle>
+                          <CardTitle>{name_array[1]}</CardTitle>
 
-                          {(!isOutBod) ? (<CardText style={{color:"#1249A8"}}>Body Zones</CardText>) : (<div />)}
+                          {(!bool_array[1]) ? (<CardText style={{color:"#1249A8"}}>Body Zones</CardText>) : (<div />)}
                     </Card>
 
                     <Card body inverse style={{ backgroundColor: '#333', borderColor: '#1249A8', width:'auto',
                     height:'20%' }}>
-                          <CardTitle>{outFab}</CardTitle>
+                          <CardTitle>{name_array[2]}</CardTitle>
 
-                          {(!isOutFab) ? (<CardText style={{color:"#1249A8"}}>Fabrication</CardText>) : (<div />)}
+                          {(!bool_array[2]) ? (<CardText style={{color:"#1249A8"}}>Fabrication</CardText>) : (<div />)}
                     </Card>
 
                     <Card body inverse style={{ backgroundColor: '#333', borderColor: '#1249A8', width:'auto',
                     height:'20%'}}>
-                          <CardTitle>{outMat}</CardTitle>
+                          <CardTitle>{name_array[3]}</CardTitle>
 
-                          {(!isOutMat) ? (<CardText style={{color:"#1249A8"}}>Material</CardText>) : (<div />)}
+                          {(!bool_array[3]) ? (<CardText style={{color:"#1249A8"}}>Material</CardText>) : (<div />)}
                     </Card>
                  </div>
 

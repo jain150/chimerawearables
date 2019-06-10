@@ -3,11 +3,17 @@ import * as actionTypes from '../actions';
 const initialState = {
 
     categories: ['Function', 'BodyZones', 'Fabrication', 'Material'],
-    functions: ['store', 'breathability', 'feedback'],
-    bodyZones: ['head', 'chest', 'pelvic region', 'arms', 'legs',
-    'wrists & hand', 'back', 'full body', 'feet'],
-    fabrication: ['weaving', 'layering', 'painting'],
-    material: ['polymers', 'threads', 'adhesives'],
+    functions: ['Store', 'Breathability', 'Feedback', 'Movement', 'Magnetic', 'Protective'],
+    bodyZones: ['Head', 'Chest', 'Pelvic Region', 'Arms', 'Legs',
+    'Wrists & Hand', 'Back', 'Full Body', 'Feet'],
+    fabrication: ['Weaving', 'Layering', 'Painting'],
+    material: ['Polymers', 'Threads', 'Adhesives'],
+
+    arrFunc: [],
+    arrBod: [],
+    arrFab: [],
+    arrMat: [],
+
     selFunction: null,
     selBodyZones: null,
     selFabrication: null,
@@ -23,6 +29,7 @@ const initialState = {
 const reducer = ( state = initialState, action ) => {
 
     switch ( action.type ) {
+
         case actionTypes.SELECT_FUNCTION:
             return {
                 ...state,
@@ -62,6 +69,31 @@ const reducer = ( state = initialState, action ) => {
            return {
                ...state,
                showMat: !(state.showMat)
+           }
+
+        case actionTypes.PRE_SELECT_FUNC:
+           return {
+                ...state,
+                arrFunc: [...action.value]
+           }
+
+        case actionTypes.PRE_SELECT_BOD:
+
+           return {
+                ...state,
+                arrBod: [...action.value]
+           }
+
+        case actionTypes.PRE_SELECT_FAB:
+           return {
+                ...state,
+                arrFab: [...action.value]
+           }
+
+        case actionTypes.PRE_SELECT_MAT:
+           return {
+                ...state,
+                arrMat: [...action.value]
            }
     }
     return state;

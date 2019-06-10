@@ -7,34 +7,44 @@ import { Button, Fade } from 'reactstrap';
 
 class LeftPaneModal extends Component {
 
+
+    constructor(props) {
+
+        super(props);
+
+        this.state = {
+
+         listArr: this.props.selArr,
+        };
+    }
+
     render() {
 
+            let funcModal = <LeftPaneModalTab style={{height: '25%'}}
+                                        type='Function'
+                                        subtypes={this.props.functions} />;
 
-
-            let funcModal = <Fade style={{height: '25%'}} in={this.props.showFunc}><LeftPaneModalTab
-            type='Function'
-            subtypes={this.props.functions} /></Fade>;
-
-            let bodyModal = <Fade id='2' style={{height: '25%'}} in={this.props.showBod}><LeftPaneModalTab
+            let bodyModal = <LeftPaneModalTab style={{height: '25%'}}
              type='BodyZones'
-            subtypes={this.props.bodyZones} /></Fade>;
+            subtypes={this.props.bodyZones} />;
 
-            let fabModal = <Fade id='3' style={{height: '25%'}} in={this.props.showFab}><LeftPaneModalTab
+            let fabModal =  <LeftPaneModalTab style={{height: '25%'}}
             type='Fabrication'
-            subtypes={this.props.fabrication} /></Fade>;
+            subtypes={this.props.fabrication} />;
 
-            let matModal = <Fade id='4' style={{height: '25%'}} in={this.props.showMat}><LeftPaneModalTab
+            let matModal = <LeftPaneModalTab style={{height: '25%'}}
             type='Material'
-            subtypes={this.props.material} /></Fade>;
+            subtypes={this.props.material} />;
 
             return (
 
 
             <div className="leftPaneModal">
-                {funcModal}
-                {bodyModal}
-                {fabModal}
-                {matModal}
+
+                   {funcModal}
+                   {bodyModal}
+                   {fabModal}
+                   {matModal}
             </div>
 
             );
@@ -42,16 +52,14 @@ class LeftPaneModal extends Component {
 }
 
 const mapStateToProps = state => {
-    return {
-        functions: state.functions,
-        bodyZones: state.bodyZones,
-        fabrication: state.fabrication,
-        material: state.material,
 
-        showFunc: state.showFunc,
-        showBod: state.showBod,
-        showFab: state.showFab,
-        showMat: state.showMat,
+    console.log(state.arrFunc);
+    return {
+        functions: state.arrFunc,
+        bodyZones: state.arrBod,
+        fabrication: state.arrFab,
+        material: state.arrMat,
+
     }
 };
 

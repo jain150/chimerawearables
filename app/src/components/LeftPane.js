@@ -31,7 +31,7 @@ class LeftPane extends Component {
            let listItems = '';
            listItems = this.props.categories.map((listItem) => {
                 return (
-                    <LeftPaneTab name={listItem} clicked={this.onClick} />
+                    <LeftPaneTab key={listItem} name={listItem} clicked={this.onClick} />
                 )
             });
 

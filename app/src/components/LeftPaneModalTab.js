@@ -7,60 +7,87 @@ import * as actionTypes from '../store/actions';
 
 class LeftPaneModalTab extends Component {
 
+
+    constructor(props) {
+       super(props);
+
+
+
+       this.state = {
+         curInput: '',
+       };
+    }
+
     onSelect = (input, type) => {
-
-        console.log(type)
-
         if(type == 'Function') {
+
+            this.setState({
+               curInp: input,
+            });
+
+
 
             this.props.onSelectFunction(input);
         }
         else if(type == 'BodyZones') {
 
-
             this.props.onSelectBodyZones(input);
+             this.setState({
+               curInp: input,
+            });
+
         }
         else if(type == 'Fabrication') {
             this.props.onSelectFabrication(input);
+             this.setState({
+               curInp: input,
+            });
+
         }
         else {
             this.props.onSelectMaterial(input);
-        }
+             this.setState({
+               curInp: input,
+            });
 
+        }
     };
 
+    /*
+        Use state to save current input.
+        Use conditional rendering to render the selected input differently
+    */
+
     render() {
-            //console.log(store.getState());
-
-            //onSelect in custom input, dispatch an action that updates the corresponding selected balye
-
-
-            console.log(this.props.type);
             let inp = '';
+            let curInp = this.state.curInp;
 
             inp = this.props.subtypes.map((input) => {
 
-                console.log(input)
                 return (
-                    <CustomInput type="radio" name="customRadio" key={input} id={input} label={input} onClick={() =>
-                    this
-                    .onSelect(input, this.props.type)}/>
+                    <div>
+                    {(curInp === input) ? (
+                    <div style={{background: '#333'}} onClick={() => this.onSelect(input, this.props.type)}
+                    className='modalHover'
+                                              key={input}
+                     >{input}</div>) : (<div onClick={() => this.onSelect(input, this.props.type)}
+                     className='modalHover'
+                                                                                      key={input}
+                                                             >{input}</div>)}
+                                                             </div>
                 );
             }
+
             )
             return (
 
             <div className='leftPaneModalTabBody'>
-                <FormGroup>
-                    <Label for="exampleCheckbox">{this.props.type}</Label>
-                        <div className='leftPaneModalTabScroll'>
-                          {inp}
-                         </div>
-                 </FormGroup>
+                  {inp}
             </div>
             );
     }
 }
+
 const mapDispatchToProps = dispatch => {
     return {
         onSelectFunction: (value) => dispatch({type: actionTypes.SELECT_FUNCTION, val: value}),
