@@ -14,10 +14,10 @@ const initialState = {
     arrFab: [],
     arrMat: [],
 
-    selFunction: null,
-    selBodyZones: null,
-    selFabrication: null,
-    selMaterial: null,
+    selFunction: '',
+    selBodyZones: '',
+    selFabrication: '',
+    selMaterial: '',
 
     showFunc: false,
     showBod: false,
