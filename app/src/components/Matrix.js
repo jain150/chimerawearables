@@ -1,14 +1,48 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import './matrix.css'
+import Hexagon from 'react-hexagon'
 
 import { Card, Button, CardTitle, CardText } from 'reactstrap';
 
+import * as actionTypes from '.././store/actions';
+
 class Matrix extends Component {
+
+  /*
+
+    On Click,
+
+    Define action to switch to search Display.
+    Define action that takes in boolean array and name array and stores them in redux state.
+
+
+    Now, in searchDisplay, handle the filtering and do mapStateToProps
+
+  */
+
+    onClick = (name_array, bool_param, query_param_array) => {
+
+        console.log("LOL");
+        console.log(bool_param);
+        console.log(name_array);
+        console.log(query_param_array);
+
+        if(bool_param) {
+
+          this.props.toggleDisplay();
+          this.props.updateQuery(name_array, query_param_array);
+        }
+
+        /*
+          call searchUpdate
+
+          if search if all of param array contains true
+        */
+    };
 
     render() {
 
-            console.log(this.props);
             let name_array = [];
             name_array[0] = 'Function';
             name_array[1] = 'BodyZones';
@@ -58,131 +92,107 @@ class Matrix extends Component {
 
              <div className="matrixBody">
                 <div style={{marginTop: '10px', marginLeft: '30px'}}>
-                    <Card body inverse style={{ backgroundColor: '#333', borderColor:
-                    '#1249A8', width:'auto', height:'20%' }}>
-                          <CardTitle>{name_array[0]}</CardTitle>
+                    <Card body onClick={() => this.onClick(name_array, bool_array[0])} inverse style={{ backgroundColor: '#333', borderColor:
+                    '#1249A8', width:'auto', height:'20%'}}>
+                          <CardTitle style={{color:"#8C3636"}}>{name_array[0]}</CardTitle>
 
-                          {(bool_array[0]) ? (<CardText style={{color:"#8C3636"}}>Function</CardText>) : (<div />)}
                     </Card>
 
-                    <Card body inverse style={{ backgroundColor: '#333', borderColor:
+                    <Card body onClick={() => this.onClick(name_array, bool_array[1])} inverse style={{ backgroundColor: '#333', borderColor:
                     '#1249A8', width:'auto', height:'20%' }}>
-                          <CardTitle>{name_array[1]}</CardTitle>
+                          <CardTitle style={{color:"#8C3636"}}>{name_array[1]}</CardTitle>
 
-                          {(bool_array[1]) ? (<CardText style={{color:"#8C3636"}}>BodyZones</CardText>) : (<div />)}
                     </Card>
 
-                    <Card body inverse style={{ backgroundColor: '#333', borderColor: '#1249A8', width:'auto',
+                    <Card body onClick={() => this.onClick(name_array, bool_array[2])} inverse style={{ backgroundColor: '#333', borderColor: '#1249A8', width:'auto',
                     height:'20%' }}>
-                          <CardTitle>{name_array[2]}</CardTitle>
+                          <CardTitle style={{color:"#8C3636"}}>{name_array[2]}</CardTitle>
 
-                          {(bool_array[2]) ? (<CardText style={{color:"#8C3636"}}>Fabrication</CardText>) : (<div />)}
                     </Card>
 
-                    <Card body inverse style={{ backgroundColor: '#333', borderColor: '#1249A8', width:'auto',
+                    <Card body onClick={() => this.onClick(name_array, bool_array[3])} inverse style={{ backgroundColor: '#333', borderColor: '#1249A8', width:'auto',
                     height:'20%'}}>
-                          <CardTitle>{name_array[3]}</CardTitle>
+                          <CardTitle style={{color:"#8C3636"}}>{name_array[3]}</CardTitle>
 
-                          {(bool_array[3]) ? (<CardText style={{color:"#8C3636"}}>Material</CardText>) : (<div />)}
                     </Card>
                  </div>
 
                 <div style={{marginTop: '10px', marginLeft: '30px'}}>
 
-                    <Card body inverse style={{ backgroundColor: '#333', borderColor: '#1249A8', width:'auto',
+                    <Card body onClick={() => this.onClick(name_array, bool_array[0] && bool_array[1])} inverse style={{ backgroundColor: '#333', borderColor: '#1249A8', width:'auto',
                     height:'16%'}}>
-                          <CardTitle>{(bool_array[0] && bool_array[1]) ? (name_array[0] + "+" + name_array[1]) : ("Function + Body Zones")}</CardTitle>
+                          <CardTitle style={{color:"#8C3636"}}>{(bool_array[0] && bool_array[1]) ? (name_array[0] + "+" + name_array[1]) : ("Function + Body Zones")}</CardTitle>
 
-                          {(bool_array[0] && bool_array[1]) ? (<CardText style={{color:"#8C3636"}}>Function + Body Zones</CardText>) :
-                          (<div />)}
+
                     </Card>
 
-                    <Card body inverse style={{ backgroundColor: '#333', borderColor: '#1249A8', width:'auto',
+                    <Card body onClick={() => this.onClick(name_array, bool_array[0] && bool_array[2])} inverse style={{ backgroundColor: '#333', borderColor: '#1249A8', width:'auto',
                     height:'17%'}}>
-                          <CardTitle>{(bool_array[0] && bool_array[2]) ? (name_array[0] + "+" + name_array[2]) : ("Function + Fabrication")}</CardTitle>
+                          <CardTitle style={{color:"#8C3636"}}>{(bool_array[0] && bool_array[2]) ? (name_array[0] + "+" + name_array[2]) : ("Function + Fabrication")}</CardTitle>
 
-                          {(bool_array[0] && bool_array[2]) ? (<CardText style={{color:"#8C3636"}}>Function + Fabrication</CardText>) :
-                          (<div />)}
                     </Card>
 
-                    <Card body inverse style={{ backgroundColor: '#333', borderColor: '#1249A8', width:'auto',
+                    <Card body onClick={() => this.onClick(name_array, bool_array[0] && bool_array[3], ['Function', 'Material'])} inverse style={{ backgroundColor: '#333', borderColor: '#1249A8', width:'auto',
                     height:'17%'}}>
-                          <CardTitle>{(bool_array[0] && bool_array[3]) ? (name_array[0] + "+" + name_array[3]) : ("Function + Material")}</CardTitle>
+                          <CardTitle style={{color:"#8C3636"}}>{(bool_array[0] && bool_array[3]) ? (name_array[0] + "+" + name_array[3]) : ("Function + Material")}</CardTitle>
 
-                          {(bool_array[0] && bool_array[3]) ? (<CardText style={{color:"#8C3636"}}>Function + Material</CardText>) :
-                          (<div />)}
                     </Card>
 
-                    <Card body inverse style={{ backgroundColor: '#333', borderColor: '#1249A8', width:'auto',
+                    <Card body onClick={() => this.onClick(name_array, bool_array[1] && bool_array[2])} inverse style={{ backgroundColor: '#333', borderColor: '#1249A8', width:'auto',
                     height:'17%'}}>
-                          <CardTitle>{(bool_array[1] && bool_array[2]) ? (name_array[1] + "+" + name_array[2]) : ("BodyZones + Fabrication")}</CardTitle>
+                          <CardTitle style={{color:"#8C3636"}}>{(bool_array[1] && bool_array[2]) ? (name_array[1] + "+" + name_array[2]) : ("BodyZones + Fabrication")}</CardTitle>
 
-                          {(bool_array[1] && bool_array[2]) ? (<CardText style={{color:"#8C3636"}}>BodyZones + Fabrication</CardText>) :
-                          (<div />)}
                     </Card>
 
-                    <Card body inverse style={{ backgroundColor: '#333', borderColor: '#1249A8', width:'auto',
+                    <Card body onClick={() => this.onClick(name_array, bool_array[1] && bool_array[3])} inverse style={{ backgroundColor: '#333', borderColor: '#1249A8', width:'auto',
                     height:'17%'}}>
-                          <CardTitle>{(bool_array[1] && bool_array[3]) ? (name_array[1] + "+" + name_array[3]) : ("BodyZones + Material")}</CardTitle>
+                          <CardTitle style={{color:"#8C3636"}}>{(bool_array[1] && bool_array[3]) ? (name_array[1] + "+" + name_array[3]) : ("BodyZones + Material")}</CardTitle>
 
-                          {(bool_array[1] && bool_array[3]) ? (<CardText style={{color:"#8C3636"}}>BodyZones + Material</CardText>) :
-                          (<div />)}
                     </Card>
 
-                    <Card body inverse style={{ backgroundColor: '#333', borderColor: '#1249A8', width:'auto',
+                    <Card body onClick={() => this.onClick(name_array, bool_array[2] && bool_array[3])} inverse style={{ backgroundColor: '#333', borderColor: '#1249A8', width:'auto',
                     height:'16%'}}>
-                          <CardTitle>{(bool_array[2] && bool_array[3]) ? (name_array[2] + "+" + name_array[3]) : ("Fabrication + Material")}</CardTitle>
+                          <CardTitle style={{color:"#8C3636"}}>{(bool_array[2] && bool_array[3]) ? (name_array[2] + "+" + name_array[3]) : ("Fabrication + Material")}</CardTitle>
 
-                          {(bool_array[2] && bool_array[3]) ? (<CardText style={{color:"#8C3636"}}>Fabrication + Material</CardText>) :
-                          (<div />)}
                     </Card>
 
                 </div>
 
                 <div style={{marginTop: '10px', marginLeft: '30px'}}>
 
-                    <Card body inverse style={{ backgroundColor: '#333', borderColor: '#1249A8', width:'auto',
+                    <Card onClick={() => this.onClick(name_array, bool_array[0] && bool_array[1] && bool_array[2], ['Function', 'BodyZones', 'Fabrication'])} body inverse style={{ backgroundColor: '#333', borderColor: '#1249A8', width:'auto',
                     height:'20%'}}>
-                          <CardTitle>{(bool_array[0] && bool_array[1] && bool_array[2]) ? (name_array[0] + "+" + name_array[1] + "+" + name_array[2]) : ("Function + BodyZones + Fabrication")}</CardTitle>
+                          <CardTitle style={{color:"#8C3636"}}>{(bool_array[0] && bool_array[1] && bool_array[2]) ? (name_array[0] + "+" + name_array[1] + "+" + name_array[2]) : ("Function + BodyZones + Fabrication")}</CardTitle>
 
-                          {(bool_array[0] && bool_array[1] && bool_array[2]) ? (<CardText style={{color:"#8C3636"}}>Function + BodyZones + Fabrication</CardText>) :
-                          (<div />)}
                     </Card>
 
-                    <Card body inverse style={{ backgroundColor: '#333', borderColor: '#1249A8', width:'auto',
+                    <Card onClick={() => this.onClick(name_array, bool_array[0] && bool_array[1] && bool_array[3])} body inverse style={{ backgroundColor: '#333', borderColor: '#1249A8', width:'auto',
                     height:'20%'}}>
-                          <CardTitle>{(bool_array[0] && bool_array[1] && bool_array[3]) ? (name_array[0] + "+" + name_array[1] + "+" + name_array[3]) : ("Function + BodyZones + Material")}</CardTitle>
+                          <CardTitle style={{color:"#8C3636"}}>{(bool_array[0] && bool_array[1] && bool_array[3]) ? (name_array[0] + "+" + name_array[1] + "+" + name_array[3]) : ("Function + BodyZones + Material")}</CardTitle>
 
-                          {(bool_array[0] && bool_array[1] && bool_array[3]) ? (<CardText style={{color:"#8C3636"}}>Function + BodyZones + Material</CardText>) :
-                          (<div />)}
                     </Card>
 
-                    <Card body inverse style={{ backgroundColor: '#333', borderColor: '#1249A8', width:'auto',
+                    <Card onClick={() => this.onClick(name_array, bool_array[0] && bool_array[2] && bool_array[3])} body inverse style={{ backgroundColor: '#333', borderColor: '#1249A8', width:'auto',
                     height:'20%'}}>
-                          <CardTitle>{(bool_array[0] && bool_array[2] && bool_array[3]) ? (name_array[0] + "+" + name_array[2] + "+" + name_array[3]) : ("Function + Fabrication + Material")}</CardTitle>
+                          <CardTitle style={{color:"#8C3636"}}>{(bool_array[0] && bool_array[2] && bool_array[3]) ? (name_array[0] + "+" + name_array[2] + "+" + name_array[3]) : ("Function + Fabrication + Material")}</CardTitle>
 
-                          {(bool_array[0] && bool_array[2] && bool_array[3]) ? (<CardText style={{color:"#8C3636"}}>Function + Fabrication + Material</CardText>) :
-                          (<div />)}
                     </Card>
 
-                    <Card body inverse style={{ backgroundColor: '#333', borderColor: '#1249A8', width:'auto',
+                    <Card onClick={() => this.onClick(name_array, bool_array[1] && bool_array[2] && bool_array[3])} body inverse style={{ backgroundColor: '#333', borderColor: '#1249A8', width:'auto',
                     height:'20%'}}>
-                          <CardTitle>{(bool_array[1] && bool_array[2] && bool_array[3]) ? (name_array[1] + "+" + name_array[2] + "+" + name_array[3]) : ("BodyZones + Fabrication + Material")}</CardTitle>
+                          <CardTitle style={{color:"#8C3636"}}>{(bool_array[1] && bool_array[2] && bool_array[3]) ? (name_array[1] + "+" + name_array[2] + "+" + name_array[3]) : ("BodyZones + Fabrication + Material")}</CardTitle>
 
-                          {(bool_array[1] && bool_array[2] && bool_array[3]) ? (<CardText style={{color:"#8C3636"}}>BodyZones + Fabrication + Material</CardText>) :
-                          (<div />)}
                     </Card>
                 </div>
 
                 <div style={{marginTop: '10px', marginLeft: '30px'}}>
 
-                <Card body inverse style={{ backgroundColor: '#333', borderColor: '#1249A8', width:'auto',
+                <Card onClick={() => this.onClick(name_array, bool_array[0] && bool_array[1] && bool_array[2] && bool_array[3])} body inverse style={{ backgroundColor: '#333', borderColor: '#1249A8', width:'auto',
                 height:'30%'}}>
-                      <CardTitle>{(bool_array[0] && bool_array[1] && bool_array[2] && bool_array[3]) ? (name_array[0] + "+" + name_array[1] + "+" + name_array[2] + "+" + name_array[3]) : ("All Correlations")}</CardTitle>
+                      <CardTitle style={{color:"#8C3636"}}>{(bool_array[0] && bool_array[1] && bool_array[2] && bool_array[3]) ? (name_array[0] + "+" + name_array[1] + "+" + name_array[2] + "+" + name_array[3]) : ("All Correlations")}</CardTitle>
 
-                      {(bool_array[0] + bool_array[1] && bool_array[2] && bool_array[3]) ? (<CardText style={{color:"#8C3636"}}>All Correlations</CardText>) :
-                      (<div />)}
                 </Card>
+
 
                 </div>
 
@@ -198,8 +208,17 @@ const mapStateToProps = state => {
         selBodyZones: state.selBodyZones,
         selFabrication: state.selFabrication,
         selMaterial: state.selMaterial,
+        searchData: state.searchData,
     }
 };
 
 
-export default connect(mapStateToProps)(Matrix);
+const mapDispatchToProps = dispatch => {
+    return {
+        toggleDisplay: () => dispatch({type: actionTypes.SEARCH_DISPLAY}),
+        updateQuery: (name_array, query_param) => dispatch({type: actionTypes.UPDATE_QUERY, names: name_array, params: query_param})
+    }
+};
+
+
+export default connect(mapStateToProps, mapDispatchToProps)(Matrix);

@@ -2,12 +2,17 @@ import * as actionTypes from '../actions';
 
 const initialState = {
 
+    searchDisplay: false,
+    searchData: [],
+    names: [],
+    params: [],
+
     categories: ['Function', 'BodyZones', 'Fabrication', 'Material'],
-    functions: ['Store', 'Breathability', 'Feedback', 'Movement', 'Magnetic', 'Protective'],
+    functions: ['Store', 'Breathability', 'Feedback', 'Movement', 'Magnetic', 'Protective', 'Emissivity'],
     bodyZones: ['Head', 'Chest', 'Pelvic Region', 'Arms', 'Legs',
     'Wrists & Hand', 'Back', 'Full Body', 'Feet'],
     fabrication: ['Weaving', 'Layering', 'Painting'],
-    material: ['Polymers', 'Threads', 'Adhesives'],
+    material: ['Polymers', 'Threads', 'Adhesives', 'Electronics'],
 
     arrFunc: [],
     arrBod: [],
@@ -23,7 +28,6 @@ const initialState = {
     showBod: false,
     showFab: false,
     showMat: false,
-
 };
 
 const reducer = ( state = initialState, action ) => {
@@ -95,6 +99,22 @@ const reducer = ( state = initialState, action ) => {
                 ...state,
                 arrMat: [...action.value]
            }
+        case actionTypes.UPDATE_DATA:
+          return {
+            ...state,
+            searchData: [...action.value]
+          }
+          case actionTypes.SEARCH_DISPLAY:
+            return {
+              ...state,
+              searchDisplay: !(state.searchDisplay)
+            }
+          case actionTypes.UPDATE_QUERY:
+            return {
+              ...state,
+              names: [...action.names],
+              params: [...action.params]
+            }
     }
     return state;
 };

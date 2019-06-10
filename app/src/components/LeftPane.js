@@ -10,6 +10,7 @@ class LeftPane extends Component {
 
     onClick = (type) => {
 
+        
 
          if(type === 'Function') {
 
@@ -48,6 +49,7 @@ class LeftPane extends Component {
 const mapStateToProps = state => {
     return {
         categories: state.categories,
+        searchData: state.searchData
     }
 };
 

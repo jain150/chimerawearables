@@ -12,3 +12,7 @@ export const PRE_SELECT_FUNC = 'PRE_SELECT_FUNC';
 export const PRE_SELECT_BOD = 'PRE_SELECT_BOD';
 export const PRE_SELECT_FAB = 'PRE_SELECT_FAB';
 export const PRE_SELECT_MAT = 'PRE_SELECT_MAT';
+
+export const UPDATE_DATA = 'UPDATE_DATA';
+export const SEARCH_DISPLAY = 'SEARCH_DISPLAY';
+export const UPDATE_QUERY = 'UPDATE_QUERY';
