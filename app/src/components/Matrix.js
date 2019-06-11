@@ -24,10 +24,6 @@ class Matrix extends Component {
 
     onClick = (name_array, bool_param, query_param_array) => {
 
-        console.log("LOL");
-        console.log(bool_param);
-        console.log(name_array);
-        console.log(query_param_array);
 
         if(bool_param) {
 
@@ -42,9 +38,13 @@ class Matrix extends Component {
         */
     };
 
+    lol = () => {
+      console.log("LOL");
+    }
+
     render() {
 
-            const hexagonSize = { x: 10, y: 10 };
+            const hexagonSize = { x: 12.5, y:  11.5 };
 
             let name_array = [];
             name_array[0] = 'Function';
@@ -78,162 +78,87 @@ class Matrix extends Component {
                 name_array[3] = this.props.selMaterial;
             }
 
-            let outFuncBod = '';
-            let isOutFuncBod = false;
-
-            if(this.props.selFunction === '' || this.props.selBodyZones === '') {
-
-                 outFuncBod = 'Function + Body Zones';
-                 isOutFuncBod = true;
-            }
-            else {
-                outFuncBod = this.props.selFunction + "+" + this.props.selBodyZones;
-            }
-
 
             return (
 
              <div className="matrixBody">
-                <div style={{marginTop: '10px', marginLeft: '30px'}}>
-                    <Card body onClick={() => this.onClick(name_array, bool_array[0])} inverse style={{ backgroundColor: '#333', borderColor:
-                    '#1249A8', width:'auto', height:'20%'}}>
-                          <CardTitle style={{color:"#8C3636"}}>{name_array[0]}</CardTitle>
 
-                    </Card>
-
-                    <Card body onClick={() => this.onClick(name_array, bool_array[1])} inverse style={{ backgroundColor: '#333', borderColor:
-                    '#1249A8', width:'auto', height:'20%' }}>
-                          <CardTitle style={{color:"#8C3636"}}>{name_array[1]}</CardTitle>
-
-                    </Card>
-
-                    <Card body onClick={() => this.onClick(name_array, bool_array[2])} inverse style={{ backgroundColor: '#333', borderColor: '#1249A8', width:'auto',
-                    height:'20%' }}>
-                          <CardTitle style={{color:"#8C3636"}}>{name_array[2]}</CardTitle>
-
-                    </Card>
-
-                    <Card body onClick={() => this.onClick(name_array, bool_array[3])} inverse style={{ backgroundColor: '#333', borderColor: '#1249A8', width:'auto',
-                    height:'20%'}}>
-                          <CardTitle style={{color:"#8C3636"}}>{name_array[3]}</CardTitle>
-
-                    </Card>
-                 </div>
-
-                <div style={{marginTop: '10px', marginLeft: '30px'}}>
-
-                    <Card body onClick={() => this.onClick(name_array, bool_array[0] && bool_array[1])} inverse style={{ backgroundColor: '#333', borderColor: '#1249A8', width:'auto',
-                    height:'16%'}}>
-                          <CardTitle style={{color:"#8C3636"}}>{(bool_array[0] && bool_array[1]) ? (name_array[0] + "+" + name_array[1]) : ("Function + Body Zones")}</CardTitle>
-
-
-                    </Card>
-
-                    <Card body onClick={() => this.onClick(name_array, bool_array[0] && bool_array[2])} inverse style={{ backgroundColor: '#333', borderColor: '#1249A8', width:'auto',
-                    height:'17%'}}>
-                          <CardTitle style={{color:"#8C3636"}}>{(bool_array[0] && bool_array[2]) ? (name_array[0] + "+" + name_array[2]) : ("Function + Fabrication")}</CardTitle>
-
-                    </Card>
-
-                    <Card body onClick={() => this.onClick(name_array, bool_array[0] && bool_array[3], ['Function', 'Material'])} inverse style={{ backgroundColor: '#333', borderColor: '#1249A8', width:'auto',
-                    height:'17%'}}>
-                          <CardTitle style={{color:"#8C3636"}}>{(bool_array[0] && bool_array[3]) ? (name_array[0] + "+" + name_array[3]) : ("Function + Material")}</CardTitle>
-
-                    </Card>
-
-                    <Card body onClick={() => this.onClick(name_array, bool_array[1] && bool_array[2])} inverse style={{ backgroundColor: '#333', borderColor: '#1249A8', width:'auto',
-                    height:'17%'}}>
-                          <CardTitle style={{color:"#8C3636"}}>{(bool_array[1] && bool_array[2]) ? (name_array[1] + "+" + name_array[2]) : ("BodyZones + Fabrication")}</CardTitle>
-
-                    </Card>
-
-                    <Card body onClick={() => this.onClick(name_array, bool_array[1] && bool_array[3])} inverse style={{ backgroundColor: '#333', borderColor: '#1249A8', width:'auto',
-                    height:'17%'}}>
-                          <CardTitle style={{color:"#8C3636"}}>{(bool_array[1] && bool_array[3]) ? (name_array[1] + "+" + name_array[3]) : ("BodyZones + Material")}</CardTitle>
-
-                    </Card>
-
-                    <Card body onClick={() => this.onClick(name_array, bool_array[2] && bool_array[3])} inverse style={{ backgroundColor: '#333', borderColor: '#1249A8', width:'auto',
-                    height:'16%'}}>
-                          <CardTitle style={{color:"#8C3636"}}>{(bool_array[2] && bool_array[3]) ? (name_array[2] + "+" + name_array[3]) : ("Fabrication + Material")}</CardTitle>
-
-                    </Card>
-
-                </div>
-
-                <div style={{marginTop: '10px', marginLeft: '30px'}}>
-
-                    <Card onClick={() => this.onClick(name_array, bool_array[0] && bool_array[1] && bool_array[2], ['Function', 'BodyZones', 'Fabrication'])} body inverse style={{ backgroundColor: '#333', borderColor: '#1249A8', width:'auto',
-                    height:'20%'}}>
-                          <CardTitle style={{color:"#8C3636"}}>{(bool_array[0] && bool_array[1] && bool_array[2]) ? (name_array[0] + "+" + name_array[1] + "+" + name_array[2]) : ("Function + BodyZones + Fabrication")}</CardTitle>
-
-                    </Card>
-
-                    <Card onClick={() => this.onClick(name_array, bool_array[0] && bool_array[1] && bool_array[3])} body inverse style={{ backgroundColor: '#333', borderColor: '#1249A8', width:'auto',
-                    height:'20%'}}>
-                          <CardTitle style={{color:"#8C3636"}}>{(bool_array[0] && bool_array[1] && bool_array[3]) ? (name_array[0] + "+" + name_array[1] + "+" + name_array[3]) : ("Function + BodyZones + Material")}</CardTitle>
-
-                    </Card>
-
-                    <Card onClick={() => this.onClick(name_array, bool_array[0] && bool_array[2] && bool_array[3])} body inverse style={{ backgroundColor: '#333', borderColor: '#1249A8', width:'auto',
-                    height:'20%'}}>
-                          <CardTitle style={{color:"#8C3636"}}>{(bool_array[0] && bool_array[2] && bool_array[3]) ? (name_array[0] + "+" + name_array[2] + "+" + name_array[3]) : ("Function + Fabrication + Material")}</CardTitle>
-
-                    </Card>
-
-                    <Card onClick={() => this.onClick(name_array, bool_array[1] && bool_array[2] && bool_array[3])} body inverse style={{ backgroundColor: '#333', borderColor: '#1249A8', width:'auto',
-                    height:'20%'}}>
-                          <CardTitle style={{color:"#8C3636"}}>{(bool_array[1] && bool_array[2] && bool_array[3]) ? (name_array[1] + "+" + name_array[2] + "+" + name_array[3]) : ("BodyZones + Fabrication + Material")}</CardTitle>
-
-                    </Card>
-                </div>
-
-                <div style={{marginTop: '10px', marginLeft: '30px'}}>
-
-                <Card onClick={() => this.onClick(name_array, bool_array[0] && bool_array[1] && bool_array[2] && bool_array[3])} body inverse style={{ backgroundColor: '#333', borderColor: '#1249A8', width:'auto',
-                height:'30%'}}>
-                      <CardTitle style={{color:"#8C3636"}}>{(bool_array[0] && bool_array[1] && bool_array[2] && bool_array[3]) ? (name_array[0] + "+" + name_array[1] + "+" + name_array[2] + "+" + name_array[3]) : ("All Correlations")}</CardTitle>
-
-                </Card>
 
           <div className="matrixSVG">
-          <HexGrid width={600} height={400} viewBox="-50 -50 90 90">
-          <Layout size={hexagonSize} flat={true} spacing={1.1} origin={{ x: 0, y: 0 }}>
-            <Hexagon q={0} r={0} s={0}>
-              <Text>0, 0, 0</Text>
-           </Hexagon>
+                        <HexGrid width={900} height={650} viewBox="-40 -42 90 90">
+                        <Layout size={hexagonSize} flat={true} spacing={1.0} origin={{ x: 0, y: 0 }}>
 
-            <Hexagon q={1} r={-1} s={0}>
-              <Text>1, -1, 0</Text>
-            </Hexagon>
-            <Hexagon q={1} r={0} s={-1}>
-              <Text style={{size: 'small'}}>1,0,-1</Text>
-            </Hexagon>
+                                  <Hexagon onClick={() => this.onClick(name_array, bool_array[0] && bool_array[1] && bool_array[2] && bool_array[3], ['BodyZones', 'Fabrication', 'Material', 'Function'])} q={0} r={0} s={0}>
+                                    <Text>{(bool_array[0] && bool_array[1] && bool_array[2] && bool_array[3]) ? (name_array[0] + "+" + name_array[1] + "+" + name_array[2] + "+" + name_array[3]) : ("All Correlations")}</Text>
+                                 </Hexagon>
 
-            <Hexagon q={-1} r={1} s={0}>
-              <Text>-1,1,0</Text>
-            </Hexagon>
+                                 <Hexagon onClick={() => this.onClick(name_array, bool_array[1] && bool_array[2], ['BodyZones', 'Fabrication'])} q={0} r={1} s={0}>
+                                   <Text>{(bool_array[1] && bool_array[2]) ? (name_array[1] + "+" + name_array[2]) : ("BodyZones + Fabrication")}</Text>
+                                </Hexagon>
+
+                                <Hexagon onClick={() => this.onClick(name_array, bool_array[0] && bool_array[3], ['Function', 'Material'])} q={0} r={-1} s={0}>
+                                  <Text>{(bool_array[0] && bool_array[3]) ? (name_array[0] + "+" + name_array[3]) : ("Function + Material")}</Text>
+                               </Hexagon>
+
+                               <Hexagon onClick={() => this.onClick(name_array, bool_array[2], ['Fabrication'])} q={2} r={0} s={0}>
+                                 <Text>{name_array[2]}</Text>
+                              </Hexagon>
+                              <Hexagon onClick={() => this.onClick(name_array, bool_array[3], ['Material'])} q={2} r={-2} s={0}>
+                                <Text>{name_array[3]}</Text>
+                             </Hexagon>
+
+                             <Hexagon onClick={() => this.onClick(name_array, bool_array[2] && bool_array[3], ['Material', 'Fabrication'])} q={2} r={-1} s={0}>
+                               <Text>{(bool_array[2] && bool_array[3]) ? (name_array[2] + "+" + name_array[3]) : ("Fabrication + Material")}</Text>
+                            </Hexagon>
+
+                            <Hexagon onClick={() => this.onClick(name_array, bool_array[0], ['Function'])} q={-2} r={0} s={0}>
+                              <Text>{name_array[0]}</Text>
+                           </Hexagon>
+
+                           <Hexagon onClick={() => this.onClick(name_array, bool_array[0] && bool_array[1], ['Function', 'BodyZones'])} q={-2} r={1} s={0}>
+                             <Text>{(bool_array[0] && bool_array[1]) ? (name_array[0] + "+" + name_array[1]) : ("Function + Body Zones")}</Text>
+                          </Hexagon>
+
+                          <Hexagon onClick={() => this.onClick(name_array, bool_array[1], ['BodyZones'])} q={-2} r={2} s={0}>
+                            <Text>{name_array[1]}</Text>
+                         </Hexagon>
+
+                           <Hexagon onClick={() => this.onClick(name_array, bool_array[1] && bool_array[3], ['BodyZones', 'Material'])} q={1} r={-1} s={0}>
+                             <Text>{(bool_array[1] && bool_array[3]) ? (name_array[1] + "+" + name_array[3]) : ("BodyZones + Material")}</Text>
+                          </Hexagon>
+
+                          <Hexagon onClick={() => this.onClick(name_array, bool_array[0] && bool_array[2], ['Function', 'Fabrication'])} q={-1} r={0} s={0}>
+                            <Text>{(bool_array[0] && bool_array[2]) ? (name_array[0] + "+" + name_array[2]) : ("Function + Fabrication")}</Text>
+                         </Hexagon>
+
+                         <Hexagon onClick={() => this.onClick(name_array, bool_array[0] && bool_array[1] && bool_array[3], ['Function', 'BodyZones', 'Material'])} q={-1} r={-1} s={0}>
+                           <Text>{(bool_array[0] && bool_array[1] && bool_array[3]) ? (name_array[0] + "+" + name_array[1] + "+" + name_array[3]) : ("Function + BodyZones + Material")}</Text>
+                        </Hexagon>
 
 
-            <Hexagon q={3} r={1} s={0}>
-              <Text>3,1,0</Text>
-            </Hexagon>
+                        <Hexagon q={-1} r={2} s={0}>
+                          <Text>Contact Us</Text>
+                       </Hexagon>
 
-            <Hexagon q={3} r={0} s={0}>
-              <Text>3,0,0</Text>
-            </Hexagon>
+                       <Hexagon  q={1} r={1} s={0}>
+                         <Text>MiniSearch</Text>
+                      </Hexagon>
 
-            <Hexagon q={4} r={0} s={0}>
-              <Text>4,0,0</Text>
-            </Hexagon>
+                      <Hexagon onClick={() => this.onClick(name_array, bool_array[1] && bool_array[2] && bool_array[3], ['Function', 'Material', 'Fabrication'])} q={1} r={0} s={0}>
+                        <Text>{(bool_array[1] && bool_array[2] && bool_array[3]) ? (name_array[1] + "+" + name_array[2] + "+" + name_array[3]) : ("BodyZones + Fabrication + Material")}</Text>
+                     </Hexagon>
 
-            <Hexagon q={4} r={1} s={0}>
-              <Text>4,1,0</Text>
-            </Hexagon>
+                   <Hexagon onClick={() => this.onClick(name_array, bool_array[0] && bool_array[1] && bool_array[2], ['Function', 'BodyZones', 'Fabrication'])} q={-1} r={1} s={0}>
+                       <Text>{(bool_array[0] && bool_array[1] && bool_array[2]) ? (name_array[0] + "+" + name_array[1] + "+" + name_array[2]) : ("Function + BodyZones + Fabrication")}</Text>
+                    </Hexagon>
+
+                    <Hexagon onClick={() => this.onClick(name_array, bool_array[0] && bool_array[2] && bool_array[3],  ['Function', 'Material', 'Fabrication'])} q={1} r={-2} s={0}>
+                      <Text>{(bool_array[0] && bool_array[2] && bool_array[3]) ? (name_array[0] + "+" + name_array[2] + "+" + name_array[3]) : ("Function + Fabrication + Material")}</Text>
+                    </Hexagon>
+
 
           </Layout>
         </HexGrid>
-        </div>
 
 
                 </div>
