@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
 import './searchDisplay.css'
+import SearchDisplayTab from './SearchDisplayTab'
 
 import * as actionTypes from '../store/actions';
 
@@ -78,25 +79,19 @@ class SearchDisplay extends Component {
             return item["Design Concepts"].trim() === 'x'
           });
 
-          console.log(this.props.allData);
-          console.log(filterArr);
-          console.log(researchArr);
-          console.log(tutorialsArr);
-          console.log(aestheticsArr);
-          console.log(conceptsArr);
+          /*
+            Pass type head and type Arr as props to child component
+          */
 
 
-            let searchItems = '';
-          /*  searchItems = this.props.categories.map((listItem) => {
-                 return (
-                     <LeftPaneTab key={listItem} name={listItem} clicked={this.onClick} />
-                 )
-             });*/
 
             return (
 
-             <div>
-                {searchItems}
+             <div className="layoutSearch">
+                <SearchDisplayTab type='Research' arr={researchArr}/>
+                <SearchDisplayTab type='Tutorials' arr={tutorialsArr}/>
+                <SearchDisplayTab type='Aesthetics' arr={aestheticsArr}/>
+                <SearchDisplayTab type='Concepts/Patents' arr={conceptsArr}/>
             </div>
 
         );

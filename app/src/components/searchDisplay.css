@@ -1,4 +1,36 @@
 .leftPaneSearch {
-    background-color: #68AA86;
+
     width: 6%;
+    height: 100%;
+    background-color: black;
+    font-weight: bold;
+    font-size: 12.5px;
+    color: white;
+    border-color: #8C3636;
+    border-style: solid;
+    border-width: medium;
+}
+
+.rotate {
+     transform: rotate(270deg);
+     margin-top: 60px;
+}
+
+.rotate:hover {
+    color: yellow;
+    cursor: pointer;
+}
+
+.searchStore {
+  height: 25%;
+  width: 100%;
+  display: flex;
+  overflow-x: auto;
+}
+
+.layoutSearch {
+    height: 100vh;
+    width: 100%;
+    display: block;
+    background-color: #87A2A0;
 }

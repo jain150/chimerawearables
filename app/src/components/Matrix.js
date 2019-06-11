@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import './matrix.css'
-import Hexagon from 'react-hexagon'
+import './matrixSVG.css'
+import { GridGenerator, HexGrid, Layout, Path, Hexagon, Text, Pattern, Hex } from 'react-hexgrid';
 
 import { Card, Button, CardTitle, CardText } from 'reactstrap';
 
@@ -42,6 +43,8 @@ class Matrix extends Component {
     };
 
     render() {
+
+            const hexagonSize = { x: 10, y: 10 };
 
             let name_array = [];
             name_array[0] = 'Function';
@@ -192,6 +195,45 @@ class Matrix extends Component {
                       <CardTitle style={{color:"#8C3636"}}>{(bool_array[0] && bool_array[1] && bool_array[2] && bool_array[3]) ? (name_array[0] + "+" + name_array[1] + "+" + name_array[2] + "+" + name_array[3]) : ("All Correlations")}</CardTitle>
 
                 </Card>
+
+          <div className="matrixSVG">
+          <HexGrid width={600} height={400} viewBox="-50 -50 90 90">
+          <Layout size={hexagonSize} flat={true} spacing={1.1} origin={{ x: 0, y: 0 }}>
+            <Hexagon q={0} r={0} s={0}>
+              <Text>0, 0, 0</Text>
+           </Hexagon>
+
+            <Hexagon q={1} r={-1} s={0}>
+              <Text>1, -1, 0</Text>
+            </Hexagon>
+            <Hexagon q={1} r={0} s={-1}>
+              <Text style={{size: 'small'}}>1,0,-1</Text>
+            </Hexagon>
+
+            <Hexagon q={-1} r={1} s={0}>
+              <Text>-1,1,0</Text>
+            </Hexagon>
+
+
+            <Hexagon q={3} r={1} s={0}>
+              <Text>3,1,0</Text>
+            </Hexagon>
+
+            <Hexagon q={3} r={0} s={0}>
+              <Text>3,0,0</Text>
+            </Hexagon>
+
+            <Hexagon q={4} r={0} s={0}>
+              <Text>4,0,0</Text>
+            </Hexagon>
+
+            <Hexagon q={4} r={1} s={0}>
+              <Text>4,1,0</Text>
+            </Hexagon>
+
+          </Layout>
+        </HexGrid>
+        </div>
 
 
                 </div>
