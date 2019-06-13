@@ -1,6 +1,6 @@
 .leftPaneSearch {
 
-    width: 6%;
+    width: 8.5vh;
     height: 100%;
     background-color: black;
     font-weight: bold;
@@ -25,7 +25,7 @@
   height: 25%;
   width: 100%;
   display: flex;
-  overflow-x: auto;
+  overflow-x: hidden;
 }
 
 .layoutSearch {
@@ -33,4 +33,39 @@
     width: 100%;
     display: block;
     background-color: #87A2A0;
+}
+
+.bgimg {
+
+    height: 95%;
+    width: 45vh;
+
+    position: relative;
+    text-align: center;
+    color: white;
+}
+
+.img {
+  background-image: url('C:/Users/admin/Documents/mini-search/app/src/wearblaemediastudio.jpg');
+  height: 98%;
+  width: 100%;
+  object-fit: cover;
+/*
+    */
+}
+
+.container {
+  position: relative;
+  text-align: center;
+  color: white;
+  overflow: hidden;
+}
+
+.centered {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -70%);
+  font-weight: bold;
+  font-size: large;
 }
