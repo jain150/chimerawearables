@@ -69,7 +69,7 @@ class LeftPaneTab extends Component {
                  .props
                  .name}
                  toggle={this.toggle}>
-                       <PopoverHeader>{this.props.name}</PopoverHeader>
+                      <PopoverHeader>{this.props.name}</PopoverHeader>
                        <PopoverBody style={{padding: '0'}}><LeftPanePopoverTab
                                                 type={this.props.name}
                                                 subtypes={arr}

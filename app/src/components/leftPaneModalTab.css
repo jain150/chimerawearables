@@ -13,14 +13,18 @@
 
 .modalHover:hover {
     cursor: pointer;
-    background: #333;
+    background: #9B089A;
+    color: white;
 }
 
 .modalHover {
-    background: #8C3636;
-    color: white;
+
+    color: #9B089A;
     border-bottom-color: #ACACAC;
     border-bottom-width: thin;
     border-bottom-style: solid;
+    border-right-color: #ACACAC;
+    border-right-width: thin;
+    border-right-style: solid;
 
 }

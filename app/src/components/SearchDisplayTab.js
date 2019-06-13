@@ -20,7 +20,9 @@ class SearchDisplayTab extends Component {
         <div style={{marginLeft: '15px'}}>
 
           <div className="bgimg">
-            <img href={input["Reference Link"]} src="http://127.0.0.1:8087/wearblaemediastudio.jpg" style={{height: '100%', width: '100%', objectFit: 'cover'}}/>
+            <a  href={input["Reference Link"]}>
+            <img src={"http://127.0.0.1:8087/ImageDatabase/" + input["PIC ID"] + ".jpg"}  style={{height: '95%', width: '100%', objectFit: 'cover'}}/>
+            </a>
             <div className="centered">{(input["Refernce Name"].length < 30) ? (input["Refernce Name"]) : (input["Refernce Name"].substring(0, 30) + "...")}</div>
           </div>
 
@@ -40,7 +42,7 @@ class SearchDisplayTab extends Component {
         </div>
 
         <div style={{overflow: 'hidden'}}>
-          <div style={{display: 'flex', overflowX: 'scroll'}}>
+          <div style={{display: 'flex', overflowX: 'scroll', overflowY: 'hidden'}}>
             {inp}
           </div>
         </div>
