@@ -89,16 +89,25 @@ class Matrix extends Component {
                         <Layout size={hexagonSize} flat={true} spacing={1.05} origin={{ x: 0, y: 0 }}>
 
                                   <Hexagon onClick={() => this.onClick(name_array, bool_array[0] && bool_array[1] && bool_array[2] && bool_array[3], ['BodyZones', 'Fabrication', 'Material', 'Function'])} q={0} r={0} s={0}>
-                                    <Text>{(bool_array[0] && bool_array[1] && bool_array[2] && bool_array[3]) ? (name_array[0] + "+" + name_array[1] + "+" + name_array[2] + "+" + name_array[3]) : ("All Correlations")}</Text>
+
+                                    {(bool_array[0] && bool_array[1] && bool_array[2] && bool_array[3]) ? (<text x="0" y="0" textAnchor="middle"><tspan x="0" dy="-1.2em">{name_array[0]}</tspan><tspan x="0" dy="1.2em">+ {name_array[1]}</tspan><tspan x="0" dy="1.2em">+ {name_array[2]}</tspan><tspan x="0" dy="1.2em">+ {name_array[3]}</tspan></text>) :
+                                     (<text x="0" y="0" textAnchor="middle"><tspan x="0" dy="-1.2em">Function</tspan><tspan x="0" dy="1.2em">+ BodyZones</tspan><tspan x="0" dy="1.2em">+ Fabrication</tspan><tspan x="0" dy="1.2em">+ Material</tspan></text>)}
                                  </Hexagon>
 
+
                                  <Hexagon onClick={() => this.onClick(name_array, bool_array[1] && bool_array[2], ['BodyZones', 'Fabrication'])} q={0} r={1} s={0}>
-                                   <Text>{(bool_array[1] && bool_array[2]) ? (name_array[1] + "+" + name_array[2]) : ("BodyZones + Fabrication")}</Text>
+
+                                   {(bool_array[1] && bool_array[2]) ? (<text x="0" y="0" textAnchor="middle"><tspan x="0" dy="0em">{name_array[1]}</tspan><tspan x="0" dy="1.2em">+ {name_array[2]}</tspan></text>) :
+                                    (<text x="0" y="0" textAnchor="middle"><tspan x="0" dy="0em">BodyZones</tspan><tspan x="0" dy="1.2em">+ Fabrication</tspan></text>)}
                                 </Hexagon>
 
                                 <Hexagon onClick={() => this.onClick(name_array, bool_array[0] && bool_array[3], ['Function', 'Material'])} q={0} r={-1} s={0}>
-                                  <Text>{(bool_array[0] && bool_array[3]) ? (name_array[0] + "+" + name_array[3]) : ("Function + Material")}</Text>
+
+                                  {(bool_array[0] && bool_array[3]) ? (<text x="0" y="0" textAnchor="middle"><tspan x="0" dy="0em">{name_array[0]}</tspan><tspan x="0" dy="1.2em">+ {name_array[3]}</tspan></text>) :
+                                   (<text x="0" y="0" textAnchor="middle"><tspan x="0" dy="0em">Function</tspan><tspan x="0" dy="1.2em">+ Material</tspan></text>)}
                                </Hexagon>
+
+
 
                                <Hexagon onClick={() => this.onClick(name_array, bool_array[2], ['Fabrication'])} q={2} r={0} s={0}>
                                  <Text>{name_array[2]}</Text>
@@ -108,7 +117,9 @@ class Matrix extends Component {
                              </Hexagon>
 
                              <Hexagon onClick={() => this.onClick(name_array, bool_array[2] && bool_array[3], ['Material', 'Fabrication'])} q={2} r={-1} s={0}>
-                               <Text>{(bool_array[2] && bool_array[3]) ? (name_array[2] + "+" + name_array[3]) : ("Fabrication + Material")}</Text>
+                               {(bool_array[2] && bool_array[3]) ? (<text x="0" y="0" textAnchor="middle"><tspan x="0" dy="0em">{name_array[2]}</tspan><tspan x="0" dy="1.2em">+ {name_array[3]}</tspan></text>) :
+                                (<text x="0" y="0" textAnchor="middle"><tspan x="0" dy="0em">Fabrication</tspan><tspan x="0" dy="1.2em">+ Material</tspan></text>)}
+
                             </Hexagon>
 
                             <Hexagon onClick={() => this.onClick(name_array, bool_array[0], ['Function'])} q={-2} r={0} s={0}>
@@ -116,7 +127,9 @@ class Matrix extends Component {
                            </Hexagon>
 
                            <Hexagon onClick={() => this.onClick(name_array, bool_array[0] && bool_array[1], ['Function', 'BodyZones'])} q={-2} r={1} s={0}>
-                             <Text>{(bool_array[0] && bool_array[1]) ? (name_array[0] + "+" + name_array[1]) : ("Function + Body Zones")}</Text>
+
+                             {(bool_array[0] && bool_array[1]) ? (<text x="0" y="0" textAnchor="middle"><tspan x="0" dy="0em">{name_array[0]}</tspan><tspan x="0" dy="1.2em">+ {name_array[1]}</tspan></text>) :
+                              (<text x="0" y="0" textAnchor="middle"><tspan x="0" dy="0em">Function</tspan><tspan x="0" dy="1.2em">+ BodyZones</tspan></text>)}
                           </Hexagon>
 
                           <Hexagon onClick={() => this.onClick(name_array, bool_array[1], ['BodyZones'])} q={-2} r={2} s={0}>
@@ -124,15 +137,21 @@ class Matrix extends Component {
                          </Hexagon>
 
                            <Hexagon onClick={() => this.onClick(name_array, bool_array[1] && bool_array[3], ['BodyZones', 'Material'])} q={1} r={-1} s={0}>
-                             <Text>{(bool_array[1] && bool_array[3]) ? (name_array[1] + "+" + name_array[3]) : ("BodyZones + Material")}</Text>
+
+                             {(bool_array[1] && bool_array[3]) ? (<text x="0" y="0" textAnchor="middle"><tspan x="0" dy="0em">{name_array[1]}</tspan><tspan x="0" dy="1.2em">+ {name_array[3]}</tspan></text>) :
+                              (<text x="0" y="0" textAnchor="middle"><tspan x="0" dy="0em">BodyZones</tspan><tspan x="0" dy="1.2em">+ Material</tspan></text>)}
                           </Hexagon>
 
                           <Hexagon onClick={() => this.onClick(name_array, bool_array[0] && bool_array[2], ['Function', 'Fabrication'])} q={-1} r={0} s={0}>
-                            <Text>{(bool_array[0] && bool_array[2]) ? (name_array[0] + "+" + name_array[2]) : ("Function + Fabrication")}</Text>
+
+                            {(bool_array[0] && bool_array[2]) ? (<text x="0" y="0" textAnchor="middle"><tspan x="0" dy="0em">{name_array[0]}</tspan><tspan x="0" dy="1.2em">+ {name_array[2]}</tspan></text>) :
+                             (<text x="0" y="0" textAnchor="middle"><tspan x="0" dy="0em">Function</tspan><tspan x="0" dy="1.2em">+ Fabrication</tspan></text>)}
                          </Hexagon>
 
                          <Hexagon onClick={() => this.onClick(name_array, bool_array[0] && bool_array[1] && bool_array[3], ['Function', 'BodyZones', 'Material'])} q={-1} r={-1} s={0}>
-                           <Text>{(bool_array[0] && bool_array[1] && bool_array[3]) ? (name_array[0] + "+" + name_array[1] + "+" + name_array[3]) : ("Function + BodyZones + Material")}</Text>
+
+                           {(bool_array[0] && bool_array[1] && bool_array[3]) ? (<text x="0" y="0" textAnchor="middle"><tspan x="0" dy="-1.2em">{name_array[0]}</tspan><tspan x="0" dy="1.2em">+ {name_array[1]}</tspan><tspan x="0" dy="1.2em">+ {name_array[3]}</tspan></text>) :
+                            (<text x="0" y="0" textAnchor="middle"><tspan x="0" dy="-1.2em">Function</tspan><tspan x="0" dy="1.2em">+ BodyZones</tspan><tspan x="0" dy="1.2em">+ Material</tspan></text>)}
                         </Hexagon>
 
 
@@ -144,16 +163,22 @@ class Matrix extends Component {
                          <Text>MiniSearch</Text>
                       </Hexagon>
 
-                      <Hexagon onClick={() => this.onClick(name_array, bool_array[1] && bool_array[2] && bool_array[3], ['Function', 'Material', 'Fabrication'])} q={1} r={0} s={0}>
-                        <Text>{(bool_array[1] && bool_array[2] && bool_array[3]) ? (name_array[1] + "+" + name_array[2] + "+" + name_array[3]) : ("BodyZones + Fabrication + Material")}</Text>
+                      <Hexagon onClick={() => this.onClick(name_array, bool_array[1] && bool_array[2] && bool_array[3], ['BodyZones', 'Material', 'Fabrication'])} q={1} r={0} s={0}>
+
+                        {(bool_array[1] && bool_array[2] && bool_array[3]) ? (<text x="0" y="0" textAnchor="middle"><tspan x="0" dy="-1.2em">{name_array[1]}</tspan><tspan x="0" dy="1.2em">+ {name_array[2]}</tspan><tspan x="0" dy="1.2em">+ {name_array[3]}</tspan></text>) :
+                         (<text x="0" y="0" textAnchor="middle"><tspan x="0" dy="-1.2em">BodyZones</tspan><tspan x="0" dy="1.2em">+ Material</tspan><tspan x="0" dy="1.2em">+ Fabrication</tspan></text>)}
                      </Hexagon>
 
                    <Hexagon onClick={() => this.onClick(name_array, bool_array[0] && bool_array[1] && bool_array[2], ['Function', 'BodyZones', 'Fabrication'])} q={-1} r={1} s={0}>
-                       <Text>{(bool_array[0] && bool_array[1] && bool_array[2]) ? (name_array[0] + "+" + name_array[1] + "+" + name_array[2]) : ("Function + BodyZones + Fabrication")}</Text>
+
+                       {(bool_array[0] && bool_array[1] && bool_array[2]) ? (<text x="0" y="0" textAnchor="middle"><tspan x="0" dy="-1.2em">{name_array[0]}</tspan><tspan x="0" dy="1.2em">+ {name_array[1]}</tspan><tspan x="0" dy="1.2em">+ {name_array[2]}</tspan></text>) :
+                        (<text x="0" y="0" textAnchor="middle"><tspan x="0" dy="-1.2em">Function</tspan><tspan x="0" dy="1.2em">+ BodyZones</tspan><tspan x="0" dy="1.2em">+ Fabrication</tspan></text>)}
                     </Hexagon>
 
                     <Hexagon onClick={() => this.onClick(name_array, bool_array[0] && bool_array[2] && bool_array[3],  ['Function', 'Material', 'Fabrication'])} q={1} r={-2} s={0}>
-                      <Text>{(bool_array[0] && bool_array[2] && bool_array[3]) ? (name_array[0] + "+" + name_array[2] + "+" + name_array[3]) : ("Function + Fabrication + Material")}</Text>
+
+                      {(bool_array[0] && bool_array[2] && bool_array[3]) ? (<text x="0" y="0" textAnchor="middle"><tspan x="0" dy="-1.2em">{name_array[0]}</tspan><tspan x="0" dy="1.2em">+ {name_array[2]}</tspan><tspan x="0" dy="1.2em">+ {name_array[3]}</tspan></text>) :
+                       (<text x="0" y="0" textAnchor="middle"><tspan x="0" dy="-1.2em">Function</tspan><tspan x="0" dy="1.2em">+ Material</tspan><tspan x="0" dy="1.2em">+ Fabrication</tspan></text>)}
                     </Hexagon>
 
 
