@@ -15,15 +15,23 @@ class SearchDisplayTab extends Component {
 
     inp = this.props.arr.map((input) => {
 
+      console.log(input["PIC ID"]);
+
+      if(input["PIC ID"] === undefined || input["PIC ID"].length == 0)
+        return (
+          <div />
+        )
+
+      else {
       return (
 
         <div style={{marginLeft: '15px'}}>
 
           <div className="bgimg">
             <a  href={input["Reference Link"]}>
-            <img src={"http://127.0.0.1:8087/ImageDatabase/" + input["PIC ID"] + ".jpg"}  style={{height: '95%', width: '100%', objectFit: 'cover'}}/>
+            <img id="image" src={"http://127.0.0.1:8087/ImageDatabase/" + input["PIC ID"] + ".jpg"}  style={{height: '95%', width: '100%', objectFit: 'cover'}}/>
             </a>
-            <div className="centered">{(input["Refernce Name"].length < 30) ? (input["Refernce Name"]) : (input["Refernce Name"].substring(0, 30) + "...")}</div>
+            <div id="title" className="centered">{(input["Refernce Name"].length < 40) ? (input["Refernce Name"]) : (input["Refernce Name"].substring(0, 40) + "...")}</div>
           </div>
 
 
@@ -32,6 +40,7 @@ class SearchDisplayTab extends Component {
 
 
       )
+    }
     });
 
 

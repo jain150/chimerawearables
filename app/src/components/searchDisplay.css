@@ -53,6 +53,16 @@
 
 }
 
+
+.bgimg:hover #title {
+  display: block;
+}
+
+.bgimg:hover #image {
+  opacity: 0.3;
+}
+
+
 .img {
   background-image: url('C:/Users/admin/Documents/mini-search/app/src/wearblaemediastudio.jpg');
   height: 98%;
@@ -65,7 +75,7 @@
 .container {
   position: relative;
   text-align: center;
-  color: white;
+  color: black;
   overflow: hidden;
 }
 
@@ -74,6 +84,12 @@
   top: 50%;
   left: 50%;
   transform: translate(-50%, -70%);
+  color: black;
   font-weight: bold;
   font-size: large;
+
+}
+
+#title {
+  display: none;
 }

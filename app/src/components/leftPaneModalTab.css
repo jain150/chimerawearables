@@ -15,6 +15,7 @@
     cursor: pointer;
     background: #9B089A;
     color: white;
+    font-size: 13px;
 }
 
 .modalHover {
@@ -26,5 +27,6 @@
     border-right-color: #ACACAC;
     border-right-width: thin;
     border-right-style: solid;
+    font-size: 13px;
 
 }
