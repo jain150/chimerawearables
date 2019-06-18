@@ -37,6 +37,11 @@ class LeftPanePopoverTab extends Component {
 
     }
 
+    componentWillUnmount() {
+
+        this.onSelect();
+    }
+
     onSelect = () => {
 
             //this.props.types and this.state.listArr
@@ -57,7 +62,7 @@ class LeftPanePopoverTab extends Component {
                  this.props.onSelMaterial(this.state.listArr);
              }
 
-             this.props.toggle();
+             //this.props.toggle();
     }
 
 
@@ -74,7 +79,7 @@ class LeftPanePopoverTab extends Component {
 
                     <div>
                      {(selArr.includes(input)) ? (
-                <div onClick={() => this.onClick(input)} className='leftPanePopoverTabBodySelected'
+                       <div onClick={() => this.onClick(input)} className='leftPanePopoverTabBodySelected'
                           name="customRadio"
                           key={input}
                           id={input}
@@ -92,15 +97,7 @@ class LeftPanePopoverTab extends Component {
             )
             return (
                         <div style={{width: '100%'}}>
-                            <div>
                           {inp}
-                          </div>
-                          <Button onClick={() => this.onSelect()} style={{fontSize: 'smaller', width: '60%', height:
-                          '80%', margin: '3px 3px 3px 2px'}}
-                          color="primary"
-                          size="sm">
-                               Select
-                          </Button>{' '}
                         </div>
 
 

@@ -16,3 +16,6 @@ export const PRE_SELECT_MAT = 'PRE_SELECT_MAT';
 export const UPDATE_DATA = 'UPDATE_DATA';
 export const SEARCH_DISPLAY = 'SEARCH_DISPLAY';
 export const UPDATE_QUERY = 'UPDATE_QUERY';
+
+export const FILTER_DATA = 'FILTER_DATA';
+export const FILTER_YEAR = 'FILTER_YEAR';

@@ -5,6 +5,7 @@ import LeftPane from './components/LeftPane';
 import Matrix from './components/Matrix';
 import LeftPaneModal from './components/LeftPaneModal';
 import SearchDisplay from './components/SearchDisplay';
+import FilterPane from './components/FilterPane';
 import Tabletop from 'tabletop';
 
 import * as actionTypes from './store/actions';
@@ -55,6 +56,7 @@ class App extends Component {
              <LeftPane />
              <LeftPaneModal />
              <Matrix />
+             <FilterPane />
           </div>) : (<SearchDisplay />)}
           </div>
 

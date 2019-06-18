@@ -2,16 +2,43 @@ import * as actionTypes from '../actions';
 
 const initialState = {
 
+  /*
+
+  FILTER
+    Add filter by year, change searchData when button is pressed.
+
+    For filterbyyear, dispatch a couple actions. First, set filters to true.
+
+    then set minYear and maxYear... And then change code in matrix
+
+    Add react-dropdown for publication venue
+
+    For react buttons for engineering and fashion
+
+    Display that progress bar
+
+    Button to change to list view
+
+    Random pie-chart at the end
+
+  ICONS
+
+  LEFT PANE POPOVER CLOSE
+  */
     searchDisplay: false,
     searchData: [],
     names: [],
     params: [],
 
+    filter: true,
+    minYear: 1990,
+    maxYear: 2018,
+
     categories: ['Function', 'BodyZones', 'Fabrication', 'Material'],
     functions: ['Storage', 'Breathability', 'Energy Harvesting', 'Feedback',
      'Display', 'Electronic Elements Connections', 'Wireless Communication', 'Control', 'Movement',
       'Sensing', 'Protective', 'Magnetic', 'Cognitive', 'Modularity', 'Emissivity',
-    'Wearability', 'Morphology', 'Aesthetics'],
+    'Wearability', 'Morphology', 'Aesthetics', 'Gestures'],
     bodyZones: ['Head', 'Chest', 'Pelvic Region', 'Arms', 'Legs',
     'Wrists & Hand', 'Back', 'Full Body', 'Feet'],
     fabrication: ['Stiching/Sewing', 'Laser Cutting', 'Weaving', '3D Printing',
@@ -124,6 +151,17 @@ const reducer = ( state = initialState, action ) => {
               ...state,
               names: [...action.names],
               params: [...action.params]
+            }
+          case actionTypes.FILTER_DATA:
+            return {
+              ...state,
+              filter: true,
+            }
+          case actionTypes.FILTER_YEAR:
+            return {
+              ...state,
+              minYear: action.minYear,
+              maxYear: action.maxYear,
             }
     }
     return state;

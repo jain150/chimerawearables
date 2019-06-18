@@ -4,9 +4,9 @@
     height: 25%;
     padding-left: 0px;
     font-size: medium;
-    border-bottom-color: #ACACAC;
+    /*border-bottom-color: #ACACAC;
     border-bottom-style: solid;
-    border-bottom-width: thin;
+    border-bottom-width: thin;*/
     overflow-y: auto;
 
 }
@@ -24,9 +24,9 @@
     border-bottom-color: #ACACAC;
     border-bottom-width: thin;
     border-bottom-style: solid;
-    border-right-color: #ACACAC;
+    /*border-right-color: #ACACAC;
     border-right-width: thin;
-    border-right-style: solid;
+    border-right-style: solid;*/
     font-size: 13px;
 
 }

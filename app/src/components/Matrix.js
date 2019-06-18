@@ -31,16 +31,9 @@ class Matrix extends Component {
           this.props.updateQuery(name_array, query_param_array);
         }
 
-        /*
-          call searchUpdate
-
-          if search if all of param array contains true
-        */
     };
 
-    lol = () => {
-      console.log("LOL");
-    }
+
 
     render() {
 
@@ -201,6 +194,7 @@ const mapStateToProps = state => {
         selFabrication: state.selFabrication,
         selMaterial: state.selMaterial,
         searchData: state.searchData,
+
     }
 };
 
