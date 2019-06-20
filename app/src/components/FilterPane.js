@@ -30,11 +30,11 @@ class FilterPane extends Component {
           <div>
 
 
-               <Button style={{transform: "translateY(40vh)"}} outline color="info" id={'PopoverFilter'}>Show Filters</Button>
+               <Button style={{transform: "translate(-0.4vh, 40vh)"}} outline color="info" id={'PopoverFilter'}>Show Filters</Button>
 
                <Popover style={{width: '250px', color: "#9B089A"}} placement="left" isOpen={this.state.popoverOpen} target={'PopoverFilter'} toggle={this.toggle}>
                  <PopoverHeader style={{fontWeight: "bold"}}>Data Filter</PopoverHeader>
-                 <PopoverBody style={{color: "#9B089A", fontWeight: "bold"}}><FilterBody /></PopoverBody>
+                 <PopoverBody style={{color: "#9B089A", fontWeight: "bold", backgroundColor: "#e0dede"}}><FilterBody /></PopoverBody>
                </Popover>
 
 

@@ -10,30 +10,14 @@ import * as actionTypes from '.././store/actions';
 
 class Matrix extends Component {
 
-  /*
-
-    On Click,
-
-    Define action to switch to search Display.
-    Define action that takes in boolean array and name array and stores them in redux state.
-
-
-    Now, in searchDisplay, handle the filtering and do mapStateToProps
-
-  */
-
     onClick = (name_array, bool_param, query_param_array) => {
-
 
         if(bool_param) {
 
           this.props.toggleDisplay();
           this.props.updateQuery(name_array, query_param_array);
         }
-
     };
-
-
 
     render() {
 
@@ -78,7 +62,7 @@ class Matrix extends Component {
 
 
           <div className="matrixSVG">
-                        <HexGrid width={900} height={600} viewBox="-40 -45 90 90">
+                        <HexGrid width={1160} height={600} viewBox="-40 -45 90 90">
                         <Layout size={hexagonSize} flat={true} spacing={1.05} origin={{ x: 0, y: 0 }}>
 
                                   <Hexagon onClick={() => this.onClick(name_array, bool_array[0] && bool_array[1] && bool_array[2] && bool_array[3], ['BodyZones', 'Fabrication', 'Material', 'Function'])} q={0} r={0} s={0}>
@@ -86,6 +70,51 @@ class Matrix extends Component {
                                     {(bool_array[0] && bool_array[1] && bool_array[2] && bool_array[3]) ? (<text x="0" y="0" textAnchor="middle"><tspan x="0" dy="-1.2em">{name_array[0]}</tspan><tspan x="0" dy="1.2em">+ {name_array[1]}</tspan><tspan x="0" dy="1.2em">+ {name_array[2]}</tspan><tspan x="0" dy="1.2em">+ {name_array[3]}</tspan></text>) :
                                      (<text x="0" y="0" textAnchor="middle"><tspan x="0" dy="-1.2em">Function</tspan><tspan x="0" dy="1.2em">+ BodyZones</tspan><tspan x="0" dy="1.2em">+ Fabrication</tspan><tspan x="0" dy="1.2em">+ Material</tspan></text>)}
                                  </Hexagon>
+
+                                 <Hexagon q={0} r={2} s={0} stroke="green" fill="purple"/>
+                                 <Hexagon q={0} r={-2} s={0} stroke="green" fill="purple"/>
+
+
+                                 <Hexagon q={1} r={-3} s={0} stroke="white" fill="purple"/>
+                                 <Hexagon q={1} r={2} s={0} stroke="white" fill="purple"/>
+
+                                 <Hexagon q={-1} r={3} s={0} stroke="white" fill="purple"/>
+                                 <Hexagon q={-1} r={-2} s={0} stroke="white" fill="purple"/>
+
+
+                                 <Hexagon q={-2} r={-1} s={0} stroke="white" fill="purple"/>
+                                 <Hexagon q={-2} r={3} s={0} stroke="white" fill="purple"/>
+
+                                 <Hexagon q={2} r={1} s={0} stroke="white" fill="purple"/>
+                                 <Hexagon q={2} r={-3} s={0} stroke="white" fill="purple"/>
+
+                                <Hexagon q={-3} r={-1} s={0} stroke="white" fill="purple"/>
+                                <Hexagon q={-3} r={0} s={0} stroke="white" fill="purple"/>
+                                <Hexagon q={-3} r={1} s={0} stroke="white" fill="purple"/>
+                                <Hexagon q={-3} r={2} s={0} stroke="white" fill="purple"/>
+                                <Hexagon q={-3} r={3} s={0} stroke="white" fill="purple"/>
+                                <Hexagon q={-3} r={4} s={0} stroke="white" fill="purple"/>
+
+                                <Hexagon q={3} r={1} s={0} stroke="white" fill="purple"/>
+                                <Hexagon q={3} r={0} s={0} stroke="white" fill="purple"/>
+                                <Hexagon q={3} r={-1} s={0} stroke="white" fill="purple"/>
+                                <Hexagon q={3} r={-2} s={0} stroke="white" fill="purple"/>
+                                <Hexagon q={3} r={-3} s={0} stroke="white" fill="purple"/>
+                                <Hexagon q={3} r={-4} s={0} stroke="white" fill="purple"/>
+
+
+                                <Hexagon q={-4} r={0} s={0} stroke="white" fill="purple"/>
+                                <Hexagon q={-4} r={1} s={0} stroke="white" fill="purple"/>
+                                <Hexagon q={-4} r={2} s={0} stroke="white" fill="purple"/>
+                                <Hexagon q={-4} r={3} s={0} stroke="white" fill="purple"/>
+                                <Hexagon q={-4} r={4} s={0} stroke="white" fill="purple"/>
+
+                                <Hexagon q={4} r={0} s={0} stroke="white" fill="purple"/>
+                                <Hexagon q={4} r={-1} s={0} stroke="white" fill="purple"/>
+                                <Hexagon q={4} r={-2} s={0} stroke="white" fill="purple"/>
+                                <Hexagon q={4} r={-3} s={0} stroke="white" fill="purple"/>
+                                <Hexagon q={4} r={-4} s={0} stroke="white" fill="purple"/>
+
 
 
                                  <Hexagon onClick={() => this.onClick(name_array, bool_array[1] && bool_array[2], ['BodyZones', 'Fabrication'])} q={0} r={1} s={0}>

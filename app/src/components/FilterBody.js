@@ -127,7 +127,7 @@ class FilterBody extends Component {
                   </div>
               </div>
               <div style={{marginTop: "10px", height: "80%", width: "80%"}}>
-              <span>% of explorations of all the selected 15 correlatios</span>
+              <span>% of explorations of all the selected 15 correlations</span>
               <ReactMinimalPieChart
                   data={dataPie}
                   lineWidth={30}

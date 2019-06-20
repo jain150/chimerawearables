@@ -31,7 +31,7 @@ class SearchDisplayTab extends Component {
             <a  href={input["Reference Link"]}>
             <img id="image" src={"http://127.0.0.1:8087/ImageDatabase/" + input["PIC ID"] + ".jpg"}  style={{height: '95%', width: '100%', objectFit: 'cover'}}/>
             </a>
-            <div id="title" className="centered">{(input["Refernce Name"].length < 40) ? (input["Refernce Name"]) : (input["Refernce Name"].substring(0, 40) + "...")}</div>
+            <div id="title" className="centered">{(input["Reference Name"].length < 40) ? (input["Reference Name"]) : (input["Reference Name"].substring(0, 40) + "...")}</div>
           </div>
 
 

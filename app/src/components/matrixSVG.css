@@ -24,7 +24,7 @@ svg g:hover text {
 }
 
 svg g polygon {
-  stroke: #BD60B7;
+  stroke: #6c757d;
   stroke-width: 0.2;
   transition: fill-opacity .5s;
 }

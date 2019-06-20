@@ -25,19 +25,19 @@ class SearchDisplay extends Component {
 
     filterFunc = (item) => {
 
-      return (item["Function 1"].trim() === this.props.names[0].trim() || item["Function 2"].trim() === this.props.names[0].trim())
+      return (item["Function 1"].trim().includes(this.props.names[0].trim()) || item["Function 2"].trim().includes(this.props.names[0].trim()) || item["Function 3"].trim().includes(this.props.names[0].trim()))
     }
 
     filterBod = (item) => {
-      return (item["Body Zone 1"].trim() === this.props.names[1].trim() || item["Body Zone 2"].trim() === this.props.names[1].trim() || item["Body Zone 3"].trim() === this.props.names[1].trim())
+      return (item["Body Zone 1"].trim().includes(this.props.names[1].trim()) || item["Body Zone 2"].trim().includes(this.props.names[1].trim()) || item["Body Zone 3"].trim().includes(this.props.names[1].trim()))
     }
 
     filterFab = (item) => {
-      return (item["Fabrication 1"].trim() === this.props.names[2] || item["Fabrication 2"].trim() === this.props.names[2].trim())
+      return (item["Fabrication 1"].trim().includes(this.props.names[2].trim()) || item["Fabrication 2"].trim().includes(this.props.names[2].trim()))
     }
 
     filterMat = (item) => {
-      return (item["Material 1"].trim().substring(0, this.props.names[3].trim().length) === this.props.names[3].trim().substring(0, this.props.names[3].trim().length) || item["Material 2"].trim() === this.props.names[3].trim())
+      return (item["Material 1"].trim().includes(this.props.names[3].trim()) || item["Material 2"].trim().includes(this.props.names[3].trim()) || item["Material 3"].trim().includes(this.props.names[3].trim()))
     }
 
     filterYear = (item) => {
@@ -105,7 +105,7 @@ class SearchDisplay extends Component {
                 <SearchDisplayTab type='Research' arr={this.shuffleArray(researchArr)}/>
                 <SearchDisplayTab type='Tutorials' arr={this.shuffleArray(tutorialsArr)}/>
                 <SearchDisplayTab type='Aesthetics' arr={this.shuffleArray(aestheticsArr)}/>
-                <SearchDisplayTab type='Concepts/Patents' arr={this.shuffleArray(conceptsArr)}/>
+                <SearchDisplayTab type='Concepts' arr={this.shuffleArray(conceptsArr)}/>
             </div>
 
         );

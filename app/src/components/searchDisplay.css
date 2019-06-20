@@ -2,13 +2,10 @@
 
     width: 8.5vh;
     height: 100%;
-    background-color: white;
     font-weight: bold;
     font-size: 12.5px;
-    color: #9B089A;
-    border-color: #FAC9F7;
-    border-style: solid;
-    border-width: medium;
+    color: white;
+    background-color: #6b0a64;
 }
 
 .rotate {
@@ -26,6 +23,10 @@
   width: 100%;
   display: flex;
   overflow-x: hidden;
+  background-color: #6c757d;
+  border-color: black;
+  border-style: solid;
+  border-width: large;
 }
 
 .layoutSearch {
@@ -47,9 +48,6 @@
     margin-top: 5px;
     margin-bottom: 5px;
     overflow: hidden;
-    border-color: #FAC9F7;
-    border-style: solid;
-    border-width: medium;
 
 }
 

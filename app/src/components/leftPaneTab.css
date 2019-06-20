@@ -3,10 +3,11 @@
     height: 25%;
     font-weight: bold;
     font-size: 12.5px;
-    color: #9B089A;
+    color: white;
     border-color: #FAC9F7;
     border-style: solid;
     border-width: medium;
+    background-color: #6b0a64;
 }
 
 .rotate {
