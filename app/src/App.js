@@ -12,22 +12,6 @@ import * as actionTypes from './store/actions';
 
 class App extends Component {
 
-  /*
-
-    For deepDisplay.
-
-    Create single component, <SearchDisplay>. Put it in <App>
-
-    Make a sub-component, re-use that 4 times, as page would be divided into 4 parts.
-
-    Firstly, make a array in the store for this purpose. Might also make dummy arrays for the four search subtypes.
-
-    Use css code from leftpanetab to make the lefttab.
-
-    Then use dummy array data to populate cards and define a flex display and horizontal scroll.
-  */
-
-
     constructor() {
       super()
       this.state = {
@@ -37,7 +21,7 @@ class App extends Component {
 
     componentDidMount() {
     Tabletop.init({
-      key: '1FeycGe3d6bEsAeXCnz1ov6G2yGsrD_PV2oMPZJ0hWtk',
+      key: '19SNEbgmJqzFkXajdTnCDN5S6-PHmqFIGoN_MCFeOMcc',
       callback: googleData => {
         this.props.updateSearchData(googleData);
       },

@@ -36,7 +36,7 @@ svg g text {
 }
 svg path {
   fill: none;
-  stroke: #7be3f6;
+  /*stroke: #7be3f6;*/
   stroke-width: 0.2em;
   stroke-opacity: 0.7;
   stroke-linecap: round;

@@ -19,3 +19,5 @@ export const UPDATE_QUERY = 'UPDATE_QUERY';
 
 export const FILTER_DATA = 'FILTER_DATA';
 export const FILTER_YEAR = 'FILTER_YEAR';
+export const FILTER_VENUE = 'FILTER_VENUE';
+export const FILTER_SOURCE = 'FILTER_SOURCE';

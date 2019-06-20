@@ -1,0 +1,22 @@
+.btnSelector {
+  border-style: solid;
+  border-width: medium;
+  border-color: #9B089A;
+  color: #9B089A;
+  background: transparent;
+  height: 36px;
+}
+
+.btnSelector:hover {
+
+  background: #9B089A;
+  color: white;
+  height: 36px;
+}
+
+.btnSelectorClicked {
+
+  background: #9B089A;
+  color: white;
+  height: 36px;
+}

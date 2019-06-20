@@ -33,6 +33,8 @@ const initialState = {
     filter: true,
     minYear: 1990,
     maxYear: 2018,
+    venueFilter: 'all',
+    sourceFilter: 'both',
 
     categories: ['Function', 'BodyZones', 'Fabrication', 'Material'],
     functions: ['Storage', 'Breathability', 'Energy Harvesting', 'Feedback',
@@ -162,6 +164,16 @@ const reducer = ( state = initialState, action ) => {
               ...state,
               minYear: action.minYear,
               maxYear: action.maxYear,
+            }
+          case actionTypes.FILTER_VENUE:
+            return {
+              ...state,
+              venueFilter: action.val,
+            }
+          case actionTypes.FILTER_SOURCE:
+            return {
+              ...state,
+              sourceFilter: action.val,
             }
     }
     return state;
