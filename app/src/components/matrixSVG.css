@@ -29,7 +29,8 @@ svg g polygon {
   transition: fill-opacity .5s;
 }
 svg g text {
-  font-size: 0.135em;
+  font-size: 0.11em;
+  font-weight: bold;
   fill: #9B089A;
   fill-opacity: 0.7;
   transition: fill-opacity .5s;
@@ -37,8 +38,8 @@ svg g text {
 svg path {
   fill: none;
   /*stroke: #7be3f6;*/
-  stroke-width: 0.2em;
+  stroke-width: 0.6em;
   stroke-opacity: 0.7;
-  stroke-linecap: round;
-  stroke-linejoin: round;
+  /*stroke-linecap: round;
+  stroke-linejoin: round;*/
 }

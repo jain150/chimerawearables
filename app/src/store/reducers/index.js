@@ -7,6 +7,8 @@ const initialState = {
     names: [],
     params: [],
 
+    listDisplay: false,
+
     filter: true,
     minYear: 1990,
     maxYear: 2018,
@@ -151,6 +153,11 @@ const reducer = ( state = initialState, action ) => {
             return {
               ...state,
               sourceFilter: action.val,
+            }
+          case actionTypes.TOGGLE_DISPLAY:
+            return {
+              ...state,
+              listView: (!state.listView),
             }
     }
     return state;

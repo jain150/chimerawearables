@@ -51,7 +51,7 @@ class SearchDisplayTab extends Component {
         </div>
 
         <div style={{overflow: 'hidden'}}>
-          <div style={{display: 'flex', overflowX: 'scroll', overflowY: 'hidden'}}>
+          <div style={{display: 'flex', height: "110%", overflowX: 'scroll', overflowY: 'hidden'}}>
             {inp}
           </div>
         </div>

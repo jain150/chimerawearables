@@ -3,12 +3,16 @@ import { connect } from 'react-redux';
 
 import './searchDisplay.css'
 import SearchDisplayTab from './SearchDisplayTab'
+import ListDisplayTab from './ListDisplayTab'
 
 import * as actionTypes from '../store/actions';
 
 class SearchDisplay extends Component {
 
 
+  /*
+    Have a list view control variable in state
+  */
     constructor(props) {
 
         super(props);
@@ -19,7 +23,8 @@ class SearchDisplay extends Component {
           research: [],
           tutorials: [],
           aesthetics: [],
-          concepts: []
+          concepts: [],
+          listView: false,
         };
     }
 
@@ -58,6 +63,7 @@ class SearchDisplay extends Component {
 
           let filterArr = this.props.allData;
 
+          console.log(filterArr);
           if(this.props.filter) {
 
             filterArr = filterArr.filter(this.filterYear);
@@ -76,6 +82,7 @@ class SearchDisplay extends Component {
           if(this.props.params.includes('Material')) {
              filterArr = filterArr.filter(this.filterMat);
           }
+
 
           let researchArr = [];
           let tutorialsArr = [];
@@ -98,16 +105,24 @@ class SearchDisplay extends Component {
             return item["Design Concepts"].trim() === 'x'
           });
 
+          let listView = this.props.listView;
 
-            return (
+          return (
 
-             <div className="layoutSearch">
-                <SearchDisplayTab type='Research' arr={this.shuffleArray(researchArr)}/>
-                <SearchDisplayTab type='Tutorials' arr={this.shuffleArray(tutorialsArr)}/>
-                <SearchDisplayTab type='Aesthetics' arr={this.shuffleArray(aestheticsArr)}/>
-                <SearchDisplayTab type='Concepts' arr={this.shuffleArray(conceptsArr)}/>
-            </div>
-
+            <div style={{width: "200vh"}}>
+              {(listView) ? (<div className="listSearch">
+              <ListDisplayTab type='Research' arr={this.shuffleArray(researchArr)}/>
+              <ListDisplayTab type='Tutorials' arr={this.shuffleArray(tutorialsArr)}/>
+              <ListDisplayTab type='Aesthetics' arr={this.shuffleArray(aestheticsArr)}/>
+              <ListDisplayTab type='Concepts' arr={this.shuffleArray(conceptsArr)}/>
+              </div>
+             ) : (<div className="layoutSearch">
+                 <SearchDisplayTab type='Research' arr={this.shuffleArray(researchArr)}/>
+                 <SearchDisplayTab type='Tutorials' arr={this.shuffleArray(tutorialsArr)}/>
+                 <SearchDisplayTab type='Aesthetics' arr={this.shuffleArray(aestheticsArr)}/>
+                 <SearchDisplayTab type='Concepts' arr={this.shuffleArray(conceptsArr)}/>
+             </div>)}
+             </div>
         );
     }
 }
@@ -121,6 +136,8 @@ const mapStateToProps = state => {
         filter: state.filter,
         minYear: state.minYear,
         maxYear: state.maxYear,
+
+        listView: state.listView,
     }
 };
 
