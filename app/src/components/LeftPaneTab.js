@@ -59,8 +59,12 @@ class LeftPaneTab extends Component {
 
              <div className="leftPaneTabBody">
 
+
                  <div className="rotate move" id={'Popover-'+this.props.name}>{this.props
                  .name}</div>
+
+                 <img id="image" src={"http://127.0.0.1:8087/ImageDatabase/Icons/" + this.props.name + ".png"}
+                  alt="" style={{height: '40px', width: '40px', objectFit: 'cover', transform: "translate(12px, 35px)"}}/>
 
                  <Popover style={{width: '150px'}} placement='right' isOpen={this.state.popoverOpen} target={'Popover-'
                  +

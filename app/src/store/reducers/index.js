@@ -24,7 +24,7 @@ const initialState = {
       'Sensing', 'Protective', 'Magnetic', 'Cognitive', 'Modularity', 'Emissivity',
     'Wearability', 'Morphology', 'Aesthetics', 'Gestures'],
     bodyZones: ['Head', 'Chest', 'Pelvic Region', 'Arms', 'Legs',
-    'Wrists & Hand', 'Back', 'Full Body', 'Feet'],
+    'Wrist and Hand', 'Back', 'Full Body', 'Feet'],
     fabrication: ['Stiching/Sewing', 'Laser Cutting', 'Weaving', '3D Printing',
      'Layering', 'Printing', 'Sticking', 'Head Pressing', 'Heat Transfer',
       'Soldering', 'Origami', 'Molding and Casting', 'Pleating and Folding',

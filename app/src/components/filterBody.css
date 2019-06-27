@@ -27,7 +27,12 @@
 }
 
 .filterTab {
-  width: 20vh;
+  width: 15vh;
+}
+
+.filterTabMove {
+  width: 15vh;
+  transform: translateX(-7vw);
 }
 
 #demo-2 input[type=search] {

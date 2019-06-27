@@ -6,6 +6,7 @@ import Matrix from './components/Matrix';
 import LeftPaneModal from './components/LeftPaneModal';
 import SearchDisplay from './components/SearchDisplay';
 import FilterPane from './components/FilterPane';
+import BodyZones from './components/BodyZones';
 import Tabletop from 'tabletop';
 
 import * as actionTypes from './store/actions';
@@ -35,22 +36,24 @@ class App extends Component {
 
         /*
 
-          1) Finish work on filter
-          2) Handle the bubble effects in the main UI display
-          3) Make search case insensitive, DO THIS SHIT ASAP
-          4) Create a list display for search results
-          5) Make a search functionality
-          6) Add icons
-          7) In search display, add another column for patents
-          8) Get UI up to spec
 
-          9) Make filter reflect in the searchDisplay, DO THIS SHIT ASAP
-          10) Fix the problem where modal should get closed by clicking anywhere on the page
+          1) Get UI up to spec
 
-          11) COMPONENT WILL UNMOUNT IS THE IDEAL PLACE
-          In terms of work,
+            a) Fix filter - Idk
+            b) Fix searchBar - Idk
+            c) Fix searchDisplay UI - Quick
+            d) Fix listDisplay UI - Quick
 
-          Inside search display, handle the two display types
+          2) Make filter reflect in the searchDisplay, DO THIS SHIT ASAP - Quick
+
+          3) Fix the problem where leftpanemodal should get closed by clicking anywhere on the page, also improve it's UI - Idk
+
+          4) Design the homepage - Quick
+
+
+          5) Designing contact us and contribute links
+
+          6) React-Router
         */
         return (
           <>
@@ -58,9 +61,10 @@ class App extends Component {
              <LeftPane />
              <LeftPaneModal />
              <Matrix />
-             <FilterPane showLoop={true}/>
+             <BodyZones />
+             <FilterPane move={false} showLoop={true}/>
           </div>) : (<div className="layout"><SearchDisplay />
-          <FilterPane showLoop={true}/></div>)}
+          <FilterPane move={true} showLoop={true}/></div>)}
           </>
 
     );

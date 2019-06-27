@@ -62,7 +62,7 @@ class Matrix extends Component {
 
 
           <div className="matrixSVG">
-                        <HexGrid width={1050} height={600} viewBox="-40 -45 90 90">
+                        <HexGrid width={775} height={600} viewBox="-40 -45 90 90">
                         <Layout size={hexagonSize} flat={true} spacing={1.05} origin={{ x: 0, y: 0 }}>
 
                                   <Hexagon onClick={() => this.onClick(name_array, bool_array[0] && bool_array[1] && bool_array[2] && bool_array[3], ['BodyZones', 'Fabrication', 'Material', 'Function'])} q={0} r={0} s={0}>
@@ -71,6 +71,7 @@ class Matrix extends Component {
                                      (<text x="0" y="0" textAnchor="middle"><tspan x="0" dy="-1.2em">Function</tspan><tspan x="0" dy="1.2em">+ BodyZones</tspan><tspan x="0" dy="1.2em">+ Fabrication</tspan><tspan x="0" dy="1.2em">+ Material</tspan></text>)}
                                  </Hexagon>
 
+                                {/*
                                  <Hexagon q={0} r={2} s={0} stroke="green" fill="purple"/>
                                  <Hexagon q={0} r={-2} s={0} stroke="green" fill="purple"/>
 
@@ -114,7 +115,7 @@ class Matrix extends Component {
                                 <Hexagon q={4} r={-2} s={0} stroke="white" fill="purple"/>
                                 <Hexagon q={4} r={-3} s={0} stroke="white" fill="purple"/>
                                 <Hexagon q={4} r={-4} s={0} stroke="white" fill="purple"/>
-
+                                */}
 
 
                                  <Hexagon onClick={() => this.onClick(name_array, bool_array[1] && bool_array[2], ['BodyZones', 'Fabrication'])} q={0} r={1} s={0}>

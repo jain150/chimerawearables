@@ -34,11 +34,7 @@ class SearchDisplayTab extends Component {
             </a>
             <div id="title" className="centered">{(input["Reference Name"].length < 40) ? (input["Reference Name"]) : (input["Reference Name"].substring(0, 40) + "...")}</div>
           </div>
-
-
         </div>
-
-
 
       )
     }
@@ -48,7 +44,7 @@ class SearchDisplayTab extends Component {
     return (
       <div className="searchStore">
         <div className="leftPaneSearch">
-            <div className="rotate">{this.props.type}</div>
+            <div className="rotate1">{this.props.type}</div>
         </div>
 
         <div style={{overflow: 'hidden'}}>

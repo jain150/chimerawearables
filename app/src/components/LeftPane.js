@@ -10,7 +10,7 @@ class LeftPane extends Component {
 
     onClick = (type) => {
 
-        
+
 
          if(type === 'Function') {
 
@@ -30,7 +30,12 @@ class LeftPane extends Component {
     render() {
 
            let listItems = '';
-           listItems = this.props.categories.map((listItem) => {
+
+           let tempList = this.props.categories;
+           tempList = tempList.filter((item) => {
+             return item !== 'BodyZones'
+           })
+           listItems = tempList.map((listItem) => {
                 return (
                     <LeftPaneTab key={listItem} name={listItem} clicked={this.onClick} />
                 )

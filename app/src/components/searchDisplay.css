@@ -8,9 +8,9 @@
     background-color: #6b0a64;
 }
 
-.rotate {
+.rotate1 {
      transform: rotate(270deg);
-     margin-top: 60px;
+     margin-top: 50px;
 }
 
 .rotate:hover {
@@ -19,8 +19,8 @@
 }
 
 .searchStore {
-  height: 25%;
-  width: 100%;
+  height: 20%;
+  width: 100vw;
   display: flex;
   overflow-x: hidden;
   background-color: #6c757d;
