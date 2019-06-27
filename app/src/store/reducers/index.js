@@ -9,6 +9,9 @@ const initialState = {
 
     listDisplay: false,
 
+    searchTermDisplay: false,
+    searchTermQuery: '',
+
     filter: true,
     minYear: 1990,
     maxYear: 2018,
@@ -125,7 +128,7 @@ const reducer = ( state = initialState, action ) => {
           case actionTypes.SEARCH_DISPLAY:
             return {
               ...state,
-              searchDisplay: !(state.searchDisplay)
+              searchDisplay: true,
             }
           case actionTypes.UPDATE_QUERY:
             return {
@@ -158,6 +161,16 @@ const reducer = ( state = initialState, action ) => {
             return {
               ...state,
               listView: (!state.listView),
+            }
+          case actionTypes.SEARCH_TERM_DISPLAY:
+            return  {
+              ...state,
+              searchTermDisplay: true,
+            }
+          case actionTypes.SEARCH_TERM_QUERY:
+            return {
+              ...state,
+              searchTermQuery: action.val,
             }
     }
     return state;

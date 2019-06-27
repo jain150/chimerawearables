@@ -31,14 +31,14 @@
 
 .layoutSearch {
     height: 100vh;
-    width: 100%;
+    width: 95vw;
     display: block;
     background-color: white;
 }
 
 .listSearch {
   height: 100vh;
-  width: 100%;
+  width: 95vw;
   display: block;
   background-color: white;
   overflow-y: scroll;

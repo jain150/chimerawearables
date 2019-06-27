@@ -64,25 +64,37 @@ class SearchDisplay extends Component {
           let filterArr = this.props.allData;
 
           console.log(filterArr);
-          if(this.props.filter) {
 
-            filterArr = filterArr.filter(this.filterYear);
+          if(!this.props.searchDisplay) {
+
+                  if(this.props.filter) {
+
+                    filterArr = filterArr.filter(this.filterYear);
+                  }
+
+                  if(this.props.params.includes('Function')) {
+                     filterArr = filterArr.filter(this.filterFunc);
+                  }
+
+                  if(this.props.params.includes('BodyZones')) {
+                     filterArr = filterArr.filter(this.filterBod);
+                  }
+                  if(this.props.params.includes('Fabrication')) {
+                     filterArr = filterArr.filter(this.filterFab);
+                  }
+                  if(this.props.params.includes('Material')) {
+                     filterArr = filterArr.filter(this.filterMat);
+                  }
+        }
+
+        else {
+
+            filterArr = filterArr.filter((item) => {
+              return item["Reference Name"].toLowerCase().includes(this.props.searchQuery.toLowerCase());
           }
 
-          if(this.props.params.includes('Function')) {
-             filterArr = filterArr.filter(this.filterFunc);
-          }
-
-          if(this.props.params.includes('BodyZones')) {
-             filterArr = filterArr.filter(this.filterBod);
-          }
-          if(this.props.params.includes('Fabrication')) {
-             filterArr = filterArr.filter(this.filterFab);
-          }
-          if(this.props.params.includes('Material')) {
-             filterArr = filterArr.filter(this.filterMat);
-          }
-
+        );
+        }
 
           let researchArr = [];
           let tutorialsArr = [];
@@ -104,6 +116,8 @@ class SearchDisplay extends Component {
           conceptsArr = filterArr.filter((item) => {
             return item["Design Concepts"].trim() === 'x'
           });
+
+
 
           let listView = this.props.listView;
 
@@ -138,6 +152,9 @@ const mapStateToProps = state => {
         maxYear: state.maxYear,
 
         listView: state.listView,
+
+        searchDisplay: state.searchTermDisplay,
+        searchQuery: state.searchTermQuery,
     }
 };
 

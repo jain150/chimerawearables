@@ -37,16 +37,17 @@ class App extends Component {
 
           1) Finish work on filter
           2) Handle the bubble effects in the main UI display
-          3) Make search case insensitive
+          3) Make search case insensitive, DO THIS SHIT ASAP
           4) Create a list display for search results
           5) Make a search functionality
           6) Add icons
           7) In search display, add another column for patents
           8) Get UI up to spec
 
-          9) Make filter reflect in the searchDisplay
+          9) Make filter reflect in the searchDisplay, DO THIS SHIT ASAP
           10) Fix the problem where modal should get closed by clicking anywhere on the page
 
+          11) COMPONENT WILL UNMOUNT IS THE IDEAL PLACE
           In terms of work,
 
           Inside search display, handle the two display types

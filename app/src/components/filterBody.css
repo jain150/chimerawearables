@@ -14,6 +14,11 @@
   height: 36px;
 }
 
+.rotate {
+     transform: rotate(270deg);
+     padding: "0 0 0 0"
+}
+
 .btnSelectorClicked {
 
   background: #9B089A;
