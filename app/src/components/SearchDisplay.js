@@ -52,6 +52,15 @@ class SearchDisplay extends Component {
       return (item["Year"] >= this.props.minYear && item["Year"] <= this.props.maxYear)
     }
 
+    filterVenue = (item) => {
+      console.log(this.props.venue);
+      return (this.props.venue === 'all' || item["Conference (VENUE)"] === this.props.venue)
+    }
+
+    filterSource = (item) => {
+      return (this.props.source === 'both' || item["Source"] === this.props.source)
+    }
+
     shuffleArray = (array) => {
       for (let i = array.length - 1; i > 0; i--) {
           const j = Math.floor(Math.random() * (i + 1));
@@ -64,15 +73,20 @@ class SearchDisplay extends Component {
     render() {
 
           let filterArr = this.props.allData;
+          console.log(this.props.allData);
 
-          console.log(filterArr);
 
           if(!this.props.searchDisplay) {
 
+
+                  console.log(filterArr);
                   if(this.props.filter) {
 
                     filterArr = filterArr.filter(this.filterYear);
+                    filterArr = filterArr.filter(this.filterVenue);
+                    filterArr = filterArr.filter(this.filterSource);
                   }
+                    console.log(filterArr);
 
                   if(this.props.params.includes('Function')) {
                      filterArr = filterArr.filter(this.filterFunc);
@@ -139,7 +153,7 @@ class SearchDisplay extends Component {
 
           return (
 
-            <div style={{width: "90vw"}}>
+            <div style={{width: "100vw"}}>
               {(listView) ? (<div className="listSearch">
               {/*
               <ListDisplayTab type='Research' arr={this.shuffleArray(researchArr)}/>
@@ -182,6 +196,8 @@ const mapStateToProps = state => {
         filter: state.filter,
         minYear: state.minYear,
         maxYear: state.maxYear,
+        venue: state.venueFilter,
+        source: state.sourceFilter,
 
         listView: state.listView,
 

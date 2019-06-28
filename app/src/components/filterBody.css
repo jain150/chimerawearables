@@ -32,6 +32,11 @@
 
 .filterTabMove {
   width: 15vh;
+  transform: translateX(-2vw);
+}
+
+.filterTabExtra {
+  width: 15vh;
   transform: translateX(-7vw);
 }
 

@@ -77,11 +77,11 @@ class LeftPanePopoverTab extends Component {
 
                 return (
 
-                    <div>
+                    <div key={this.props.key}>
                      {(selArr.includes(input)) ? (
                        <div onClick={() => this.onClick(input)} className='leftPanePopoverTabBodySelected'
                           name="customRadio"
-                          key={input}
+
                           id={input}
                           label={input}>{input}</div>
                         ) : (

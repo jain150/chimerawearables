@@ -25,14 +25,16 @@ class SearchDisplayTab extends Component {
       else {
       return (
 
-        <div style={{marginLeft: '15px'}}>
+        <div style={{marginLeft: '0px', borderWidth: "medium", borderStyle:"solid"}}>
 
           <div className="bgimg">
             <a  href={input["Reference Link"]}>
 
-            <img id="image" src={"http://127.0.0.1:8087/ImageDatabase/" + input["PIC ID"] + ".jpg"}  onerror={"this.onerror=null; this.src=" + "http://127.0.0.1:8087/ImageDatabase/" + input["PIC ID"] + ".png"} alt="" style={{height: '95%', width: '100%', objectFit: 'cover'}}/>
+            <img id="image" src={"http://127.0.0.1:8087/ImageDatabase/" + input["PIC ID"] + ".jpg"}  onerror={"this.onerror=null; this.src=" + "http://127.0.0.1:8087/ImageDatabase/" + input["PIC ID"] + ".png"} alt="" style={{height: '20vh', width: '100%', objectFit: 'cover'}}/>
             </a>
+            <a  href={input["Reference Link"]}>
             <div id="title" className="centered">{(input["Reference Name"].length < 40) ? (input["Reference Name"]) : (input["Reference Name"].substring(0, 40) + "...")}</div>
+            </a>
           </div>
         </div>
 
@@ -48,7 +50,7 @@ class SearchDisplayTab extends Component {
         </div>
 
         <div style={{overflow: 'hidden'}}>
-          <div style={{display: 'flex', height: "110%", overflowX: 'scroll', overflowY: 'hidden'}}>
+          <div style={{display: 'flex', height: "105%", overflowX: 'scroll', overflowY: 'hidden'}}>
             {inp}
           </div>
         </div>

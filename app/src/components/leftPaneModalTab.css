@@ -1,7 +1,7 @@
 .leftPaneModalTabBody {
 
     width: 20vh;
-    height: 25%;
+    height: 33.33%;
     padding-left: 0px;
     font-size: medium;
     /*border-bottom-color: #ACACAC;
@@ -13,14 +13,14 @@
 
 .modalHover:hover {
     cursor: pointer;
-    background: #9B089A;
+    background: black;
     color: white;
     font-size: 13px;
 }
 
 .modalHover {
 
-    color: #9B089A;
+    color: black;
     border-bottom-color: #ACACAC;
     border-bottom-width: thin;
     border-bottom-style: solid;

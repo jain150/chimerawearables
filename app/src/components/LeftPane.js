@@ -30,6 +30,7 @@ class LeftPane extends Component {
     render() {
 
            let listItems = '';
+           let i = 0;
 
            let tempList = this.props.categories;
            tempList = tempList.filter((item) => {
@@ -37,7 +38,7 @@ class LeftPane extends Component {
            })
            listItems = tempList.map((listItem) => {
                 return (
-                    <LeftPaneTab key={listItem} name={listItem} clicked={this.onClick} />
+                    <LeftPaneTab key={i++} name={listItem} clicked={this.onClick} />
                 )
             });
 

@@ -42,7 +42,6 @@ class LeftPaneModal extends Component {
             <div className="leftPaneModal">
 
                    {funcModal}
-                   {bodyModal}
                    {fabModal}
                    {matModal}
             </div>

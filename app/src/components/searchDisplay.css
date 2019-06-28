@@ -5,7 +5,7 @@
     font-weight: bold;
     font-size: 12.5px;
     color: white;
-    background-color: #6b0a64;
+    background-color: black;
 }
 
 .rotate1 {
@@ -38,7 +38,7 @@
 
 .listSearch {
   height: 100vh;
-  width: 95vw;
+  width: 100vw;
   display: block;
   background-color: white;
   overflow-y: scroll;
@@ -46,26 +46,28 @@
 
 .bgimg {
 
-    height: 95%;
-    width: 45vh;
+    height: 100%;
+    width: 19vw;
 
     position: relative;
     text-align: center;
-    color: white;
-
-    margin-top: 5px;
-    margin-bottom: 5px;
+      color: white;
+      margin-top: 3px;
     overflow: hidden;
 
 }
 
+.bgimg:hover {
+  transform: scale(1.2);
+  z-index: 999;
+}
 
 .bgimg:hover #title {
   display: block;
 }
 
 .bgimg:hover #image {
-  opacity: 0.3;
+  display: block;
 }
 
 
@@ -87,12 +89,17 @@
 
 .centered {
   position: absolute;
-  top: 50%;
+  top: 40%;
   left: 50%;
-  transform: translate(-50%, -90%);
+  transform: translate(-50%, -70%);
   color: black;
   font-weight: bold;
-  font-size: large;
+  font-size: small;
+
+  height: 50%;
+  width: 100%;
+  background: #f7f7f7;
+  opacity: 0.5;
 
 }
 

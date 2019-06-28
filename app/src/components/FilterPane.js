@@ -53,7 +53,7 @@ class FilterPane extends Component {
 
       return (
 
-          <div className={(this.props.move) ? ("filterTabMove") : ("filterTab")}>
+          <div className={(this.props.move) ? ((!this.props.listView) ? ("filterTabMove") : ("filterTabExtra")) : ("filterTab")}>
 
           <div style={{transform: "translateX(-100px)"}}>
           <form onSubmit={this.handleSubmit} id="demo-2">
@@ -61,11 +61,11 @@ class FilterPane extends Component {
           </form>
           </div>
           <div style={{transform: "translate(0, 30vh)", padding: "0 0 0 0"}}>
-               <Button className="rotate" style={{ width: "180px", height: "50px", color: "#6b0a64",   borderStyle: "solid", borderColor: "#6b0a64", borderWidth: "5px"}} outline color="info" id={'PopoverFilter'}><div style={{ transform: "translateY(-10px)",  borderTopStyle: "solid", borderColor: "#6b0a64", borderWidth: "2px"}}><b>_____________</b></div><div style={{ transform: "translateY(-20px)",  borderTopStyle: "solid", borderColor: "#6b0a64", borderWidth: "2px"}}><b>_____________</b></div></Button>
+               <Button className="rotate" style={{ width: "180px", height: "50px", color: "black",   borderStyle: "solid", borderColor: "black", borderWidth: "5px"}} outline color="info" id={'PopoverFilter'}><div style={{ transform: "translateY(-10px)",  borderTopStyle: "solid", borderColor: "black", borderWidth: "2px"}}><b>_____________</b></div><div style={{ transform: "translateY(-20px)",  borderTopStyle: "solid", borderColor: "black", borderWidth: "2px"}}><b>_____________</b></div></Button>
 
-               <Popover style={{width: '250px', color: "#9B089A"}} placement="left" isOpen={this.state.popoverOpen} target={'PopoverFilter'} toggle={this.toggle}>
+               <Popover style={{width: '250px', color: "black"}} placement="left" isOpen={this.state.popoverOpen} target={'PopoverFilter'} toggle={this.toggle}>
                  <PopoverHeader style={{fontWeight: "bold"}}>Data Filter</PopoverHeader>
-                 <PopoverBody style={{color: "#9B089A", fontWeight: "bold", backgroundColor: "#e0dede"}}><FilterBody showLoop={this.props.showLoop}/></PopoverBody>
+                 <PopoverBody style={{color: "black", fontWeight: "bold", backgroundColor: "#e0dede"}}><FilterBody showLoop={this.props.showLoop}/></PopoverBody>
                </Popover>
                </div>
           </div>
@@ -76,7 +76,6 @@ class FilterPane extends Component {
 
 const mapDispatchToProps = dispatch => {
     return {
-
         searchTermDisplayUpdate: () => dispatch({type: actionTypes.SEARCH_TERM_DISPLAY}),
         searchTermQueryUpdate: (value) => dispatch({type: actionTypes.SEARCH_TERM_QUERY, val: value}),
         toggleDisplay: () => dispatch({type: actionTypes.SEARCH_DISPLAY}),
@@ -84,4 +83,11 @@ const mapDispatchToProps = dispatch => {
 };
 
 
-export default connect(null, mapDispatchToProps)(FilterPane);
+const mapStateToProps = state => {
+    return {
+        listView: state.listView,
+    }
+};
+
+
+export default connect(mapStateToProps, mapDispatchToProps)(FilterPane);

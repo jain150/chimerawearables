@@ -19,7 +19,16 @@ class LeftPaneTab extends Component {
          popoverMat: false,
          popoverOpen: false,
        };
+
     }
+
+
+
+  handleBlur = (event) => {
+     // do something when user clicks outside of this element
+     console.log("LOL");
+   }
+
 
      toggle = (name) => {
        this.setState({
@@ -66,21 +75,26 @@ class LeftPaneTab extends Component {
                  <img id="image" src={"http://127.0.0.1:8087/ImageDatabase/Icons/" + this.props.name + ".png"}
                   alt="" style={{height: '40px', width: '40px', objectFit: 'cover', transform: "translate(12px, 35px)"}}/>
 
-                 <Popover style={{width: '150px'}} placement='right' isOpen={this.state.popoverOpen} target={'Popover-'
-                 +
 
-                 this
-                 .props
-                 .name}
-                 toggle={this.toggle}>
-                      <PopoverHeader>{this.props.name}</PopoverHeader>
-                       <PopoverBody style={{padding: '0'}}><LeftPanePopoverTab
-                                                type={this.props.name}
-                                                subtypes={arr}
-                                                 selArr={selArr}
-                                                 toggle={this.toggle}/>
-                  </PopoverBody>
-                 </Popover>
+
+                         <Popover style={{width: '150px'}} placement='right' isOpen={this.state.popoverOpen} target={'Popover-'
+                         +
+
+                         this
+                         .props
+                         .name}
+                         toggle={this.toggle}>
+
+                              <PopoverHeader>{this.props.name}</PopoverHeader>
+                               <PopoverBody style={{padding: '0'}}><LeftPanePopoverTab
+                                                        type={this.props.name}
+                                                        subtypes={arr}
+                                                         selArr={selArr}
+                                                         toggle={this.toggle}
+                                                         key={this.props.key}/>
+                          </PopoverBody>
+
+                         </Popover>
 
             </div>
 

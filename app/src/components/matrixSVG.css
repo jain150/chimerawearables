@@ -11,12 +11,12 @@ Russian blue pattern:
 */
 
 svg g {
-  fill: white;
-  fill-opacity: 0.6;
+  fill: black;
+  fill-opacity: 0.9;
 }
 svg g:hover {
-  fill: #FAC9F7;
-  fill-opacity: 0.7;
+  fill: #6c757d;
+  fill-opacity: 1.0;
   cursor: pointer;
 }
 svg g:hover text {
@@ -31,7 +31,7 @@ svg g polygon {
 svg g text {
   font-size: 0.11em;
   font-weight: bold;
-  fill: #9B089A;
+  fill: white;
   fill-opacity: 0.7;
   transition: fill-opacity .5s;
 }
