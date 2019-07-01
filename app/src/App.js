@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import './App.css';
+import 'typeface-roboto';
+import "react-awesome-popover/build/index.css";
 import { connect } from 'react-redux';
 import LeftPane from './components/LeftPane';
 import Matrix from './components/Matrix';

@@ -51,19 +51,31 @@ class FilterPane extends Component {
 
     render() {
 
+      let val = 'translateX(-1.2vw)';
+
+      if(this.state.popoverOpen)
+        val = 'translateX(-24.28vw)';
+
+      let temp = 'translate(-100px, 10px)'
+
+      if(this.state.popoverOpen)
+        temp = 'translate(-350px, 10px)'
+
       return (
 
           <div className={(this.props.move) ? ((!this.props.listView) ? ("filterTabMove") : ("filterTabExtra")) : ("filterTab")}>
 
-          <div style={{transform: "translateX(-100px)"}}>
+          <div style={{transform: temp}}>
           <form onSubmit={this.handleSubmit} id="demo-2">
             <input type="search" placeholder="Search" value={this.state.value} onChange={this.handleChange} />
           </form>
           </div>
           <div style={{transform: "translate(0, 30vh)", padding: "0 0 0 0"}}>
-               <Button className="rotate" style={{ width: "180px", height: "50px", color: "black",   borderStyle: "solid", borderColor: "black", borderWidth: "5px"}} outline color="info" id={'PopoverFilter'}><div style={{ transform: "translateY(-10px)",  borderTopStyle: "solid", borderColor: "black", borderWidth: "2px"}}><b>_____________</b></div><div style={{ transform: "translateY(-20px)",  borderTopStyle: "solid", borderColor: "black", borderWidth: "2px"}}><b>_____________</b></div></Button>
+              <div style={{transform: val}}>
+               <Button className="rotate" style={{ width: "180px", height: "35px", color: "black", borderStyle: "solid", borderColor: "black", borderWidth: "5px"}} outline color="info" id={'PopoverFilter'}><div style={{ transform: "translateY(-10px)",  borderTopStyle: "solid", borderColor: "black", borderWidth: "2px"}}><b>_-_-_-_-_-_-_</b></div></Button>
+               </div>
 
-               <Popover style={{width: '250px', color: "black"}} placement="left" isOpen={this.state.popoverOpen} target={'PopoverFilter'} toggle={this.toggle}>
+               <Popover hideArrow={true} style={{width: '275px', color: "black", transform: "translateX(-0.3vw)"}} placement="right" isOpen={this.state.popoverOpen} target={'PopoverFilter'} toggle={this.toggle}>
                  <PopoverHeader style={{fontWeight: "bold"}}>Data Filter</PopoverHeader>
                  <PopoverBody style={{color: "black", fontWeight: "bold", backgroundColor: "#e0dede"}}><FilterBody showLoop={this.props.showLoop}/></PopoverBody>
                </Popover>

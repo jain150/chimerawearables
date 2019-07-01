@@ -19,7 +19,3 @@
     color: black;
     cursor: pointer;
 }
-
-.popoverContainer {
-  z-index: 999;
-}

@@ -26,6 +26,11 @@
   height: 36px;
 }
 
+
+.closeFilter {
+  transform: translate(-10vw, -50vh);
+}
+
 .filterTab {
   width: 15vh;
 }
@@ -108,6 +113,7 @@ input[type=search]:focus {
 input:-moz-placeholder {
 	color: #999;
 }
+
 input::-webkit-input-placeholder {
 	color: #999;
 }

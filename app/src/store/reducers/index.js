@@ -19,7 +19,7 @@ const initialState = {
     sourceFilter: 'both',
 
     categories: ['Function', 'BodyZones', 'Fabrication', 'Material'],
-    functions: ['Storage', 'Breathability', 'Energy Harvesting', 'feedback',
+    functions: ['Storage', 'Breathability', 'Energy Harvesting', 'Feedback',
      'Display', 'Electronic Elements Connections', 'Wireless Communication', 'Control', 'Movement',
       'Sensing', 'Protective', 'Magnetic', 'Cognitive', 'Modularity', 'Emissivity',
     'Wearability', 'Morphology', 'Aesthetics', 'Gestures'],

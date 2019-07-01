@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import './leftPaneTab.css'
 
 import LeftPanePopoverTab from './LeftPanePopoverTab';
-import { Button, Popover, PopoverHeader, PopoverBody } from 'reactstrap';
+import { Button, UncontrolledPopover, PopoverHeader, PopoverBody } from 'reactstrap';
 
 class LeftPaneTab extends Component {
 
@@ -21,14 +21,6 @@ class LeftPaneTab extends Component {
        };
 
     }
-
-
-
-  handleBlur = (event) => {
-     // do something when user clicks outside of this element
-     console.log("LOL");
-   }
-
 
      toggle = (name) => {
        this.setState({
@@ -69,21 +61,21 @@ class LeftPaneTab extends Component {
              <div className="leftPaneTabBody">
 
 
-                 <div className="rotate move" id={'Popover-'+this.props.name}>{this.props
-                 .name}</div>
+                 <div id={'Popover-'+this.props.name} className="rotate move">{this.props
+                 .name}
+                 </div>
 
                  <img id="image" src={"http://127.0.0.1:8087/ImageDatabase/Icons/" + this.props.name + ".png"}
                   alt="" style={{height: '40px', width: '40px', objectFit: 'cover', transform: "translate(12px, 35px)"}}/>
 
 
 
-                         <Popover style={{width: '150px'}} placement='right' isOpen={this.state.popoverOpen} target={'Popover-'
+                         <UncontrolledPopover hideArrow={true} offset={"0px, 18px"} placement='right' trigger="legacy" target={'Popover-'
                          +
 
                          this
                          .props
-                         .name}
-                         toggle={this.toggle}>
+                         .name}>
 
                               <PopoverHeader>{this.props.name}</PopoverHeader>
                                <PopoverBody style={{padding: '0'}}><LeftPanePopoverTab
@@ -94,7 +86,8 @@ class LeftPaneTab extends Component {
                                                          key={this.props.key}/>
                           </PopoverBody>
 
-                         </Popover>
+                         </UncontrolledPopover>
+
 
             </div>
 

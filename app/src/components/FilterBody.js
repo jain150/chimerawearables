@@ -142,6 +142,7 @@ class FilterBody extends Component {
               <div style={{marginTop: "10px"}}>
                 <Button onClick={this.toggleDisplay} outline color="secondary">{(this.props.listView) ? ("View Results in Original Form") : ("View Results in List Form")}</Button>{' '}
               </div>
+
           </div>
         );
     }
