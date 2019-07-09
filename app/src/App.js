@@ -40,20 +40,87 @@ class App extends Component {
             let temp = googleData["Sheet1"].elements;
 
             let wearability = this.computeWearability(googleData["Wearability"].elements);
+            let costmetric = this.computeCostMetric(googleData["Sheet1"].elements);
 
             for(let i = 0; i < temp.length; i++) {
                   temp[i] = {
                  ...temp[i],
-                 Wearability: wearability[i]["Wearability"]
+                 Wearability: wearability[i]["Wearability"],
+                 costMetric: costmetric[i]["costMetric"]
                };
             }
+
+            console.log(temp);
             this.props.updateSearchData(temp);
-
-
           },
           simpleSheet: false
         })
 
+    }
+
+    computeCostMetric = (data) => {
+
+      let fabricationChart =
+      {"Laser Cutting":	9,"3D Printing":	9,"Layering": 3,"Printing": 3,"Painting": 3,
+      "Sticking": 1,"Heat Pressing": 9,"Heat Transfer": 3,"Soldering":	1,"Origami":	1,"Molding and Casting":	9,"Pleating and Folding": 3,
+       "Knit": 1,"Embroidery and Applique":	3,
+"Patchwork and Patterning": 3,"Woven": 9,"Non Woven":	9,
+      "Machining":	9,"Cut and Sew":	1, "Joining": 3};
+
+
+      /*
+        INKS AND FINISHES
+      */
+      let materialChart =
+      {
+          "Conductive Inks": 3,
+          "Polymers": 9,
+          "Molding Materials": 9,
+          "Threads": 1,
+          "Conductive Threads":	3,
+          "Adhesives": 3,
+          "Paper and Cardboard": 1,
+          "Electronics": 9,
+          "Textiles and Composites": 1,
+          "Hide":	1,
+          "Hardware": 1,
+          "Organic Materials": 9,
+          "Inks & Finishes": 0,
+          "Metal": 3,
+          "Shape Memory Alloy": 9
+      };
+
+      let costMetric = [];
+
+
+      for(let i = 0; i < data.length; i++) {
+
+          let fabScore = 0;
+          let matScore = 0;
+
+          if(data[i]["Fabrication 1"] in fabricationChart) {
+            fabScore = Math.max(fabScore, fabricationChart[data[i]["Fabrication 1"]]);
+          }
+
+          if(data[i]["Fabrication 2"] in fabricationChart) {
+            fabScore = Math.max(fabScore, fabricationChart[data[i]["Fabrication 2"]]);
+          }
+
+          if(data[i]["Material 1"] in materialChart) {
+            matScore = Math.max(matScore, materialChart[data[i]["Material 1"]]);
+          }
+
+          if(data[i]["Material 2"] in materialChart) {
+            matScore = Math.max(matScore, materialChart[data[i]["Material 2"]]);
+          }
+
+          if(data[i]["Material 3"] in materialChart) {
+            matScore = Math.max(matScore, materialChart[data[i]["Material 3"]]);
+          }
+
+          costMetric[i] = {"costMetric": fabScore + matScore};
+      }
+      return costMetric;
     }
 
     computeWearability = (wearability) => {
@@ -141,10 +208,6 @@ class App extends Component {
         else {
           count += parseInt(aesScore);
         }
-
-        //sum can be calculated by simple array iteration
-        //total possible = 50 - SummaxofNAcolumns
-        //percentage = sum / total possible
 
         return {"Wearability": ((count / totalCount) * 100).toFixed(2)}
       })
