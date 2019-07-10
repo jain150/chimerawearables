@@ -52,9 +52,10 @@ class FilterPane extends Component {
     render() {
 
       let val = 'translateX(-1.2vw)';
+      if(this.state.popoverOpen){
+        val = 'translateX(-24vw)';
 
-      if(this.state.popoverOpen)
-        val = 'translateX(-24.28vw)';
+      }
 
       let temp = 'translate(-100px, 10px)'
 
@@ -70,9 +71,11 @@ class FilterPane extends Component {
             <input type="search" placeholder="Search" value={this.state.value} onChange={this.handleChange} />
           </form>
           </div>
-          <div style={{transform: "translate(0, 30vh)", padding: "0 0 0 0"}}>
+          <div style={{transform: "translate(0, 30vh)", padding: "0 0 0 0", zIndex: "999"}}>
               <div style={{transform: val}}>
-               <Button className="rotate" style={{ width: "180px", height: "35px", color: "black", borderStyle: "solid", borderColor: "black", borderWidth: "5px"}} outline color="info" id={'PopoverFilter'}><div style={{ transform: "translateY(-10px)",  borderTopStyle: "solid", borderColor: "black", borderWidth: "2px"}}><b>_-_-_-_-_-_-_</b></div></Button>
+
+               <Button className="rotate" style={{ zIndex: "900", width: "180px", height: "35px", color: "black", borderStyle: "solid", borderColor: "black", borderWidth: "5px"}} outline color="info" id={'PopoverFilter'}><div style={{ transform: "translateY(-10px)",  borderTopStyle: "solid", borderColor: "black", borderWidth: "2px"}}><b>_-_-_-_-_-_-_</b></div></Button>
+
                </div>
 
                <Popover hideArrow={true} style={{width: '275px', color: "black", transform: "translateX(-0.3vw)"}} placement="right" isOpen={this.state.popoverOpen} target={'PopoverFilter'} toggle={this.toggle}>

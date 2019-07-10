@@ -63,54 +63,66 @@ class SearchDisplay extends Component {
 
     shuffleArray = (array) => {
       for (let i = array.length - 1; i > 0; i--) {
-          const j = Math.floor(Math.random() * (i + 1));
+          const j = Math.floor(this.random(i) * (i + 1));
           [array[i], array[j]] = [array[j], array[i]];
       }
 
       return array;
     }
 
+    random = (seed) => {
+      var x = Math.sin(seed++) * 10000;
+      return x - Math.floor(x);
+    }
+
     render() {
 
-          let filterArr = this.props.allData;
-          console.log(this.props.allData);
+            let filterArr = this.props.allData;
+
+            if(!this.props.viewBookmarks) {
+                  if(!this.props.searchDisplay) {
 
 
-          if(!this.props.searchDisplay) {
+                          if(this.props.filter) {
 
+                            filterArr = filterArr.filter(this.filterYear);
+                            filterArr = filterArr.filter(this.filterVenue);
+                            filterArr = filterArr.filter(this.filterSource);
+                          }
+                            console.log(filterArr);
 
-                  console.log(filterArr);
-                  if(this.props.filter) {
+                          if(this.props.params.includes('Function')) {
+                             filterArr = filterArr.filter(this.filterFunc);
+                          }
 
-                    filterArr = filterArr.filter(this.filterYear);
-                    filterArr = filterArr.filter(this.filterVenue);
-                    filterArr = filterArr.filter(this.filterSource);
-                  }
-                    console.log(filterArr);
+                          if(this.props.params.includes('BodyZones')) {
+                             filterArr = filterArr.filter(this.filterBod);
+                          }
+                          if(this.props.params.includes('Fabrication')) {
+                             filterArr = filterArr.filter(this.filterFab);
+                          }
+                          if(this.props.params.includes('Material')) {
+                             filterArr = filterArr.filter(this.filterMat);
+                          }
+                }
 
-                  if(this.props.params.includes('Function')) {
-                     filterArr = filterArr.filter(this.filterFunc);
-                  }
+                else {
 
-                  if(this.props.params.includes('BodyZones')) {
-                     filterArr = filterArr.filter(this.filterBod);
-                  }
-                  if(this.props.params.includes('Fabrication')) {
-                     filterArr = filterArr.filter(this.filterFab);
-                  }
-                  if(this.props.params.includes('Material')) {
-                     filterArr = filterArr.filter(this.filterMat);
-                  }
-        }
-
-        else {
-
-            filterArr = filterArr.filter((item) => {
-              return item["Reference Name"].toLowerCase().includes(this.props.searchQuery.toLowerCase());
+                    filterArr = filterArr.filter((item) => {
+                      return item["Reference Name"].toLowerCase().includes(this.props.searchQuery.toLowerCase());
+                  });
+                }
           }
 
-        );
-        }
+
+          else {
+
+            filterArr = filterArr.filter((item) => {
+
+              return this.props.bookMarks.includes(item["Reference Link"]);
+            });
+
+          }
 
           let researchArr = [];
           let tutorialsArr = [];
@@ -203,6 +215,9 @@ const mapStateToProps = state => {
 
         searchDisplay: state.searchTermDisplay,
         searchQuery: state.searchTermQuery,
+
+        viewBookmarks: state.viewBookmarks,
+        bookMarks: state.bookMarks,
     }
 };
 

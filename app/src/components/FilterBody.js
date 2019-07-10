@@ -127,20 +127,12 @@ class FilterBody extends Component {
                   </div>
               </div>
 
-              {(this.props.showLoop) ? (<div style={{marginTop: "10px", height: "80%", width: "80%"}}>
-                            <span>% of explorations of all the selected 15 correlations</span>
-                            <ReactMinimalPieChart
-                                data={dataPie}
-                                lineWidth={15}
-                                paddingAngle={10}
-                                radius={40}
-                                />
-                            </div>) :
-                              (<div />)
-            }
-
               <div style={{marginTop: "10px"}}>
                 <Button onClick={this.toggleDisplay} outline color="secondary">{(this.props.listView) ? ("View Results in Original Form") : ("View Results in List Form")}</Button>{' '}
+              </div>
+
+              <div style={{marginTop: "10px"}}>
+                <Button onClick={this.toggleBookmarks} outline color="secondary">{(this.props.viewBookmarks) ? ("View all Results") : ("View Pinned/Bookmarks")}</Button>{' '}
               </div>
 
           </div>
@@ -153,6 +145,11 @@ class FilterBody extends Component {
       this.props.toggleDisplay();
     }
 
+    toggleBookmarks = () => {
+
+      this.props.toggleBookmarks();
+    }
+
 }
 
 const mapDispatchToProps = dispatch => {
@@ -163,6 +160,7 @@ const mapDispatchToProps = dispatch => {
         filterVenue: (venue) => dispatch({type: actionTypes.FILTER_VENUE, val: venue}),
         filterSource: (source) => dispatch({type: actionTypes.FILTER_SOURCE, val: source}),
         toggleDisplay: () => dispatch({type: actionTypes.TOGGLE_DISPLAY}),
+        toggleBookmarks: () =>  dispatch({type: actionTypes.VIEW_BOOKMARKS}),
 
     }
 };
@@ -177,6 +175,7 @@ const mapStateToProps = state => {
         source: state.sourceFilter,
         searchData: state.searchData,
         listView: state.listView,
+        viewBookmarks: state.viewBookmarks,
 
     }
 };

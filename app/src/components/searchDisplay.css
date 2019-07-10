@@ -51,15 +51,17 @@
 
     position: relative;
     text-align: center;
-      color: white;
-      margin-top: 3px;
+    color: white;
+    margin-top: 3px;
     overflow: hidden;
+    opacity: 0.9;
 
 }
 
 .bgimg:hover {
   transform: scale(1.2);
-  z-index: 999;
+  opacity: 0.9;
+  z-index: 10;
 }
 
 .bgimg:hover #title {
@@ -67,7 +69,11 @@
 }
 
 .bgimg:hover #image {
-  display: block;
+
+}
+
+.bimg:hover #bookmark {
+    display: block;
 }
 
 
@@ -103,6 +109,55 @@
 
 }
 
+.ticker {
+  position: absolute;
+
+  top: 40%;
+  transform: translate(2%, 65%);
+
+  color: black;
+  font-weight: bold;
+  font-size: small;
+
+  height: 50%;
+  width: 20%;
+  opacity: 1.0;
+
+}
+
+.cost {
+
+  position: absolute;
+
+  top: 40%;
+  transform: translate(13vw, 63%);
+
+  color: black;
+  font-size: smaller;
+
+  height: 50%;
+  width: 10%;
+}
+
+.wear {
+
+
+    position: absolute;
+
+    top: 40%;
+    transform: translate(17vw, 58%);
+
+    color: black;
+    font-size: small;
+
+    height: 50%;
+    width: 10%;
+}
+
 #title {
+  display: none;
+}
+
+#bookmark {
   display: none;
 }

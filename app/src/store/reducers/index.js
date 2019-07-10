@@ -49,6 +49,9 @@ const initialState = {
     showBod: false,
     showFab: false,
     showMat: false,
+
+    bookMarks: [],
+    viewBookmarks: false,
 };
 
 const reducer = ( state = initialState, action ) => {
@@ -172,6 +175,33 @@ const reducer = ( state = initialState, action ) => {
               ...state,
               searchTermQuery: action.val,
             }
+          case actionTypes.UPDATE_BOOKMARKS:
+
+              let temp = [...state.bookMarks];
+
+              var index = temp.indexOf(action.val);
+
+              if (index > -1) {
+                 temp.splice(index, 1);
+              }
+
+              else {
+                temp.push(action.val);
+              }
+
+              return {
+                ...state,
+                bookMarks: temp,
+              }
+
+          case actionTypes.VIEW_BOOKMARKS: {
+
+            return {
+              ...state,
+              viewBookmarks: (!state.viewBookmarks),
+            }
+
+          }
     }
     return state;
 };
