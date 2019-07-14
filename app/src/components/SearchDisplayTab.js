@@ -59,11 +59,11 @@ class SearchDisplayTab extends Component {
         <div style={{marginLeft: '10px', borderWidth: "medium", borderStyle:"solid"}}>
 
           <div className="bgimg">
-            <a  href={input["Reference Link"]}>
+            <a  href={input["Reference Link"]} target="_blank">
 
             <img id="image" src={"http://127.0.0.1:8087/ImageDatabase/" + input["PIC ID"] + ".jpg"}  onerror={"this.onerror=null; this.src=" + "http://127.0.0.1:8087/ImageDatabase/" + input["PIC ID"] + ".png"} alt="" style={{height: '20vh', width: '100%', objectFit: 'cover'}}/>
             </a>
-            <a  href={input["Reference Link"]}>
+            <a  href={input["Reference Link"]} target="_blank">
             <div id="title" className="centered">{(input["Reference Name"].length < 40) ? (input["Reference Name"]) : (input["Reference Name"].substring(0, 40) + "...")}</div>
             </a>
             <div id="title" className="ticker"><Input checked={check} onClick={() => this.updateBookmark(input["Reference Link"])} type="checkbox" />{' '}</div>

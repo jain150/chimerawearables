@@ -30,10 +30,33 @@
 }
 
 .layoutSearch {
-    height: 100vh;
+    height: 95vh;
     width: 95vw;
     display: block;
     background-color: white;
+}
+
+.bottomBar {
+  height: 5vh;
+  width: 100vw;
+  background-color: #6c757d;
+
+  border-top-color: black;
+  border-top-style: solid;
+  border-top-width: thin;
+}
+
+.corLabel {
+  margin-top: 0.3vh;
+  margin-bottom: 0.1vh;
+  color: #720000;
+  font-weight: bold;
+  font-size: small;
+  background-color: black;
+  height: 4.5vh;
+  text-align: center;
+  margin-left: 37.5vw;
+  width: 25vw;
 }
 
 .listSearch {

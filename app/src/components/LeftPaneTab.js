@@ -58,19 +58,20 @@ class LeftPaneTab extends Component {
             //console.log(store.getState());
             return (
 
-             <div className="leftPaneTabBody">
+             <div id={'Popover-'+this.props.name} className="leftPaneTabBody">
 
-
-                 <div id={'Popover-'+this.props.name} className="rotate move">{this.props
+                 <div className="rotate move">{this.props
                  .name}
                  </div>
+
 
                  <img id="image" src={"http://127.0.0.1:8087/ImageDatabase/Icons/" + this.props.name + ".png"}
                   alt="" style={{height: '40px', width: '40px', objectFit: 'cover', transform: "translate(12px, 35px)"}}/>
 
 
 
-                         <UncontrolledPopover hideArrow={true} offset={"0px, 18px"} placement='right' trigger="legacy" target={'Popover-'
+
+                         <UncontrolledPopover hideArrow={true} modifiers={{offset: '-5vw'}} trigger="legacy" target={'Popover-'
                          +
 
                          this
@@ -87,7 +88,6 @@ class LeftPaneTab extends Component {
                           </PopoverBody>
 
                          </UncontrolledPopover>
-
 
             </div>
 

@@ -163,36 +163,68 @@ class SearchDisplay extends Component {
             )
           })
 
+          let corLabel = "Pinned/Bookmarks";
+
+          if(!this.props.viewBookmarks) {
+
+            corLabel = "";
+            if(this.props.params.includes('Function'))
+              if(corLabel === "")
+                corLabel = corLabel + 'Function';
+              else {
+                corLabel = corLabel + ' + Function';
+              }
+
+            if(this.props.params.includes('BodyZones'))
+              if(corLabel === "")
+                corLabel = corLabel + 'BodyZones';
+              else {
+                corLabel = corLabel + ' + BodyZones';
+              }
+
+            if(this.props.params.includes('Fabrication'))
+              if(corLabel === "")
+                corLabel = corLabel + 'Fabrication';
+              else {
+                corLabel = corLabel + ' + Fabrication';
+              }
+
+            if(this.props.params.includes('Material'))
+              if(corLabel === "")
+                corLabel = corLabel + 'Material';
+              else {
+                corLabel = corLabel + '+ Material';
+              }
+          }
+
+
           return (
 
             <div style={{width: "100vw"}}>
               {(listView) ? (<div className="listSearch">
-              {/*
-              <ListDisplayTab type='Research' arr={this.shuffleArray(researchArr)}/>
-              <ListDisplayTab type='Tutorials' arr={this.shuffleArray(tutorialsArr)}/>
-              <ListDisplayTab type='Aesthetics' arr={this.shuffleArray(aestheticsArr)}/>
-              <ListDisplayTab type='Concepts' arr={this.shuffleArray(conceptsArr)}/>
-              <ListDisplayTab type='Patents' arr={this.shuffleArray(patentsArr)}/>
-
-
-            */}
-            <Table striped>
-            <thead>
-              <th>#</th>
-              <th>Reference Name</th>
-              <th>Link</th>
-            </thead>
-            <tbody>
-              {listContents}
-            </tbody>
-          </Table>
+                    <Table striped>
+                    <thead>
+                      <th>#</th>
+                      <th>Reference Name</th>
+                      <th>Link</th>
+                    </thead>
+                    <tbody>
+                      {listContents}
+                    </tbody>
+                  </Table>
               </div>
-             ) : (<div className="layoutSearch">
-                 <SearchDisplayTab type='Research' arr={this.shuffleArray(researchArr)}/>
-                 <SearchDisplayTab type='Tutorials' arr={this.shuffleArray(tutorialsArr)}/>
-                 <SearchDisplayTab type='Aesthetics' arr={this.shuffleArray(aestheticsArr)}/>
-                 <SearchDisplayTab type='Concepts' arr={this.shuffleArray(conceptsArr)}/>
-                <SearchDisplayTab type='Patents' arr={this.shuffleArray(patentsArr)}/>
+             ) : (
+               <div className="layoutSearch">
+                     <SearchDisplayTab type='Research' arr={this.shuffleArray(researchArr)}/>
+                     <SearchDisplayTab type='Tutorials' arr={this.shuffleArray(tutorialsArr)}/>
+                     <SearchDisplayTab type='Aesthetics' arr={this.shuffleArray(aestheticsArr)}/>
+                     <SearchDisplayTab type='Concepts' arr={this.shuffleArray(conceptsArr)}/>
+                    <SearchDisplayTab type='Patents' arr={this.shuffleArray(patentsArr)}/>
+                    <div className="bottomBar">
+                      <div className="corLabel">
+                          <div>{corLabel}</div>
+                      </div>
+                    </div>
              </div>)}
              </div>
         );

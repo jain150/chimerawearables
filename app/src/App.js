@@ -31,6 +31,10 @@ class App extends Component {
     })
   }
 
+/*
+    1) Create a modal for login when start is clicked
+    2) Make a state variable, isLoggen in, only display bookmark related features if user is indeed logged in
+*/
     componentDidMount() {
 
         Tabletop.init({
@@ -222,16 +226,7 @@ class App extends Component {
   }
 
     render() {
-        //console.log(store.getState());
 
-        /*
-
-          1) Wearability
-
-          5) Fix the contribution display in the filter
-          5) Designing contact us and contribute links
-          6) React-Router
-        */
         return (
           <>
           {(this.state.displayHome) ? (<HomePage toggle={this.toggleToSearch} />) : ((!this.props.searchDisplay) ? (<div className="layout">
