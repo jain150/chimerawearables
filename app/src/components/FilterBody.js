@@ -8,6 +8,7 @@ import Slider from 'rc-slider';
 import * as actionTypes from '.././store/actions';
 import ReactMinimalPieChart from 'react-minimal-pie-chart';
 import { ButtonDropdown, Progress, DropdownToggle, DropdownMenu, DropdownItem } from 'reactstrap';
+import {BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, Legend} from 'recharts';
 
 import { Label } from 'semantic-ui-react'
 
@@ -89,9 +90,37 @@ class FilterBody extends Component {
           {value: 20, color: "blue", title: "Fabrication"},
       ]
 
+
+      let yearData = [];
+
+      for(let i = this.props.minYear; i <= this.props.maxYear; i++) {
+
+        let temp = this.props.searchData.filter((item) => {
+
+          return item["Year"] === i.toString();
+        })
+
+        yearData = [
+            ...yearData,
+            {
+              year: i.toString(),
+              Articles: temp.length,
+            }
+        ];
+      }
+
+
+
+
       return (
           <div>
               <div>Time Frame</div>
+              <BarChart width={280} height={150} data={yearData}
+                  margin={{top: 5, right: 30, left: 0, bottom: 0}}>
+
+                  <Tooltip labelFormatter={() => ""}/>
+                  <Bar dataKey="Articles" fill="black" />
+             </BarChart>
               <Range handleStyle={[{ backgroundColor: 'black'}, {backgroundColor: 'black' }]} trackStyle={[{ backgroundColor: 'grey', height: "6px"}]}
               allowCross={false}  railStyle={{ backgroundColor: 'black' }} min={1990} max={2018} defaultValue={[1990, 2018]} onChange={(value) => this.onChange(value)} />
               <div>{this.props.minYear}<span style={{float: "right"}}>{this.props.maxYear}</span></div>

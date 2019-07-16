@@ -221,6 +221,9 @@ class SearchDisplay extends Component {
                      <SearchDisplayTab type='Concepts' arr={this.shuffleArray(conceptsArr)}/>
                     <SearchDisplayTab type='Patents' arr={this.shuffleArray(patentsArr)}/>
                     <div className="bottomBar">
+                    <div onClick={this.props.backToSearch} className="backLabel">
+                        <div>{"<---- Go Back to Search"}</div>
+                    </div>
                       <div className="corLabel">
                           <div>{corLabel}</div>
                       </div>

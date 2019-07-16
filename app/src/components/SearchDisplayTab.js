@@ -48,6 +48,13 @@ class SearchDisplayTab extends Component {
         costToken = "$";
 
 
+      let col = "green";
+
+      if(parseInt(input["inpMetric"]) === 3)
+        col = "red";
+      else if(parseInt(input["inpMetric"]) === 2)
+        col = "yellow";
+
       if(input["PIC ID"] === undefined || input["PIC ID"].length == 0)
         return (
           <div />
@@ -70,10 +77,16 @@ class SearchDisplayTab extends Component {
 
             <div id="title" className="cost"><div style={{backgroundColor: "#f7f7f7", borderRadius: "4px", opacity: "0.75"}}>{costToken}</div></div>
 
+            <div id="title" className="imp">
+                  <div style={{height: '18px', width: '18px', backgroundColor: col}}>
+                  </div>
+
+            </div>
+
             <div id="title" className="wear">
                              <img src={"http://127.0.0.1:8087/ImageDatabase/Icons/" + wearToken + ".png"}
                               alt="" style={{height: '18px', width: '18px', objectFit: "cover"}}/>
-              </div>
+            </div>
 
           </div>
         </div>

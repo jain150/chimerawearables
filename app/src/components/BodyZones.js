@@ -15,7 +15,7 @@ class BodyZones extends Component {
 
         this.state = {
           zone: 'none',
-            modal: false
+          modal: false
         };
   }
 
@@ -110,31 +110,31 @@ class BodyZones extends Component {
             return (
              <div className="container">
 
-             <div style={{marginTop: "15px"}}>
+             <div style={{marginTop: "15px", transform: "translateX(-20px)"}}>
 
 
-             <Button style={{backgroundColor: "black", color: "white"}} color="black" onClick={this.toggle}>Go to Resource Statistics</Button>
+                     <Button style={{backgroundColor: "black", color: "white"}} color="black" onClick={this.toggle}>Resource Statistics</Button>
 
-             <Modal size="lg" style={{maxWidth: '98vw', maxHeight: '98vh', width: '98vw', height: '98vh'}} isOpen={this.state.modal} toggle={this.toggle}>
-               <ModalHeader close={closeBtn} style={{backgroundColor: "black", color: "white"}} toggle={this.toggle}>Resource Statistics</ModalHeader>
+                     <Modal size="lg" style={{maxWidth: '98vw', maxHeight: '98vh', width: '98vw', height: '98vh'}} isOpen={this.state.modal} toggle={this.toggle}>
+                       <ModalHeader close={closeBtn} style={{backgroundColor: "black", color: "white"}} toggle={this.toggle}>Resource Statistics</ModalHeader>
 
-               <ModalBody style={{backgroundColor: "black"}}>
+                       <ModalBody style={{backgroundColor: "black"}}>
 
-                   <div style={{display: "flex", height: "50%"}}>
-                      <ColCharts label="Function" />
-                      <ColCharts label="Material" />
-                   </div>
+                           <div style={{display: "flex", height: "50%"}}>
+                              <ColCharts label="Function" />
+                              <ColCharts label="Material" />
+                           </div>
 
-                   <div style={{display: "flex",height: "50%"}}>
-                      <ColCharts label="Fabrication" />
-                      <BodyChart />
-                   </div>
+                           <div style={{display: "flex",height: "50%"}}>
+                              <ColCharts label="Fabrication" />
+                              <BodyChart />
+                           </div>
 
-               </ModalBody>
+                       </ModalBody>
 
-             </Modal>
+                     </Modal>
+          </div>
 
-             </div>
              <div style={{transform: "translate(20px, 100px)"}}>
              <ImageMapper src={img} map={myMap} width={180} height={400}
               	onClick={area => this.clicked(area)}

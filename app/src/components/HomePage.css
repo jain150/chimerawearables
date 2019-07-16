@@ -1,4 +1,4 @@
-.containerHome:hover {
-  cursor: pointer;
+.containerHome {
+  transform: translate(42.5vw, 35vh);
 
 }

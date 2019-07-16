@@ -131,7 +131,7 @@ const reducer = ( state = initialState, action ) => {
           case actionTypes.SEARCH_DISPLAY:
             return {
               ...state,
-              searchDisplay: true,
+              searchDisplay: !(state.searchDisplay)
             }
           case actionTypes.UPDATE_QUERY:
             return {

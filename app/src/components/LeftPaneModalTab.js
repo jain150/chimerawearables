@@ -11,8 +11,6 @@ class LeftPaneModalTab extends Component {
     constructor(props) {
        super(props);
 
-
-
        this.state = {
          curInput: '',
        };
