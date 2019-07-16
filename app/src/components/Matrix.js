@@ -27,6 +27,8 @@ class Matrix extends Component {
 
             For that specific query, determine how many entries are there in the database.
 
+            For the 4 base types
+
 
         2) When not clickable:
 
@@ -39,101 +41,7 @@ class Matrix extends Component {
     render() {
 
 
-            let funcCount = this.props.searchData.filter((item) => {
-              return (item["Function 1"] !== "" || item["Function 2"] !== "" || item["Function 3"] !== "")
-            });
-            funcCount = funcCount.length;
 
-            let fabCount = this.props.searchData.filter((item) => {
-              return (item["Fabrication 1"] !== "" || item["Fabrication 2"] !== "")
-            });
-            fabCount = fabCount.length;
-
-            let matCount = this.props.searchData.filter((item) => {
-              return (item["Material 1"] !== "" || item["Material 2"] !== "" || item["Material 3"] !== "")
-            });
-            matCount = matCount.length;
-
-            let bodCount = this.props.searchData.filter((item) => {
-              return (item["Body Zone 1"] !== "" || item["Body Zone 2"] !== "" || item["Body Zone 3"] !== "")
-            });
-            bodCount = bodCount.length;
-
-            let funcBodCount = this.props.searchData.filter((item) => {
-              return (item["Body Zone 1"] !== "" || item["Body Zone 2"] !== "" || item["Body Zone 3"] !== "")
-                      && (item["Function 1"] !== "" || item["Function 2"] !== "" || item["Function 3"] !== "")
-            });
-            funcBodCount = funcBodCount.length;
-
-            let matBodCount = this.props.searchData.filter((item) => {
-              return (item["Body Zone 1"] !== "" || item["Body Zone 2"] !== "" || item["Body Zone 3"] !== "")
-                      && (item["Material 1"] !== "" || item["Material 2"] !== "" || item["Material 3"] !== "")
-            });
-            matBodCount = matBodCount.length;
-
-            let fabBodCount = this.props.searchData.filter((item) => {
-              return (item["Body Zone 1"] !== "" || item["Body Zone 2"] !== "" || item["Body Zone 3"] !== "")
-                      && (item["Fabrication 1"] !== "" || item["Fabrication 2"] !== "")
-            });
-            fabBodCount = fabBodCount.length;
-
-            let fabFuncCount = this.props.searchData.filter((item) => {
-              return (item["Function 1"] !== "" || item["Function 2"] !== "" || item["Function 3"] !== "")
-                      && (item["Fabrication 1"] !== "" || item["Fabrication 2"] !== "")
-            });
-            fabFuncCount = fabFuncCount.length;
-
-            let matFuncCount = this.props.searchData.filter((item) => {
-              return (item["Function 1"] !== "" || item["Function 2"] !== "" || item["Function 3"] !== "")
-                      && (item["Material 1"] !== "" || item["Material 2"] !== "" || item["Material 3"] !== "")
-            });
-            matFuncCount = matFuncCount.length;
-
-            let matFabCount = this.props.searchData.filter((item) => {
-              return (item["Fabrication 1"] !== "" || item["Fabrication 2"] !== "")
-                      && (item["Material 1"] !== "" || item["Material 2"] !== "" || item["Material 3"] !== "")
-            });
-            matFabCount = matFabCount.length;
-
-            let matFabFuncCount = this.props.searchData.filter((item) => {
-              return (item["Fabrication 1"] !== "" || item["Fabrication 2"] !== "")
-                      && (item["Material 1"] !== "" || item["Material 2"] !== "" || item["Material 3"] !== "")
-                      && (item["Function 1"] !== "" || item["Function 2"] !== "" || item["Function 3"] !== "")
-            });
-
-            matFabFuncCount = matFabFuncCount.length;
-
-            let matFabBodCount = this.props.searchData.filter((item) => {
-              return (item["Fabrication 1"] !== "" || item["Fabrication 2"] !== "")
-                      && (item["Material 1"] !== "" || item["Material 2"] !== "" || item["Material 3"] !== "")
-                      && (item["Body Zone 1"] !== "" || item["Body Zone 2"] !== "" || item["Body Zone 3"] !== "")
-            });
-
-            matFabBodCount = matFabBodCount.length;
-
-            let funcFabBodCount = this.props.searchData.filter((item) => {
-              return (item["Fabrication 1"] !== "" || item["Fabrication 2"] !== "")
-                      && (item["Function 1"] !== "" || item["Function 2"] !== "" || item["Function 3"] !== "")
-                      && (item["Body Zone 1"] !== "" || item["Body Zone 2"] !== "" || item["Body Zone 3"] !== "")
-            });
-
-            funcFabBodCount = funcFabBodCount.length;
-
-            let funcMatBodCount = this.props.searchData.filter((item) => {
-              return (item["Material 1"] !== "" || item["Material 2"] !== "" || item["Material 3"] !== "")
-                      && (item["Function 1"] !== "" || item["Function 2"] !== "" || item["Function 3"] !== "")
-                      && (item["Body Zone 1"] !== "" || item["Body Zone 2"] !== "" || item["Body Zone 3"] !== "")
-            });
-
-            funcMatBodCount = funcMatBodCount.length;
-
-            let allCount = this.props.searchData.filter((item) => {
-              return (item["Body Zone 1"] !== "" || item["Body Zone 2"] !== "" || item["Body Zone 3"] !== "")
-                      && (item["Material 1"] !== "" || item["Material 2"] !== "" || item["Material 3"] !== "")
-                      && (item["Function 1"] !== "" || item["Function 2"] !== "" || item["Function 3"] !== "")
-                      && (item["Fabrication 1"] !== "" || item["Fabrication 2"] !== "")
-            });
-            allCount = allCount.length;
 
             const hexagonSize = { x: 12.5, y:  11.5 };
 
@@ -169,6 +77,311 @@ class Matrix extends Component {
                 name_array[3] = this.props.selMaterial;
             }
 
+            let funcCount = this.props.searchData.filter((item) => {
+              return (item["Function 1"] !== "" || item["Function 2"] !== "" || item["Function 3"] !== "")
+            });
+            funcCount = funcCount.length;
+
+            if(bool_array[0]) {
+
+              let curFuncCount = this.props.searchData.filter((item) => {
+                return item["Function 1"].toLowerCase().trim().includes(name_array[0].toLowerCase().trim())
+                || item["Function 2"].toLowerCase().trim().includes(name_array[0].toLowerCase().trim())
+                || item["Function 3"].toLowerCase().trim().includes(name_array[0].toLowerCase().trim())
+              });
+              funcCount = curFuncCount.length;
+            }
+
+            let fabCount = this.props.searchData.filter((item) => {
+              return (item["Fabrication 1"] !== "" || item["Fabrication 2"] !== "")
+            });
+            fabCount = fabCount.length;
+
+            if(bool_array[2]) {
+
+              let curFabCount = this.props.searchData.filter((item) => {
+                return item["Fabrication 1"].toLowerCase().trim().includes(name_array[2].toLowerCase().trim())
+                || item["Fabrication 2"].toLowerCase().trim().includes(name_array[2].toLowerCase().trim())
+              });
+              fabCount = curFabCount.length;
+            }
+
+            let matCount = this.props.searchData.filter((item) => {
+              return (item["Material 1"] !== "" || item["Material 2"] !== "" || item["Material 3"] !== "")
+            });
+            matCount = matCount.length;
+
+            if(bool_array[3]) {
+
+              let curMatCount = this.props.searchData.filter((item) => {
+                return item["Material 1"].toLowerCase().trim().includes(name_array[3].toLowerCase().trim())
+                || item["Material 2"].toLowerCase().trim().includes(name_array[3].toLowerCase().trim())
+                || item["Material 3"].toLowerCase().trim().includes(name_array[3].toLowerCase().trim())
+              });
+              matCount = curMatCount.length;
+            }
+
+            let bodCount = this.props.searchData.filter((item) => {
+              return (item["Body Zone 1"] !== "" || item["Body Zone 2"] !== "" || item["Body Zone 3"] !== "")
+            });
+            bodCount = bodCount.length;
+
+            if(bool_array[1]) {
+
+              let curBodCount = this.props.searchData.filter((item) => {
+                return item["Body Zone 1"].toLowerCase().trim().includes(name_array[1].toLowerCase().trim())
+                || item["Body Zone 2"].toLowerCase().trim().includes(name_array[1].toLowerCase().trim())
+                || item["Body Zone 3"].toLowerCase().trim().includes(name_array[1].toLowerCase().trim())
+              });
+              bodCount = curBodCount.length;
+            }
+
+            /*
+              For twos, take 2 bool arrays
+            */
+
+            let funcBodCount = this.props.searchData.filter((item) => {
+              return (item["Body Zone 1"] !== "" || item["Body Zone 2"] !== "" || item["Body Zone 3"] !== "")
+                      && (item["Function 1"] !== "" || item["Function 2"] !== "" || item["Function 3"] !== "")
+            });
+            funcBodCount = funcBodCount.length;
+
+            if(bool_array[0] && bool_array[1]) {
+
+              let curFuncBodCount = this.props.searchData.filter((item) => {
+                return (item["Body Zone 1"].toLowerCase().trim().includes(name_array[1].toLowerCase().trim())
+                || item["Body Zone 2"].toLowerCase().trim().includes(name_array[1].toLowerCase().trim())
+                || item["Body Zone 3"].toLowerCase().trim().includes(name_array[1].toLowerCase().trim())) &&
+                (item["Function 1"].toLowerCase().trim().includes(name_array[0].toLowerCase().trim())
+                || item["Function 2"].toLowerCase().trim().includes(name_array[0].toLowerCase().trim())
+                || item["Function 3"].toLowerCase().trim().includes(name_array[0].toLowerCase().trim()))
+              });
+              funcBodCount = curFuncBodCount.length;
+            }
+
+
+
+            let matBodCount = this.props.searchData.filter((item) => {
+              return (item["Body Zone 1"] !== "" || item["Body Zone 2"] !== "" || item["Body Zone 3"] !== "")
+                      && (item["Material 1"] !== "" || item["Material 2"] !== "" || item["Material 3"] !== "")
+            });
+            matBodCount = matBodCount.length;
+
+            if(bool_array[1] && bool_array[3]) {
+
+              let curMatBodCount = this.props.searchData.filter((item) => {
+                return (item["Body Zone 1"].toLowerCase().trim().includes(name_array[1].toLowerCase().trim())
+                || item["Body Zone 2"].toLowerCase().trim().includes(name_array[1].toLowerCase().trim())
+                || item["Body Zone 3"].toLowerCase().trim().includes(name_array[1].toLowerCase().trim())) &&
+                (item["Material 1"].toLowerCase().trim().includes(name_array[3].toLowerCase().trim())
+                || item["Material 2"].toLowerCase().trim().includes(name_array[3].toLowerCase().trim())
+                || item["Material 3"].toLowerCase().trim().includes(name_array[3].toLowerCase().trim()))
+              });
+              matBodCount = curMatBodCount.length;
+            }
+
+
+
+
+
+
+            let fabBodCount = this.props.searchData.filter((item) => {
+              return (item["Body Zone 1"] !== "" || item["Body Zone 2"] !== "" || item["Body Zone 3"] !== "")
+                      && (item["Fabrication 1"] !== "" || item["Fabrication 2"] !== "")
+            });
+            fabBodCount = fabBodCount.length;
+
+            if(bool_array[1] && bool_array[2]) {
+
+              let curFabBodCount = this.props.searchData.filter((item) => {
+                return (item["Body Zone 1"].toLowerCase().trim().includes(name_array[1].toLowerCase().trim())
+                || item["Body Zone 2"].toLowerCase().trim().includes(name_array[1].toLowerCase().trim())
+                || item["Body Zone 3"].toLowerCase().trim().includes(name_array[1].toLowerCase().trim())) &&
+                (item["Fabrication 1"].toLowerCase().trim().includes(name_array[2].toLowerCase().trim())
+                || item["Fabrication 2"].toLowerCase().trim().includes(name_array[2].toLowerCase().trim()))
+              });
+              fabBodCount = curFabBodCount.length;
+            }
+
+
+
+            let fabFuncCount = this.props.searchData.filter((item) => {
+              return (item["Function 1"] !== "" || item["Function 2"] !== "" || item["Function 3"] !== "")
+                      && (item["Fabrication 1"] !== "" || item["Fabrication 2"] !== "")
+            });
+            fabFuncCount = fabFuncCount.length;
+
+            if(bool_array[0] && bool_array[2]) {
+              let curFabFuncCount = this.props.searchData.filter((item) => {
+                return (item["Fabrication 1"].toLowerCase().trim().includes(name_array[2].toLowerCase().trim())
+                || item["Fabrication 2"].toLowerCase().trim().includes(name_array[2].toLowerCase().trim())) &&
+                (item["Function 1"].toLowerCase().trim().includes(name_array[0].toLowerCase().trim())
+                || item["Function 2"].toLowerCase().trim().includes(name_array[0].toLowerCase().trim())
+                || item["Function 3"].toLowerCase().trim().includes(name_array[0].toLowerCase().trim()))
+              });
+              fabFuncCount = curFabFuncCount.length;
+            }
+
+            let matFuncCount = this.props.searchData.filter((item) => {
+              return (item["Function 1"] !== "" || item["Function 2"] !== "" || item["Function 3"] !== "")
+                      && (item["Material 1"] !== "" || item["Material 2"] !== "" || item["Material 3"] !== "")
+            });
+            matFuncCount = matFuncCount.length;
+
+            if(bool_array[0] && bool_array[3]) {
+              let curMatFuncCount = this.props.searchData.filter((item) => {
+                return (item["Material 1"].toLowerCase().trim().includes(name_array[3].toLowerCase().trim())
+                || item["Material 2"].toLowerCase().trim().includes(name_array[3].toLowerCase().trim())
+                || item["Material 3"].toLowerCase().trim().includes(name_array[3].toLowerCase().trim())) &&
+                (item["Function 1"].toLowerCase().trim().includes(name_array[0].toLowerCase().trim())
+                || item["Function 2"].toLowerCase().trim().includes(name_array[0].toLowerCase().trim())
+                || item["Function 3"].toLowerCase().trim().includes(name_array[0].toLowerCase().trim()))
+              });
+              matFuncCount = curMatFuncCount.length;
+            }
+
+
+
+            let matFabCount = this.props.searchData.filter((item) => {
+              return (item["Fabrication 1"] !== "" || item["Fabrication 2"] !== "")
+                      && (item["Material 1"] !== "" || item["Material 2"] !== "" || item["Material 3"] !== "")
+            });
+            matFabCount = matFabCount.length;
+
+            if(bool_array[2] && bool_array[3]) {
+              let curMatFabCount = this.props.searchData.filter((item) => {
+                return (item["Material 1"].toLowerCase().trim().includes(name_array[3].toLowerCase().trim())
+                || item["Material 2"].toLowerCase().trim().includes(name_array[3].toLowerCase().trim())
+                || item["Material 3"].toLowerCase().trim().includes(name_array[3].toLowerCase().trim())) &&
+                (item["Fabrication 1"].toLowerCase().trim().includes(name_array[2].toLowerCase().trim())
+                || item["Fabrication 2"].toLowerCase().trim().includes(name_array[2].toLowerCase().trim()))
+              });
+              matFabCount = curMatFabCount.length;
+            }
+
+
+
+
+            let matFabFuncCount = this.props.searchData.filter((item) => {
+              return (item["Fabrication 1"] !== "" || item["Fabrication 2"] !== "")
+                      && (item["Material 1"] !== "" || item["Material 2"] !== "" || item["Material 3"] !== "")
+                      && (item["Function 1"] !== "" || item["Function 2"] !== "" || item["Function 3"] !== "")
+            });
+            matFabFuncCount = matFabFuncCount.length;
+
+            if(bool_array[2] && bool_array[3] && bool_array[0]) {
+              let curMatFabFuncCount = this.props.searchData.filter((item) => {
+                return (item["Material 1"].toLowerCase().trim().includes(name_array[3].toLowerCase().trim())
+                || item["Material 2"].toLowerCase().trim().includes(name_array[3].toLowerCase().trim())
+                || item["Material 3"].toLowerCase().trim().includes(name_array[3].toLowerCase().trim())) &&
+                (item["Fabrication 1"].toLowerCase().trim().includes(name_array[2].toLowerCase().trim())
+                || item["Fabrication 2"].toLowerCase().trim().includes(name_array[2].toLowerCase().trim())) && (
+                  item["Function 1"].toLowerCase().trim().includes(name_array[0].toLowerCase().trim())
+                  || item["Function 2"].toLowerCase().trim().includes(name_array[0].toLowerCase().trim())
+                  || item["Function 3"].toLowerCase().trim().includes(name_array[0].toLowerCase().trim())
+                )
+              });
+              matFabFuncCount = curMatFabFuncCount.length;
+            }
+
+
+            let matFabBodCount = this.props.searchData.filter((item) => {
+              return (item["Fabrication 1"] !== "" || item["Fabrication 2"] !== "")
+                      && (item["Material 1"] !== "" || item["Material 2"] !== "" || item["Material 3"] !== "")
+                      && (item["Body Zone 1"] !== "" || item["Body Zone 2"] !== "" || item["Body Zone 3"] !== "")
+            });
+            matFabBodCount = matFabBodCount.length;
+
+
+            if(bool_array[2] && bool_array[3] && bool_array[1]) {
+              let curMatFabBodCount = this.props.searchData.filter((item) => {
+                return (item["Material 1"].toLowerCase().trim().includes(name_array[3].toLowerCase().trim())
+                || item["Material 2"].toLowerCase().trim().includes(name_array[3].toLowerCase().trim())
+                || item["Material 3"].toLowerCase().trim().includes(name_array[3].toLowerCase().trim())) &&
+                (item["Fabrication 1"].toLowerCase().trim().includes(name_array[2].toLowerCase().trim())
+                || item["Fabrication 2"].toLowerCase().trim().includes(name_array[2].toLowerCase().trim())) && (
+                  item["Body Zone 1"].toLowerCase().trim().includes(name_array[1].toLowerCase().trim())
+                  || item["Body Zone 2"].toLowerCase().trim().includes(name_array[1].toLowerCase().trim())
+                  || item["Body Zone 3"].toLowerCase().trim().includes(name_array[1].toLowerCase().trim()))
+
+              });
+              matFabBodCount = curMatFabBodCount.length;
+            }
+
+
+
+            let funcFabBodCount = this.props.searchData.filter((item) => {
+              return (item["Fabrication 1"] !== "" || item["Fabrication 2"] !== "")
+                      && (item["Function 1"] !== "" || item["Function 2"] !== "" || item["Function 3"] !== "")
+                      && (item["Body Zone 1"] !== "" || item["Body Zone 2"] !== "" || item["Body Zone 3"] !== "")
+            });
+            funcFabBodCount = funcFabBodCount.length;
+
+            if(bool_array[2] && bool_array[0] && bool_array[1]) {
+              let curFuncFabBodCount = this.props.searchData.filter((item) => {
+                return (item["Function 1"].toLowerCase().trim().includes(name_array[0].toLowerCase().trim())
+                || item["Function 2"].toLowerCase().trim().includes(name_array[0].toLowerCase().trim())
+                || item["Function 3"].toLowerCase().trim().includes(name_array[0].toLowerCase().trim())) &&
+                (item["Fabrication 1"].toLowerCase().trim().includes(name_array[2].toLowerCase().trim())
+                || item["Fabrication 2"].toLowerCase().trim().includes(name_array[2].toLowerCase().trim())) && (
+                  item["Body Zone 1"].toLowerCase().trim().includes(name_array[1].toLowerCase().trim())
+                  || item["Body Zone 2"].toLowerCase().trim().includes(name_array[1].toLowerCase().trim())
+                  || item["Body Zone 3"].toLowerCase().trim().includes(name_array[1].toLowerCase().trim()))
+
+              });
+
+              console.log(curFuncFabBodCount);
+              funcFabBodCount = curFuncFabBodCount.length;
+            }
+
+            let funcMatBodCount = this.props.searchData.filter((item) => {
+              return (item["Material 1"] !== "" || item["Material 2"] !== "" || item["Material 3"] !== "")
+                      && (item["Function 1"] !== "" || item["Function 2"] !== "" || item["Function 3"] !== "")
+                      && (item["Body Zone 1"] !== "" || item["Body Zone 2"] !== "" || item["Body Zone 3"] !== "")
+            });
+            funcMatBodCount = funcMatBodCount.length;
+
+            if(bool_array[3] && bool_array[0] && bool_array[1]) {
+              let curFuncMatBodCount = this.props.searchData.filter((item) => {
+                return (item["Function 1"].toLowerCase().trim().includes(name_array[0].toLowerCase().trim())
+                || item["Function 2"].toLowerCase().trim().includes(name_array[0].toLowerCase().trim())
+                || item["Function 3"].toLowerCase().trim().includes(name_array[0].toLowerCase().trim())) &&
+                (item["Material 1"].toLowerCase().trim().includes(name_array[3].toLowerCase().trim())
+                || item["Material 2"].toLowerCase().trim().includes(name_array[3].toLowerCase().trim())
+                || item["Material 3"].toLowerCase().trim().includes(name_array[3].toLowerCase().trim())) && (
+                  item["Body Zone 1"].toLowerCase().trim().includes(name_array[1].toLowerCase().trim())
+                  || item["Body Zone 2"].toLowerCase().trim().includes(name_array[1].toLowerCase().trim())
+                  || item["Body Zone 3"].toLowerCase().trim().includes(name_array[1].toLowerCase().trim()))
+
+              });
+              funcMatBodCount = curFuncMatBodCount.length;
+            }
+
+            let allCount = this.props.searchData.filter((item) => {
+              return (item["Body Zone 1"] !== "" || item["Body Zone 2"] !== "" || item["Body Zone 3"] !== "")
+                      && (item["Material 1"] !== "" || item["Material 2"] !== "" || item["Material 3"] !== "")
+                      && (item["Function 1"] !== "" || item["Function 2"] !== "" || item["Function 3"] !== "")
+                      && (item["Fabrication 1"] !== "" || item["Fabrication 2"] !== "")
+            });
+            allCount = allCount.length;
+
+            if(bool_array[3] && bool_array[0] && bool_array[1] && bool_array[2]) {
+              let curAllCount = this.props.searchData.filter((item) => {
+                return (item["Function 1"].toLowerCase().trim().includes(name_array[0].toLowerCase().trim())
+                || item["Function 2"].toLowerCase().trim().includes(name_array[0].toLowerCase().trim())
+                || item["Function 3"].toLowerCase().trim().includes(name_array[0].toLowerCase().trim())) &&
+                (item["Material 1"].toLowerCase().trim().includes(name_array[3].toLowerCase().trim())
+                || item["Material 2"].toLowerCase().trim().includes(name_array[3].toLowerCase().trim())
+                || item["Material 3"].toLowerCase().trim().includes(name_array[3].toLowerCase().trim())) && (
+                  item["Body Zone 1"].toLowerCase().trim().includes(name_array[1].toLowerCase().trim())
+                  || item["Body Zone 2"].toLowerCase().trim().includes(name_array[1].toLowerCase().trim())
+                  || item["Body Zone 3"].toLowerCase().trim().includes(name_array[1].toLowerCase().trim())) &&
+                  (item["Fabrication 1"].toLowerCase().trim().includes(name_array[2].toLowerCase().trim())
+                  || item["Fabrication 2"].toLowerCase().trim().includes(name_array[2].toLowerCase().trim()))
+
+              });
+              allCount = curAllCount.length;
+            }
 
             return (
 
@@ -181,7 +394,7 @@ class Matrix extends Component {
 
                                   <Hexagon onClick={() => this.onClick(name_array, bool_array[0] && bool_array[1] && bool_array[2] && bool_array[3], ['BodyZones', 'Fabrication', 'Material', 'Function'])} q={0} r={0} s={0}>
 
-                                    {(bool_array[0] && bool_array[1] && bool_array[2] && bool_array[3]) ? (<text x="0" y="0" textAnchor="middle"><tspan x="0" dy="-1.2em">{name_array[0]}</tspan><tspan x="0" dy="1.2em">+ {name_array[1]}</tspan><tspan x="0" dy="1.2em">+ {name_array[2]}</tspan><tspan x="0" dy="1.2em">+ {name_array[3]}</tspan></text>) :
+                                    {(bool_array[0] && bool_array[1] && bool_array[2] && bool_array[3]) ? (<text x="0" y="0" textAnchor="middle"><tspan x="0" dy="-1.2em">{name_array[0]}</tspan><tspan x="0" dy="1.2em">+ {name_array[1]}</tspan><tspan x="0" dy="1.2em">+ {name_array[2]}</tspan><tspan x="0" dy="1.2em">+ {name_array[3]}</tspan><tspan x="0" dy="1.2em">{"(" + allCount + ")"}</tspan></text>) :
                                      (<text x="0" y="0" textAnchor="middle"><tspan x="0" dy="-1.2em">Function</tspan><tspan x="0" dy="1.2em">+ BodyZones</tspan><tspan x="0" dy="1.2em">+ Fabrication</tspan><tspan x="0" dy="1.2em">+ Material</tspan><tspan x="0" dy="1.2em">{"(" + allCount + ")"}</tspan></text>)}
                                  </Hexagon>
 
@@ -234,13 +447,13 @@ class Matrix extends Component {
 
                                  <Hexagon onClick={() => this.onClick(name_array, bool_array[1] && bool_array[2], ['BodyZones', 'Fabrication'])} q={0} r={1} s={0}>
 
-                                   {(bool_array[1] && bool_array[2]) ? (<text x="0" y="0" textAnchor="middle"><tspan x="0" dy="0em">{name_array[1]}</tspan><tspan x="0" dy="1.2em">+ {name_array[2]}</tspan></text>) :
+                                   {(bool_array[1] && bool_array[2]) ? (<text x="0" y="0" textAnchor="middle"><tspan x="0" dy="0em">{name_array[1]}</tspan><tspan x="0" dy="1.2em">+ {name_array[2]}</tspan><tspan x="0" dy="1.2em">{"(" + fabBodCount + ")"}</tspan></text>) :
                                     (<text x="0" y="0" textAnchor="middle"><tspan x="0" dy="0em">BodyZones</tspan><tspan x="0" dy="1.2em">+ Fabrication</tspan><tspan x="0" dy="1.2em">{"(" + fabBodCount + ")"}</tspan></text>)}
                                 </Hexagon>
 
                                 <Hexagon onClick={() => this.onClick(name_array, bool_array[0] && bool_array[3], ['Function', 'Material'])} q={0} r={-1} s={0}>
 
-                                  {(bool_array[0] && bool_array[3]) ? (<text x="0" y="0" textAnchor="middle"><tspan x="0" dy="0em">{name_array[0]}</tspan><tspan x="0" dy="1.2em">+ {name_array[3]}</tspan></text>) :
+                                  {(bool_array[0] && bool_array[3]) ? (<text x="0" y="0" textAnchor="middle"><tspan x="0" dy="0em">{name_array[0]}</tspan><tspan x="0" dy="1.2em">+ {name_array[3]}</tspan><tspan x="0" dy="1.2em">{"(" + matFuncCount + ")"}</tspan></text>) :
                                    (<text x="0" y="0" textAnchor="middle"><tspan x="0" dy="0em">Function</tspan><tspan x="0" dy="1.2em">+ Material</tspan><tspan x="0" dy="1.2em">{"(" + matFuncCount + ")"}</tspan></text>)}
                                </Hexagon>
 
@@ -255,7 +468,7 @@ class Matrix extends Component {
                              </Hexagon>
 
                              <Hexagon onClick={() => this.onClick(name_array, bool_array[2] && bool_array[3], ['Material', 'Fabrication'])} q={2} r={-1} s={0}>
-                               {(bool_array[2] && bool_array[3]) ? (<text x="0" y="0" textAnchor="middle"><tspan x="0" dy="0em">{name_array[2]}</tspan><tspan x="0" dy="1.2em">+ {name_array[3]}</tspan></text>) :
+                               {(bool_array[2] && bool_array[3]) ? (<text x="0" y="0" textAnchor="middle"><tspan x="0" dy="0em">{name_array[2]}</tspan><tspan x="0" dy="1.2em">+ {name_array[3]}</tspan><tspan x="0" dy="1.2em">{"(" + matFabCount + ")"}</tspan></text>) :
                                 (<text x="0" y="0" textAnchor="middle"><tspan x="0" dy="0em">Fabrication</tspan><tspan x="0" dy="1.2em">+ Material</tspan><tspan x="0" dy="1.2em">{"(" + matFabCount + ")"}</tspan></text>)}
 
                             </Hexagon>
@@ -267,7 +480,7 @@ class Matrix extends Component {
 
                            <Hexagon onClick={() => this.onClick(name_array, bool_array[0] && bool_array[1], ['Function', 'BodyZones'])} q={-2} r={1} s={0}>
 
-                             {(bool_array[0] && bool_array[1]) ? (<text x="0" y="0" textAnchor="middle"><tspan x="0" dy="0em">{name_array[0]}</tspan><tspan x="0" dy="1.2em">+ {name_array[1]}</tspan></text>) :
+                             {(bool_array[0] && bool_array[1]) ? (<text x="0" y="0" textAnchor="middle"><tspan x="0" dy="0em">{name_array[0]}</tspan><tspan x="0" dy="1.2em">+ {name_array[1]}</tspan><tspan x="0" dy="1.2em">{"(" + funcBodCount + ")"}</tspan></text>) :
                               (<text x="0" y="0" textAnchor="middle"><tspan x="0" dy="0em">Function</tspan><tspan x="0" dy="1.2em">+ BodyZones</tspan><tspan x="0" dy="1.2em">{"(" + funcBodCount + ")"}</tspan></text>)}
                           </Hexagon>
 
@@ -278,19 +491,19 @@ class Matrix extends Component {
 
                            <Hexagon onClick={() => this.onClick(name_array, bool_array[1] && bool_array[3], ['BodyZones', 'Material'])} q={1} r={-1} s={0}>
 
-                             {(bool_array[1] && bool_array[3]) ? (<text x="0" y="0" textAnchor="middle"><tspan x="0" dy="0em">{name_array[1]}</tspan><tspan x="0" dy="1.2em">+ {name_array[3]}</tspan></text>) :
+                             {(bool_array[1] && bool_array[3]) ? (<text x="0" y="0" textAnchor="middle"><tspan x="0" dy="0em">{name_array[1]}</tspan><tspan x="0" dy="1.2em">+ {name_array[3]}</tspan><tspan x="0" dy="1.2em">{"(" + matBodCount + ")"}</tspan></text>) :
                               (<text x="0" y="0" textAnchor="middle"><tspan x="0" dy="0em">BodyZones</tspan><tspan x="0" dy="1.2em">+ Material</tspan><tspan x="0" dy="1.2em">{"(" + matBodCount + ")"}</tspan></text>)}
                           </Hexagon>
 
                           <Hexagon onClick={() => this.onClick(name_array, bool_array[0] && bool_array[2], ['Function', 'Fabrication'])} q={-1} r={0} s={0}>
 
-                            {(bool_array[0] && bool_array[2]) ? (<text x="0" y="0" textAnchor="middle"><tspan x="0" dy="0em">{name_array[0]}</tspan><tspan x="0" dy="1.2em">+ {name_array[2]}</tspan></text>) :
+                            {(bool_array[0] && bool_array[2]) ? (<text x="0" y="0" textAnchor="middle"><tspan x="0" dy="0em">{name_array[0]}</tspan><tspan x="0" dy="1.2em">+ {name_array[2]}</tspan><tspan x="0" dy="1.2em">{"(" + fabFuncCount + ")"}</tspan></text>) :
                              (<text x="0" y="0" textAnchor="middle"><tspan x="0" dy="0em">Function</tspan><tspan x="0" dy="1.2em">+ Fabrication</tspan><tspan x="0" dy="1.2em">{"(" + fabFuncCount + ")"}</tspan></text>)}
                          </Hexagon>
 
                          <Hexagon onClick={() => this.onClick(name_array, bool_array[0] && bool_array[1] && bool_array[3], ['Function', 'BodyZones', 'Material'])} q={-1} r={-1} s={0}>
 
-                           {(bool_array[0] && bool_array[1] && bool_array[3]) ? (<text x="0" y="0" textAnchor="middle"><tspan x="0" dy="-1.2em">{name_array[0]}</tspan><tspan x="0" dy="1.2em">+ {name_array[1]}</tspan><tspan x="0" dy="1.2em">+ {name_array[3]}</tspan></text>) :
+                           {(bool_array[0] && bool_array[1] && bool_array[3]) ? (<text x="0" y="0" textAnchor="middle"><tspan x="0" dy="-1.2em">{name_array[0]}</tspan><tspan x="0" dy="1.2em">+ {name_array[1]}</tspan><tspan x="0" dy="1.2em">+ {name_array[3]}</tspan><tspan x="0" dy="1.2em">{"(" + funcMatBodCount + ")"}</tspan></text>) :
                             (<text x="0" y="0" textAnchor="middle"><tspan x="0" dy="-1.2em">Function</tspan><tspan x="0" dy="1.2em">+ BodyZones</tspan><tspan x="0" dy="1.2em">+ Material</tspan><tspan x="0" dy="1.2em">{"(" + funcMatBodCount + ")"}</tspan></text>)}
                         </Hexagon>
 
@@ -305,19 +518,19 @@ class Matrix extends Component {
 
                       <Hexagon onClick={() => this.onClick(name_array, bool_array[1] && bool_array[2] && bool_array[3], ['BodyZones', 'Material', 'Fabrication'])} q={1} r={0} s={0}>
 
-                        {(bool_array[1] && bool_array[2] && bool_array[3]) ? (<text x="0" y="0" textAnchor="middle"><tspan x="0" dy="-1.2em">{name_array[1]}</tspan><tspan x="0" dy="1.2em">+ {name_array[2]}</tspan><tspan x="0" dy="1.2em">+ {name_array[3]}</tspan></text>) :
+                        {(bool_array[1] && bool_array[2] && bool_array[3]) ? (<text x="0" y="0" textAnchor="middle"><tspan x="0" dy="-1.2em">{name_array[1]}</tspan><tspan x="0" dy="1.2em">+ {name_array[2]}</tspan><tspan x="0" dy="1.2em">+ {name_array[3]}</tspan><tspan x="0" dy="1.2em">{"(" + matFabBodCount + ")"}</tspan></text>) :
                          (<text x="0" y="0" textAnchor="middle"><tspan x="0" dy="-1.2em">BodyZones</tspan><tspan x="0" dy="1.2em">+ Material</tspan><tspan x="0" dy="1.2em">+ Fabrication</tspan><tspan x="0" dy="1.2em">{"(" + matFabBodCount + ")"}</tspan></text>)}
                      </Hexagon>
 
                    <Hexagon onClick={() => this.onClick(name_array, bool_array[0] && bool_array[1] && bool_array[2], ['Function', 'BodyZones', 'Fabrication'])} q={-1} r={1} s={0}>
 
-                       {(bool_array[0] && bool_array[1] && bool_array[2]) ? (<text x="0" y="0" textAnchor="middle"><tspan x="0" dy="-1.2em">{name_array[0]}</tspan><tspan x="0" dy="1.2em">+ {name_array[1]}</tspan><tspan x="0" dy="1.2em">+ {name_array[2]}</tspan></text>) :
+                       {(bool_array[0] && bool_array[1] && bool_array[2]) ? (<text x="0" y="0" textAnchor="middle"><tspan x="0" dy="-1.2em">{name_array[0]}</tspan><tspan x="0" dy="1.2em">+ {name_array[1]}</tspan><tspan x="0" dy="1.2em">+ {name_array[2]}</tspan><tspan x="0" dy="1.2em">{"(" + funcFabBodCount + ")"}</tspan></text>) :
                         (<text x="0" y="0" textAnchor="middle"><tspan x="0" dy="-1.2em">Function</tspan><tspan x="0" dy="1.2em">+ BodyZones</tspan><tspan x="0" dy="1.2em">+ Fabrication</tspan><tspan x="0" dy="1.2em">{"(" + funcFabBodCount + ")"}</tspan></text>)}
                     </Hexagon>
 
                     <Hexagon onClick={() => this.onClick(name_array, bool_array[0] && bool_array[2] && bool_array[3],  ['Function', 'Material', 'Fabrication'])} q={1} r={-2} s={0}>
 
-                      {(bool_array[0] && bool_array[2] && bool_array[3]) ? (<text x="0" y="0" textAnchor="middle"><tspan x="0" dy="-1.2em">{name_array[0]}</tspan><tspan x="0" dy="1.2em">+ {name_array[2]}</tspan><tspan x="0" dy="1.2em">+ {name_array[3]}</tspan></text>) :
+                      {(bool_array[0] && bool_array[2] && bool_array[3]) ? (<text x="0" y="0" textAnchor="middle"><tspan x="0" dy="-1.2em">{name_array[0]}</tspan><tspan x="0" dy="1.2em">+ {name_array[2]}</tspan><tspan x="0" dy="1.2em">+ {name_array[3]}</tspan><tspan x="0" dy="1.2em">{"(" + matFabFuncCount + ")"}</tspan></text>) :
                        (<text x="0" y="0" textAnchor="middle"><tspan x="0" dy="-1.2em">Function</tspan><tspan x="0" dy="1.2em">+ Material</tspan><tspan x="0" dy="1.2em">+ Fabrication</tspan><tspan x="0" dy="1.2em">{"(" + matFabFuncCount + ")"}</tspan></text>)}
                     </Hexagon>
 

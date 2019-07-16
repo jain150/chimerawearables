@@ -45,11 +45,19 @@
   transform: translateX(-7vw);
 }
 
+.searchBar {
+  transform: translateX(0px, 15px);
+}
+
+.searchBar:hover {
+
+}
 #demo-2 input[type=search] {
 	width: 15px;
   height: 90%;
 	padding-left: 10px;
 	color: transparent;
+  transform: translate(10px, 10px);
 	cursor: pointer;
 }
 #demo-2 input[type=search]:hover {
@@ -61,6 +69,8 @@
 	padding-left: 32px;
 	color: #000;
 	background-color: #fff;
+
+  transform: translate(-50px, 10px);
 	cursor: auto;
 }
 #demo-2 input:-moz-placeholder {

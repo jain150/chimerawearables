@@ -59,14 +59,14 @@ class FilterPane extends Component {
 
       let temp = 'translate(-100px, 10px)'
 
-      if(this.state.popoverOpen)
-        temp = 'translate(-350px, 10px)'
+      //if(this.state.popoverOpen)
+        //temp = 'translate(-350px, 10px)'
 
       return (
 
           <div className={(this.props.move) ? ((!this.props.listView) ? ("filterTabMove") : ("filterTabExtra")) : ("filterTab")}>
 
-          <div style={{transform: temp}}>
+          <div className="searchBar">
           <form onSubmit={this.handleSubmit} id="demo-2">
             <input type="search" placeholder="Search" value={this.state.value} onChange={this.handleChange} />
           </form>

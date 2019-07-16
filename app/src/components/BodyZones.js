@@ -3,6 +3,9 @@ import { connect } from 'react-redux';
 import './bodyZones.css'
 import * as actionTypes from '../store/actions';
 import ImageMapper from 'react-image-mapper';
+import ColCharts from './ColCharts'
+import BodyChart from './BodyChart'
+import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap';
 
 class BodyZones extends Component {
 
@@ -12,9 +15,16 @@ class BodyZones extends Component {
 
         this.state = {
           zone: 'none',
+            modal: false
         };
-
   }
+
+  toggle = () => {
+    this.setState(prevState => ({
+      modal: !prevState.modal
+    }));
+  }
+
 
   clicked = (area) => {
 
@@ -80,7 +90,7 @@ class BodyZones extends Component {
       let myMap = {
           name: "my-map",
           areas: [
-          { name: "Head", shape: "rect", coords: [70, 0, 110, 57], fillColor: "transparent"},
+          {name: "Head", shape: "rect", coords: [70, 0, 110, 57], fillColor: "transparent"},
           {name: "Chest", shape: "rect", coords: [53, 57, 90, 164], fillColor: "transparent"},
           {name: "Back", shape: "rect", coords: [90, 57, 127, 164], fillColor: "transparent"},
           {name: "Pelvic Region", shape: "rect", coords: [50, 168, 130, 214], fillColor: "transparent"},
@@ -94,8 +104,37 @@ class BodyZones extends Component {
           {name: "Wrist and Hand", shape: "rect", coords: [148, 174, 178, 215], fillColor: "transparent"}
           ]
       }
+
+            const closeBtn = <Button onClick={this.toggle} color="secondary">{"Close (X)"}</Button>
+
             return (
              <div className="container">
+
+             <div style={{marginTop: "15px"}}>
+
+
+             <Button style={{backgroundColor: "black", color: "white"}} color="black" onClick={this.toggle}>Go to Resource Statistics</Button>
+
+             <Modal size="lg" style={{maxWidth: '98vw', maxHeight: '98vh', width: '98vw', height: '98vh'}} isOpen={this.state.modal} toggle={this.toggle}>
+               <ModalHeader close={closeBtn} style={{backgroundColor: "black", color: "white"}} toggle={this.toggle}>Resource Statistics</ModalHeader>
+
+               <ModalBody style={{backgroundColor: "black"}}>
+
+                   <div style={{display: "flex", height: "50%"}}>
+                      <ColCharts label="Function" />
+                      <ColCharts label="Material" />
+                   </div>
+
+                   <div style={{display: "flex",height: "50%"}}>
+                      <ColCharts label="Fabrication" />
+                      <BodyChart />
+                   </div>
+
+               </ModalBody>
+
+             </Modal>
+
+             </div>
              <div style={{transform: "translate(20px, 100px)"}}>
              <ImageMapper src={img} map={myMap} width={180} height={400}
               	onClick={area => this.clicked(area)}

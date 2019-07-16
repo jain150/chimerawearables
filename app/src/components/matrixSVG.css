@@ -1,14 +1,6 @@
 svg {
 
 }
-/*
-Russian blue pattern:
-#7be3f6
-#4499a9
-#276a76
-#133b43
-#03090a
-*/
 
 svg g {
   fill: black;
@@ -36,9 +28,9 @@ svg g text {
   transition: fill-opacity .5s;
 }
 svg path {
-  fill: none;
-  /*stroke: #7be3f6;*/
-  stroke-width: 0.6em;
+  fill: #616161;
+/*  stroke: #7be3f6;*/
+/*  stroke-width: 0.6em;*/
   stroke-opacity: 0.7;
   /*stroke-linecap: round;
   stroke-linejoin: round;*/
