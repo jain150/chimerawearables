@@ -1,28 +1,33 @@
 .btnSelector {
   border-style: solid;
   border-width: medium;
-  border-color: #0F2862;
+  border-color: #00AAFE;
   color: white;
-  background-color: #0F2862;
+  background-color: #00AAFE;
   height: 36px;
 }
 
 .btnSelector:hover {
 
-  background-color: #0F2862;
+  background-color: #00AAFE;
   color: white;
   height: 36px;
 }
 
-.rotate {
+.rotate6 {
      transform: rotate(270deg);
      padding: "0 0 0 0";
-     background-color: #0F2862;
+     margin-top: 5vh;
+     background-color:  #00AAFE;
 }
 
+.rotate6:hover {
+
+  background-color: #0069FE;
+}
 .btnSelectorClicked {
 
-  background:  #0F2862;
+  background: #00AAFE;
   color: white;
   height: 36px;
 }
@@ -62,7 +67,7 @@
   height: 90%;
 	padding-left: 10px;
 	color: transparent;
-  background-color: #1D4999;
+  background-color:  #00AAFE;
   transform: translate(40px, 10px);
 	cursor: pointer;
 }

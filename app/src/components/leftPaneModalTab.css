@@ -14,13 +14,13 @@
 .modalHover:hover {
     cursor: pointer;
     background: black;
-    color: #A7AFBA;
+    color: white;
     font-size: 13px;
 }
 
 .modalHover {
 
-    color: #A7AFBA;
+    color: white;
     border-bottom-color: #ACACAC;
     border-bottom-width: thin;
     border-bottom-style: solid;

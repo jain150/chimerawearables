@@ -7,7 +7,7 @@ svg g {
   fill-opacity: 0.9;
 }
 svg g:hover {
-  fill: #1D4999;
+  fill: #00AAFE;
   fill-opacity: 1.0;
   cursor: pointer;
 }
@@ -17,7 +17,7 @@ svg g:hover text {
 }
 
 svg g polygon {
-  stroke: #1D4999;
+  stroke: #00AAFE;
   stroke-width: 0.4;
   transition: fill-opacity .5s;
 }
@@ -27,8 +27,8 @@ svg g polygon:hover {
 
 }
 svg g text {
-  font-size: 0.11em;
-  font-weight: bold;
+  font-size: 0.1025em;
+  font-weight: 650;
   fill: white;
   fill-opacity: 0.7;
   transition: fill-opacity .5s;

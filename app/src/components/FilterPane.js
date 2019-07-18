@@ -89,7 +89,7 @@ class FilterPane extends Component {
           </div>
           <div style={{transform: "translate(0, 30vh)", padding: "0 0 0 0", zIndex: "999"}}>
               <div style={{transform: val}}>
-                  <Button className="rotate" style={{ zIndex: "900", width: "180px", height: "35px", color: "black", borderStyle: "solid", borderColor: "black", borderWidth: "5px"}} outline color="info" id={'PopoverFilter'}><div style={{ transform: "translateY(-10px)",  borderTopStyle: "solid", borderColor: "black", borderWidth: "2px"}}><b>_-_-_-_-_-_-_</b></div></Button>
+                  <Button className="rotate6" style={{ zIndex: "900", width: "180px", height: "25px", color: "black", borderStyle: "solid", borderColor: "black", borderWidth: "5px"}} outline color="info" id={'PopoverFilter'}><div style={{ transform: "translateY(-10px)",  borderTopStyle: "solid", borderColor: "black", borderWidth: "2px"}}><b> - - - - - -</b></div></Button>
                </div>
 
                <Popover hideArrow={true} style={{width: '275px', color: "black", transform: "translateX(-0.3vw)", zIndex: "10"}} placement="right" isOpen={this.state.popoverOpen} target={'PopoverFilter'} toggle={this.toggle}>

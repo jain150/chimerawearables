@@ -83,49 +83,54 @@ class HomePage extends Component {
 
          <Button outline size="lg" style={{color: "white", marginTop: "5vh", marginLeft: "2vw", borderStyle: "thin", borderColor: "white", borderRadius: "2px"}} color="black" onClick={this.toggle}>Enter</Button>{' '}
 
-         <Modal size="lg" style={{maxWidth: '80vw',  maxHeight: '80vh', width: '80vw', height: '80vh', borderStyle: "solid", borderColor: "white", borderRadius: "2px"}} isOpen={this.state.modal} toggle={this.toggle}>
+         <Modal size="lg" style={{backgroundColor: "black", maxWidth: '80vw',  maxHeight: '80vh', width: '82vw', height: '82vh', borderStyle: "solid", borderColor: "white", borderRadius: "6px"}} isOpen={this.state.modal} toggle={this.toggle}>
 
-           <ModalBody style={{backgroundColor: "black", color: "white", maxWidth: '80vw',  maxHeight: '80vh', width: '79.7vw', height: '78vh'}}>
+           <ModalBody style={{backgroundColor: "black", color: "white", maxWidth: '80vw',  maxHeight: '80vh', width: '79.7vw', height: '79vh'}}>
 
            <div style={{display: "flex"}}>
             <div style={{width: "30%"}}>
-            <b>Login</b>
+
 
                <Form>
                     <FormGroup>
                        <Label for="exampleEmail">Email</Label>
-                       <Input type="email" name="email" id="exampleEmail" />
+                       <Input style={{ borderRadius: "0px"}} type="email" name="email" id="exampleEmail" />
                      </FormGroup>
                      <FormGroup>
                        <Label for="examplePassword">Password</Label>
-                       <Input type="password" name="password" id="examplePassword" />
+                       <Input style={{ borderRadius: "0px"}} type="password" name="password" id="examplePassword" />
                      </FormGroup>
+
+                     <Button onClick={this.onSignUpSubmit} style={{marginTop: "10px", marginLeft: "8vw", transform: "translateY(100px)"}} color="secondary">Login</Button>
                 </Form>
             </div>
 
             <div style={{width: "30%", marginLeft: "7%"}}>
-            <b>Sign Up</b>
+
 
                <Form>
 
+                       <Label style={{marginTop: "10px"}} for="exampleEmail">Username</Label>
+                       <Input style={{ borderRadius: "0px"}} type="text"/>
+
                        <Label style={{marginTop: "10px"}} for="exampleEmail">Email</Label>
-                       <Input type="email" onChange={this.onSignUpEmailChange} placeholder="Enter your email" value={this.state.signUpEmail}/>
+                       <Input style={{ borderRadius: "0px"}} type="email" onChange={this.onSignUpEmailChange} value={this.state.signUpEmail}/>
 
                        <Label style={{marginTop: "10px"}} for="examplePassword">Password</Label>
-                       <Input type="password" onChange={this.onSignUpPasswordChange} placeholder="Enter your password" value={this.state.signUpPassword} />
+                       <Input style={{ borderRadius: "0px"}} type="password" onChange={this.onSignUpPasswordChange} value={this.state.signUpPassword} />
 
-                      <Button onClick={this.onSignUpSubmit} style={{marginTop: "10px", marginLeft: "8vw"}} color="secondary">Sign Up!!!</Button>
+                      <Button onClick={this.onSignUpSubmit} style={{marginTop: "10px", marginLeft: "8vw", transform: "translateY(37px)"}} color="secondary">Sign Up</Button>
                 </Form>
             </div>
 
             <div style={{width: "30%", marginLeft: "7%"}}>
-            <b>Guest Mode</b>
+
 
                <Form>
                        <Label style={{marginTop: "10px"}} for="exampleEmail">Username</Label>
-                       <Input type="email" placeholder="Enter a username"/>
+                       <Input style={{ borderRadius: "0px"}} type="email"/>
 
-                      <Button onClick={this.props.toggle} style={{marginTop: "10vh", marginLeft: "8vw"}} color="secondary">Guest Mode</Button>
+                      <Button onClick={this.props.toggle} style={{marginTop: "10vh", marginLeft: "8vw", transform: "translateY(131px)"}} color="secondary">Guest Mode</Button>
                 </Form>
             </div>
 

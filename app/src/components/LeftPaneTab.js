@@ -54,19 +54,31 @@ class LeftPaneTab extends Component {
                 selArr = this.props.arrMat;
             }
 
+            let backgroundCol = "rgb(172, 216, 206)";
+            let borderCol = "rgb(110, 169, 155)";
+
+            if(this.props.name === "Material") {
+                backgroundCol = "rgb(254, 205, 102)";
+                borderCol = "rgb(254, 172, 0)";
+            }
+
+            else if(this.props.name === "Fabrication") {
+              backgroundCol = "rgb(133, 194, 219)";
+              borderCol = "rgb(0, 181, 254)";
+            }
 
             //console.log(store.getState());
             return (
 
-             <div id={'Popover-'+this.props.name} className="leftPaneTabBody">
+             <div id={'Popover-'+this.props.name} style={{ backgroundColor: backgroundCol, borderColor: borderCol }} className="leftPaneTabBody">
 
-                 <div className="rotate move">{this.props
+                 <div className="rotate5 move">{this.props
                  .name}
                  </div>
 
 
                  <img id="image" src={"http://127.0.0.1:8087/ImageDatabase/Icons/" + this.props.name + ".png"}
-                  alt="" style={{height: '40px', width: '40px', objectFit: 'cover', transform: "translate(12px, 35px)"}}/>
+                  alt="" style={{height: '40px', width: '40px', objectFit: 'cover', transform: "translate(6px, 20px)"}}/>
 
 
 
