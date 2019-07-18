@@ -50,9 +50,11 @@ class SearchDisplayTab extends Component {
 
       let col = "green";
 
-      if(parseInt(input["inpMetric"]) === 3)
+      console.log(input["impMetric"]);
+
+      if(parseInt(input["impMetric"]) === 3)
         col = "red";
-      else if(parseInt(input["inpMetric"]) === 2)
+      else if(parseInt(input["impMetric"]) === 2)
         col = "yellow";
 
       if(input["PIC ID"] === undefined || input["PIC ID"].length == 0)
@@ -73,7 +75,7 @@ class SearchDisplayTab extends Component {
             <a  href={input["Reference Link"]} target="_blank">
             <div id="title" className="centered">{(input["Reference Name"].length < 40) ? (input["Reference Name"]) : (input["Reference Name"].substring(0, 40) + "...")}</div>
             </a>
-            <div id="title" className="ticker"><Input checked={check} onClick={() => this.updateBookmark(input["Reference Link"])} type="checkbox" />{' '}</div>
+            {(this.props.loggedIn) ? (<div id="title" className="ticker"><Input checked={check} onClick={() => this.updateBookmark(input["Reference Link"])} type="checkbox" />{' '}</div>) : (<div/>)}
 
             <div id="title" className="cost"><div style={{backgroundColor: "#f7f7f7", borderRadius: "4px", opacity: "0.75"}}>{costToken}</div></div>
 
@@ -121,6 +123,8 @@ const mapDispatchToProps = dispatch => {
 const mapStateToProps = state => {
     return {
         bookMarks: state.bookMarks,
+
+        loggedIn: state.isLoggedIn,
     }
 };
 

@@ -34,6 +34,6 @@
 
 .layout {
     height: 100vh;
-    background: white;
+    background: black;
     display: flex;
 }

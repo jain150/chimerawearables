@@ -14,8 +14,8 @@ class Matrix extends Component {
 
         if(bool_param) {
 
-          this.props.toggleDisplay();
           this.props.updateQuery(name_array, query_param_array);
+          this.props.toggleDisplay();
         }
     };
 

@@ -52,6 +52,15 @@ class HomePage extends Component {
       /*
         Let's send JSON request over here, if it success, we'll call success, if fails we'll call failure
       */
+
+      let success = true;
+      let bookMarks = [];
+
+      if(success) {
+        this.props.authSuccess(bookMarks);
+        this.props.toggle();
+      }
+
     }
 
     render() {
@@ -66,14 +75,8 @@ class HomePage extends Component {
 
 
       return (
-      <div>
-        <img id="image" src={"http://127.0.0.1:8087/ImageDatabase/Icons/Home.png"} alt=""
-         style={{height: '24vh', width: '32vw', objectFit: 'cover', transform: "translate(35vw, 20vh)"}}/>
-         <Alert color="success" style={{width: "50vw", marginLeft: "25vw", top: "20vh"}}>
-            <p>
-              Welcome to our interactive search engine for Wearables. Press start to enter.
-            </p>
-         </Alert>
+      <div style={{backgroundImage: "url(http://127.0.0.1:8087/ImageDatabase/Icons/Home.png)", height: "100vh", width:"133.5vw", backgroundSize: "cover", backgroundColor: "black"}}>
+
          <div className="containerHome">
 
          <Button style={{backgroundColor: "black", color: "white"}} color="black" onClick={this.toggle}>Login/Sign Up</Button>{' '}
@@ -126,5 +129,19 @@ class HomePage extends Component {
   }
 }
 
+const mapStateToProps = state => {
+    return {
+        searchData: state.searchData,
+        function: state.functions,
+        material: state.material,
+        fabrication: state.fabrication,
+    }
+};
 
-export default HomePage;
+const mapDispatchToProps = dispatch => {
+    return {
+        authSuccess: (value) => dispatch({type: actionTypes.AUTH_SUCCESS, val: value}),
+    }
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(HomePage);

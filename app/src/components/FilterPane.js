@@ -25,7 +25,23 @@ class FilterPane extends Component {
       this.state = {
         value: '',
         popoverOpen: false,
+        visibility: 'visible',
       };
+    }
+
+    toggleVisibility = () => {
+      if(this.state.visibility === 'visible') {
+        this.setState({
+          visibility: 'hidden',
+        });
+      }
+      else {
+        this.setState({
+          visibility: 'visible',
+        });
+      }
+
+      console.log(this.state.visibility);
     }
 
     toggle() {
@@ -73,14 +89,12 @@ class FilterPane extends Component {
           </div>
           <div style={{transform: "translate(0, 30vh)", padding: "0 0 0 0", zIndex: "999"}}>
               <div style={{transform: val}}>
-
-               <Button className="rotate" style={{ zIndex: "900", width: "180px", height: "35px", color: "black", borderStyle: "solid", borderColor: "black", borderWidth: "5px"}} outline color="info" id={'PopoverFilter'}><div style={{ transform: "translateY(-10px)",  borderTopStyle: "solid", borderColor: "black", borderWidth: "2px"}}><b>_-_-_-_-_-_-_</b></div></Button>
-
+                  <Button className="rotate" style={{ zIndex: "900", width: "180px", height: "35px", color: "black", borderStyle: "solid", borderColor: "black", borderWidth: "5px"}} outline color="info" id={'PopoverFilter'}><div style={{ transform: "translateY(-10px)",  borderTopStyle: "solid", borderColor: "black", borderWidth: "2px"}}><b>_-_-_-_-_-_-_</b></div></Button>
                </div>
 
-               <Popover hideArrow={true} style={{width: '275px', color: "black", transform: "translateX(-0.3vw)"}} placement="right" isOpen={this.state.popoverOpen} target={'PopoverFilter'} toggle={this.toggle}>
+               <Popover hideArrow={true} style={{width: '275px', color: "black", transform: "translateX(-0.3vw)", zIndex: "10"}} placement="right" isOpen={this.state.popoverOpen} target={'PopoverFilter'} toggle={this.toggle}>
                  <PopoverHeader style={{fontWeight: "bold"}}>Data Filter</PopoverHeader>
-                 <PopoverBody style={{color: "black", fontWeight: "bold", backgroundColor: "#e0dede"}}><FilterBody showLoop={this.props.showLoop}/></PopoverBody>
+                 <PopoverBody style={{color: "black", fontWeight: "bold", backgroundColor: "#e0dede"}}><FilterBody filterToggle={this.toggleVisibility} showLoop={this.props.showLoop}/></PopoverBody>
                </Popover>
                </div>
           </div>

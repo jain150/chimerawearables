@@ -96,7 +96,7 @@ class LeftPanePopoverTab extends Component {
             }
             )
             return (
-                        <div style={{width: '100%'}}>
+                        <div style={{width: '100%', color: "#A7AFBA", backgroundColor: "black"}}>
                           {inp}
                         </div>
 

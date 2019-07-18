@@ -1,27 +1,28 @@
 .btnSelector {
   border-style: solid;
   border-width: medium;
-  border-color: #9B089A;
-  color: #9B089A;
-  background: transparent;
+  border-color: #0F2862;
+  color: white;
+  background-color: #0F2862;
   height: 36px;
 }
 
 .btnSelector:hover {
 
-  background: #9B089A;
+  background-color: #0F2862;
   color: white;
   height: 36px;
 }
 
 .rotate {
      transform: rotate(270deg);
-     padding: "0 0 0 0"
+     padding: "0 0 0 0";
+     background-color: #0F2862;
 }
 
 .btnSelectorClicked {
 
-  background: #9B089A;
+  background:  #0F2862;
   color: white;
   height: 36px;
 }
@@ -38,6 +39,10 @@
 .filterTabMove {
   width: 15vh;
   transform: translateX(-2vw);
+}
+
+.popover {
+  z-index: 1000;
 }
 
 .filterTabExtra {
@@ -57,7 +62,8 @@
   height: 90%;
 	padding-left: 10px;
 	color: transparent;
-  transform: translate(10px, 10px);
+  background-color: #1D4999;
+  transform: translate(40px, 10px);
 	cursor: pointer;
 }
 #demo-2 input[type=search]:hover {
@@ -97,7 +103,7 @@ input::-webkit-search-cancel-button {
 
 input[type=search] {
 	background: #ededed url(https://static.tumblr.com/ftv85bp/MIXmud4tx/search-icon.png) no-repeat 9px center;
-	border: solid 1px #ccc;
+	border: solid 1px #1D4999;
 	padding: 9px 10px 9px 32px;
 	width: 55px;
 

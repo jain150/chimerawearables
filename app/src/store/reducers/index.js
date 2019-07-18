@@ -52,6 +52,8 @@ const initialState = {
 
     bookMarks: [],
     viewBookmarks: false,
+
+    isLoggedIn: false,
 };
 
 const reducer = ( state = initialState, action ) => {
@@ -131,8 +133,15 @@ const reducer = ( state = initialState, action ) => {
           case actionTypes.SEARCH_DISPLAY:
             return {
               ...state,
-              searchDisplay: !(state.searchDisplay)
+              searchDisplay: true,
             }
+
+          case actionTypes.REMOVE_SEARCH_DISPLAY:
+          return {
+            ...state,
+            searchDisplay: false,
+          }
+          
           case actionTypes.UPDATE_QUERY:
             return {
               ...state,
@@ -201,6 +210,23 @@ const reducer = ( state = initialState, action ) => {
               viewBookmarks: (!state.viewBookmarks),
             }
 
+          }
+
+          case actionTypes.AUTH_SUCCESS: {
+
+            return {
+              ...state,
+              isLoggedIn: true,
+              bookMarks: action.val
+            }
+          }
+
+          case actionTypes.AUTH_FAILURE: {
+
+            return {
+              ...state,
+              isLoggedIn: false,
+            }
           }
     }
     return state;

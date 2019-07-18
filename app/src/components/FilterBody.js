@@ -10,6 +10,10 @@ import ReactMinimalPieChart from 'react-minimal-pie-chart';
 import { ButtonDropdown, Progress, DropdownToggle, DropdownMenu, DropdownItem } from 'reactstrap';
 import {BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, Legend} from 'recharts';
 
+import ColCharts from './ColCharts'
+import BodyChart from './BodyChart'
+import { Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap';
+
 import { Label } from 'semantic-ui-react'
 
 const createSliderWithTooltip = Slider.createSliderWithTooltip;
@@ -24,7 +28,17 @@ class FilterBody extends Component {
           this.state = {
             dropdownOpen: false,
             venue: 'All',
+            modal: false,
           };
+    }
+
+    toggleStats = () => {
+      this.setState(prevState => ({
+        modal: !prevState.modal
+      }));
+
+      this.props.filterToggle();
+
     }
 
     toggle() {
@@ -93,7 +107,7 @@ class FilterBody extends Component {
 
       let yearData = [];
 
-      for(let i = this.props.minYear; i <= this.props.maxYear; i++) {
+      for(let i = 1990; i <= 2018; i++) {
 
         let temp = this.props.searchData.filter((item) => {
 
@@ -103,24 +117,26 @@ class FilterBody extends Component {
         yearData = [
             ...yearData,
             {
-              year: i.toString(),
-              Articles: temp.length,
+              name: i.toString(),
+              Projects: temp.length,
             }
         ];
+
+
       }
 
-
-
+        const closeBtn = <Button onClick={this.toggleStats} color="secondary">{"Close (X)"}</Button>
 
       return (
           <div>
               <div>Time Frame</div>
               <BarChart width={280} height={150} data={yearData}
                   margin={{top: 5, right: 30, left: 0, bottom: 0}}>
-
-                  <Tooltip labelFormatter={() => ""}/>
-                  <Bar dataKey="Articles" fill="black" />
+                  <XAxis dataKey="name" hide={true}/>
+                  <Tooltip cursor={{ stroke: 'blue', strokeWidth: 2 }}/>
+                  <Bar dataKey="Projects" fill="black" />
              </BarChart>
+
               <Range handleStyle={[{ backgroundColor: 'black'}, {backgroundColor: 'black' }]} trackStyle={[{ backgroundColor: 'grey', height: "6px"}]}
               allowCross={false}  railStyle={{ backgroundColor: 'black' }} min={1990} max={2018} defaultValue={[1990, 2018]} onChange={(value) => this.onChange(value)} />
               <div>{this.props.minYear}<span style={{float: "right"}}>{this.props.maxYear}</span></div>
@@ -160,9 +176,34 @@ class FilterBody extends Component {
                 <Button onClick={this.toggleDisplay} outline color="secondary">{(this.props.listView) ? ("View Results in Original Form") : ("View Results in List Form")}</Button>{' '}
               </div>
 
-              <div style={{marginTop: "10px"}}>
+              {(this.props.loggedIn) ? (<div style={{marginTop: "10px"}}>
                 <Button onClick={this.toggleBookmarks} outline color="secondary">{(this.props.viewBookmarks) ? ("View all Results") : ("View Pinned/Bookmarks")}</Button>{' '}
-              </div>
+              </div>) : (<div/>)}
+
+              <div style={{marginTop: "15px", zIndex: "2500 !important"}}>
+
+
+                      <Button outline color="secondary" onClick={this.toggleStats}>Resource Statistics</Button>
+
+                      <Modal size="lg" style={{maxWidth: '98vw', maxHeight: '98vh', width: '98vw', height: '98vh'}} isOpen={this.state.modal} toggle={this.toggle}>
+                        <ModalHeader close={closeBtn} style={{backgroundColor: "black", color: "white"}} toggle={this.toggleStats}>Resource Statistics</ModalHeader>
+
+                        <ModalBody style={{backgroundColor: "black"}}>
+
+                            <div style={{display: "flex", height: "50%"}}>
+                               <ColCharts label="Function" />
+                               <ColCharts label="Material" />
+                            </div>
+
+                            <div style={{display: "flex",height: "50%"}}>
+                               <ColCharts label="Fabrication" />
+                               <BodyChart />
+                            </div>
+
+                        </ModalBody>
+
+                      </Modal>
+           </div>
 
           </div>
         );
@@ -205,6 +246,8 @@ const mapStateToProps = state => {
         searchData: state.searchData,
         listView: state.listView,
         viewBookmarks: state.viewBookmarks,
+
+        loggedIn: state.isLoggedIn,
 
     }
 };

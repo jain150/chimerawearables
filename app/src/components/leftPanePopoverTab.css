@@ -3,7 +3,6 @@
     width: 100%;
     padding-left: 10px;
     border-bottom-color: #ACACAC;
-    background: white;
     border-bottom-style: solid;
     border-bottom-width: thin;
     cursor: pointer;
@@ -14,12 +13,12 @@
 
     width: 100%;
     padding-left: 10px;
-    font-color: blue;
     background: #B2AFAF;
     border-bottom-color: #ACACAC;
     border-bottom-style: solid;
     border-bottom-width: thin;
     cursor: pointer;
+    color: black;
 }
 
 .leftPanePopoverTabBody:hover {

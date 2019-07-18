@@ -65,7 +65,7 @@ class LeftPaneModalTab extends Component {
                 return (
                     <div>
                     {(curInp === input) ? (
-                    <div style={{background: 'black', color: 'white', fontWeight: 'bold'}} onClick={() => this.onSelect(input, this.props.type)}
+                    <div style={{background: 'black', color: '#A7AFBA', fontWeight: 'bold'}} onClick={() => this.onSelect(input, this.props.type)}
                     className='modalHover'
                                               key={input}
                      >{input}</div>) : (<div onClick={() => this.onSelect(input, this.props.type)}

@@ -75,17 +75,17 @@ class App extends Component {
     computeImplementationMetric = (data) => {
 
       let fabricationChart =
-      {"Laser Cutting":	3,"3D Printing":	9,"Layering": 1,"Printing": 3,"Painting": 3,
-      "Sticking": 1,"Heat Pressing": 9,"Heat Transfer": 9,"Soldering":	3,"Origami":	1,"Molding and Casting":	9,"Pleating and Folding": 3,
-       "Knit": 9,"Embroidery and Applique":	9,
-"Patchwork and Patterning": 3,"Woven": 3,"Non Woven":	3,
-      "Machining":	3,"Cut and Sew":	1, "Joining": 1};
+      {"laser cutting":	3,"3d printing":	9,"layering": 1,"printing": 3,"painting": 3,
+      "sticking": 1,"heat pressing": 9,"heat transfer": 9,"soldering":	3,"origami":	1,"molding and casting":	9,"pleating and folding": 3,
+       "knit": 9,"embroidery and applique":	9,
+       "patchwork and patterning": 3,"woven": 3,"non woven":	3,
+      "machining":	3,"cut and sew":	1, "joining": 1};
 
       let functionChart =
-        {'Storage': 1, 'Breathability': 3, 'Energy Harvesting': 9, 'Feedback': 9,
-         'Display': 3, 'Electronic Elements Connections': 3, 'Wireless Communication': 9, 'Control': 9, 'Movement': 3,
-          'Sensing': 3, 'Protective': 1, 'Magnetic': 1, 'Cognitive': 9, 'Modularity': 3, 'Emissivity': 3,
-        'Wearability': 3, 'Morphology': 3, 'Aesthetics': 3, 'Gestures': 3};
+        {'storage': 1, 'breathability': 3, 'energy harvesting': 9, 'feedback': 9,
+         'display': 3, 'electronic elements connections': 3, 'wireless communication': 9, 'control': 9, 'movement': 3,
+          'sensing': 3, 'protective': 1, 'magnetic': 1, 'cognitive': 9, 'modularity': 3, 'emissivity': 3,
+        'wearability': 3, 'morphology': 3, 'aesthetics': 3, 'gestures': 3};
 
       let impMetric = [];
 
@@ -94,27 +94,28 @@ class App extends Component {
           let fabScore = 0;
           let funcScore = 0;
 
-          if(data[i]["Fabrication 1"] in fabricationChart) {
+          if(data[i]["Fabrication 1"].toLowerCase() in fabricationChart) {
             fabScore += fabricationChart[data[i]["Fabrication 1"]];
           }
 
-          if(data[i]["Fabrication 2"] in fabricationChart) {
+          if(data[i]["Fabrication 2"].toLowerCase() in fabricationChart) {
             fabScore += fabricationChart[data[i]["Fabrication 2"]];
           }
 
-          if(data[i]["Function 1"] in functionChart) {
+          if(data[i]["Function 1"].toLowerCase() in functionChart) {
             funcScore = Math.max(funcScore, functionChart[data[i]["Function 1"]]);
           }
 
-          if(data[i]["Function 2"] in functionChart) {
+          if(data[i]["Function 2"].toLowerCase() in functionChart) {
             funcScore = Math.max(funcScore, functionChart[data[i]["Function 2"]]);
           }
 
-          if(data[i]["Function 3"] in functionChart) {
+          if(data[i]["Function 3"].toLowerCase() in functionChart) {
             funcScore = Math.max(funcScore, functionChart[data[i]["Function 3"]]);
           }
 
           let temp = fabScore * funcScore;
+
           let ans = 1;
           if(temp <= 12)
             ans = 1;
@@ -127,6 +128,7 @@ class App extends Component {
           impMetric[i] = {"impMetric": ans};
       }
 
+
       return impMetric;
 
 
@@ -135,11 +137,11 @@ class App extends Component {
     computeCostMetric = (data) => {
 
       let fabricationChart =
-      {"Laser Cutting":	9,"3D Printing":	9,"Layering": 3,"Printing": 3,"Painting": 3,
-      "Sticking": 1,"Heat Pressing": 9,"Heat Transfer": 3,"Soldering":	1,"Origami":	1,"Molding and Casting":	9,"Pleating and Folding": 3,
-       "Knit": 1,"Embroidery and Applique":	3,
-"Patchwork and Patterning": 3,"Woven": 9,"Non Woven":	9,
-      "Machining":	9,"Cut and Sew":	1, "Joining": 3};
+      {"laser cutting":	9,"3d printing":	9,"layering": 3,"printing": 3,"painting": 3,
+      "sticking": 1,"heat pressing": 9,"heat transfer": 3,"soldering":	1,"origami":	1,"molding and casting":	9,"pleating and folding": 3,
+       "knit": 1,"embroidery and applique":	3,
+       "patchwork and patterning": 3,"woven": 9,"non woven":	9,
+       "machining":	9,"cut and wew":	1, "joining": 3};
 
 
       /*
@@ -147,21 +149,21 @@ class App extends Component {
       */
       let materialChart =
       {
-          "Conductive Inks": 3,
-          "Polymers": 9,
-          "Molding Materials": 9,
-          "Threads": 1,
-          "Conductive Threads":	3,
-          "Adhesives": 3,
-          "Paper and Cardboard": 1,
-          "Electronics": 9,
-          "Textiles and Composites": 1,
-          "Hide":	1,
-          "Hardware": 1,
-          "Organic Materials": 9,
-          "Inks & Finishes": 0,
-          "Metal": 3,
-          "Shape Memory Alloy": 9
+          "conductive inks": 3,
+          "polymers": 9,
+          "molding materials": 9,
+          "threads": 1,
+          "conductive threads":	3,
+          "adhesives": 3,
+          "paper and cardboard": 1,
+          "electronics": 9,
+          "textiles and composites": 1,
+          "hide":	1,
+          "hardware": 1,
+          "organic materials": 9,
+          "inks & finishes": 0,
+          "metal": 3,
+          "shape memory alloy": 9
       };
 
       let costMetric = [];
@@ -171,23 +173,23 @@ class App extends Component {
           let fabScore = 0;
           let matScore = 0;
 
-          if(data[i]["Fabrication 1"] in fabricationChart) {
+          if(data[i]["Fabrication 1"].toLowerCase() in fabricationChart) {
             fabScore = Math.max(fabScore, fabricationChart[data[i]["Fabrication 1"]]);
           }
 
-          if(data[i]["Fabrication 2"] in fabricationChart) {
+          if(data[i]["Fabrication 2"].toLowerCase() in fabricationChart) {
             fabScore = Math.max(fabScore, fabricationChart[data[i]["Fabrication 2"]]);
           }
 
-          if(data[i]["Material 1"] in materialChart) {
+          if(data[i]["Material 1"].toLowerCase() in materialChart) {
             matScore = Math.max(matScore, materialChart[data[i]["Material 1"]]);
           }
 
-          if(data[i]["Material 2"] in materialChart) {
+          if(data[i]["Material 2"].toLowerCase() in materialChart) {
             matScore = Math.max(matScore, materialChart[data[i]["Material 2"]]);
           }
 
-          if(data[i]["Material 3"] in materialChart) {
+          if(data[i]["Material 3"].toLowerCase() in materialChart) {
             matScore = Math.max(matScore, materialChart[data[i]["Material 3"]]);
           }
 
@@ -322,7 +324,7 @@ const mapStateToProps = state => {
 const mapDispatchToProps = dispatch => {
     return {
         updateSearchData: (value) => dispatch({type: actionTypes.UPDATE_DATA, value: value}),
-        updateSearchDisplay: () => dispatch({type: actionTypes.SEARCH_DISPLAY})
+        updateSearchDisplay: () => dispatch({type: actionTypes.REMOVE_SEARCH_DISPLAY})
     }
 };
 
