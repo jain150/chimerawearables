@@ -1,4 +1,12 @@
 .containerHome {
-  transform: translate(42.5vw, 35vh);
+  transform: translate(42.5vw, 60vh);
 
+}
+
+modal-content  {
+    -webkit-border-radius: 0px !important;
+    -moz-border-radius: 0px !important;
+    border-radius: 2px !important;
+    border-color: white;
+    border-style: solid;
 }

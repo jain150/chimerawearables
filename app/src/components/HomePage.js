@@ -75,34 +75,35 @@ class HomePage extends Component {
 
 
       return (
-      <div style={{backgroundImage: "url(http://127.0.0.1:8087/ImageDatabase/Icons/Home.png)", height: "100vh", width:"133.5vw", backgroundSize: "cover", backgroundColor: "black"}}>
+      <div style={{backgroundImage: "url(http://127.0.0.1:8087/ImageDatabase/Icons/Home.png)", height: "100vh", width:"100vw", backgroundSize: "cover", backgroundColor: "black"}}>
 
          <div className="containerHome">
 
-         <Button style={{backgroundColor: "black", color: "white"}} color="black" onClick={this.toggle}>Login/Sign Up</Button>{' '}
+         <div style={{color: "white", marginLeft: "-10vw"}}>Welcome to Chimera, an interactive search engine for Wearables</div>
 
-         <Modal size="lg" style={{maxWidth: '60vw', maxHeight: '60vh', width: '60vw', height: '60vh'}} isOpen={this.state.modal} toggle={this.toggle}>
-           <ModalHeader close={closeBtn} style={{backgroundColor: "black", color: "white"}} toggle={this.toggle}>Login/Signup</ModalHeader>
+         <Button outline size="lg" style={{color: "white", marginTop: "5vh", marginLeft: "2vw", borderStyle: "thin", borderColor: "white", borderRadius: "2px"}} color="black" onClick={this.toggle}>Enter</Button>{' '}
 
-           <ModalBody style={{backgroundColor: "black", color: "white"}}>
+         <Modal size="lg" style={{maxWidth: '80vw',  maxHeight: '80vh', width: '80vw', height: '80vh', borderStyle: "solid", borderColor: "white", borderRadius: "2px"}} isOpen={this.state.modal} toggle={this.toggle}>
+
+           <ModalBody style={{backgroundColor: "black", color: "white", maxWidth: '80vw',  maxHeight: '80vh', width: '79.7vw', height: '78vh'}}>
 
            <div style={{display: "flex"}}>
-            <div style={{width: "45%"}}>
+            <div style={{width: "30%"}}>
             <b>Login</b>
 
                <Form>
                     <FormGroup>
                        <Label for="exampleEmail">Email</Label>
-                       <Input type="email" name="email" id="exampleEmail"  />
+                       <Input type="email" name="email" id="exampleEmail" />
                      </FormGroup>
                      <FormGroup>
                        <Label for="examplePassword">Password</Label>
-                       <Input type="password" name="password" id="examplePassword"  />
+                       <Input type="password" name="password" id="examplePassword" />
                      </FormGroup>
                 </Form>
             </div>
 
-            <div style={{width: "45%", marginLeft: "7%"}}>
+            <div style={{width: "30%", marginLeft: "7%"}}>
             <b>Sign Up</b>
 
                <Form>
@@ -113,7 +114,18 @@ class HomePage extends Component {
                        <Label style={{marginTop: "10px"}} for="examplePassword">Password</Label>
                        <Input type="password" onChange={this.onSignUpPasswordChange} placeholder="Enter your password" value={this.state.signUpPassword} />
 
-                      <Button onClick={this.onSignUpSubmit} style={{marginTop: "10px"}} color="secondary">Sign Up!!!</Button>
+                      <Button onClick={this.onSignUpSubmit} style={{marginTop: "10px", marginLeft: "8vw"}} color="secondary">Sign Up!!!</Button>
+                </Form>
+            </div>
+
+            <div style={{width: "30%", marginLeft: "7%"}}>
+            <b>Guest Mode</b>
+
+               <Form>
+                       <Label style={{marginTop: "10px"}} for="exampleEmail">Username</Label>
+                       <Input type="email" placeholder="Enter a username"/>
+
+                      <Button onClick={this.props.toggle} style={{marginTop: "10vh", marginLeft: "8vw"}} color="secondary">Guest Mode</Button>
                 </Form>
             </div>
 
@@ -121,8 +133,6 @@ class HomePage extends Component {
            </ModalBody>
 
          </Modal>
-
-         <Button style={{backgroundColor: "black", color: "white"}} color="black" onClick={this.props.toggle}>Guest Mode</Button>
           </div>
       </div>
     );
