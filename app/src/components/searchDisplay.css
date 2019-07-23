@@ -183,16 +183,6 @@
   display: block;
 }
 
-
-.img {
-  background-image: url('C:/Users/admin/Documents/mini-search/app/src/wearblaemediastudio.jpg');
-  height: 98%;
-  width: 100%;
-  object-fit: cover;
-/*
-    */
-}
-
 .container {
   position: relative;
   text-align: center;
