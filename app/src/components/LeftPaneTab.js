@@ -77,7 +77,7 @@ class LeftPaneTab extends Component {
                  </div>
 
 
-                 <img id="image" src={"http://127.0.0.1:8087/ImageDatabase/Icons/" + this.props.name + ".png"}
+                 <img id="image" src={"ImageDatabase/Icons/" + this.props.name + ".png"}
                   alt="" style={{height: '40px', width: '40px', objectFit: 'cover', transform: "translate(6px, 20px)"}}/>
 
 

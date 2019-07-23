@@ -141,7 +141,7 @@ const reducer = ( state = initialState, action ) => {
             ...state,
             searchDisplay: false,
           }
-          
+
           case actionTypes.UPDATE_QUERY:
             return {
               ...state,
@@ -198,6 +198,20 @@ const reducer = ( state = initialState, action ) => {
                 temp.push(action.val);
               }
 
+              let jsonToSend = JSON.stringify({
+                   username: state.username,
+                   password: state.password,
+                   bookmarks: temp
+               })
+
+              var request = new Request('https://chimerabackend.herokuapp.com/api/editPreferences/', {
+                    method: 'POST',
+                    headers: {
+                      'Content-Type': 'application/json',
+                    },
+                    body: jsonToSend
+                  });
+
               return {
                 ...state,
                 bookMarks: temp,
@@ -217,6 +231,8 @@ const reducer = ( state = initialState, action ) => {
             return {
               ...state,
               isLoggedIn: true,
+              username: action.valName,
+              password: action.valPassword,
               bookMarks: action.val
             }
           }

@@ -23,7 +23,7 @@
   width: 96vw;
   display: flex;
   overflow-x: hidden;
-  background-color: white;
+  background-color: black;
   border-color: black;
   border-style: solid;
   border-width: large;
@@ -119,8 +119,62 @@
     display: block;
 }
 
+.tooltipCost {
+  visibility: hidden;  /* Or display: none, depending on how you want it to behave */
+}
+
+.tooltipImp {
+  visibility: hidden;  /* Or display: none, depending on how you want it to behave */
+}
+
+.tooltipWear {
+  visibility: hidden;  /* Or display: none, depending on how you want it to behave */
+}
+
+.cost:hover .tooltipCost {    /* Uses the adjacent sibling selector */
+  background-color: black;
+  color: white;
+  width: 3vw;
+  font-size: smaller;
+  transform: translate(-0.5vw, -6vh);
+  visibility: visible;  /* Or display: block */
+}
+
+.imp:hover .tooltipImp {    /* Uses the adjacent sibling selector */
+  background-color: black;
+  color: white;
+  font-size: smaller;
+  width: 4.5vw;
+  transform: translate(-2vw, -6vh);
+  display: block;
+  visibility: visible;  /* Or display: block */
+}
+
+.wear:hover .tooltipWear {    /* Uses the adjacent sibling selector */
+  background-color: black;
+  color: white;
+  font-size: smaller;
+  width: 4.5vw;
+  transform: translate(-2vw, -6vh);
+  visibility: visible;  /* Or display: block */
+}
 
 #title {
+  display: block;
+  padding-top: 0px;
+}
+
+#title1 {
+  display: block;
+  padding-top: 0px;
+}
+
+#title2 {
+  display: block;
+  padding-top: 0px;
+}
+
+#title3 {
   display: block;
   padding-top: 0px;
 }

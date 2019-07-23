@@ -119,7 +119,10 @@ class SearchDisplay extends Component {
 
             filterArr = filterArr.filter((item) => {
 
-              return this.props.bookMarks.includes(item["Reference Link"]);
+              console.log(item["Reference Link"].substring(10,30));
+              console.log(this.props.bookMarks);
+
+              return this.props.bookMarks.includes(item["Reference Link"].substring(10,30));
             });
 
           }

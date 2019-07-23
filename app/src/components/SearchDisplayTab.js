@@ -9,22 +9,72 @@ import { CardImg, CardBody,
 import './searchDisplay.css'
 
 import { Card, Button, CardTitle, CardText, Form, FormGroup, Label, Input, FormText } from 'reactstrap';
+import { Tooltip } from 'reactstrap';
 
 class SearchDisplayTab extends Component {
 
-  updateBookmark = (name) => {
+  constructor(props) {
+    super(props);
 
-    this.props.updateBookmark(name);
+    this.state = {
+      tooltipOpenCost: false,
+      tooltipOpenImp: false,
+      tooltipOpenWear: false,
+    };
+
+    this.toggleImp = this.toggleImp.bind(this);
+    this.toggleCost = this.toggleCost.bind(this);
+    this.toggleWear = this.toggleWear.bind(this);
 
   }
+
+  toggleCost = () => {
+    this.setState({
+      tooltipOpenCost: !this.state.tooltipOpenCost
+    });
+  }
+
+  toggleImp = () => {
+    this.setState({
+      tooltipOpenImp: !this.state.tooltipOpenImp
+    });
+  }
+
+  toggleWear = () => {
+    this.setState({
+      tooltipOpenWear: !this.state.tooltipOpenWear
+    });
+  }
+
+  updateBookmark = (name) => {
+
+    let temp = name.substring(10,30);
+    console.log(temp);
+    this.props.updateBookmark(temp);
+
+  }
+
   render() {
 
     let inp = '';
 
+    let i = 0;
+    let j = 0;
+
+    if(this.props.type === 'Research')
+      j = 1;
+    else if(this.props.type === 'Tutorial')
+      j = 2;
+    else if(this.props.type === 'Aesthetic Approach')
+      j = 3;
+    else if(this.props.type === 'Design Concepts')
+      j = 4
+
     inp = this.props.arr.map((input) => {
 
+      i++;
+      let check = this.props.bookMarks.includes(input["Reference Link"].substring(10,30));
 
-      let check = this.props.bookMarks.includes(input["Reference Link"]);
 
       let wearToken = "Wear1";
       if(parseInt(input["Wearability"]) <= 10)
@@ -50,8 +100,6 @@ class SearchDisplayTab extends Component {
 
       let col = "green";
 
-      console.log(input["impMetric"]);
-
       if(parseInt(input["impMetric"]) === 3)
         col = "red";
       else if(parseInt(input["impMetric"]) === 2)
@@ -70,25 +118,34 @@ class SearchDisplayTab extends Component {
           <div className="bgimg">
             <a  href={input["Reference Link"]} target="_blank">
 
-            <img id="image" src={"http://127.0.0.1:8087/ImageDatabase/" + input["PIC ID"] + ".jpg"}  onerror={"this.onerror=null; this.src=" + "http://127.0.0.1:8087/ImageDatabase/" + input["PIC ID"] + ".png"} alt="" style={{height: '20vh', width: '100%', objectFit: 'cover'}}/>
+            <img id="image" src={"ImageDatabase/" + input["PIC ID"] + ".jpg"}  onerror={"this.onerror=null; this.src=" + "ImageDatabase/" + input["PIC ID"] + ".png"} alt="" style={{height: '20vh', width: '100%', objectFit: 'cover'}}/>
             </a>
             <a  href={input["Reference Link"]} target="_blank">
             <div id="title" className="centered">{(input["Reference Name"].length < 40) ? (input["Reference Name"]) : (input["Reference Name"].substring(0, 40) + "...")}</div>
             </a>
             {(this.props.loggedIn) ? (<div id="title" className="ticker"><Input checked={check} onClick={() => this.updateBookmark(input["Reference Link"])} type="checkbox" />{' '}</div>) : (<div/>)}
 
-            <div id="title" className="cost"><div style={{backgroundColor: "#f7f7f7", borderRadius: "4px", opacity: "0.75"}}>{costToken}</div></div>
 
-            <div id="title" className="imp">
+            <div className="cost"><div style={{backgroundColor: "#f7f7f7", borderRadius: "4px", opacity: "0.75"}}>{costToken}</div>
+            <div class="tooltipCost">Cost</div>
+
+        </div>
+
+            <div className="imp">
                   <div style={{height: '18px', width: '18px', backgroundColor: col}}>
-                  </div>
-
             </div>
+            <div class="tooltipImp">Implementation</div>
 
-            <div id="title" className="wear">
-                             <img src={"http://127.0.0.1:8087/ImageDatabase/Icons/" + wearToken + ".png"}
+        </div>
+
+            <div className="wear">
+                             <img src={"ImageDatabase/Icons/" + wearToken + ".png"}
                               alt="" style={{height: '18px', width: '18px', objectFit: "cover"}}/>
+
+
+                  <div class="tooltipWear">Wearability</div>
             </div>
+
 
           </div>
         </div>
@@ -116,7 +173,7 @@ class SearchDisplayTab extends Component {
 
 const mapDispatchToProps = dispatch => {
     return {
-        updateBookmark: (value) => dispatch({type: actionTypes.UPDATE_BOOKMARKS, val: value}),
+        updateBookmark: (value) => dispatch({type: actionTypes.UPDATE_BOOKMARKS, val: value.toString(0,20)}),
     }
 };
 

@@ -15,12 +15,26 @@ class HomePage extends Component {
         this.state = {
           zone: 'none',
           signUpEmail: '',
+          signUpUsername: '',
           signUpPassword: '',
+          signUpWarning: '',
+          loginUsername: '',
+          loginPassword: '',
+          loginWarning: '',
           modal: false
         };
 
       this.onSignUpEmailChange = this.onSignUpEmailChange.bind(this);
+      this.onSignUpUsernameChange = this.onSignUpUsernameChange.bind(this);
       this.onSignUpPasswordChange = this.onSignUpPasswordChange.bind(this);
+      this.onSignUpWarningChange = this.onSignUpWarningChange.bind(this);
+
+      this.onLoginUsernameChange = this.onLoginUsernameChange.bind(this);
+      this.onLoginPasswordChange = this.onLoginPasswordChange.bind(this);
+      this.onLoginWarningChange = this.onLoginWarningChange.bind(this);
+
+      this.onSignUpSubmit = this.onSignUpSubmit.bind(this);
+      this.onLoginSubmit = this.onLoginSubmit.bind(this);
   }
 
     toggle = () => {
@@ -28,6 +42,35 @@ class HomePage extends Component {
         modal: !prevState.modal
       }));
     }
+
+    onSignUpWarningChange = (event) => {
+
+      this.setState({
+        signUpWarning: 'Invalid credentials',
+      });
+    }
+
+    onLoginWarningChange = (event) => {
+
+      this.setState({
+        loginWarning: 'Invalid credentials',
+      });
+    }
+
+    onSignUpUsernameChange = (event) => {
+
+      this.setState({
+        signUpUsername: event.target.value,
+      });
+    }
+
+    onLoginUsernameChange = (event) => {
+
+      this.setState({
+        loginUsername: event.target.value,
+      });
+    }
+
 
     onSignUpEmailChange = (event) => {
 
@@ -44,23 +87,107 @@ class HomePage extends Component {
       });
     }
 
-    onSignUpSubmit = () => {
+    onLoginPasswordChange = (event) => {
 
-      console.log(this.state.signUpEmail);
-      console.log(this.state.signUpPassword);
+      this.setState({
+        loginPassword: event.target.value,
+      });
+    }
 
-      /*
-        Let's send JSON request over here, if it success, we'll call success, if fails we'll call failure
-      */
+    onLoginSubmit = () => {
 
       let success = true;
       let bookMarks = [];
 
-      if(success) {
-        this.props.authSuccess(bookMarks);
-        this.props.toggle();
-      }
+      let authSuccess = this.props.authSuccess;
+      let toggleDisp = this.props.toggle;
 
+      let onLoginWarningChange = this.onLoginWarningChange;
+
+      let jsonToSend = JSON.stringify({
+           username: this.state.loginUsername,
+           password: this.state.loginPassword
+       })
+
+       var request = new Request('https://chimerabackend.herokuapp.com/api/login/', {
+             method: 'POST',
+             headers: {
+               'Content-Type': 'application/json',
+             },
+             body: jsonToSend
+           });
+       fetch(request).then(function(response){
+
+          if(response.status.toString() === '200') {
+             response.text().then(function(text) {
+
+                 var objReceived = JSON.parse(text);
+                 if (objReceived.message === 'SUCCESS') {
+
+                    authSuccess(objReceived.username, objReceived.password, objReceived.bookmarks);
+                    toggleDisp();
+                 }
+                 else {
+
+                     onLoginWarningChange();
+
+                 }
+             })
+           }
+
+           else {
+             onLoginWarningChange();
+           }
+       })
+
+    }
+
+    onSignUpSubmit = () => {
+
+      let success = true;
+      let bookMarks = [];
+
+      let authSuccess = this.props.authSuccess;
+      let toggleDisp = this.props.toggle;
+
+      let onSignUpWarningChange = this.onSignUpWarningChange;
+
+      let jsonToSend = JSON.stringify({
+           username: this.state.signUpUsername,
+           email: this.state.signUpEmail,
+           password: this.state.signUpPassword
+       })
+
+       var request = new Request('https://chimerabackend.herokuapp.com/api/signup/', {
+             method: 'POST',
+             headers: {
+               'Content-Type': 'application/json',
+             },
+             body: jsonToSend
+           });
+       fetch(request).then(function(response){
+
+          if(response.status.toString() === '200') {
+             response.text().then(function(text) {
+
+                 var objReceived = JSON.parse(text);
+                 if (objReceived.message === 'SUCCESS') {
+
+                    authSuccess(objReceived.username, objReceived.password, objReceived.bookmarks);
+                    toggleDisp();
+                 }
+                 else {
+
+                     onSignUpWarningChange();
+
+                 }
+             })
+           }
+
+           else {
+             onSignUpWarningChange();
+           }
+       })
     }
 
     render() {
@@ -75,7 +202,13 @@ class HomePage extends Component {
 
 
       return (
-      <div style={{backgroundImage: "url(http://127.0.0.1:8087/ImageDatabase/Icons/Home.png)", height: "100vh", width:"100vw", backgroundSize: "cover", backgroundColor: "black"}}>
+
+      <div style={{height: "100vh", width:"100vw", backgroundSize: "cover", backgroundColor: "black"}}>
+
+      <div style={{height: '50%', width: '50%'}}>
+      <img src={"ImageDatabase/Icons/Home.png"}
+       alt="" style={{width: '50vw', transform: "translate(26vw, 18vh)", objectFit: "cover"}}/>
+      </div>
 
          <div className="containerHome">
 
@@ -93,15 +226,16 @@ class HomePage extends Component {
 
                <Form>
                     <FormGroup>
-                       <Label for="exampleEmail">Email</Label>
-                       <Input style={{ borderRadius: "0px"}} type="email" name="email" id="exampleEmail" />
+                      {(this.state.loginWarning !== '') ? (<div style={{color: "red"}}>{this.state.loginWarning}</div>) : (<div></div>)}
+                       <Label for="exampleEmail">Username</Label>
+                       <Input style={{ borderRadius: "0px"}} type="text" onChange={this.onLoginUsernameChange} value={this.state.loginUsername}/>
                      </FormGroup>
                      <FormGroup>
                        <Label for="examplePassword">Password</Label>
-                       <Input style={{ borderRadius: "0px"}} type="password" name="password" id="examplePassword" />
+                       <Input style={{ borderRadius: "0px"}} type="password" onChange={this.onLoginPasswordChange} value={this.state.loginPassword} />
                      </FormGroup>
 
-                     <Button onClick={this.onSignUpSubmit} style={{marginTop: "10px", marginLeft: "8vw", transform: "translateY(100px)"}} color="secondary">Login</Button>
+                     <Button onClick={this.onLoginSubmit} style={{marginTop: "10px", marginLeft: "8vw", transform: "translateY(100px)"}} color="secondary">Login</Button>
                 </Form>
             </div>
 
@@ -109,9 +243,9 @@ class HomePage extends Component {
 
 
                <Form>
-
+                        {(this.state.signUpWarning !== '') ? (<div style={{color: "red"}}>{this.state.signUpWarning}</div>) : (<div></div>)}
                        <Label style={{marginTop: "10px"}} for="exampleEmail">Username</Label>
-                       <Input style={{ borderRadius: "0px"}} type="text"/>
+                       <Input style={{ borderRadius: "0px"}} type="text" onChange={this.onSignUpUsernameChange} value={this.state.signUpUsername}/>
 
                        <Label style={{marginTop: "10px"}} for="exampleEmail">Email</Label>
                        <Input style={{ borderRadius: "0px"}} type="email" onChange={this.onSignUpEmailChange} value={this.state.signUpEmail}/>
@@ -155,7 +289,7 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
     return {
-        authSuccess: (value) => dispatch({type: actionTypes.AUTH_SUCCESS, val: value}),
+        authSuccess: (valuename, valuepass, value) => dispatch({type: actionTypes.AUTH_SUCCESS, valName: valuename, valPassword: valuepass, val: value}),
     }
 };
 

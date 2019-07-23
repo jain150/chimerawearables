@@ -58,34 +58,34 @@ class BodyZones extends Component {
 
     render() {
 
-      let img = "http://127.0.0.1:8087/ImageDatabase/HumanBody/Androgynous.png";
+      let img = "ImageDatabase/HumanBody/Androgynous.png";
 
       if(this.state.zone === 'none')
-        img = "http://127.0.0.1:8087/ImageDatabase/HumanBody/Androgynous.png";
+        img = "ImageDatabase/HumanBody/Androgynous.png";
 
       else if(this.state.zone === 'Head')
-        img = "http://127.0.0.1:8087/ImageDatabase/HumanBody/Androgynous_head.png";
+        img = "ImageDatabase/HumanBody/Androgynous_head.png";
 
       else if(this.state.zone === 'Chest')
-        img = "http://127.0.0.1:8087/ImageDatabase/HumanBody/Androgynous_chest.png";
+        img = "ImageDatabase/HumanBody/Androgynous_chest.png";
 
       else if(this.state.zone === 'Back')
-        img = "http://127.0.0.1:8087/ImageDatabase/HumanBody/Androgynous_back.png";
+        img = "ImageDatabase/HumanBody/Androgynous_back.png";
 
       else if(this.state.zone === 'Pelvic Region')
-        img = "http://127.0.0.1:8087/ImageDatabase/HumanBody/Androgynous_pelvicregion.png";
+        img = "ImageDatabase/HumanBody/Androgynous_pelvicregion.png";
 
       else if(this.state.zone === 'Legs')
-        img = "http://127.0.0.1:8087/ImageDatabase/HumanBody/Androgynous_legs.png";
+        img = "ImageDatabase/HumanBody/Androgynous_legs.png";
 
       else if(this.state.zone === 'Feet')
-        img = "http://127.0.0.1:8087/ImageDatabase/HumanBody/Androgynous_feet.png";
+        img = "ImageDatabase/HumanBody/Androgynous_feet.png";
 
       else if(this.state.zone === 'Arms')
-        img = "http://127.0.0.1:8087/ImageDatabase/HumanBody/Androgynous_arm.png";
+        img = "ImageDatabase/HumanBody/Androgynous_arm.png";
 
       else if(this.state.zone === 'Wrist and Hand')
-        img = "http://127.0.0.1:8087/ImageDatabase/HumanBody/Androgynous_handnwrist.png";
+        img = "ImageDatabase/HumanBody/Androgynous_handnwrist.png";
 
       let myMap = {
           name: "my-map",
@@ -113,7 +113,7 @@ class BodyZones extends Component {
 
 
              <div style={{transform: "translate(20px, 100px)"}}>
-             <ImageMapper src={img} map={myMap} width={180} height={400}
+             <ImageMapper src={img} map={myMap} width={205} height={400}
               	onClick={area => this.clicked(area)}
               />
               <div style={{marginTop: "10px", transform: "translateX(-1.35vw)", color: "#CECECE", fontWeight: "600", fontSize: "small"}}>
