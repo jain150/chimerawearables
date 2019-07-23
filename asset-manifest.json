@@ -1,19 +1,18 @@
 {
   "files": {
-    "main.css": "/chimerawearables/static/css/main.09e3270c.chunk.css",
-    "main.js": "/chimerawearables/static/js/main.7995190c.chunk.js",
-    "main.js.map": "/chimerawearables/static/js/main.7995190c.chunk.js.map",
+    "main.css": "/chimerawearables/static/css/main.453a1fa3.chunk.css",
+    "main.js": "/chimerawearables/static/js/main.308be9ab.chunk.js",
+    "main.js.map": "/chimerawearables/static/js/main.308be9ab.chunk.js.map",
     "runtime~main.js": "/chimerawearables/static/js/runtime~main.94edfb0c.js",
     "runtime~main.js.map": "/chimerawearables/static/js/runtime~main.94edfb0c.js.map",
-    "static/css/2.608411b6.chunk.css": "/chimerawearables/static/css/2.608411b6.chunk.css",
-    "static/js/2.47547084.chunk.js": "/chimerawearables/static/js/2.47547084.chunk.js",
-    "static/js/2.47547084.chunk.js.map": "/chimerawearables/static/js/2.47547084.chunk.js.map",
+    "static/css/2.b9ee5998.chunk.css": "/chimerawearables/static/css/2.b9ee5998.chunk.css",
+    "static/js/2.92af7122.chunk.js": "/chimerawearables/static/js/2.92af7122.chunk.js",
+    "static/js/2.92af7122.chunk.js.map": "/chimerawearables/static/js/2.92af7122.chunk.js.map",
     "index.html": "/chimerawearables/index.html",
-    "precache-manifest.07d1572959cb4bb40786e4832140c1de.js": "/chimerawearables/precache-manifest.07d1572959cb4bb40786e4832140c1de.js",
+    "precache-manifest.db6e06321c5ad46d274b00882c8f57b5.js": "/chimerawearables/precache-manifest.db6e06321c5ad46d274b00882c8f57b5.js",
     "service-worker.js": "/chimerawearables/service-worker.js",
-    "static/css/2.608411b6.chunk.css.map": "/chimerawearables/static/css/2.608411b6.chunk.css.map",
-    "static/css/main.09e3270c.chunk.css.map": "/chimerawearables/static/css/main.09e3270c.chunk.css.map",
-    "static/media/index.css": "/chimerawearables/static/media/roboto-latin-900italic.bc833e72.woff",
-    "static/media/searchDisplay.css": "/chimerawearables/static/media/wearblaemediastudio.27f70af4.jpg"
+    "static/css/2.b9ee5998.chunk.css.map": "/chimerawearables/static/css/2.b9ee5998.chunk.css.map",
+    "static/css/main.453a1fa3.chunk.css.map": "/chimerawearables/static/css/main.453a1fa3.chunk.css.map",
+    "static/media/index.css": "/chimerawearables/static/media/roboto-latin-900italic.bc833e72.woff"
   }
 }
