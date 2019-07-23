@@ -142,45 +142,46 @@ class FilterBody extends Component {
               <div>{this.props.minYear}<span style={{float: "right"}}>{this.props.maxYear}</span></div>
               <br />
               <div>Publication Venue</div>
-              <ButtonDropdown style={{width:"100%", height: '30px'}} isOpen={this.state.dropdownOpen} toggle={this.toggle}>
-                      <DropdownToggle style={{marginBottom: "-5px", backgroundColor: "white", color: "#9B089A"}}caret>
+              <ButtonDropdown style={{width:"90%", height: '25px', transform: "translateX(5%)"}} isOpen={this.state.dropdownOpen} toggle={this.toggle}>
+                      <DropdownToggle style={{marginBottom: "-5px", backgroundColor: "white", color: "#9B089A"}} caret>
                         {this.state.venue}
                       </DropdownToggle>
-                      <DropdownMenu style={{width:"100%", overflowY:"scroll", height:"50vh"}}>
+                      <DropdownMenu style={{width:"105%", overflowY:"scroll", height:"40vh"}}>
                         {venueArr}
                       </DropdownMenu>
               </ButtonDropdown>
-              <div style={{marginTop: "20px", marginRight: "20px", marginLeft: "20px"}}>
+              <div style={{marginTop: "1.3vh"}}>Filter by:</div>
+              <div style={{marginTop: "8px", marginRight: "20px", marginLeft: "20px"}}>
                 {(this.props.source === "Engineering") ? (<Button className="btnSelectorClicked" onClick={() => this.onSourceClick("Engineering")}>Engineering</Button>)
                   : (<Button className="btnSelector" onClick={() => this.onSourceClick("Engineering")}>Engineering</Button>)}
                 {(this.props.source === "Fashion") ? (<Button className="btnSelectorClicked" style={{float: "right"}} onClick={() => this.onSourceClick("Fashion")}>Fashion</Button>)
                  : (<Button className="btnSelector" style={{float: "right"}} onClick={() => this.onSourceClick("Fashion")}>Fashion</Button>)}
               </div>
-              <div style={{marginTop: "10px"}}>
+              <div style={{marginTop: "8px"}}>
                 % Contribution
               </div>
-              <div style={{marginTop: '10px', marginLeft: '10px'}}>
-                  <Label style={{transform: "translateY(4px)"}} color="green"  key="Orange" />{' '}<span>Engineering</span>{' '}
+              <div style={{marginTop: '8px', marginLeft: '10px'}}>
+                  <Label style={{transform: "translateY(4px)", backgroundColor: "#f98686"}} key="Orange" />{' '}<span>Engineering</span>{' '}
                   <Label style={{transform: "translateY(4px)", marginLeft: "10px"}} color="red" key="red" />{' '}<span>Fashion</span>{' '}
                   <br />
                   <div>
                   <br />
                   <Progress multi>
-                    <Progress bar color="success" value={engLength} />
+                    <Progress className="engStyle" bar value={engLength} />
                     <Progress bar color="danger" value={fashLength} />
                   </Progress>
                   </div>
               </div>
 
-              <div style={{marginTop: "10px"}}>
+              <div style={{marginTop: "8px", marginLeft: "20%"}}>
                 <Button onClick={this.toggleDisplay} outline color="secondary">{(this.props.listView) ? ("View Results in Original Form") : ("View Results in List Form")}</Button>{' '}
               </div>
 
-              {(this.props.loggedIn) ? (<div style={{marginTop: "10px"}}>
+              {(this.props.loggedIn) ? (<div style={{marginTop: "8px", marginLeft: "20%"}}>
                 <Button onClick={this.toggleBookmarks} outline color="secondary">{(this.props.viewBookmarks) ? ("View all Results") : ("View Pinned/Bookmarks")}</Button>{' '}
               </div>) : (<div/>)}
 
-              <div style={{marginTop: "15px", zIndex: "2500 !important"}}>
+              <div style={{marginTop: "13px", marginLeft: "27%", zIndex: "2500 !important"}}>
 
 
                       <Button outline color="secondary" onClick={this.toggleStats}>Resource Statistics</Button>

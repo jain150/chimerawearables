@@ -140,6 +140,7 @@ const reducer = ( state = initialState, action ) => {
           return {
             ...state,
             searchDisplay: false,
+            searchTermDisplay: false,
           }
 
           case actionTypes.UPDATE_QUERY:
@@ -211,6 +212,20 @@ const reducer = ( state = initialState, action ) => {
                     },
                     body: jsonToSend
                   });
+                  fetch(request).then(function(response){
+
+                     if(response.status.toString() === '200') {
+                        response.text().then(function(text) {
+
+                            var objReceived = JSON.parse(text);
+                            if (objReceived.message === 'SUCCESS') {
+
+                               console.log("Updated");
+                            }
+
+                        })
+                      }
+                  })
 
               return {
                 ...state,
@@ -228,6 +243,7 @@ const reducer = ( state = initialState, action ) => {
 
           case actionTypes.AUTH_SUCCESS: {
 
+            console.log(action);
             return {
               ...state,
               isLoggedIn: true,

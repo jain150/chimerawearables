@@ -109,6 +109,8 @@ class HomePage extends Component {
            password: this.state.loginPassword
        })
 
+       let pwd = this.state.loginPassword;
+
        var request = new Request('https://chimerabackend.herokuapp.com/api/login/', {
              method: 'POST',
              headers: {
@@ -124,7 +126,7 @@ class HomePage extends Component {
                  var objReceived = JSON.parse(text);
                  if (objReceived.message === 'SUCCESS') {
 
-                    authSuccess(objReceived.username, objReceived.password, objReceived.bookmarks);
+                    authSuccess(objReceived.username, pwd, objReceived.bookmarks);
                     toggleDisp();
                  }
                  else {
@@ -152,6 +154,8 @@ class HomePage extends Component {
 
       let onSignUpWarningChange = this.onSignUpWarningChange;
 
+      let pwd = this.state.signUpPassword;
+
       let jsonToSend = JSON.stringify({
            username: this.state.signUpUsername,
            email: this.state.signUpEmail,
@@ -173,7 +177,8 @@ class HomePage extends Component {
                  var objReceived = JSON.parse(text);
                  if (objReceived.message === 'SUCCESS') {
 
-                    authSuccess(objReceived.username, objReceived.password, objReceived.bookmarks);
+                    console.log(objReceived);
+                    authSuccess(objReceived.username, pwd, objReceived.bookmarks);
                     toggleDisp();
                  }
                  else {
@@ -235,7 +240,7 @@ class HomePage extends Component {
                        <Input style={{ borderRadius: "0px"}} type="password" onChange={this.onLoginPasswordChange} value={this.state.loginPassword} />
                      </FormGroup>
 
-                     <Button onClick={this.onLoginSubmit} style={{marginTop: "10px", marginLeft: "8vw", transform: "translateY(100px)"}} color="secondary">Login</Button>
+                     <Button onClick={this.onLoginSubmit} style={{marginTop: "11px", marginLeft: "8vw", transform: "translateY(100px)"}} color="secondary">Login</Button>
                 </Form>
             </div>
 

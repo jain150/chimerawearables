@@ -92,9 +92,9 @@ class FilterPane extends Component {
                   <Button className="rotate6" style={{ zIndex: "900", width: "180px", height: "25px", color: "black", borderStyle: "solid", borderColor: "black", borderWidth: "5px"}} outline color="info" id={'PopoverFilter'}><div style={{ transform: "translateY(-10px)",  borderTopStyle: "solid", borderColor: "black", borderWidth: "2px"}}><b> - - - - - -</b></div></Button>
                </div>
 
-               <Popover hideArrow={true} style={{width: '275px', color: "black", transform: "translateX(-0.3vw)", zIndex: "10"}} placement="right" isOpen={this.state.popoverOpen} target={'PopoverFilter'} toggle={this.toggle}>
-                 <PopoverHeader style={{fontWeight: "bold"}}>Data Filter</PopoverHeader>
-                 <PopoverBody style={{color: "black", fontWeight: "bold", backgroundColor: "#e0dede"}}><FilterBody filterToggle={this.toggleVisibility} showLoop={this.props.showLoop}/></PopoverBody>
+               <Popover hideArrow={true} style={{width: '278px', color: "black", transform: "translateX(-0.3vw)", zIndex: "10",  borderStyle: "solid", borderColor: "white", borderWidth: "2px", borderRight: "unset"}} placement="right" isOpen={this.state.popoverOpen} target={'PopoverFilter'} toggle={this.toggle}>
+                 <PopoverHeader style={{fontWeight: "bold", backgroundColor: "black", color: "white"}}>Data Filter</PopoverHeader>
+                 <PopoverBody style={{color: "black", fontWeight: "bold", backgroundColor: "black", color: "white"}}><FilterBody filterToggle={this.toggleVisibility} showLoop={this.props.showLoop}/></PopoverBody>
                </Popover>
                </div>
           </div>

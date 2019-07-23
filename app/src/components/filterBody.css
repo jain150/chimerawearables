@@ -1,15 +1,12 @@
 .btnSelector {
-  border-style: solid;
-  border-width: medium;
-  border-color: #00AAFE;
+
   color: white;
-  background-color: #00AAFE;
+
   height: 36px;
 }
 
 .btnSelector:hover {
 
-  background-color: #00AAFE;
   color: white;
   height: 36px;
 }
@@ -18,7 +15,7 @@
      transform: rotate(270deg);
      padding: "0 0 0 0";
      margin-top: 5vh;
-     background-color:  #00AAFE;
+     background-color: white;
 }
 
 .rotate6:hover {
@@ -27,9 +24,13 @@
 }
 .btnSelectorClicked {
 
-  background: #00AAFE;
-  color: white;
+  background-color: white;
+  color: black;
   height: 36px;
+}
+
+.engStyle {
+  background-color: #f98686 !important;
 }
 
 
