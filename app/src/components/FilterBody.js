@@ -33,8 +33,7 @@ class FilterBody extends Component {
             modal: false,
             showLabels: true,
 
-            sourceEng: false,
-            sourceFash: false,
+            sourceInit: 0,
           };
     }
 
@@ -74,31 +73,42 @@ class FilterBody extends Component {
 
     onSourceClick = (value) => {
 
+      let temp = value;
 
+      if(this.state.sourceInit != 0) {
       if(value === 'Engineering') {
-        this.setState(prevState => ({
-          sourceEng: !prevState.sourceEng
-        }));
-      }
 
+        if(this.props.source === 'Both')
+          temp = "Fashion"
+        else {
+          temp = "Both"
+        }
+
+      }
       else if(value === 'Fashion') {
-        this.setState(prevState => ({
-          sourceFash: !prevState.sourceFash
-        }));
+
+        if(this.props.source === 'Both')
+          temp = "Engineering"
+        else {
+          temp = "Both"
+        }
       }
+    }
 
-      if(this.state.sourceEng && this.state.sourceFash)
-        value = "both"
-      else if(!this.state.sourceEng && !this.state.sourceFash)
-        value = 'both'
+    else {
+      this.setState(prevState => ({
+        sourceInit: !prevState.sourceInit + 1,
+      }));
+    }
 
-      this.props.filterSource(value);
+    this.props.filterSource(temp);
     }
 
     render() {
 
       let venueArr = this.props.searchData;
       venueArr = venueArr.map((venue) => venue["Conference (VENUE)"]);
+      venueArr.unshift('All')
 
       let filterEngineering = this.props.searchData.filter((item) => {
         return (item["Source"] === "Engineering" || item["Source"] === "Both")
@@ -180,9 +190,9 @@ class FilterBody extends Component {
 
               <div style={{marginTop: "1.3vh"}}>Filter by:</div>
               <div style={{marginTop: "8px", marginRight: "20px", marginLeft: "20px"}}>
-                {(this.state.sourceEng) ? (<Button className="btnSelectorClicked" onClick={() => this.onSourceClick("Engineering")}>Engineering</Button>)
+                {(this.props.source === 'Both' || this.props.source === 'Engineering') ? (<Button className="btnSelectorClicked" onClick={() => this.onSourceClick("Engineering")}>Engineering</Button>)
                   : (<Button className="btnSelector" onClick={() => this.onSourceClick("Engineering")}>Engineering</Button>)}
-                {(this.state.sourceFash) ? (<Button className="btnSelectorClicked" style={{float: "right"}} onClick={() => this.onSourceClick("Fashion")}>Fashion</Button>)
+                {(this.props.source === 'Both' || this.props.source === 'Fashion') ? (<Button className="btnSelectorClicked" style={{float: "right"}} onClick={() => this.onSourceClick("Fashion")}>Fashion</Button>)
                  : (<Button className="btnSelector" style={{float: "right"}} onClick={() => this.onSourceClick("Fashion")}>Fashion</Button>)}
               </div>
 

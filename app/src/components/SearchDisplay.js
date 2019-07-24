@@ -54,7 +54,7 @@ class SearchDisplay extends Component {
 
     filterVenue = (item) => {
       console.log(this.props.venue);
-      return (this.props.venue === 'all' || item["Conference (VENUE)"] === this.props.venue)
+      return (this.props.venue === 'All' || item["Conference (VENUE)"] === this.props.venue)
     }
 
     filterSource = (item) => {

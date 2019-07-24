@@ -68,12 +68,10 @@ class LeftPanePopoverTab extends Component {
 
     render() {
 
-            console.log(this.props.type);
-            console.log(this.state.listArr);
             let inp = '';
 
             let selArr = this.state.listArr;
-            inp = this.props.subtypes.map((input) => {
+            inp = this.props.subtypes.sort().map((input) => {
 
                 return (
 

@@ -40,6 +40,15 @@ class Matrix extends Component {
 
     render() {
 
+            let filterArr = this.props.searchData;
+
+            if(this.props.filter) {
+
+              filterArr = filterArr.filter(this.filterYear);
+              filterArr = filterArr.filter(this.filterVenue);
+              filterArr = filterArr.filter(this.filterSource);
+            }
+
             let w = document.getElementById("root").offsetWidth * 0.009
             let h = document.getElementById("root").offsetHeight * 0.0175
 
@@ -78,14 +87,14 @@ class Matrix extends Component {
                 name_array[3] = this.props.selMaterial;
             }
 
-            let funcCount = this.props.searchData.filter((item) => {
+            let funcCount = filterArr.filter((item) => {
               return (item["Function 1"] !== "" || item["Function 2"] !== "" || item["Function 3"] !== "")
             });
             funcCount = funcCount.length;
 
             if(bool_array[0]) {
 
-              let curFuncCount = this.props.searchData.filter((item) => {
+              let curFuncCount = filterArr.filter((item) => {
                 return item["Function 1"].toLowerCase().trim().includes(name_array[0].toLowerCase().trim())
                 || item["Function 2"].toLowerCase().trim().includes(name_array[0].toLowerCase().trim())
                 || item["Function 3"].toLowerCase().trim().includes(name_array[0].toLowerCase().trim())
@@ -93,28 +102,28 @@ class Matrix extends Component {
               funcCount = curFuncCount.length;
             }
 
-            let fabCount = this.props.searchData.filter((item) => {
+            let fabCount = filterArr.filter((item) => {
               return (item["Fabrication 1"] !== "" || item["Fabrication 2"] !== "")
             });
             fabCount = fabCount.length;
 
             if(bool_array[2]) {
 
-              let curFabCount = this.props.searchData.filter((item) => {
+              let curFabCount = filterArr.filter((item) => {
                 return item["Fabrication 1"].toLowerCase().trim().includes(name_array[2].toLowerCase().trim())
                 || item["Fabrication 2"].toLowerCase().trim().includes(name_array[2].toLowerCase().trim())
               });
               fabCount = curFabCount.length;
             }
 
-            let matCount = this.props.searchData.filter((item) => {
+            let matCount = filterArr.filter((item) => {
               return (item["Material 1"] !== "" || item["Material 2"] !== "" || item["Material 3"] !== "")
             });
             matCount = matCount.length;
 
             if(bool_array[3]) {
 
-              let curMatCount = this.props.searchData.filter((item) => {
+              let curMatCount = filterArr.filter((item) => {
                 return item["Material 1"].toLowerCase().trim().includes(name_array[3].toLowerCase().trim())
                 || item["Material 2"].toLowerCase().trim().includes(name_array[3].toLowerCase().trim())
                 || item["Material 3"].toLowerCase().trim().includes(name_array[3].toLowerCase().trim())
@@ -122,14 +131,14 @@ class Matrix extends Component {
               matCount = curMatCount.length;
             }
 
-            let bodCount = this.props.searchData.filter((item) => {
+            let bodCount = filterArr.filter((item) => {
               return (item["Body Zone 1"] !== "" || item["Body Zone 2"] !== "" || item["Body Zone 3"] !== "")
             });
             bodCount = bodCount.length;
 
             if(bool_array[1]) {
 
-              let curBodCount = this.props.searchData.filter((item) => {
+              let curBodCount = filterArr.filter((item) => {
                 return item["Body Zone 1"].toLowerCase().trim().includes(name_array[1].toLowerCase().trim())
                 || item["Body Zone 2"].toLowerCase().trim().includes(name_array[1].toLowerCase().trim())
                 || item["Body Zone 3"].toLowerCase().trim().includes(name_array[1].toLowerCase().trim())
@@ -141,7 +150,7 @@ class Matrix extends Component {
               For twos, take 2 bool arrays
             */
 
-            let funcBodCount = this.props.searchData.filter((item) => {
+            let funcBodCount = filterArr.filter((item) => {
               return (item["Body Zone 1"] !== "" || item["Body Zone 2"] !== "" || item["Body Zone 3"] !== "")
                       && (item["Function 1"] !== "" || item["Function 2"] !== "" || item["Function 3"] !== "")
             });
@@ -149,7 +158,7 @@ class Matrix extends Component {
 
             if(bool_array[0] && bool_array[1]) {
 
-              let curFuncBodCount = this.props.searchData.filter((item) => {
+              let curFuncBodCount = filterArr.filter((item) => {
                 return (item["Body Zone 1"].toLowerCase().trim().includes(name_array[1].toLowerCase().trim())
                 || item["Body Zone 2"].toLowerCase().trim().includes(name_array[1].toLowerCase().trim())
                 || item["Body Zone 3"].toLowerCase().trim().includes(name_array[1].toLowerCase().trim())) &&
@@ -162,7 +171,7 @@ class Matrix extends Component {
 
 
 
-            let matBodCount = this.props.searchData.filter((item) => {
+            let matBodCount = filterArr.filter((item) => {
               return (item["Body Zone 1"] !== "" || item["Body Zone 2"] !== "" || item["Body Zone 3"] !== "")
                       && (item["Material 1"] !== "" || item["Material 2"] !== "" || item["Material 3"] !== "")
             });
@@ -170,7 +179,7 @@ class Matrix extends Component {
 
             if(bool_array[1] && bool_array[3]) {
 
-              let curMatBodCount = this.props.searchData.filter((item) => {
+              let curMatBodCount = filterArr.filter((item) => {
                 return (item["Body Zone 1"].toLowerCase().trim().includes(name_array[1].toLowerCase().trim())
                 || item["Body Zone 2"].toLowerCase().trim().includes(name_array[1].toLowerCase().trim())
                 || item["Body Zone 3"].toLowerCase().trim().includes(name_array[1].toLowerCase().trim())) &&
@@ -181,12 +190,7 @@ class Matrix extends Component {
               matBodCount = curMatBodCount.length;
             }
 
-
-
-
-
-
-            let fabBodCount = this.props.searchData.filter((item) => {
+            let fabBodCount = filterArr.filter((item) => {
               return (item["Body Zone 1"] !== "" || item["Body Zone 2"] !== "" || item["Body Zone 3"] !== "")
                       && (item["Fabrication 1"] !== "" || item["Fabrication 2"] !== "")
             });
@@ -194,7 +198,7 @@ class Matrix extends Component {
 
             if(bool_array[1] && bool_array[2]) {
 
-              let curFabBodCount = this.props.searchData.filter((item) => {
+              let curFabBodCount = filterArr.filter((item) => {
                 return (item["Body Zone 1"].toLowerCase().trim().includes(name_array[1].toLowerCase().trim())
                 || item["Body Zone 2"].toLowerCase().trim().includes(name_array[1].toLowerCase().trim())
                 || item["Body Zone 3"].toLowerCase().trim().includes(name_array[1].toLowerCase().trim())) &&
@@ -206,14 +210,14 @@ class Matrix extends Component {
 
 
 
-            let fabFuncCount = this.props.searchData.filter((item) => {
+            let fabFuncCount = filterArr.filter((item) => {
               return (item["Function 1"] !== "" || item["Function 2"] !== "" || item["Function 3"] !== "")
                       && (item["Fabrication 1"] !== "" || item["Fabrication 2"] !== "")
             });
             fabFuncCount = fabFuncCount.length;
 
             if(bool_array[0] && bool_array[2]) {
-              let curFabFuncCount = this.props.searchData.filter((item) => {
+              let curFabFuncCount = filterArr.filter((item) => {
                 return (item["Fabrication 1"].toLowerCase().trim().includes(name_array[2].toLowerCase().trim())
                 || item["Fabrication 2"].toLowerCase().trim().includes(name_array[2].toLowerCase().trim())) &&
                 (item["Function 1"].toLowerCase().trim().includes(name_array[0].toLowerCase().trim())
@@ -223,14 +227,14 @@ class Matrix extends Component {
               fabFuncCount = curFabFuncCount.length;
             }
 
-            let matFuncCount = this.props.searchData.filter((item) => {
+            let matFuncCount = filterArr.filter((item) => {
               return (item["Function 1"] !== "" || item["Function 2"] !== "" || item["Function 3"] !== "")
                       && (item["Material 1"] !== "" || item["Material 2"] !== "" || item["Material 3"] !== "")
             });
             matFuncCount = matFuncCount.length;
 
             if(bool_array[0] && bool_array[3]) {
-              let curMatFuncCount = this.props.searchData.filter((item) => {
+              let curMatFuncCount = filterArr.filter((item) => {
                 return (item["Material 1"].toLowerCase().trim().includes(name_array[3].toLowerCase().trim())
                 || item["Material 2"].toLowerCase().trim().includes(name_array[3].toLowerCase().trim())
                 || item["Material 3"].toLowerCase().trim().includes(name_array[3].toLowerCase().trim())) &&
@@ -243,14 +247,14 @@ class Matrix extends Component {
 
 
 
-            let matFabCount = this.props.searchData.filter((item) => {
+            let matFabCount = filterArr.filter((item) => {
               return (item["Fabrication 1"] !== "" || item["Fabrication 2"] !== "")
                       && (item["Material 1"] !== "" || item["Material 2"] !== "" || item["Material 3"] !== "")
             });
             matFabCount = matFabCount.length;
 
             if(bool_array[2] && bool_array[3]) {
-              let curMatFabCount = this.props.searchData.filter((item) => {
+              let curMatFabCount = filterArr.filter((item) => {
                 return (item["Material 1"].toLowerCase().trim().includes(name_array[3].toLowerCase().trim())
                 || item["Material 2"].toLowerCase().trim().includes(name_array[3].toLowerCase().trim())
                 || item["Material 3"].toLowerCase().trim().includes(name_array[3].toLowerCase().trim())) &&
@@ -263,7 +267,7 @@ class Matrix extends Component {
 
 
 
-            let matFabFuncCount = this.props.searchData.filter((item) => {
+            let matFabFuncCount = filterArr.filter((item) => {
               return (item["Fabrication 1"] !== "" || item["Fabrication 2"] !== "")
                       && (item["Material 1"] !== "" || item["Material 2"] !== "" || item["Material 3"] !== "")
                       && (item["Function 1"] !== "" || item["Function 2"] !== "" || item["Function 3"] !== "")
@@ -271,7 +275,7 @@ class Matrix extends Component {
             matFabFuncCount = matFabFuncCount.length;
 
             if(bool_array[2] && bool_array[3] && bool_array[0]) {
-              let curMatFabFuncCount = this.props.searchData.filter((item) => {
+              let curMatFabFuncCount = filterArr.filter((item) => {
                 return (item["Material 1"].toLowerCase().trim().includes(name_array[3].toLowerCase().trim())
                 || item["Material 2"].toLowerCase().trim().includes(name_array[3].toLowerCase().trim())
                 || item["Material 3"].toLowerCase().trim().includes(name_array[3].toLowerCase().trim())) &&
@@ -286,7 +290,7 @@ class Matrix extends Component {
             }
 
 
-            let matFabBodCount = this.props.searchData.filter((item) => {
+            let matFabBodCount = filterArr.filter((item) => {
               return (item["Fabrication 1"] !== "" || item["Fabrication 2"] !== "")
                       && (item["Material 1"] !== "" || item["Material 2"] !== "" || item["Material 3"] !== "")
                       && (item["Body Zone 1"] !== "" || item["Body Zone 2"] !== "" || item["Body Zone 3"] !== "")
@@ -295,7 +299,7 @@ class Matrix extends Component {
 
 
             if(bool_array[2] && bool_array[3] && bool_array[1]) {
-              let curMatFabBodCount = this.props.searchData.filter((item) => {
+              let curMatFabBodCount = filterArr.filter((item) => {
                 return (item["Material 1"].toLowerCase().trim().includes(name_array[3].toLowerCase().trim())
                 || item["Material 2"].toLowerCase().trim().includes(name_array[3].toLowerCase().trim())
                 || item["Material 3"].toLowerCase().trim().includes(name_array[3].toLowerCase().trim())) &&
@@ -311,7 +315,7 @@ class Matrix extends Component {
 
 
 
-            let funcFabBodCount = this.props.searchData.filter((item) => {
+            let funcFabBodCount = filterArr.filter((item) => {
               return (item["Fabrication 1"] !== "" || item["Fabrication 2"] !== "")
                       && (item["Function 1"] !== "" || item["Function 2"] !== "" || item["Function 3"] !== "")
                       && (item["Body Zone 1"] !== "" || item["Body Zone 2"] !== "" || item["Body Zone 3"] !== "")
@@ -319,7 +323,7 @@ class Matrix extends Component {
             funcFabBodCount = funcFabBodCount.length;
 
             if(bool_array[2] && bool_array[0] && bool_array[1]) {
-              let curFuncFabBodCount = this.props.searchData.filter((item) => {
+              let curFuncFabBodCount = filterArr.filter((item) => {
                 return (item["Function 1"].toLowerCase().trim().includes(name_array[0].toLowerCase().trim())
                 || item["Function 2"].toLowerCase().trim().includes(name_array[0].toLowerCase().trim())
                 || item["Function 3"].toLowerCase().trim().includes(name_array[0].toLowerCase().trim())) &&
@@ -335,7 +339,7 @@ class Matrix extends Component {
               funcFabBodCount = curFuncFabBodCount.length;
             }
 
-            let funcMatBodCount = this.props.searchData.filter((item) => {
+            let funcMatBodCount = filterArr.filter((item) => {
               return (item["Material 1"] !== "" || item["Material 2"] !== "" || item["Material 3"] !== "")
                       && (item["Function 1"] !== "" || item["Function 2"] !== "" || item["Function 3"] !== "")
                       && (item["Body Zone 1"] !== "" || item["Body Zone 2"] !== "" || item["Body Zone 3"] !== "")
@@ -343,7 +347,7 @@ class Matrix extends Component {
             funcMatBodCount = funcMatBodCount.length;
 
             if(bool_array[3] && bool_array[0] && bool_array[1]) {
-              let curFuncMatBodCount = this.props.searchData.filter((item) => {
+              let curFuncMatBodCount = filterArr.filter((item) => {
                 return (item["Function 1"].toLowerCase().trim().includes(name_array[0].toLowerCase().trim())
                 || item["Function 2"].toLowerCase().trim().includes(name_array[0].toLowerCase().trim())
                 || item["Function 3"].toLowerCase().trim().includes(name_array[0].toLowerCase().trim())) &&
@@ -358,7 +362,7 @@ class Matrix extends Component {
               funcMatBodCount = curFuncMatBodCount.length;
             }
 
-            let allCount = this.props.searchData.filter((item) => {
+            let allCount = filterArr.filter((item) => {
               return (item["Body Zone 1"] !== "" || item["Body Zone 2"] !== "" || item["Body Zone 3"] !== "")
                       && (item["Material 1"] !== "" || item["Material 2"] !== "" || item["Material 3"] !== "")
                       && (item["Function 1"] !== "" || item["Function 2"] !== "" || item["Function 3"] !== "")
@@ -367,7 +371,7 @@ class Matrix extends Component {
             allCount = allCount.length;
 
             if(bool_array[3] && bool_array[0] && bool_array[1] && bool_array[2]) {
-              let curAllCount = this.props.searchData.filter((item) => {
+              let curAllCount = filterArr.filter((item) => {
                 return (item["Function 1"].toLowerCase().trim().includes(name_array[0].toLowerCase().trim())
                 || item["Function 2"].toLowerCase().trim().includes(name_array[0].toLowerCase().trim())
                 || item["Function 3"].toLowerCase().trim().includes(name_array[0].toLowerCase().trim())) &&
@@ -536,6 +540,22 @@ class Matrix extends Component {
             </div>
         );
     }
+
+    filterYear = (item) => {
+
+      return (item["Year"] >= this.props.minYear && item["Year"] <= this.props.maxYear)
+    }
+
+    filterVenue = (item) => {
+      console.log(this.props.venue);
+      return (this.props.venue === 'All' || item["Conference (VENUE)"] === this.props.venue)
+    }
+
+    filterSource = (item) => {
+      return (this.props.source === 'Both' || item["Source"] === this.props.source)
+    }
+
+
 }
 
 const mapStateToProps = state => {
@@ -545,6 +565,12 @@ const mapStateToProps = state => {
         selFabrication: state.selFabrication,
         selMaterial: state.selMaterial,
         searchData: state.searchData,
+
+        filter: state.filter,
+        minYear: state.minYear,
+        maxYear: state.maxYear,
+        venue: state.venueFilter,
+        source: state.sourceFilter,
 
     }
 };
