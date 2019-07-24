@@ -10,11 +10,12 @@
 
 .rotate5 {
      transform: rotate(270deg);
-     margin-top: 125%;
+     margin-top: 135%;
+     color: black;
 }
 
 .rotate5:hover {
-    color: white;
+    color: black;
     cursor: pointer;
 }
 

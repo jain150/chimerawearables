@@ -34,7 +34,7 @@ const initialState = {
     material: ['Illumination', 'Conductive Inks', 'Polymers', 'Molding Materials',
     'Threads', 'Conductive Threads','Adhesives', 'Paper and Cardboard', 'Electronics',
     'Textile and Composites', 'Bonded', 'Jaquard', 'Hide', 'Hardware', 'Organic Materials',
-    'Inks & Finishes', 'Metal', 'Shape Memory Alloy'],
+    'Inks & Finishes', 'Metal', 'Shape Memory Alloy', 'Fabrics'],
 
     arrFunc: [],
     arrBod: [],

@@ -217,63 +217,54 @@ class HomePage extends Component {
 
          <div className="containerHome">
 
-         <div style={{color: "white", marginLeft: "-10vw"}}>Welcome to Chimera, an interactive search engine for Wearables</div>
+         <div style={{color: "white", textAlign: "center", marginLeft: "5%", marginTop: "5%"}}>Welcome to Chimera, an interactive search engine for Wearables</div>
 
-         <Button outline size="lg" style={{color: "white", marginTop: "5vh", marginLeft: "2vw", borderStyle: "thin", borderColor: "white", borderRadius: "2px"}} color="black" onClick={this.toggle}>Enter</Button>{' '}
+         <Button outline size="lg" style={{color: "white", marginLeft: "50%", marginTop: "2%", borderStyle: "thin", borderColor: "white", borderRadius: "2px"}} color="black" onClick={this.toggle}>Enter</Button>{' '}
 
-         <Modal size="lg" style={{backgroundColor: "black", maxWidth: '80vw',  maxHeight: '80vh', width: '82vw', height: '82vh', borderStyle: "solid", borderColor: "white", borderRadius: "6px"}} isOpen={this.state.modal} toggle={this.toggle}>
+         <Modal size="lg" style={{backgroundColor: "black", maxWidth: '90vw',  maxHeight: '90vh', width: '90vw', height: '90vh'}} isOpen={this.state.modal} toggle={this.toggle}>
 
-           <ModalBody style={{backgroundColor: "black", color: "white", maxWidth: '80vw',  maxHeight: '80vh', width: '79.7vw', height: '79vh'}}>
-
+           <ModalBody style={{backgroundColor: "black", color: "white"}}>
            <div style={{display: "flex"}}>
-            <div style={{width: "30%"}}>
-
-
+            <div style={{width: "30%", marginTop: "1.25%"}}>
                <Form>
-                    <FormGroup>
                       {(this.state.loginWarning !== '') ? (<div style={{color: "red"}}>{this.state.loginWarning}</div>) : (<div></div>)}
-                       <Label for="exampleEmail">Username</Label>
+                       <div>Username</div>
                        <Input style={{ borderRadius: "0px"}} type="text" onChange={this.onLoginUsernameChange} value={this.state.loginUsername}/>
-                     </FormGroup>
-                     <FormGroup>
-                       <Label for="examplePassword">Password</Label>
-                       <Input style={{ borderRadius: "0px"}} type="password" onChange={this.onLoginPasswordChange} value={this.state.loginPassword} />
-                     </FormGroup>
 
-                     <Button onClick={this.onLoginSubmit} style={{marginTop: "11px", marginLeft: "8vw", transform: "translateY(100px)"}} color="secondary">Login</Button>
+                       <div style={{marginTop: "4.83%"}}>Password</div>
+                       <Input style={{ borderRadius: "0px"}} type="password" onChange={this.onLoginPasswordChange} value={this.state.loginPassword} />
+
+                     <Button onClick={this.onLoginSubmit} style={{marginTop: "10%", marginLeft: "38%"}} color="secondary">Login</Button>
                 </Form>
             </div>
-
             <div style={{width: "30%", marginLeft: "7%"}}>
-
-
                <Form>
                         {(this.state.signUpWarning !== '') ? (<div style={{color: "red"}}>{this.state.signUpWarning}</div>) : (<div></div>)}
-                       <Label style={{marginTop: "10px"}} for="exampleEmail">Username</Label>
+                       <div style={{marginTop: "10px"}}>Username</div>
                        <Input style={{ borderRadius: "0px"}} type="text" onChange={this.onSignUpUsernameChange} value={this.state.signUpUsername}/>
 
-                       <Label style={{marginTop: "10px"}} for="exampleEmail">Email</Label>
+                       <div style={{marginTop: "10px"}}>Email</div>
                        <Input style={{ borderRadius: "0px"}} type="email" onChange={this.onSignUpEmailChange} value={this.state.signUpEmail}/>
 
-                       <Label style={{marginTop: "10px"}} for="examplePassword">Password</Label>
+                       <div style={{marginTop: "10px"}}>Password</div>
                        <Input style={{ borderRadius: "0px"}} type="password" onChange={this.onSignUpPasswordChange} value={this.state.signUpPassword} />
 
-                      <Button onClick={this.onSignUpSubmit} style={{marginTop: "10px", marginLeft: "8vw", transform: "translateY(37px)"}} color="secondary">Sign Up</Button>
+                      <Button onClick={this.onSignUpSubmit} style={{marginTop: "10%", marginLeft: "38%"}} color="secondary">Sign Up</Button>
                 </Form>
             </div>
 
             <div style={{width: "30%", marginLeft: "7%"}}>
-
-
                <Form>
-                       <Label style={{marginTop: "10px"}} for="exampleEmail">Username</Label>
+                       <div style={{marginTop: "10px"}}>Username</div>
                        <Input style={{ borderRadius: "0px"}} type="email"/>
 
-                      <Button onClick={this.props.toggle} style={{marginTop: "10vh", marginLeft: "8vw", transform: "translateY(131px)"}} color="secondary">Guest Mode</Button>
+                      <Button onClick={this.props.toggle} style={{marginTop: "10%", marginLeft: "35%"}} color="secondary">Guest Mode</Button>
                 </Form>
             </div>
 
             </div>
+            <img src={"ImageDatabase/Icons/MiniHome.png"}
+             alt="" style={{width: '10%', height: "20%", transform: "translate(39vw, 18vh)", objectFit: "cover"}}/>
            </ModalBody>
 
          </Modal>
