@@ -18,6 +18,7 @@ const initialState = {
     venueFilter: 'all',
     sourceFilter: 'both',
 
+
     categories: ['Function', 'BodyZones', 'Fabrication', 'Material'],
     functions: ['Storage', 'Breathability', 'Energy Harvesting', 'Feedback',
      'Display', 'Electronic Elements Connections', 'Wireless Communication', 'Control', 'Movement',

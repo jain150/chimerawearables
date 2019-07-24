@@ -173,30 +173,30 @@ class SearchDisplay extends Component {
             corLabel = "";
             if(this.props.params.includes('Function'))
               if(corLabel === "")
-                corLabel = corLabel + 'Function';
+                corLabel = corLabel + this.props.names[0];
               else {
-                corLabel = corLabel + ' + Function';
+                corLabel = corLabel + ' + ' + this.props.names[0];
               }
 
             if(this.props.params.includes('BodyZones'))
               if(corLabel === "")
-                corLabel = corLabel + 'BodyZones';
+                corLabel = corLabel + this.props.names[1];
               else {
-                corLabel = corLabel + ' + BodyZones';
+                corLabel = corLabel + ' + ' + this.props.names[1];
               }
 
             if(this.props.params.includes('Fabrication'))
               if(corLabel === "")
-                corLabel = corLabel + 'Fabrication';
+                corLabel = corLabel + this.props.names[2];
               else {
-                corLabel = corLabel + ' + Fabrication';
+                corLabel = corLabel + ' + '  + this.props.names[2];
               }
 
             if(this.props.params.includes('Material'))
               if(corLabel === "")
-                corLabel = corLabel + 'Material';
+                corLabel = corLabel + this.props.names[3];
               else {
-                corLabel = corLabel + '+ Material';
+                corLabel = corLabel + ' + ' + this.props.names[3];
               }
           }
 

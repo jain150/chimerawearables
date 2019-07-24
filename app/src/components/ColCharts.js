@@ -98,7 +98,7 @@ class ColCharts extends Component {
 
            <XAxis dataKey="name"/>
            <YAxis/>
-           <Tooltip/>
+           <Tooltip cursor={false}/>
            <Bar dataKey="Results" fill="black" />
           </BarChart>
     </div>

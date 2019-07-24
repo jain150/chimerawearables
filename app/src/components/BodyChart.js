@@ -52,17 +52,17 @@ class BodyChart extends Component {
           <div style={{transform: "translate(20px, -30px)", position: "relative"}}>
               <img src={"ImageDatabase/Icons/BodyStats.jpg"}
                alt="" style={{height: '40vh', width: '25vw', objectFit: "cover"}}/>
-               <div style={{position: "absolute", top: "27px", left: "55px", color: "white", fontSize: "small"}}>{out["Head"]}</div>
-               <div style={{position: "absolute", top: "56px", left: "55px", color: "white", fontSize: "small"}}>{out["Back"]}</div>
-               <div style={{position: "absolute", top: "90px", left: "55px", color: "white", fontSize: "small"}}>{out["Chest"]}</div>
-               <div style={{position: "absolute", top: "120px", left: "55px", color: "white", fontSize: "small"}}>{out["Pelvic Region"]}</div>
-               <div style={{position: "absolute", bottom: "2px", left: "55px", color: "white", fontSize: "small"}}>{out["Feet"]}</div>
+               <div style={{position: "absolute", top: "12%", left: "18%", color: "white", fontSize: "small"}}>{out["Head"]}</div>
+               <div style={{position: "absolute", top: "23%", left: "18%", color: "white", fontSize: "small"}}>{out["Back"]}</div>
+               <div style={{position: "absolute", top: "33%", left: "18%", color: "white", fontSize: "small"}}>{out["Chest"]}</div>
+               <div style={{position: "absolute", top: "48%", left: "18%", color: "white", fontSize: "small"}}>{out["Pelvic Region"]}</div>
+               <div style={{position: "absolute", bottom: "0.5%", left: "18%", color: "white", fontSize: "small"}}>{out["Feet"]}</div>
 
-               <div style={{position: "absolute", top: "70px", left: "245px", color: "white", fontSize: "small"}}>{out["Arms"]}</div>
-               <div style={{position: "absolute", top: "120px", left: "250px", color: "white", fontSize: "small"}}>{out["Wrist and Hand"]}</div>
-               <div style={{position: "absolute", top: "170px", left: "245px", color: "white", fontSize: "small"}}>{out["Legs"]}</div>
+               <div style={{position: "absolute", top: "25%", left: "77%", color: "white", fontSize: "small"}}>{out["Arms"]}</div>
+               <div style={{position: "absolute", top: "48%", left: "78%", color: "white", fontSize: "small"}}>{out["Wrist and Hand"]}</div>
+               <div style={{position: "absolute", top: "61%", left: "78%", color: "white", fontSize: "small"}}>{out["Legs"]}</div>
 
-               <div style={{position: "absolute", top: "100px", right: "10px", color: "white", fontSize: "small"}}>{out["Full Body"]}</div>
+               <div style={{position: "absolute", top: "40%", right: "3.6%", color: "white", fontSize: "small"}}>{out["Full Body"]}</div>
 
            </div>
       </div>

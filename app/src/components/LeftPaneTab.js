@@ -78,12 +78,12 @@ class LeftPaneTab extends Component {
 
 
                  <img id="image" src={"ImageDatabase/Icons/" + this.props.name + ".png"}
-                  alt="" style={{height: '40px', width: '40px', objectFit: 'cover', transform: "translate(6px, 20px)"}}/>
+                  alt="" className="imgStyle"/>
 
 
 
 
-                         <UncontrolledPopover style={{borderColor: "#1D4999", borderStyle: "solid", borderWidth: "5px", backgroundColor: "black"}} hideArrow={true} modifiers={{offset: '-5vw'}} trigger="legacy" target={'Popover-'
+                         <UncontrolledPopover style={{borderColor: "#1D4999", borderStyle: "solid", borderWidth: "medium", backgroundColor: "black"}} hideArrow={true} modifiers={{offset: '-5vw'}} trigger="legacy" target={'Popover-'
                          +
 
                          this

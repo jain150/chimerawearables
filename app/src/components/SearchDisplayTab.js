@@ -123,10 +123,11 @@ class SearchDisplayTab extends Component {
             <a  href={input["Reference Link"]} target="_blank">
             <div id="title" className="centered">{(input["Reference Name"].length < 40) ? (input["Reference Name"]) : (input["Reference Name"].substring(0, 40) + "...")}</div>
             </a>
+
             {(this.props.loggedIn) ? (<div id="title" className="ticker"><Input checked={check} onClick={() => this.updateBookmark(input["Reference Link"])} type="checkbox" />{' '}</div>) : (<div/>)}
 
 
-            <div className="cost"><div style={{backgroundColor: "#f7f7f7", borderRadius: "4px", opacity: "0.75"}}>{costToken}</div>
+            <div className="cost"><div style={{backgroundColor: "#f7f7f7", borderRadius: "4px", opacity: "0.75", height: '18px', width: '18px'}}>{costToken}</div>
             <div class="tooltipCost">Cost</div>
 
         </div>
@@ -157,15 +158,17 @@ class SearchDisplayTab extends Component {
 
     return (
       <div className="searchStore">
+
         <div className="leftPaneSearch">
             <div className="rotate1">{this.props.type}</div>
         </div>
 
-        <div style={{overflow: 'hidden'}}>
+        <div className="searchTabContent">
           <div style={{display: 'flex', height: "105%", overflowX: 'scroll', overflowY: 'hidden'}}>
             {inp}
           </div>
         </div>
+
     </div>
     )
   }

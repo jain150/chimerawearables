@@ -24,11 +24,17 @@ class FilterBody extends Component {
     constructor(props) {
           super(props);
 
+
+
         this.toggle = this.toggle.bind(this);
           this.state = {
             dropdownOpen: false,
             venue: 'All',
             modal: false,
+            showLabels: true,
+
+            sourceEng: false,
+            sourceFash: false,
           };
     }
 
@@ -42,9 +48,11 @@ class FilterBody extends Component {
     }
 
     toggle() {
-     this.setState({
-       dropdownOpen: !this.state.dropdownOpen
-     });
+
+      this.setState(prevState => ({
+        dropdownOpen: !prevState.dropdownOpen,
+        showLabels: !prevState.showLabels
+      }));
    }
 
      onChange = (value) => {
@@ -65,6 +73,25 @@ class FilterBody extends Component {
     }
 
     onSourceClick = (value) => {
+
+
+      if(value === 'Engineering') {
+        this.setState(prevState => ({
+          sourceEng: !prevState.sourceEng
+        }));
+      }
+
+      else if(value === 'Fashion') {
+        this.setState(prevState => ({
+          sourceFash: !prevState.sourceFash
+        }));
+      }
+
+      if(this.state.sourceEng && this.state.sourceFash)
+        value = "both"
+      else if(!this.state.sourceEng && !this.state.sourceFash)
+        value = 'both'
+
       this.props.filterSource(value);
     }
 
@@ -133,8 +160,8 @@ class FilterBody extends Component {
               <BarChart width={280} height={150} data={yearData}
                   margin={{top: 5, right: 30, left: 0, bottom: 0}}>
                   <XAxis dataKey="name" hide={true}/>
-                  <Tooltip cursor={{ stroke: 'blue', strokeWidth: 2 }}/>
-                  <Bar dataKey="Projects" fill="black" />
+                  <Tooltip viewBox={{height: 50, width: 50 }} cursor={false}/>
+                  <Bar dataKey="Projects" />
              </BarChart>
 
               <Range handleStyle={[{ backgroundColor: 'black'}, {backgroundColor: 'black' }]} trackStyle={[{ backgroundColor: 'grey', height: "6px"}]}
@@ -150,19 +177,22 @@ class FilterBody extends Component {
                         {venueArr}
                       </DropdownMenu>
               </ButtonDropdown>
+
               <div style={{marginTop: "1.3vh"}}>Filter by:</div>
               <div style={{marginTop: "8px", marginRight: "20px", marginLeft: "20px"}}>
-                {(this.props.source === "Engineering") ? (<Button className="btnSelectorClicked" onClick={() => this.onSourceClick("Engineering")}>Engineering</Button>)
+                {(this.state.sourceEng) ? (<Button className="btnSelectorClicked" onClick={() => this.onSourceClick("Engineering")}>Engineering</Button>)
                   : (<Button className="btnSelector" onClick={() => this.onSourceClick("Engineering")}>Engineering</Button>)}
-                {(this.props.source === "Fashion") ? (<Button className="btnSelectorClicked" style={{float: "right"}} onClick={() => this.onSourceClick("Fashion")}>Fashion</Button>)
+                {(this.state.sourceFash) ? (<Button className="btnSelectorClicked" style={{float: "right"}} onClick={() => this.onSourceClick("Fashion")}>Fashion</Button>)
                  : (<Button className="btnSelector" style={{float: "right"}} onClick={() => this.onSourceClick("Fashion")}>Fashion</Button>)}
               </div>
+
               <div style={{marginTop: "8px"}}>
                 % Contribution
               </div>
               <div style={{marginTop: '8px', marginLeft: '10px'}}>
-                  <Label style={{transform: "translateY(4px)", backgroundColor: "#f98686"}} key="Orange" />{' '}<span>Engineering</span>{' '}
-                  <Label style={{transform: "translateY(4px)", marginLeft: "10px"}} color="red" key="red" />{' '}<span>Fashion</span>{' '}
+                {(this.state.showLabels) ? (<><Label style={{transform: "translateY(4px)", backgroundColor: "#f98686"}} key="Orange" />{' '}<span>Engineering</span>{' '}
+                <Label style={{transform: "translateY(4px)", marginLeft: "10px"}} color="red" key="red" />{' '}<span>Fashion</span>{' '}</>) : (<div style={{height: "2vh"}}>Placeholder</div>)}
+
                   <br />
                   <div>
                   <br />
@@ -186,17 +216,17 @@ class FilterBody extends Component {
 
                       <Button outline color="secondary" onClick={this.toggleStats}>Resource Statistics</Button>
 
-                      <Modal size="lg" style={{maxWidth: '98vw', maxHeight: '98vh', width: '98vw', height: '98vh'}} isOpen={this.state.modal} toggle={this.toggle}>
+                      <Modal size="lg" style={{maxWidth: '100vw', maxHeight: '100vh', width: '100vw', height: '100vh'}} isOpen={this.state.modal} toggle={this.toggle}>
                         <ModalHeader close={closeBtn} style={{backgroundColor: "black", color: "white"}} toggle={this.toggleStats}>Resource Statistics</ModalHeader>
 
-                        <ModalBody style={{backgroundColor: "black"}}>
+                        <ModalBody style={{backgroundColor: "black", overflowY: "auto"}}>
 
-                            <div style={{display: "flex", height: "50%"}}>
+                            <div style={{display: "flex", height: "49%"}}>
                                <ColCharts label="Function" />
                                <ColCharts label="Material" />
                             </div>
 
-                            <div style={{display: "flex",height: "50%"}}>
+                            <div style={{display: "flex",height: "49%", marginTop: "2%"}}>
                                <ColCharts label="Fabrication" />
                                <BodyChart />
                             </div>
