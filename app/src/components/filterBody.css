@@ -24,7 +24,8 @@
 
 .rotate6:hover {
 
-  background-color: #00AAFE;
+  background-color: white;
+  color: black;
   border-style: solid;
   border-color: #00AAFE;
   border-width: thin;

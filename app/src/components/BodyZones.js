@@ -109,18 +109,15 @@ class BodyZones extends Component {
 
             return (
              <div className="container">
-
-
-
-             <div style={{transform: "translate(20px, 100px)"}}>
-             <ImageMapper src={img} map={myMap} width={205} height={400}
-              	onClick={area => this.clicked(area)}
-              />
-              <div style={{marginTop: "10px", transform: "translateX(-1.35vw)", color: "#CECECE", fontWeight: "600", fontSize: "small"}}>
-                  <div>CLICK ON THE</div>
-                  <div>BODY ZONES SELECTION</div>
-              </div>
-              </div>
+                 <div style={{transform: "translate(-5%, 20%)"}}>
+                       <ImageMapper src={img} map={myMap} width={225} height={400}
+                        	onClick={area => this.clicked(area)}
+                        />
+                        <div style={{marginTop: "10%", color: "white", fontWeight: "600", fontSize: "small"}}>
+                            <div>CLICK ON THE</div>
+                            <div>BODY ZONES SELECTION</div>
+                        </div>
+                  </div>
             </div>
 
         );

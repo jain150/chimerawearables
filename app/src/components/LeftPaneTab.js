@@ -83,15 +83,15 @@ class LeftPaneTab extends Component {
 
 
 
-                         <UncontrolledPopover style={{borderColor: "#1D4999", borderStyle: "solid", borderWidth: "medium", backgroundColor: "black"}} hideArrow={true} modifiers={{offset: '-5vw'}} trigger="legacy" target={'Popover-'
+                         <UncontrolledPopover style={{ backgroundColor: "black"}} hideArrow={true} modifiers={{offset: '-5vw'}} trigger="legacy" target={'Popover-'
                          +
 
                          this
                          .props
                          .name}>
 
-                              <PopoverHeader style={{color: "#A7AFBA", backgroundColor: "black", fontWeight: "bold"}}>{this.props.name}</PopoverHeader>
-                               <PopoverBody style={{padding: '0', color: "#A7AFBA", backgroundColor: "black"}}><LeftPanePopoverTab
+                              <PopoverHeader style={{color: "white", backgroundColor: "black", transform: "translateX(-4.8%)"}}>{this.props.name}</PopoverHeader>
+                               <PopoverBody style={{padding: '0', color: "#A7AFBA", backgroundColor: "black", transform: "translateX(-4.8%)"}}><LeftPanePopoverTab
                                                         type={this.props.name}
                                                         subtypes={arr}
                                                          selArr={selArr}
