@@ -49,11 +49,11 @@ class Matrix extends Component {
               filterArr = filterArr.filter(this.filterSource);
             }
 
-            let w = document.getElementById("root").offsetWidth * 0.009
-            let h = document.getElementById("root").offsetHeight * 0.0175
+            let w = window.innerWidth * 0.6
+            let h = window.innerHeight * 0.85
 
 
-            const hexagonSize = { x: w, y:  h};
+            const hexagonSize = { x: w / 60, y:  h / 45};
 
             let name_array = [];
             name_array[0] = 'Function';
@@ -395,7 +395,7 @@ class Matrix extends Component {
                console.log()
              }
              <div className="matrixSVG">
-                        <HexGrid width={document.getElementById("root").offsetWidth * 0.55} height={document.getElementById("root").offsetHeight*0.85} viewBox="-40 -45 90 90">
+                        <HexGrid width={document.getElementById("root").offsetWidth * 0.6} height={document.getElementById("root").offsetHeight*0.85} viewBox="-40 -45 90 90">
                         <Layout size={hexagonSize} flat={true} spacing={1.05} origin={{ x: 0, y: 0 }}>
 
                                   <Hexagon onClick={() => this.onClick(name_array, bool_array[0] && bool_array[1] && bool_array[2] && bool_array[3], ['BodyZones', 'Fabrication', 'Material', 'Function'])} q={0} r={0} s={0}>
