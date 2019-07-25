@@ -35,5 +35,6 @@
 .layout {
     height: 100vh;
     background: black;
+    overflow-x: auto;
     display: flex;
 }
