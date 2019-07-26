@@ -189,7 +189,7 @@ class FilterBody extends Component {
               <div>{this.props.minYear}<span style={{float: "right"}}>{this.props.maxYear}</span></div>
               <br />
 
-              <div style={{ marginTop: "5%"}}>Publication Venue</div>
+              <div style={{ marginTop: "2%"}}>Publication Venue</div>
               <ButtonDropdown style={{width:"90%", height: '25px', transform: "translateX(5%)"}} isOpen={this.state.dropdownOpen} toggle={this.toggle}>
                       <DropdownToggle style={{marginBottom: "-5px", backgroundColor: "white", color: "#9B089A"}} caret>
                         {this.state.venue}
@@ -199,7 +199,7 @@ class FilterBody extends Component {
                       </DropdownMenu>
               </ButtonDropdown>
 
-              <div style={{ marginTop: "10%"}}>Filter by:</div>
+              <div style={{ marginTop: "7%"}}>Filter by:</div>
               <div style={{marginTop: "8px", marginRight: "20px", marginLeft: "20px"}}>
                 {(this.props.source === 'Both' || this.props.source === 'Engineering') ? (<Button className="btnSelectorClicked" onClick={() => this.onSourceClick("Engineering")}>Engineering</Button>)
                   : (<Button className="btnSelector" onClick={() => this.onSourceClick("Engineering")}>Engineering</Button>)}
@@ -207,7 +207,7 @@ class FilterBody extends Component {
                  : (<Button className="btnSelector" style={{float: "right"}} onClick={() => this.onSourceClick("Fashion")}>Fashion</Button>)}
               </div>
 
-              <div style={{ marginTop: "10%"}}>
+              <div style={{ marginTop: "5%"}}>
                 % Contribution
               </div>
               <div style={{marginTop: '3%', marginLeft: '10px'}}>

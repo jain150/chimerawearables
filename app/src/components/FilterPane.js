@@ -68,10 +68,20 @@ class FilterPane extends Component {
     render() {
 
       let val = 'translate(0, 33vh)';
+/*
       if(this.state.popoverOpen){
-        val = 'translate(-320%, 33vh)';
-
+        val = 'translate(-500%, 33vh)';
       }
+*/
+
+      let popVal = 'translate(0%, 0%)'
+
+      if(this.state.popoverOpen){
+        popVal = 'translate(-1850%, 0%)';
+      }
+
+
+      let w = window.innerWidth * 0.3
 
       return (
 
@@ -85,14 +95,14 @@ class FilterPane extends Component {
 
           <div style={{height: "25%"}}>
               <div style={{transform: val, height: "100%", zIndex: "999"}}>
-                  <div className="rotate6" id={'PopoverFilter'}>
+                  <div className="rotate6" style={{ transform:  popVal}} id={'PopoverFilter'}>
                       <div className="innerText"></div>
                   </div>
               </div>
 
 
-               <Popover hideArrow={true} style={{width: "102%", height: "100vh", color: "black", transform: "translateY(1%)", zIndex: "10"}} placement="right" isOpen={this.state.popoverOpen} target={'PopoverFilter'} toggle={this.toggle}>
-                 <PopoverHeader style={{fontWeight: "bold", fontSize: "medium", width: "102%", height: "5%", backgroundColor: "black", color: "white"}}>Data Filter</PopoverHeader>
+               <Popover hideArrow={true} style={{width: w, maxWidth: w, height: "100vh", color: "black", overflowY: "hide", backgroundColor: "black", zIndex: "10"}} placement="right" isOpen={this.state.popoverOpen} target={'PopoverFilter'} toggle={this.toggle}>
+                 <PopoverHeader style={{fontWeight: "bold", fontSize: "medium", width: "102%", marginTop: "10%", height: "5%", backgroundColor: "black", color: "white"}}>Data Filter</PopoverHeader>
                  <PopoverBody style={{color: "black", width: "102%", height: "95%", fontWeight: "bold", backgroundColor: "black", color: "white"}}><FilterBody filterToggle={this.toggleVisibility} showLoop={this.props.showLoop}/></PopoverBody>
                </Popover>
                </div>
