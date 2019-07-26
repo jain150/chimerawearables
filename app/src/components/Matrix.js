@@ -49,29 +49,6 @@ class Matrix extends Component {
             //  filterArr = filterArr.filter(this.filterSource);
             }
 
-            let w_f = window.innerWidth / 1280;
-
-
-            if(w_f < 0.7)
-              w_f = 0.7
-            else if(w_f > 1.3)
-              w_f = 1.3
-
-            let h_f = window.innerHeight / 1280;
-
-
-            if(h_f < 0.9)
-              h_f = 0.9
-            else if(h_f > 1.1)
-              h_f = 1.1
-
-
-            let w = window.innerWidth * 0.6 * w_f
-            let h = window.innerHeight * 0.85 * h_f
-
-
-            const hexagonSize = { x: w / 72, y:  h / 48};
-
             let name_array = [];
             name_array[0] = 'Function';
             name_array[1] = 'BodyZones';
@@ -405,6 +382,28 @@ class Matrix extends Component {
               allCount = curAllCount.length;
             }
 
+            let w_f = window.innerWidth / 1280;
+
+            if(w_f < 0.7)
+              w_f = 0.7
+            else if(w_f > 1.3)
+              w_f = 1.3
+
+            let h_f = window.innerHeight / 1280;
+
+
+            if(h_f < 0.9)
+              h_f = 0.9
+            else if(h_f > 1.1)
+              h_f = 1.1
+
+
+            let w = window.innerWidth * 0.6 * w_f
+            let h = window.innerHeight * 0.85 * h_f
+
+
+            const hexagonSize = { x: 12.5, y:  11.5};
+
             return (
 
              <div className="matrixBody">
@@ -412,7 +411,7 @@ class Matrix extends Component {
                console.log()
              }
              <div className="matrixSVG">
-                        <HexGrid width={window.innerWidth * 0.6 * w_f} height={window.innerHeight * 0.85} viewBox={"-40 -45 " +  120 * w_f + " " + 130 * h_f}>
+                        <HexGrid width={600 * w_f} height={window.innerHeight * 0.95} viewBox={"-50 -50 100 100"}>
                         <Layout size={hexagonSize} flat={true} spacing={1.05} origin={{ x: 0, y: 0 }}>
 
                                   <Hexagon onClick={() => this.onClick(name_array, bool_array[0] && bool_array[1] && bool_array[2] && bool_array[3], ['BodyZones', 'Fabrication', 'Material', 'Function'])} q={0} r={0} s={0}>
