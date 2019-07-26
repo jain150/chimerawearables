@@ -53,7 +53,7 @@ class Matrix extends Component {
             let h = window.innerHeight * 0.85
 
 
-            const hexagonSize = { x: w / 60, y:  h / 45};
+            const hexagonSize = { x: w / 80, y:  h / 60};
 
             let name_array = [];
             name_array[0] = 'Function';
