@@ -49,11 +49,28 @@ class Matrix extends Component {
             //  filterArr = filterArr.filter(this.filterSource);
             }
 
-            let w = window.innerWidth * 0.6
-            let h = window.innerHeight * 0.85
+            let w_f = window.innerWidth / 1280;
 
 
-            const hexagonSize = { x: w / 80, y:  h / 68};
+            if(w_f < 0.7)
+              w_f = 0.7
+            else if(w_f > 1.3)
+              w_f = 1.3
+
+            let h_f = window.innerHeight / 1280;
+
+
+            if(h_f < 0.9)
+              h_f = 0.9
+            else if(h_f > 1.1)
+              h_f = 1.1
+
+
+            let w = window.innerWidth * 0.6 * w_f
+            let h = window.innerHeight * 0.85 * h_f
+
+
+            const hexagonSize = { x: w / 72, y:  h / 48};
 
             let name_array = [];
             name_array[0] = 'Function';
