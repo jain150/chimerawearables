@@ -402,7 +402,7 @@ class Matrix extends Component {
             let h = window.innerHeight * 0.85 * h_f
 
 
-            const hexagonSize = { x: 12.5, y:  11.5};
+            const hexagonSize = { x: 11.5, y:  11.5};
 
             return (
 
