@@ -88,7 +88,7 @@
 
 .listSearch {
   height: 100vh;
-  width: 100vw;
+  width: 100%;
   display: block;
   background-color: white;
   overflow-y: scroll;

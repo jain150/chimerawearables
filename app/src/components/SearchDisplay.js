@@ -203,7 +203,7 @@ class SearchDisplay extends Component {
 
           return (
 
-            <div style={{width: "100vw"}}>
+            <div style={{width: "92.5%"}}>
               {(listView) ? (<div className="listSearch">
                     <Table striped>
                     <thead>

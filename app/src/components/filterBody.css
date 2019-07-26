@@ -88,11 +88,10 @@
 
 .filterTabExtra {
   width: 7.5%;
-  transform: translateX(-7vw);
 }
 
 .searchBar {
-  transform: translateX(0px, 15px);
+  transform: translateX(-25%);
 }
 
 .searchBar:hover {
