@@ -412,7 +412,7 @@ class Matrix extends Component {
                console.log()
              }
              <div className="matrixSVG">
-                        <HexGrid width={window.innerWidth * 0.6 * w_f} height={window.innerHeight * 0.85} viewBox={"-40 -45 " +  75 * w_f + " " + 90 * h_f}>
+                        <HexGrid width={window.innerWidth * 0.6 * w_f} height={window.innerHeight * 0.85} viewBox={"-40 -45 " +  100 * w_f + " " + 120 * h_f}>
                         <Layout size={hexagonSize} flat={true} spacing={1.05} origin={{ x: 0, y: 0 }}>
 
                                   <Hexagon onClick={() => this.onClick(name_array, bool_array[0] && bool_array[1] && bool_array[2] && bool_array[3], ['BodyZones', 'Fabrication', 'Material', 'Function'])} q={0} r={0} s={0}>
