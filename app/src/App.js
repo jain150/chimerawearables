@@ -300,14 +300,17 @@ class App extends Component {
 
         return (
           <BrowserRouter>
-          {(this.state.displayHome) ? (<HomePage toggle={this.toggleToSearch} />) : ((!this.props.searchDisplay) ? (<div className="layout">
+          {(this.state.displayHome) ? (<HomePage toggle={this.toggleToSearch} />) : ((!this.props.searchDisplay) ? (<div className="layout" style={{
+            width: window.innerWidth
+          }}>
              <LeftPane />
              <LeftPaneModal />
              <Matrix />
              <BodyZones />
-             <FilterPane move={false} showLoop={true}/>
+            <FilterPane move={false} showLoop={true}/>
           </div>) : (<div className="layout"><SearchDisplay backToSearch={this.props.updateSearchDisplay}/>
-          <FilterPane move={true} showLoop={true}/></div>)
+          <FilterPane move={true} showLoop={true} />
+        </div>)
         )}
         </BrowserRouter>
 

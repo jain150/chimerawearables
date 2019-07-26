@@ -48,7 +48,7 @@ class SearchDisplayTab extends Component {
 
   updateBookmark = (name) => {
 
-    let temp = name.substring(10,30);
+    let temp = name.substring(10);
     console.log(temp);
     this.props.updateBookmark(temp);
 
@@ -73,7 +73,7 @@ class SearchDisplayTab extends Component {
     inp = this.props.arr.map((input) => {
 
       i++;
-      let check = this.props.bookMarks.includes(input["Reference Link"].substring(10,30));
+      let check = this.props.bookMarks.includes(input["Reference Link"].substring(10));
 
 
       let wearToken = "Wear1";

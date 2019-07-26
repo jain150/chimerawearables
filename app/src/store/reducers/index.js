@@ -14,7 +14,7 @@ const initialState = {
 
     filter: true,
     minYear: 1990,
-    maxYear: 2018,
+    maxYear: 2019,
     venueFilter: 'All',
     sourceFilter: 'Both',
 

@@ -67,9 +67,9 @@ class FilterPane extends Component {
 
     render() {
 
-      let val = 'translateX(-1.2vw)';
+      let val = 'translate(0, 33vh)';
       if(this.state.popoverOpen){
-        val = 'translateX(-24vw)';
+        val = 'translate(-22.8vw, 33vh)';
 
       }
 
@@ -80,7 +80,7 @@ class FilterPane extends Component {
 
       return (
 
-          <div className={(this.props.move) ? ((!this.props.listView) ? ("filterTabMove") : ("filterTabExtra")) : ("filterTab")}>
+      <div className={(this.props.move) ? ((!this.props.listView) ? ("filterTabMove") : ("filterTabExtra")) : ("filterTab")}>
 
           <div className="searchBar">
           <form onSubmit={this.handleSubmit} id="demo-2">
@@ -88,10 +88,9 @@ class FilterPane extends Component {
           </form>
           </div>
 
-          <div style={{transform: "translate(0, 33vh)", padding: "0 0 0 0", zIndex: "999"}}>
-              <div style={{transform: val}}>
-                  <Button className="rotate6" style={{ zIndex: "900", width: "180px", height: "25px"}} outline color="info" id={'PopoverFilter'}><div style={{ transform: "translateY(-10px)",  borderTopStyle: "solid", borderColor: "black", borderWidth: "2px"}}><b> - - - - - -</b></div></Button>
-               </div>
+          <div style={{transform: val, height: "25%", zIndex: "999"}}>
+                  <div className="rotate6" id={'PopoverFilter'}><div className="innerText"></div></div>
+
 
                <Popover hideArrow={true} style={{width: "102%", height: "100%", color: "black", transform: "translateX(-0.3vw)", zIndex: "10"}} placement="right" isOpen={this.state.popoverOpen} target={'PopoverFilter'} toggle={this.toggle}>
                  <PopoverHeader style={{fontWeight: "bold", width: "102%", backgroundColor: "black", color: "white"}}>Data Filter</PopoverHeader>

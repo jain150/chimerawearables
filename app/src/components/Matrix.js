@@ -44,9 +44,9 @@ class Matrix extends Component {
 
             if(this.props.filter) {
 
-              filterArr = filterArr.filter(this.filterYear);
+            //  filterArr = filterArr.filter(this.filterYear);
               filterArr = filterArr.filter(this.filterVenue);
-              filterArr = filterArr.filter(this.filterSource);
+            //  filterArr = filterArr.filter(this.filterSource);
             }
 
             let w = window.innerWidth * 0.6

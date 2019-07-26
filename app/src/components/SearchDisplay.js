@@ -85,9 +85,9 @@ class SearchDisplay extends Component {
 
                           if(this.props.filter) {
 
-                            filterArr = filterArr.filter(this.filterYear);
+                          //  filterArr = filterArr.filter(this.filterYear);
                             filterArr = filterArr.filter(this.filterVenue);
-                            filterArr = filterArr.filter(this.filterSource);
+                            //filterArr = filterArr.filter(this.filterSource);
                           }
                             console.log(filterArr);
 
@@ -119,10 +119,10 @@ class SearchDisplay extends Component {
 
             filterArr = filterArr.filter((item) => {
 
-              console.log(item["Reference Link"].substring(10,30));
+              console.log(item["Reference Link"].substring(10));
               console.log(this.props.bookMarks);
 
-              return this.props.bookMarks.includes(item["Reference Link"].substring(10,30));
+              return this.props.bookMarks.includes(item["Reference Link"].substring(10));
             });
 
           }
