@@ -1,6 +1,6 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "fd90acd4252bcf3aaec5fdb2bb536436",
+    "revision": "e4baa360328f9f4b5e6b08f049764ad1",
     "url": "/chimerawearables/index.html"
   },
   {
@@ -8,16 +8,16 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/chimerawearables/static/css/2.b9ee5998.chunk.css"
   },
   {
-    "revision": "ed287379f8cc729af07f",
-    "url": "/chimerawearables/static/css/main.14de4b1b.chunk.css"
+    "revision": "11763134ffc53c982b55",
+    "url": "/chimerawearables/static/css/main.60a756f1.chunk.css"
   },
   {
     "revision": "1a3454ce5ed15fead9da",
     "url": "/chimerawearables/static/js/2.111ad662.chunk.js"
   },
   {
-    "revision": "ed287379f8cc729af07f",
-    "url": "/chimerawearables/static/js/main.42a3f7e8.chunk.js"
+    "revision": "11763134ffc53c982b55",
+    "url": "/chimerawearables/static/js/main.edc6d5f8.chunk.js"
   },
   {
     "revision": "76a5fbc344acfa9f4877",
