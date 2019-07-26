@@ -87,10 +87,16 @@ class BodyZones extends Component {
       else if(this.state.zone === 'Wrist and Hand')
         img = "ImageDatabase/HumanBody/Androgynous_handnwrist.png";
 
+
+
+        let w = window.innerWidth / 1280
+        let h = window.innerHeight / 610
+
+
       let myMap = {
           name: "my-map",
           areas: [
-          {name: "Head", shape: "rect", coords: [70, 0, 110, 57], fillColor: "transparent"},
+          {name: "Head", shape: "rect", coords: [70 * w, 0 * h, 110 * w, 57 * h], fillColor: "transparent"},
           {name: "Chest", shape: "rect", coords: [53, 57, 90, 164], fillColor: "transparent"},
           {name: "Back", shape: "rect", coords: [90, 57, 127, 164], fillColor: "transparent"},
           {name: "Pelvic Region", shape: "rect", coords: [50, 168, 130, 214], fillColor: "transparent"},
@@ -110,7 +116,7 @@ class BodyZones extends Component {
             return (
              <div className="container">
                  <div style={{transform: "translate(-5%, 20%)"}}>
-                       <ImageMapper src={img} map={myMap} width={225} height={400}
+                       <ImageMapper src={img} map={myMap} width={225 * w} height={400 * h}
                         	onClick={area => this.clicked(area)}
                         />
                         <div style={{marginTop: "10%", color: "white", fontWeight: "600", fontSize: "small"}}>
