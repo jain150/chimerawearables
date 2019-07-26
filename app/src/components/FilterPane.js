@@ -69,14 +69,9 @@ class FilterPane extends Component {
 
       let val = 'translate(0, 33vh)';
       if(this.state.popoverOpen){
-        val = 'translate(-22.8vw, 33vh)';
+        val = 'translate(-320%, 33vh)';
 
       }
-
-      let temp = 'translate(-100px, 10px)'
-
-      //if(this.state.popoverOpen)
-        //temp = 'translate(-350px, 10px)'
 
       return (
 
@@ -92,9 +87,9 @@ class FilterPane extends Component {
                   <div className="rotate6" id={'PopoverFilter'}><div className="innerText"></div></div>
 
 
-               <Popover hideArrow={true} style={{width: "102%", height: "100%", color: "black", transform: "translateX(-0.3vw)", zIndex: "10"}} placement="right" isOpen={this.state.popoverOpen} target={'PopoverFilter'} toggle={this.toggle}>
-                 <PopoverHeader style={{fontWeight: "bold", width: "102%", backgroundColor: "black", color: "white"}}>Data Filter</PopoverHeader>
-                 <PopoverBody style={{color: "black", width: "102%", fontWeight: "bold", backgroundColor: "black", color: "white"}}><FilterBody filterToggle={this.toggleVisibility} showLoop={this.props.showLoop}/></PopoverBody>
+               <Popover hideArrow={true} style={{width: "102%", height: "100vh", color: "black", transform: "translate(-0.3vw, 1%)", zIndex: "10"}} placement="right" isOpen={this.state.popoverOpen} target={'PopoverFilter'} toggle={this.toggle}>
+                 <PopoverHeader style={{fontWeight: "bold", fontSize: "medium", width: "102%", height: "5%", backgroundColor: "black", color: "white"}}>Data Filter</PopoverHeader>
+                 <PopoverBody style={{color: "black", width: "102%", height: "95%", fontWeight: "bold", backgroundColor: "black", color: "white"}}><FilterBody filterToggle={this.toggleVisibility} showLoop={this.props.showLoop}/></PopoverBody>
                </Popover>
                </div>
           </div>

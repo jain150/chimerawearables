@@ -44,9 +44,9 @@ class Matrix extends Component {
 
             if(this.props.filter) {
 
-            //  filterArr = filterArr.filter(this.filterYear);
+              filterArr = filterArr.filter(this.filterYear);
               filterArr = filterArr.filter(this.filterVenue);
-            //  filterArr = filterArr.filter(this.filterSource);
+              filterArr = filterArr.filter(this.filterSource);
             }
 
             let name_array = [];
@@ -559,16 +559,26 @@ class Matrix extends Component {
 
     filterYear = (item) => {
 
+      if(item["Year"] === "")
+        return true
+
       return (item["Year"] >= this.props.minYear && item["Year"] <= this.props.maxYear)
     }
 
     filterVenue = (item) => {
-      console.log(this.props.venue);
-      return (this.props.venue === 'All' || item["Conference (VENUE)"] === this.props.venue)
+
+      if(item["Conference (VENUE)"] === "")
+        return true
+
+      return (this.props.venue === 'All' || item["Conference (VENUE)"].toLowerCase() === this.props.venue.toLowerCase())
     }
 
     filterSource = (item) => {
-      return (this.props.source === 'Both' || item["Source"] === this.props.source)
+
+      if(item["Source"] === "" || item["Source"] === "Both")
+        return true
+
+      return (this.props.source === 'Both' || item["Source"].toLowerCase() === this.props.source.toLowerCase())
     }
 
 

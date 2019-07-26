@@ -110,6 +110,16 @@ class FilterBody extends Component {
       venueArr = venueArr.map((venue) => venue["Conference (VENUE)"]);
       venueArr.unshift('All')
 
+      venueArr = venueArr.map((venue) => {
+
+        if(venue === 'All')
+          return venue + " (" + this.props.searchData.length + ") ";
+          let temp = this.props.searchData.filter((item) => item["Conference (VENUE)"].toLowerCase() === venue.toLowerCase());
+
+          return venue + " (" + temp.length + ") ";
+      });
+
+
       let filterEngineering = this.props.searchData.filter((item) => {
         return (item["Source"] === "Engineering" || item["Source"] === "Both")
       });
@@ -178,7 +188,8 @@ class FilterBody extends Component {
               allowCross={false}  railStyle={{ backgroundColor: 'black' }} min={1990} max={2018} defaultValue={[1990, 2018]} onChange={(value) => this.onChange(value)} />
               <div>{this.props.minYear}<span style={{float: "right"}}>{this.props.maxYear}</span></div>
               <br />
-              <div>Publication Venue</div>
+
+              <div style={{ marginTop: "5%"}}>Publication Venue</div>
               <ButtonDropdown style={{width:"90%", height: '25px', transform: "translateX(5%)"}} isOpen={this.state.dropdownOpen} toggle={this.toggle}>
                       <DropdownToggle style={{marginBottom: "-5px", backgroundColor: "white", color: "#9B089A"}} caret>
                         {this.state.venue}
@@ -188,7 +199,7 @@ class FilterBody extends Component {
                       </DropdownMenu>
               </ButtonDropdown>
 
-              <div style={{marginTop: "1.3vh"}}>Filter by:</div>
+              <div style={{ marginTop: "10%"}}>Filter by:</div>
               <div style={{marginTop: "8px", marginRight: "20px", marginLeft: "20px"}}>
                 {(this.props.source === 'Both' || this.props.source === 'Engineering') ? (<Button className="btnSelectorClicked" onClick={() => this.onSourceClick("Engineering")}>Engineering</Button>)
                   : (<Button className="btnSelector" onClick={() => this.onSourceClick("Engineering")}>Engineering</Button>)}
@@ -196,10 +207,10 @@ class FilterBody extends Component {
                  : (<Button className="btnSelector" style={{float: "right"}} onClick={() => this.onSourceClick("Fashion")}>Fashion</Button>)}
               </div>
 
-              <div style={{marginTop: "8px"}}>
+              <div style={{ marginTop: "10%"}}>
                 % Contribution
               </div>
-              <div style={{marginTop: '8px', marginLeft: '10px'}}>
+              <div style={{marginTop: '3%', marginLeft: '10px'}}>
                 {(this.state.showLabels) ? (<><Label style={{transform: "translateY(4px)", backgroundColor: "#f98686"}} key="Orange" />{' '}<span>Engineering</span>{' '}
                 <Label style={{transform: "translateY(4px)", marginLeft: "10px"}} color="red" key="red" />{' '}<span>Fashion</span>{' '}</>) : (<div style={{height: "2vh"}}>Placeholder</div>)}
 
@@ -213,15 +224,15 @@ class FilterBody extends Component {
                   </div>
               </div>
 
-              <div style={{marginTop: "8px", marginLeft: "20%"}}>
+              <div style={{marginTop: "10%", marginLeft: "20%"}}>
                 <Button onClick={this.toggleDisplay} outline color="secondary">{(this.props.listView) ? ("View Results in Original Form") : ("View Results in List Form")}</Button>{' '}
               </div>
 
-              {(this.props.loggedIn) ? (<div style={{marginTop: "8px", marginLeft: "20%"}}>
+              {(this.props.loggedIn) ? (<div style={{marginTop: "5%", marginLeft: "20%"}}>
                 <Button onClick={this.toggleBookmarks} outline color="secondary">{(this.props.viewBookmarks) ? ("View all Results") : ("View Pinned/Bookmarks")}</Button>{' '}
               </div>) : (<div/>)}
 
-              <div style={{marginTop: "13px", marginLeft: "27%", zIndex: "2500 !important"}}>
+              <div style={{marginTop: "5%", marginLeft: "27%", zIndex: "2500 !important"}}>
 
 
                       <Button outline color="secondary" onClick={this.toggleStats}>Resource Statistics</Button>
