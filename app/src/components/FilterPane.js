@@ -83,11 +83,15 @@ class FilterPane extends Component {
           </form>
           </div>
 
-          <div style={{transform: val, height: "25%", zIndex: "999"}}>
-                  <div className="rotate6" id={'PopoverFilter'}><div className="innerText"></div></div>
+          <div style={{height: "25%"}}>
+              <div style={{transform: val, height: "100%", zIndex: "999"}}>
+                  <div className="rotate6" id={'PopoverFilter'}>
+                      <div className="innerText"></div>
+                  </div>
+              </div>
 
 
-               <Popover hideArrow={true} style={{width: "102%", height: "100vh", color: "black", transform: "translate(-0.3vw, 1%)", zIndex: "10"}} placement="right" isOpen={this.state.popoverOpen} target={'PopoverFilter'} toggle={this.toggle}>
+               <Popover hideArrow={true} style={{width: "102%", height: "100vh", color: "black", transform: "translateY(1%)", zIndex: "10"}} placement="right" isOpen={this.state.popoverOpen} target={'PopoverFilter'} toggle={this.toggle}>
                  <PopoverHeader style={{fontWeight: "bold", fontSize: "medium", width: "102%", height: "5%", backgroundColor: "black", color: "white"}}>Data Filter</PopoverHeader>
                  <PopoverBody style={{color: "black", width: "102%", height: "95%", fontWeight: "bold", backgroundColor: "black", color: "white"}}><FilterBody filterToggle={this.toggleVisibility} showLoop={this.props.showLoop}/></PopoverBody>
                </Popover>

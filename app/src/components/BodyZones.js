@@ -96,18 +96,18 @@ class BodyZones extends Component {
       let myMap = {
           name: "my-map",
           areas: [
-          {name: "Head", shape: "rect", coords: [70 * w, 0 * h, 110 * w, 57 * h], fillColor: "transparent"},
-          {name: "Chest", shape: "rect", coords: [53, 57, 90, 164], fillColor: "transparent"},
-          {name: "Back", shape: "rect", coords: [90, 57, 127, 164], fillColor: "transparent"},
-          {name: "Pelvic Region", shape: "rect", coords: [50, 168, 130, 214], fillColor: "transparent"},
-          {name: "Legs", shape: "rect", coords: [50, 214, 130, 368], fillColor: "transparent"},
-          {name: "Feet", shape: "rect", coords: [45, 368, 135, 400], fillColor: "transparent"},
+          {name: "Head", shape: "rect", coords: [80 * w, 0 * h, 120 * w, 57 * h], fillColor: "transparent"},
+          {name: "Chest", shape: "rect", coords: [70 * w, 60 * h, 100 * w, 180 * h], fillColor: "transparent"},
+          {name: "Back", shape: "rect", coords: [100 * w, 60 * h, 130 * w, 180 * h], fillColor: "transparent"},
+          {name: "Pelvic Region", shape: "rect", coords: [60 * w, 168 * h, 140 * w, 214 * h], fillColor: "transparent"},
+          {name: "Legs", shape: "rect", coords: [60 * w, 214 * h, 140 * w, 368 * h], fillColor: "transparent"},
+          {name: "Feet", shape: "rect", coords: [45 * w, 368 * h, 135 * w, 400 * h], fillColor: "transparent"},
 
-          {name: "Arms", shape: "rect", coords: [22, 67, 53, 174], fillColor: "transparent"},
-          {name: "Arms", shape: "rect", coords: [127, 67, 158, 174], fillColor: "transparent"},
+          {name: "Arms", shape: "rect", coords: [30 * w, 67 * h, 70 * w, 174 * h], fillColor: "transparent"},
+          {name: "Arms", shape: "rect", coords: [130 * w, 67 * h, 158 * w, 170 * h], fillColor: "transparent"},
 
-          {name: "Wrist and Hand", shape: "rect", coords: [0, 174, 30, 215], fillColor: "transparent"},
-          {name: "Wrist and Hand", shape: "rect", coords: [148, 174, 178, 215], fillColor: "transparent"}
+          {name: "Wrist and Hand", shape: "rect", coords: [15 * w, 174 * h, 50 * w, 215 * h], fillColor: "transparent"},
+          {name: "Wrist and Hand", shape: "rect", coords: [145 * w, 174 * h, 180 * w, 215 * h], fillColor: "transparent"}
           ]
       }
 

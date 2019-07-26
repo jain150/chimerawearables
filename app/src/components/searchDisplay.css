@@ -141,9 +141,9 @@
 .cost:hover .tooltipCost {    /* Uses the adjacent sibling selector */
   background-color: black;
   color: white;
-  width: 3vw;
+  width: 10%;
   font-size: smaller;
-  transform: translate(-0.5vw, -6vh);
+  transform: translate(-20%, -200%);
   visibility: visible;  /* Or display: block */
 }
 
@@ -152,7 +152,7 @@
   color: white;
   font-size: smaller;
   width: 6vw;
-  transform: translate(-2.8vw, -6vh);
+  transform: translate(-40%, -200%);
   display: block;
   visibility: visible;  /* Or display: block */
 }
@@ -162,7 +162,7 @@
   color: white;
   font-size: smaller;
   width: 4.5vw;
-  transform: translate(-2.5vw, -6vh);
+  transform: translate(-55%, -210%);
   visibility: visible;  /* Or display: block */
 }
 
@@ -245,7 +245,7 @@
 
 .wear {
     position: absolute;
-    top: 72%;
+    top: 69.4%;
     left: 90%;
     /*transform: translate(17.6vw, 62%);*/
 

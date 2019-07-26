@@ -6,7 +6,22 @@
     color: white;
     border-style: solid;
     border-width: thin;
+    opacity: 1;
 }
+
+.leftPaneTabBody:hover {
+
+    height: 33.33%;
+    font-weight: 450;
+    font-size: medium;
+    color: white;
+    border-style: solid;
+    border-width: thin;
+
+    cursor: pointer;
+    opacity: 0.8;
+}
+
 
 .rotate5 {
      transform: rotate(270deg);
