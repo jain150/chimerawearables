@@ -58,17 +58,17 @@ class BodyChart extends Component {
           <div style={{transform: val, position: "relative"}}>
               <img src={"ImageDatabase/Icons/BodyStats.jpg"}
                alt="" style={{height: '100%', width: "55%", objectFit: "cover"}}/>
-               <div style={{position: "absolute", top: "14%", left: "10%", color: "white", fontSize: 12 * w + 'px'}}>{out["Head"]}</div>
+               <div style={{position: "absolute", top: "16%", left: "10%", color: "white", fontSize: 12 * w + 'px'}}>{out["Head"]}</div>
                <div style={{position: "absolute", top: "25%", left: "10%", color: "white", fontSize: 12 * w + 'px'}}>{out["Back"]}</div>
                <div style={{position: "absolute", top: "35%", left: "10%", color: "white", fontSize: 12 * w + 'px'}}>{out["Chest"]}</div>
-               <div style={{position: "absolute", top: "50%", left: "10%", color: "white", fontSize: 12 * w + 'px'}}>{out["Pelvic Region"]}</div>
+               <div style={{position: "absolute", top: "49%", left: "10%", color: "white", fontSize: 12 * w + 'px'}}>{out["Pelvic Region"]}</div>
                <div style={{position: "absolute", bottom: "2.5%", left: "10%", color: "white", fontSize: 12 * w + 'px'}}>{out["Feet"]}</div>
 
-               <div style={{position: "absolute", top: "27%", left: "43%", color: "white", fontSize: 12 * w + 'px'}}>{out["Arms"]}</div>
+               <div style={{position: "absolute", top: "35%", left: "43%", color: "white", fontSize: 12 * w + 'px'}}>{out["Arms"]}</div>
                <div style={{position: "absolute", top: "48%", left: "43%", color: "white", fontSize: 12 * w + 'px'}}>{out["Wrist and Hand"]}</div>
-               <div style={{position: "absolute", top: "61%", left: "43%", color: "white", fontSize: 12 * w + 'px'}}>{out["Legs"]}</div>
+               <div style={{position: "absolute", top: "72%", left: "43%", color: "white", fontSize: 12 * w + 'px'}}>{out["Legs"]}</div>
 
-               <div style={{position: "absolute", top: "42%", left: "55%", color: "white", fontSize: 12 * w * h + 'px'}}>{out["Full Body"]}</div>
+               <div style={{position: "absolute", top: "50%", left: "55%", color: "white", fontSize: 12 * w * h + 'px'}}>{out["Full Body"]}</div>
 
            </div>
       </div>

@@ -263,8 +263,8 @@ class HomePage extends Component {
             </div>
 
             </div>
-            <img src={"ImageDatabase/Icons/MiniHome.png"}
-             alt="" style={{width: '10%', height: "20%", transform: "translate(39vw, 18vh)", objectFit: "cover"}}/>
+            <img src={"ImageDatabase/Icons/Home.png"}
+             alt="" style={{width: '20%', height: "30%", transform: "translate(200%, 100%)", objectFit: "cover"}}/>
            </ModalBody>
 
          </Modal>

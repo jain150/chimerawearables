@@ -50,3 +50,7 @@ svg path {
   /*stroke-linecap: round;
   stroke-linejoin: round;*/
 }
+
+svg path:hover {
+  fill: white;
+}
