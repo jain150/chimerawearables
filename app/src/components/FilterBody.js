@@ -192,9 +192,9 @@ class FilterBody extends Component {
               <div>{this.props.minYear}<span style={{float: "right"}}>{this.props.maxYear}</span></div>
               <br />
 
-              <div style={{ marginTop: "2%", color: "black"}}>Publication Venue</div>
+              <div style={{ marginTop: "2%"}}>Publication Venue</div>
               <ButtonDropdown style={{width:"90%", height: '25px', transform: "translateX(5%)"}} isOpen={this.state.dropdownOpen} toggle={this.toggle}>
-                      <DropdownToggle style={{marginBottom: "-5px", backgroundColor: "white", color: "#9B089A"}} caret>
+                      <DropdownToggle style={{marginBottom: "-5px", backgroundColor: "white", color: "black"}} caret>
                         {this.state.venue}
                       </DropdownToggle>
                       <DropdownMenu style={{width:"105%", overflowY:"scroll", height:"40vh"}}>
