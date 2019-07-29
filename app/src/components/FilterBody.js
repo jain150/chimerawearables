@@ -237,7 +237,7 @@ class FilterBody extends Component {
 
                       <Button outline color="secondary" onClick={this.toggleStats}>Resource Statistics</Button>
 
-                      <Modal size="lg" style={{maxWidth: '100vw', maxHeight: '100vh', width: '100vw', height: '100vh'}} isOpen={this.state.modal} toggle={this.toggle}>
+                      <Modal style={{maxWidth: '100%', margin: "0%", maxHeight: '100%', width: '100%', height: '100%'}} isOpen={this.state.modal} toggle={this.toggle}>
                         <ModalHeader close={closeBtn} style={{backgroundColor: "black", color: "white"}} toggle={this.toggleStats}>Resource Statistics</ModalHeader>
 
                         <ModalBody style={{backgroundColor: "black", overflowY: "auto"}}>

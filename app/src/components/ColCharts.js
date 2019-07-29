@@ -88,13 +88,15 @@ class ColCharts extends Component {
     }
 
 
+    let w = window.innerWidth / 1280;
+    let h = window.innerHeight / 610;
     return (
       <div style={{width: "50%", display: "flex"}}>
 
       <div style={{color:"white", fontWeight: "bold"}}>{this.props.label}</div>
       <div style={{transform: "translateX(-30px)"}}>
-            <BarChart width={550} height={240} data={data}
-                margin={{top: 5, right: 30, left: 20, bottom: 5}}>
+            <BarChart width={550 * w} height={240 * h} data={data}
+                margin={{top: 5 * h, right: 30 * w, left: 20 * w, bottom: 5 * h}}>
 
            <XAxis dataKey="name"/>
            <YAxis/>

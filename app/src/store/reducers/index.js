@@ -20,7 +20,7 @@ const initialState = {
 
     categories: ['Function', 'BodyZones', 'Fabrication', 'Material'],
     functions: ['Storage', 'Breathability', 'Energy Harvesting', 'Feedback',
-     'Display', 'Electronic Elements Connections', 'Wireless Communication', 'Control', 'Movement',
+     'Display', 'Electronic Connections', 'Wireless Communication', 'Control', 'Movement',
       'Sensing', 'Protective', 'Magnetic', 'Cognitive', 'Modularity', 'Emissivity',
     'Wearability', 'Morphology', 'Aesthetics', 'Gestures'],
     bodyZones: ['Head', 'Chest', 'Pelvic Region', 'Arms', 'Legs',

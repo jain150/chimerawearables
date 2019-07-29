@@ -16,11 +16,6 @@
      margin-top: 130%;
 }
 
-.rotate1:hover {
-    color: black;
-    cursor: pointer;
-}
-
 .searchStore {
   height: 20%;
   width: 100%;
@@ -34,16 +29,15 @@
 
 .layoutSearch {
     height: 92.5%;
-    width: 95vw;
+    width: 100%;
     display: block;
     background-color: black;
 }
 
 .bottomBar {
-  height: 5vh;
-  width: 100vw;
+  height: 7.5%;
+  width: 100%;
   background-color: black;
-
   display: flex;
   border-top-color: black;
   border-top-style: solid;
@@ -51,16 +45,14 @@
 }
 
 .corLabel {
-  margin-top: 0vh;
-  margin-bottom: 0vh;
   color: white;
   font-weight: 350;
   font-size: small;
   background-color: #0F2862;
-  height: 4.9vh;
+  margin-top: 0.2%;
   text-align: center;
-  margin-left: 22.5vw;
-  width: 25vw;
+  margin-left: 22.5%;
+  width: 25%;
 }
 
 .searchTabContent {
@@ -69,21 +61,18 @@
 }
 
 .backLabel {
-  margin-top: 0vh;
-  margin-bottom: 0vh;
+
   color: white;
   font-weight: 350;
   font-size: small;
+  margin-top: 0.2%;
   background-color: #0F2862;
-  height: 4.9vh;
   text-align: center;
-  margin-left: 0vw;
-  width: 15vw;
+  width: 15%;
 }
 
 .backLabel:hover {
   cursor: pointer;
-  color: blue;
 }
 
 .listSearch {

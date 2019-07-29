@@ -46,12 +46,16 @@ class BodyChart extends Component {
 
     console.log(out);
 
+
+        let w = window.innerWidth / 1280;
+        let h = window.innerHeight / 610;
+
     return (
       <div style={{width: "50%", display: "flex"}}>
           <div style={{color:"white", fontWeight: "bold"}}>Body Zones</div>
           <div style={{transform: "translate(20px, -30px)", position: "relative"}}>
               <img src={"ImageDatabase/Icons/BodyStats.jpg"}
-               alt="" style={{height: '40vh', width: '25vw', objectFit: "cover"}}/>
+               alt="" style={{height: '100%', width: 25 * w + 'vw', objectFit: "cover"}}/>
                <div style={{position: "absolute", top: "12%", left: "18%", color: "white", fontSize: "small"}}>{out["Head"]}</div>
                <div style={{position: "absolute", top: "23%", left: "18%", color: "white", fontSize: "small"}}>{out["Back"]}</div>
                <div style={{position: "absolute", top: "33%", left: "18%", color: "white", fontSize: "small"}}>{out["Chest"]}</div>

@@ -3,6 +3,8 @@ import React, { Component } from 'react';
 import { CardImg, CardBody,
  CardSubtitle } from 'reactstrap';
 
+ import HorizontalScroll from 'react-scroll-horizontal'
+
  import * as actionTypes from '.././store/actions';
  import { connect } from 'react-redux';
 
@@ -162,9 +164,11 @@ class SearchDisplayTab extends Component {
         </div>
 
         <div className="searchTabContent">
+
           <div style={{display: 'flex', height: "105%", overflowX: 'scroll', overflowY: 'hidden'}}>
             {inp}
           </div>
+
         </div>
 
     </div>

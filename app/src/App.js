@@ -83,7 +83,7 @@ class App extends Component {
 
       let functionChart =
         {'storage': 1, 'breathability': 3, 'energy harvesting': 9, 'feedback': 9,
-         'display': 3, 'electronic elements connections': 3, 'wireless communication': 9, 'control': 9, 'movement': 3,
+         'display': 3, 'electronic connections': 3, 'wireless communication': 9, 'control': 9, 'movement': 3,
           'sensing': 3, 'protective': 1, 'magnetic': 1, 'cognitive': 9, 'modularity': 3, 'emissivity': 3,
         'wearability': 3, 'morphology': 3, 'aesthetics': 3, 'gestures': 3};
 

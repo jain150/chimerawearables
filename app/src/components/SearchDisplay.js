@@ -234,10 +234,10 @@ class SearchDisplay extends Component {
                     <SearchDisplayTab type='Patents' arr={this.shuffleArray(patentsArr)}/>
                     <div className="bottomBar">
                     <div onClick={this.props.backToSearch} className="backLabel">
-                        <div>{"<---- Go Back to Search"}</div>
+                        <div style={{marginTop: "3.5%"}}>{"<---- Go Back to Search"}</div>
                     </div>
                       <div className="corLabel">
-                          <div>{corLabel}</div>
+                          <div style={{marginTop: "3.5%"}}>{corLabel}</div>
                       </div>
                     </div>
              </div>)}

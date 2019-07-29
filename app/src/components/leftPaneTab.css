@@ -36,8 +36,8 @@
 
 .imgStyle {
 
-  height: 7vh;
-  width: 4vw;
+  width: 100%;
+
   object-fit: cover;
-  transform: translate(-0.25vw, 5vh);
+  transform: translate(0, 120%);
 }
