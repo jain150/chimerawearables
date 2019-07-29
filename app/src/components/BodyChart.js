@@ -50,10 +50,12 @@ class BodyChart extends Component {
     let w = window.innerWidth / 1280;
     let h = window.innerHeight / 610;
 
+    let val = "translate(" + 20 * w + "px, -" + 30 * h + "px)"
+
     return (
       <div style={{width: "50%", display: "flex"}}>
           <div style={{color:"white", fontWeight: "bold"}}>Body Zones</div>
-          <div style={{transform: "translate(20px, -30px)", position: "relative"}}>
+          <div style={{transform: val, position: "relative"}}>
               <img src={"ImageDatabase/Icons/BodyStats.jpg"}
                alt="" style={{height: '100%', width: "55%", objectFit: "cover"}}/>
                <div style={{position: "absolute", top: "14%", left: "10%", color: "white", fontSize: 12 * w + 'px'}}>{out["Head"]}</div>
