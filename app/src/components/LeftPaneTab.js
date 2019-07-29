@@ -56,21 +56,26 @@ class LeftPaneTab extends Component {
 
             let backgroundCol = "rgb(172, 216, 206)";
             let borderCol = "rgb(110, 169, 155)";
+            let myVal = "funcColor";
 
             if(this.props.name === "Material") {
                 backgroundCol = "rgb(254, 205, 102)";
                 borderCol = "rgb(254, 172, 0)";
+                myVal = "matColor";
             }
 
             else if(this.props.name === "Fabrication") {
               backgroundCol = "rgb(133, 194, 219)";
               borderCol = "rgb(0, 181, 254)";
+              myVal = "fabColor";
             }
+
+
 
             //console.log(store.getState());
             return (
 
-             <div id={'Popover-'+this.props.name} style={{ backgroundColor: backgroundCol, borderColor: borderCol }} className="leftPaneTabBody">
+             <div id={'Popover-'+this.props.name} className={myVal}>
 
                  <div className="rotate5 move">{this.props
                  .name}
@@ -79,9 +84,6 @@ class LeftPaneTab extends Component {
 
                  <img id="image" src={"ImageDatabase/Icons/" + this.props.name + ".png"}
                   alt="" className="imgStyle"/>
-
-
-
 
                          <UncontrolledPopover style={{ backgroundColor: "black"}} hideArrow={true} modifiers={{offset: '-5vw'}} trigger="legacy" target={'Popover-'
                          +

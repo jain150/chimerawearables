@@ -188,7 +188,7 @@ class FilterBody extends Component {
              </BarChart>
 
               <Range handleStyle={[{ backgroundColor: 'black'}, {backgroundColor: 'black' }]} trackStyle={[{ backgroundColor: 'grey', height: 6 * h + "px"}]}
-              allowCross={false}  railStyle={{ backgroundColor: 'black' }} min={1990} max={2018} defaultValue={[1990, 2018]} onChange={(value) => this.onChange(value)} />
+              allowCross={false}  railStyle={{ backgroundColor: 'black' }} min={1990} max={2019} defaultValue={[this.props.minYear, this.props.maxYear]} onChange={(value) => this.onChange(value)} />
               <div>{this.props.minYear}<span style={{float: "right"}}>{this.props.maxYear}</span></div>
               <br />
 
