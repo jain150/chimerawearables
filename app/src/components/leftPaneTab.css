@@ -25,7 +25,7 @@
 
 .rotate5 {
      transform: rotate(270deg);
-     margin-top: 135%;
+     margin-top: 180%;
      color: black;
 }
 
@@ -39,5 +39,5 @@
   width: 100%;
 
   object-fit: cover;
-  transform: translate(0, 120%);
+  transform: translate(0, 20%);
 }

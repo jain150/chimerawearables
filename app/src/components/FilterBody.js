@@ -106,6 +106,9 @@ class FilterBody extends Component {
 
     render() {
 
+      let w = window.innerWidth / 1280;
+      let h = window.innerHeight / 610;
+
       let venueArr = this.props.searchData;
       venueArr = venueArr.map((venue) => venue["Conference (VENUE)"]);
       venueArr.unshift('All')
@@ -142,7 +145,7 @@ class FilterBody extends Component {
         )
       });
 
-      const style = { width: 400, margin: 50 };
+      const style = { width: 400 * w, margin: 50 * w};
 
       const dataPie = [
           {value: 25, color: "black", title: "Function"},
@@ -177,19 +180,19 @@ class FilterBody extends Component {
       return (
           <div>
               <div>Time Frame</div>
-              <BarChart width={280} height={150} data={yearData}
-                  margin={{top: 5, right: 30, left: 0, bottom: 0}}>
+              <BarChart width={390 * w} height={150 * h} data={yearData}
+                  margin={{top: 5 * h, right: 30 * w, left: 0, bottom: 0}}>
                   <XAxis dataKey="name" hide={true}/>
-                  <Tooltip viewBox={{height: 50, width: 50 }} cursor={false}/>
+                  <Tooltip cursor={false}/>
                   <Bar dataKey="Projects" />
              </BarChart>
 
-              <Range handleStyle={[{ backgroundColor: 'black'}, {backgroundColor: 'black' }]} trackStyle={[{ backgroundColor: 'grey', height: "6px"}]}
+              <Range handleStyle={[{ backgroundColor: 'black'}, {backgroundColor: 'black' }]} trackStyle={[{ backgroundColor: 'grey', height: 6 * h + "px"}]}
               allowCross={false}  railStyle={{ backgroundColor: 'black' }} min={1990} max={2018} defaultValue={[1990, 2018]} onChange={(value) => this.onChange(value)} />
               <div>{this.props.minYear}<span style={{float: "right"}}>{this.props.maxYear}</span></div>
               <br />
 
-              <div style={{ marginTop: "2%"}}>Publication Venue</div>
+              <div style={{ marginTop: "2%", color: "black"}}>Publication Venue</div>
               <ButtonDropdown style={{width:"90%", height: '25px', transform: "translateX(5%)"}} isOpen={this.state.dropdownOpen} toggle={this.toggle}>
                       <DropdownToggle style={{marginBottom: "-5px", backgroundColor: "white", color: "#9B089A"}} caret>
                         {this.state.venue}
