@@ -44,11 +44,8 @@ svg g text {
 
 svg path {
   fill: #A7AFBA;
-/*  stroke: #7be3f6;*/
-/*  stroke-width: 0.6em;*/
   stroke-opacity: 0.7;
-  /*stroke-linecap: round;
-  stroke-linejoin: round;*/
+
 }
 
 svg path:hover {

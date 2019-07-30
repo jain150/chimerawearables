@@ -88,12 +88,20 @@ class ColCharts extends Component {
     }
 
 
+    let fillColor = "rgb(172, 216, 206)";
+
+    if(this.props.label === "Fabrication")
+      fillColor = "rgb(133, 194, 219)";
+
+    if(this.props.label === "Material")
+      fillColor = "rgb(254, 205, 102)";
+
     let w = window.innerWidth / 1280;
     let h = window.innerHeight / 610;
     return (
       <div style={{width: "50%", display: "flex"}}>
 
-      <div style={{color:"white", fontWeight: "bold"}}>{this.props.label}</div>
+      <div style={{color: fillColor, fontWeight: "bold"}}>{this.props.label}</div>
       <div style={{transform: "translateX(-30px)"}}>
             <BarChart width={550 * w} height={240 * h} data={data}
                 margin={{top: 5 * h, right: 30 * w, left: 20 * w, bottom: 5 * h}}>
@@ -101,7 +109,7 @@ class ColCharts extends Component {
            <XAxis dataKey="name"/>
            <YAxis/>
            <Tooltip cursor={false}/>
-           <Bar dataKey="Results" fill="black" />
+           <Bar style={{fill: fillColor}} dataKey="Results" fill="black" />
           </BarChart>
     </div>
 

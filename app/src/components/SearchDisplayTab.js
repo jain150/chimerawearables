@@ -56,6 +56,44 @@ class SearchDisplayTab extends Component {
 
   }
 
+  componentDidMount() {
+
+  let item1 = document.getElementById("scroller0");
+  let item2 = document.getElementById("scroller1");
+  let item3 = document.getElementById("scroller2");
+  let item4 = document.getElementById("scroller3");
+  let item5 = document.getElementById("scroller4");
+
+  window.addEventListener('wheel', function(e) {
+
+      if(e.y < item1.getBoundingClientRect().bottom) {
+        if (e.deltaY > 0) item1.scrollLeft += 100;
+        else item1.scrollLeft -= 100;
+      }
+
+      else if(e.y < item2.getBoundingClientRect().bottom) {
+        if (e.deltaY > 0) item2.scrollLeft += 100;
+        else item2.scrollLeft -= 100;
+      }
+
+      else if(e.y < item3.getBoundingClientRect().bottom) {
+        if (e.deltaY > 0) item3.scrollLeft += 100;
+        else item3.scrollLeft -= 100;
+      }
+
+      else if(e.y < item4.getBoundingClientRect().bottom) {
+        if (e.deltaY > 0) item4.scrollLeft += 100;
+        else item4.scrollLeft -= 100;
+      }
+
+      else if(e.y < item5.getBoundingClientRect().bottom) {
+        if (e.deltaY > 0) item5.scrollLeft += 100;
+        else item5.scrollLeft -= 100;
+      }
+
+    });
+  }
+
   render() {
 
     let inp = '';
@@ -115,7 +153,7 @@ class SearchDisplayTab extends Component {
       else {
       return (
 
-        <div style={{marginLeft: '10px', borderWidth: "medium", borderStyle:"solid"}}>
+        <div className="itemStyle">
 
           <div className="bgimg">
             <a  href={input["Reference Link"]} target="_blank">
@@ -165,7 +203,7 @@ class SearchDisplayTab extends Component {
 
         <div className="searchTabContent">
 
-          <div style={{display: 'flex', height: "105%", overflowX: 'scroll', overflowY: 'hidden'}}>
+          <div id={"scroller" + this.props.count} className="scrollStyle" style={{display: 'flex', height: "100%", overflowX: 'auto', overflowY: 'hidden', flexWrap: "nowrap"}}>
             {inp}
           </div>
 
