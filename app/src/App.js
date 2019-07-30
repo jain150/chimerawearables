@@ -95,23 +95,23 @@ class App extends Component {
           let funcScore = 0;
 
           if(data[i]["Fabrication 1"].toLowerCase() in fabricationChart) {
-            fabScore += fabricationChart[data[i]["Fabrication 1"]];
+            fabScore += fabricationChart[data[i]["Fabrication 1"].toLowerCase()];
           }
 
           if(data[i]["Fabrication 2"].toLowerCase() in fabricationChart) {
-            fabScore += fabricationChart[data[i]["Fabrication 2"]];
+            fabScore += fabricationChart[data[i]["Fabrication 2"].toLowerCase()];
           }
 
           if(data[i]["Function 1"].toLowerCase() in functionChart) {
-            funcScore = Math.max(funcScore, functionChart[data[i]["Function 1"]]);
+            funcScore = Math.max(funcScore, functionChart[data[i]["Function 1"].toLowerCase()]);
           }
 
           if(data[i]["Function 2"].toLowerCase() in functionChart) {
-            funcScore = Math.max(funcScore, functionChart[data[i]["Function 2"]]);
+            funcScore = Math.max(funcScore, functionChart[data[i]["Function 2"].toLowerCase()]);
           }
 
           if(data[i]["Function 3"].toLowerCase() in functionChart) {
-            funcScore = Math.max(funcScore, functionChart[data[i]["Function 3"]]);
+            funcScore = Math.max(funcScore, functionChart[data[i]["Function 3"].toLowerCase()]);
           }
 
           let temp = fabScore * funcScore;
@@ -174,23 +174,23 @@ class App extends Component {
           let matScore = 0;
 
           if(data[i]["Fabrication 1"].toLowerCase() in fabricationChart) {
-            fabScore = Math.max(fabScore, fabricationChart[data[i]["Fabrication 1"]]);
+            fabScore = Math.max(fabScore, fabricationChart[data[i]["Fabrication 1"].toLowerCase()]);
           }
 
           if(data[i]["Fabrication 2"].toLowerCase() in fabricationChart) {
-            fabScore = Math.max(fabScore, fabricationChart[data[i]["Fabrication 2"]]);
+            fabScore = Math.max(fabScore, fabricationChart[data[i]["Fabrication 2"].toLowerCase()]);
           }
 
           if(data[i]["Material 1"].toLowerCase() in materialChart) {
-            matScore = Math.max(matScore, materialChart[data[i]["Material 1"]]);
+            matScore = Math.max(matScore, materialChart[data[i]["Material 1"].toLowerCase()]);
           }
 
           if(data[i]["Material 2"].toLowerCase() in materialChart) {
-            matScore = Math.max(matScore, materialChart[data[i]["Material 2"]]);
+            matScore = Math.max(matScore, materialChart[data[i]["Material 2"].toLowerCase()]);
           }
 
           if(data[i]["Material 3"].toLowerCase() in materialChart) {
-            matScore = Math.max(matScore, materialChart[data[i]["Material 3"]]);
+            matScore = Math.max(matScore, materialChart[data[i]["Material 3"].toLowerCase()]);
           }
 
           costMetric[i] = {"costMetric": fabScore + matScore};
