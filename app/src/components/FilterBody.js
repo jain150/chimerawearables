@@ -180,7 +180,7 @@ class FilterBody extends Component {
       return (
           <div>
               <div>Time Frame</div>
-              <BarChart width={290 * w} height={150 * h} data={yearData}
+              <BarChart width={338 * w} height={150 * h} data={yearData}
                   margin={{top: 5 * h, right: 30 * w, left: 0, bottom: 0}}>
                   <XAxis dataKey="name" hide={true}/>
                   <Tooltip cursor={false}/>

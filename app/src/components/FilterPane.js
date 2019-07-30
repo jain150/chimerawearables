@@ -72,9 +72,9 @@ class FilterPane extends Component {
 
 
       if(this.state.popoverOpen){
-        popVal = 'translate(-1300%, 0%)';
+        popVal = 'translate(-1495%, 0%)';
       }
-      let w = window.innerWidth * 0.22
+      let w = window.innerWidth * 0.26
       let h = window.innerHeight;
 
       return (
