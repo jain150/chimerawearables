@@ -75,6 +75,7 @@ class FilterPane extends Component {
         popVal = 'translate(-1300%, 0%)';
       }
       let w = window.innerWidth * 0.22
+      let h = window.innerHeight;
 
       return (
 
@@ -94,9 +95,9 @@ class FilterPane extends Component {
               </div>
 
 
-               <Popover hideArrow={true} style={{width: w, maxWidth: w, height: "100vh", color: "black", overflowY: "hide", backgroundColor: "black", zIndex: "10"}} placement="right" isOpen={this.state.popoverOpen} target={'PopoverFilter'} toggle={this.toggle}>
-                 <PopoverHeader style={{fontWeight: "bold", fontSize: "medium", width: "102%", marginTop: "10%", height: "5%", backgroundColor: "black", color: "white"}}>Data Filter</PopoverHeader>
-                 <PopoverBody style={{color: "black", width: "102%", height: "95%", fontWeight: "bold", backgroundColor: "black", color: "white"}}><FilterBody filterToggle={this.toggleVisibility} showLoop={this.props.showLoop}/></PopoverBody>
+               <Popover hideArrow={true} style={{width: w, maxWidth: w, height: h, maxHeight: h + " !important", color: "black", overflowY: "hide", backgroundColor: "black", zIndex: "10"}} placement="right" isOpen={this.state.popoverOpen} target={'PopoverFilter'} toggle={this.toggle}>
+                 <PopoverHeader style={{fontWeight: "bold", fontSize: "medium", width: "100%", height: "5%", backgroundColor: "black", color: "white"}}>Data Filter</PopoverHeader>
+                 <PopoverBody style={{color: "black", width: "100%", height: "95%", fontWeight: "bold", backgroundColor: "black", color: "white"}}><FilterBody filterToggle={this.toggleVisibility} showLoop={this.props.showLoop}/></PopoverBody>
                </Popover>
                </div>
           </div>

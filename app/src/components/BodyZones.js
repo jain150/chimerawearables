@@ -25,6 +25,33 @@ class BodyZones extends Component {
     }));
   }
 
+  componentWillMount = props => {
+    this.clickTimeout = null
+  }
+
+  handleClicks = (area) => {
+    if (this.clickTimeout !== null) {
+      this.doubleClicked("Full Body")
+      clearTimeout(this.clickTimeout)
+      this.clickTimeout = null
+    } else {
+
+      this.clickTimeout = setTimeout(()=>{
+      this.clicked(area)
+      clearTimeout(this.clickTimeout)
+        this.clickTimeout = null
+      }, 2000)
+    }
+  }
+
+  doubleClicked = (area) => {
+
+    this.setState({
+      zone: area
+    });
+
+    this.props.onSelectBodyZones(area);
+  }
 
   clicked = (area) => {
 
@@ -60,8 +87,8 @@ class BodyZones extends Component {
 
       let img = "ImageDatabase/HumanBody/Androgynous.png";
 
-      if(this.state.zone === 'none')
-        img = "ImageDatabase/HumanBody/Androgynous.png";
+      if(this.state.zone === 'Full Body')
+        img = "ImageDatabase/HumanBody/Androgynous_fullbody.png";
 
       else if(this.state.zone === 'Head')
         img = "ImageDatabase/HumanBody/Androgynous_head.png";
@@ -117,7 +144,7 @@ class BodyZones extends Component {
              <div className="container">
                  <div style={{transform: "translate(-7%, 20%)"}}>
                        <ImageMapper src={img} map={myMap} width={250 * w} height={400 * h}
-                        	onClick={area => this.clicked(area)}
+                        	onClick={area => this.handleClicks(area)}
                         />
                         <div style={{marginTop: "10%", color: "white", fontWeight: "600", fontSize: "small"}}>
                             <div>CLICK TO SELECT</div>
