@@ -180,7 +180,7 @@ class FilterBody extends Component {
       return (
           <div>
               <div>Time Frame</div>
-              <BarChart width={390 * w} height={150 * h} data={yearData}
+              <BarChart width={290 * w} height={150 * h} data={yearData}
                   margin={{top: 5 * h, right: 30 * w, left: 0, bottom: 0}}>
                   <XAxis dataKey="name" hide={true}/>
                   <Tooltip cursor={false}/>
@@ -193,8 +193,8 @@ class FilterBody extends Component {
               <br />
 
               <div style={{ marginTop: "2%"}}>Publication Venue</div>
-              <ButtonDropdown style={{width:"90%", height: '25px', transform: "translateX(5%)"}} isOpen={this.state.dropdownOpen} toggle={this.toggle}>
-                      <DropdownToggle style={{marginBottom: "-5px", backgroundColor: "white", color: "black"}} caret>
+              <ButtonDropdown style={{width:"90%", height: 25 * h + 'px', transform: "translateX(5%)"}} isOpen={this.state.dropdownOpen} toggle={this.toggle}>
+                      <DropdownToggle style={{marginBottom: -5 * h + "px", backgroundColor: "white", color: "black"}} caret>
                         {this.state.venue}
                       </DropdownToggle>
                       <DropdownMenu style={{width:"105%", overflowY:"scroll", height:"40vh"}}>
