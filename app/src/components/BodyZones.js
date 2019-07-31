@@ -142,7 +142,7 @@ class BodyZones extends Component {
 
             return (
              <div className="container">
-                 <div style={{transform: "translate(-7%, 20%)"}}>
+                 <div style={{transform: "translate(-2%, 20%)"}}>
                        <ImageMapper src={img} map={myMap} width={250 * w} height={400 * h}
                         	onClick={area => this.handleClicks(area)}
                         />

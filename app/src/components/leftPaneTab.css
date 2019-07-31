@@ -10,7 +10,7 @@
 
 .funcColor {
     height: 33.33%;
-    font-weight: 400;
+    font-weight: 150%;
     font-size: large;
     background-color: rgb(172, 216, 206);
     border-color: rgb(110, 169, 155);
@@ -22,7 +22,7 @@
 
 .matColor {
   height: 33.33%;
-  font-weight: 400;
+  font-weight: 1505;
   font-size: large;
   color: white;
   border-color: rgb(254, 172, 0);
@@ -37,7 +37,7 @@
   background-color: rgb(133, 194, 219);
   border-color: rgb(0, 181, 254);
   height: 33.33%;
-  font-weight: 400;
+  font-weight: 150%;
   font-size: large;
   color: white;
   border-style: solid;
