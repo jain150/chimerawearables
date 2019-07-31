@@ -56,9 +56,6 @@ class SearchDisplay extends Component {
 
     filterVenue = (item) => {
 
-      if(item["Conference (VENUE)"] === "")
-        return true
-
       return (this.props.venue === 'All' || item["Conference (VENUE)"].toLowerCase() === this.props.venue.toLowerCase())
     }
 

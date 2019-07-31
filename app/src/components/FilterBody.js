@@ -64,11 +64,14 @@ class FilterBody extends Component {
 
     onVenueClick = (value) => {
 
+      let val = value.split(" (");
+
+      console.log(val[0]);
       this.setState({
-        venue: value,
+        venue: val[0],
       });
 
-      this.props.filterVenue(value);
+      this.props.filterVenue(val[0]);
     }
 
     onSourceClick = (value) => {
@@ -122,20 +125,23 @@ class FilterBody extends Component {
 
         if(this.props.mainPage) {
               if(venue === 'All')
-                  return venue + " (" + this.props.searchData.length + ") ";
+                  return venue + " (" + this.props.searchData.length + ")";
 
               let temp = this.props.searchData.filter((item) => item["Conference (VENUE)"].toLowerCase() === venue.toLowerCase());
 
-              return venue + " (" + temp.length + ") ";
+
+              return venue + " (" + temp.length + ")";
           }
           else {
 
             if(venue === 'All')
-              return venue + " (" + this.props.curSearchData.length + ") ";
+              return venue + " (" + this.props.curSearchData.length + ")";
             let temp = this.props.curSearchData.filter((item) => item["Conference (VENUE)"].toLowerCase() === venue.toLowerCase());
 
-            return venue + " (" + temp.length + ") ";
+            return venue + " (" + temp.length + ")";
           }
+          return venue;
+
       });
 
 
