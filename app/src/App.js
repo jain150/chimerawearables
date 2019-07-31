@@ -307,9 +307,9 @@ class App extends Component {
              <LeftPaneModal />
              <Matrix />
              <BodyZones />
-            <FilterPane move={false} showLoop={true}/>
+            <FilterPane move={false} showLoop={true} mainPage={true}/>
           </div>) : (<div className="layout"><SearchDisplay backToSearch={this.props.updateSearchDisplay}/>
-          <FilterPane move={true} showLoop={true} />
+          <FilterPane move={true} showLoop={true} mainPage={false}/>
         </div>)
         )}
         </BrowserRouter>

@@ -121,6 +121,8 @@ class SearchDisplay extends Component {
                       return item["Reference Name"].toLowerCase().includes(this.props.searchQuery.toLowerCase());
                   });
                 }
+
+
           }
 
 
@@ -135,6 +137,8 @@ class SearchDisplay extends Component {
             });
 
           }
+
+          this.props.filteredArrayUpdate(filterArr);
 
           let researchArr = [];
           let tutorialsArr = [];
@@ -268,4 +272,12 @@ const mapStateToProps = state => {
     }
 };
 
-export default connect(mapStateToProps)(SearchDisplay);
+const mapDispatchToProps = dispatch => {
+    return {
+        filteredArrayUpdate: (value) => dispatch({type: actionTypes.STORE_FILTERED_ARRAY, val: value}),
+
+    }
+};
+
+
+export default connect(mapStateToProps, mapDispatchToProps)(SearchDisplay);

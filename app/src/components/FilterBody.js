@@ -110,24 +110,45 @@ class FilterBody extends Component {
       let h = window.innerHeight / 610;
 
       let venueArr = this.props.searchData;
+
+      if(!this.props.mainPage) {
+
+        venueArr = this.props.curSearchData
+      }
       venueArr = venueArr.map((venue) => venue["Conference (VENUE)"]);
       venueArr.unshift('All')
 
       venueArr = venueArr.map((venue) => {
 
-        if(venue === 'All')
-          return venue + " (" + this.props.searchData.length + ") ";
-          let temp = this.props.searchData.filter((item) => item["Conference (VENUE)"].toLowerCase() === venue.toLowerCase());
+        if(this.props.mainPage) {
+              if(venue === 'All')
+                  return venue + " (" + this.props.searchData.length + ") ";
 
-          return venue + " (" + temp.length + ") ";
+              let temp = this.props.searchData.filter((item) => item["Conference (VENUE)"].toLowerCase() === venue.toLowerCase());
+
+              return venue + " (" + temp.length + ") ";
+          }
+          else {
+
+            if(venue === 'All')
+              return venue + " (" + this.props.curSearchData.length + ") ";
+            let temp = this.props.curSearchData.filter((item) => item["Conference (VENUE)"].toLowerCase() === venue.toLowerCase());
+
+            return venue + " (" + temp.length + ") ";
+          }
       });
 
 
-      let filterEngineering = this.props.searchData.filter((item) => {
+      let myData = this.props.searchData;
+
+      if(!this.props.mainPage) {
+        myData = this.props.curSearchData
+      }
+      let filterEngineering = myData.filter((item) => {
         return (item["Source"] === "Engineering" || item["Source"] === "Both")
       });
 
-      let filterFashion = this.props.searchData.filter((item) => {
+      let filterFashion = myData.filter((item) => {
         return (item["Source"] === "Fashion" || item["Source"] === "Both")
       });
 
@@ -135,7 +156,7 @@ class FilterBody extends Component {
       let fashLength = filterFashion.length;
 
       engLength = engLength * 100 / (engLength + fashLength);
-      fashLength = fashLength * 100 / (fashLength + engLength);
+      fashLength = 100 - engLength;
 
       venueArr = [...new Set(venueArr)];
 
@@ -159,7 +180,7 @@ class FilterBody extends Component {
 
       for(let i = 1990; i <= 2019; i++) {
 
-        let temp = this.props.searchData.filter((item) => {
+        let temp = myData.filter((item) => {
 
           return item["Year"] === i.toString();
         })
@@ -171,8 +192,6 @@ class FilterBody extends Component {
               Projects: temp.length,
             }
         ];
-
-
       }
 
         const closeBtn = <Button onClick={this.toggleStats} color="secondary">{"Close (X)"}</Button>
@@ -204,10 +223,10 @@ class FilterBody extends Component {
 
               <div style={{ marginTop: "7%"}}>Filter by:</div>
               <div style={{marginTop: "8px", marginRight: "20px", marginLeft: "20px"}}>
-                {(this.props.source === 'Both' || this.props.source === 'Engineering') ? (<Button className="btnSelectorClicked" onClick={() => this.onSourceClick("Engineering")}>Engineering</Button>)
-                  : (<Button className="btnSelector" onClick={() => this.onSourceClick("Engineering")}>Engineering</Button>)}
-                {(this.props.source === 'Both' || this.props.source === 'Fashion') ? (<Button className="btnSelectorClicked" style={{float: "right"}} onClick={() => this.onSourceClick("Fashion")}>Fashion</Button>)
-                 : (<Button className="btnSelector" style={{float: "right"}} onClick={() => this.onSourceClick("Fashion")}>Fashion</Button>)}
+                {(this.props.source === 'Both' || this.props.source === 'Engineering') ? (<Button style={{width: "50%"}} className="btnSelectorClicked" onClick={() => this.onSourceClick("Engineering")}>Engineering</Button>)
+                  : (<Button style={{width: "50%"}} className="btnSelector" onClick={() => this.onSourceClick("Engineering")}>Engineering</Button>)}
+                {(this.props.source === 'Both' || this.props.source === 'Fashion') ? (<Button style={{width: "50%"}} className="btnSelectorClicked" style={{float: "right"}} onClick={() => this.onSourceClick("Fashion")}>Fashion</Button>)
+                 : (<Button style={{width: "50%"}} className="btnSelector" style={{float: "right"}} onClick={() => this.onSourceClick("Fashion")}>Fashion</Button>)}
               </div>
 
               <div style={{ marginTop: "5%"}}>
@@ -228,17 +247,17 @@ class FilterBody extends Component {
               </div>
 
               <div style={{marginTop: "10%", marginLeft: "20%"}}>
-                <Button onClick={this.toggleDisplay} outline color="secondary">{(this.props.listView) ? ("View Results in Original Form") : ("View Results in List Form")}</Button>{' '}
+                <Button style={{width: "75%"}} onClick={this.toggleDisplay} outline color="secondary">{(this.props.listView) ? ("View Results in Original Form") : ("View Results in List Form")}</Button>{' '}
               </div>
 
               {(this.props.loggedIn) ? (<div style={{marginTop: "5%", marginLeft: "20%"}}>
-                <Button onClick={this.toggleBookmarks} outline color="secondary">{(this.props.viewBookmarks) ? ("View all Results") : ("View Pinned/Bookmarks")}</Button>{' '}
+                <Button style={{width: "75%"}} onClick={this.toggleBookmarks} outline color="secondary">{(this.props.viewBookmarks) ? ("View all Results") : ("View Pinned/Bookmarks")}</Button>{' '}
               </div>) : (<div/>)}
 
-              <div style={{marginTop: "5%", marginLeft: "27%", zIndex: "2500 !important"}}>
+              <div style={{marginTop: "5%", marginLeft: "20%", zIndex: "2500 !important"}}>
 
 
-                      <Button outline color="secondary" onClick={this.toggleStats}>Resource Statistics</Button>
+                      <Button style={{width: "75%"}} outline color="secondary" onClick={this.toggleStats}>Resource Statistics</Button>
 
                       <Modal style={{maxWidth: '100%', margin: "0%", maxHeight: '100%', width: '100%', height: '100%'}} isOpen={this.state.modal} toggle={this.toggle}>
                         <ModalHeader close={closeBtn} style={{backgroundColor: "black", color: "white"}} toggle={this.toggleStats}>Resource Statistics</ModalHeader>
@@ -303,6 +322,8 @@ const mapStateToProps = state => {
         viewBookmarks: state.viewBookmarks,
 
         loggedIn: state.isLoggedIn,
+
+        curSearchData: state.currentFilteredArray,
 
     }
 };

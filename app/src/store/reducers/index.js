@@ -12,6 +12,8 @@ const initialState = {
     searchTermDisplay: false,
     searchTermQuery: '',
 
+    currentFilteredArray: [],
+
     filter: true,
     minYear: 1990,
     maxYear: 2019,
@@ -258,6 +260,14 @@ const reducer = ( state = initialState, action ) => {
             return {
               ...state,
               isLoggedIn: false,
+            }
+          }
+
+          case actionTypes.STORE_FILTERED_ARRAY: {
+
+            return {
+              ...state,
+              currentFilteredArray: action.val,
             }
           }
     }
