@@ -65,6 +65,12 @@ class FilterPane extends Component {
 
    }
 
+   toggleHome = () => {
+
+     this.props.toggleBack();
+     this.props.logout();
+  }
+
     render() {
 
       let val = 'translate(0, 33vh)';
@@ -81,11 +87,19 @@ class FilterPane extends Component {
 
       <div className={(this.props.move) ? ((!this.props.listView) ? ("filterTabMove") : ("filterTabExtra")) : ("filterTab")}>
 
+        <div style={{display: "flex"}}>
+
           <div className="searchBar">
           <form onSubmit={this.handleSubmit} id="demo-2">
             <input type="search" placeholder="Search" value={this.state.value} onChange={this.handleChange} />
           </form>
           </div>
+
+          <div>
+              <img onClick={this.toggleHome} className="homeButton" src={"ImageDatabase/Icons/MiniHome.png"}
+               alt="" style={{width: '50%', height: "85%", transform: "translate(55%, 40%)", objectFit: "cover"}}/>
+          </div>
+      </div>
 
           <div style={{height: "25%"}}>
               <div style={{transform: val, height: "100%", zIndex: "999"}}>
@@ -96,7 +110,7 @@ class FilterPane extends Component {
 
 
                <Popover hideArrow={true} style={{width: w, maxWidth: w, height: h, maxHeight: h + " !important", color: "black", overflowY: "hide", backgroundColor: "black", zIndex: "10"}} placement="right" isOpen={this.state.popoverOpen} target={'PopoverFilter'} toggle={this.toggle}>
-                 <PopoverHeader style={{fontWeight: "bold", fontSize: "medium", width: "100%", height: "5%", backgroundColor: "black", color: "white"}}>Data Filter</PopoverHeader>
+                 <PopoverHeader style={{fontSize: "150%", width: "100%", height: "5%", backgroundColor: "black", color: "white"}}>Data Filter</PopoverHeader>
                  <PopoverBody style={{color: "black", width: "100%", height: "95%", fontWeight: "bold", backgroundColor: "black", color: "white"}}><FilterBody filterToggle={this.toggleVisibility} showLoop={this.props.showLoop} mainPage={this.props.mainPage}/></PopoverBody>
                </Popover>
                </div>
@@ -111,6 +125,8 @@ const mapDispatchToProps = dispatch => {
         searchTermDisplayUpdate: () => dispatch({type: actionTypes.SEARCH_TERM_DISPLAY}),
         searchTermQueryUpdate: (value) => dispatch({type: actionTypes.SEARCH_TERM_QUERY, val: value}),
         toggleDisplay: () => dispatch({type: actionTypes.SEARCH_DISPLAY}),
+
+        logout: () => dispatch({type: actionTypes.AUTH_FAILURE}),
     }
 };
 

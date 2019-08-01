@@ -3,7 +3,7 @@
     width: 2.8vw;
     height: 100%;
     font-weight: 350;
-    font-size: small;
+    font-size: 110%;
     color: white;
     background-color: #0F2862;
     border-style: solid;
@@ -47,7 +47,7 @@
 .corLabel {
   color: white;
   font-weight: 350;
-  font-size: small;
+  font-size: 110%;
   background-color: #0F2862;
   margin-top: 0.2%;
   text-align: center;
@@ -64,7 +64,7 @@
 
   color: white;
   font-weight: 350;
-  font-size: small;
+  font-size: 110%;
   margin-top: 0.2%;
   background-color: #0F2862;
   text-align: center;
@@ -85,15 +85,15 @@
 
 .bgimg {
 
-    height: 100%;
-    width: 20vw;
+  height: 100%;
+  width: 20vw;
 
-    position: relative;
-    text-align: center;
-    color: white;
-    margin-top: 3px;
-    overflow: hidden;
-    opacity: 0.9;
+  position: relative;
+  text-align: center;
+  color: white;
+  margin-top: 3px;
+  overflow: hidden;
+  opacity: 0.9;
 
 }
 

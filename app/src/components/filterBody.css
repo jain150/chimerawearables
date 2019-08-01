@@ -11,6 +11,10 @@
   height: 36px;
 }
 
+.dropdownStyle::-webkit-scrollbar {
+    display: none;
+}
+
 .rotate6 {
     /* transform: rotate(270deg);*/
      margin-top: 22%;
@@ -91,7 +95,15 @@
 }
 
 .searchBar {
-  transform: translateX(-25%);
+  transform: translateX(-120%);
+}
+
+.homeButton {
+
+}
+
+.homeButton:hover {
+  cursor: pointer;
 }
 
 .searchBar:hover {
@@ -164,7 +176,6 @@ input[type=search]:focus {
 	-moz-box-shadow: 0 0 5px rgba(109,207,246,.5);
 	box-shadow: 0 0 5px rgba(109,207,246,.5);
 }
-
 
 input:-moz-placeholder {
 	color: #999;

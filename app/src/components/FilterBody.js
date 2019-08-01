@@ -222,17 +222,17 @@ class FilterBody extends Component {
                       <DropdownToggle style={{marginBottom: -5 * h + "px", backgroundColor: "white", color: "black"}} caret>
                         {this.state.venue}
                       </DropdownToggle>
-                      <DropdownMenu style={{width:"105%", overflowY:"scroll", height:"40vh"}}>
+                      <DropdownMenu className="dropdownStyle" style={{width:"100%", overflowY:"scroll", height: window.innerHeight * 0.4}}>
                         {venueArr}
                       </DropdownMenu>
               </ButtonDropdown>
 
               <div style={{ marginTop: "7%"}}>Filter by:</div>
-              <div style={{marginTop: "8px", marginRight: "20px", marginLeft: "20px"}}>
-                {(this.props.source === 'Both' || this.props.source === 'Engineering') ? (<Button style={{width: "50%"}} className="btnSelectorClicked" onClick={() => this.onSourceClick("Engineering")}>Engineering</Button>)
-                  : (<Button style={{width: "50%"}} className="btnSelector" onClick={() => this.onSourceClick("Engineering")}>Engineering</Button>)}
-                {(this.props.source === 'Both' || this.props.source === 'Fashion') ? (<Button style={{width: "50%"}} className="btnSelectorClicked" style={{float: "right"}} onClick={() => this.onSourceClick("Fashion")}>Fashion</Button>)
-                 : (<Button style={{width: "50%"}} className="btnSelector" style={{float: "right"}} onClick={() => this.onSourceClick("Fashion")}>Fashion</Button>)}
+              <div style={{marginTop: "2%"}}>
+                {(this.props.source === 'Both' || this.props.source === 'Engineering') ? (<Button style={{width: "40%"}} className="btnSelectorClicked" onClick={() => this.onSourceClick("Engineering")}>Engineering</Button>)
+                  : (<Button style={{width: "40%"}} className="btnSelector" onClick={() => this.onSourceClick("Engineering")}>Engineering</Button>)}
+                {(this.props.source === 'Both' || this.props.source === 'Fashion') ? (<Button className="btnSelectorClicked" style={{float: "right", width: "40%"}} onClick={() => this.onSourceClick("Fashion")}>Fashion</Button>)
+                 : (<Button className="btnSelector" style={{float: "right", width: "40%"}} onClick={() => this.onSourceClick("Fashion")}>Fashion</Button>)}
               </div>
 
               <div style={{ marginTop: "5%"}}>

@@ -260,6 +260,23 @@ const reducer = ( state = initialState, action ) => {
             return {
               ...state,
               isLoggedIn: false,
+              arrFunc: [],
+              arrBod: [],
+              arrFab: [],
+              arrMat: [],
+
+              selFunction: '',
+              selBodyZones: '',
+              selFabrication: '',
+              selMaterial: '',
+
+              showFunc: false,
+              showBod: false,
+              showFab: false,
+              showMat: false,
+
+              bookMarks: [],
+              viewBookmarks: false,              
             }
           }
 

@@ -142,8 +142,8 @@ class BodyZones extends Component {
 
             return (
              <div className="container">
-                 <div style={{transform: "translate(-2%, 20%)"}}>
-                       <ImageMapper src={img} map={myMap} width={250 * w} height={400 * h}
+                 <div style={{transform: "translate(-1%, 20%)"}}>
+                       <ImageMapper src={img} map={myMap} width={265 * w} height={400 * h}
                         	onClick={area => this.handleClicks(area)}
                         />
                         <div style={{marginTop: "10%", color: "white", fontWeight: "600", fontSize: "small"}}>
