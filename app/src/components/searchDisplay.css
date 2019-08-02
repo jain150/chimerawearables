@@ -130,7 +130,7 @@
 .cost:hover .tooltipCost {    /* Uses the adjacent sibling selector */
   background-color: black;
   color: white;
-  width: 10%;
+  width: 2.5vw;
   font-size: smaller;
   transform: translate(-20%, -200%);
   visibility: visible;  /* Or display: block */
@@ -226,7 +226,7 @@
   /*transform: translate(13.6vw, 67%);*/
   left: 73%;
   color: black;
-  font-size: smaller;
+  font-size: small;
 
   height: 50%;
   width: 10%;

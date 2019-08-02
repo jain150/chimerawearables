@@ -40,7 +40,7 @@ class BodyZones extends Component {
       this.clicked(area)
       clearTimeout(this.clickTimeout)
         this.clickTimeout = null
-      }, 400)
+      }, 325)
     }
   }
 
