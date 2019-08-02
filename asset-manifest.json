@@ -1,18 +1,18 @@
 {
   "files": {
-    "main.css": "/chimerawearables/static/css/main.ea63215a.chunk.css",
-    "main.js": "/chimerawearables/static/js/main.86df371e.chunk.js",
-    "main.js.map": "/chimerawearables/static/js/main.86df371e.chunk.js.map",
+    "main.css": "/chimerawearables/static/css/main.3eeb57ba.chunk.css",
+    "main.js": "/chimerawearables/static/js/main.51d8dcaa.chunk.js",
+    "main.js.map": "/chimerawearables/static/js/main.51d8dcaa.chunk.js.map",
     "runtime~main.js": "/chimerawearables/static/js/runtime~main.94edfb0c.js",
     "runtime~main.js.map": "/chimerawearables/static/js/runtime~main.94edfb0c.js.map",
     "static/css/2.b9ee5998.chunk.css": "/chimerawearables/static/css/2.b9ee5998.chunk.css",
     "static/js/2.28512fbb.chunk.js": "/chimerawearables/static/js/2.28512fbb.chunk.js",
     "static/js/2.28512fbb.chunk.js.map": "/chimerawearables/static/js/2.28512fbb.chunk.js.map",
     "index.html": "/chimerawearables/index.html",
-    "precache-manifest.d9a3003f3a027fcd504658ec374bc669.js": "/chimerawearables/precache-manifest.d9a3003f3a027fcd504658ec374bc669.js",
+    "precache-manifest.d6ae594b891f1f72d8aacc644a6e93ac.js": "/chimerawearables/precache-manifest.d6ae594b891f1f72d8aacc644a6e93ac.js",
     "service-worker.js": "/chimerawearables/service-worker.js",
     "static/css/2.b9ee5998.chunk.css.map": "/chimerawearables/static/css/2.b9ee5998.chunk.css.map",
-    "static/css/main.ea63215a.chunk.css.map": "/chimerawearables/static/css/main.ea63215a.chunk.css.map",
+    "static/css/main.3eeb57ba.chunk.css.map": "/chimerawearables/static/css/main.3eeb57ba.chunk.css.map",
     "static/media/index.css": "/chimerawearables/static/media/roboto-latin-900italic.bc833e72.woff"
   }
 }
