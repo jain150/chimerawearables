@@ -95,7 +95,7 @@
 }
 
 .searchBar {
-  transform: translateX(-120%);
+  transform: translateX(0%);
 }
 
 .homeButton {
@@ -115,7 +115,7 @@
 	padding-left: 10px;
 	color: transparent;
   background-color: white;
-  transform: translate(40px, 10px);
+  transform: translate(0px, 10px);
 	cursor: pointer;
 }
 #demo-2 input[type=search]:hover {

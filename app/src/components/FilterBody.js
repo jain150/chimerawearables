@@ -204,8 +204,8 @@ class FilterBody extends Component {
 
       return (
           <div>
-              <div>Time Frame</div>
-              <BarChart width={338 * w} height={150 * h} data={yearData}
+              <div style={{ fontSize: "120%"}}>Time Frame</div>
+              <BarChart width={288 * w} height={150 * h} data={yearData}
                   margin={{top: 5 * h, right: 30 * w, left: 0, bottom: 0}}>
                   <XAxis dataKey="name" hide={true}/>
                   <Tooltip cursor={false}/>
@@ -217,17 +217,17 @@ class FilterBody extends Component {
               <div>{this.props.minYear}<span style={{float: "right"}}>{this.props.maxYear}</span></div>
               <br />
 
-              <div style={{ marginTop: "2%"}}>Publication Venue</div>
-              <ButtonDropdown style={{width:"90%", height: 25 * h + 'px', transform: "translateX(5%)"}} isOpen={this.state.dropdownOpen} toggle={this.toggle}>
-                      <DropdownToggle style={{marginBottom: -5 * h + "px", backgroundColor: "white", color: "black"}} caret>
-                        {this.state.venue}
+              <div style={{ marginTop: "1%", fontSize: "120%"}}>Publication Venue</div>
+              <ButtonDropdown style={{width:"100%", height: 20 * h + 'px'}} isOpen={this.state.dropdownOpen} toggle={this.toggle}>
+                      <DropdownToggle style={{backgroundColor: "white", color: "black"}} caret>
+                        <div style={{ transform: "translateY(-25%)"}}>{this.state.venue}</div>
                       </DropdownToggle>
                       <DropdownMenu className="dropdownStyle" style={{width:"100%", overflowY:"scroll", height: window.innerHeight * 0.4}}>
                         {venueArr}
                       </DropdownMenu>
               </ButtonDropdown>
 
-              <div style={{ marginTop: "7%"}}>Filter by:</div>
+              <div style={{ marginTop: "4%", fontSize: "120%"}}>Filter by:</div>
               <div style={{marginTop: "2%"}}>
                 {(this.props.source === 'Both' || this.props.source === 'Engineering') ? (<Button style={{width: "40%"}} className="btnSelectorClicked" onClick={() => this.onSourceClick("Engineering")}>Engineering</Button>)
                   : (<Button style={{width: "40%"}} className="btnSelector" onClick={() => this.onSourceClick("Engineering")}>Engineering</Button>)}
@@ -235,7 +235,7 @@ class FilterBody extends Component {
                  : (<Button className="btnSelector" style={{float: "right", width: "40%"}} onClick={() => this.onSourceClick("Fashion")}>Fashion</Button>)}
               </div>
 
-              <div style={{ marginTop: "5%"}}>
+              <div style={{ marginTop: "3%", fontSize: "120%"}}>
                 % Contribution
               </div>
               <div style={{marginTop: '3%', marginLeft: '10px'}}>

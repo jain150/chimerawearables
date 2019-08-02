@@ -167,7 +167,7 @@ class SearchDisplayTab extends Component {
             {(this.props.loggedIn) ? (<div id="title" className="ticker"><Input checked={check} onClick={() => this.updateBookmark(input["Reference Link"])} type="checkbox" />{' '}</div>) : (<div/>)}
 
 
-            <div className="cost"><div style={{backgroundColor: "#f7f7f7", borderRadius: "4px", opacity: "0.75", height: '30%', width: '80%'}}>{costToken}</div>
+            <div className="cost"><div style={{backgroundColor: "#f7f7f7", borderRadius: "4px", opacity: "0.75", height: '30%', width: '80%'}}><div style={{ height: "100%", fontSize: "100%"}}>{costToken}</div></div>
             <div class="tooltipCost">Cost</div>
 
             </div>
@@ -181,7 +181,7 @@ class SearchDisplayTab extends Component {
 
             <div className="wear">
                              <img src={"ImageDatabase/Icons/" + wearToken + ".png"}
-                              alt="" style={{height: '30%', width: '75%', marginTop: "17%", objectFit: "cover"}}/>
+                              alt="" style={{height: '30%', width: '75%', objectFit: "cover"}}/>
                   <div class="tooltipWear">Wearability</div>
             </div>
 

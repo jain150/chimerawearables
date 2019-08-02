@@ -28,14 +28,14 @@
 }
 
 .layoutSearch {
-    height: 92.5%;
+    height: 95%;
     width: 100%;
     display: block;
     background-color: black;
 }
 
 .bottomBar {
-  height: 7.5%;
+  height: 5%;
   width: 100%;
   background-color: black;
   display: flex;
@@ -234,7 +234,7 @@
 
 .wear {
     position: absolute;
-    top: 69.4%;
+    top: 72%;
     left: 90%;
     /*transform: translate(17.6vw, 62%);*/
 

@@ -40,7 +40,7 @@ class BodyZones extends Component {
       this.clicked(area)
       clearTimeout(this.clickTimeout)
         this.clickTimeout = null
-      }, 2000)
+      }, 400)
     }
   }
 
@@ -142,13 +142,15 @@ class BodyZones extends Component {
 
             return (
              <div className="container">
-                 <div style={{transform: "translate(-1%, 20%)"}}>
+                 <div style={{transform: "translate(0%, 20%)"}}>
                        <ImageMapper src={img} map={myMap} width={265 * w} height={400 * h}
                         	onClick={area => this.handleClicks(area)}
                         />
-                        <div style={{marginTop: "10%", color: "white", fontWeight: "600", fontSize: "small"}}>
+                        <div style={{marginTop: "10%", transform: "translateX(-3%)", color: "white", fontWeight: "600", fontSize: "small"}}>
                             <div>CLICK TO SELECT</div>
                             <div>BODY ZONES</div>
+                            <div style={{ fontSize: "smaller"}}><b>(</b>DOUBLE CLICK FOR</div>
+                            <div style={{ fontSize: "smaller"}}>FULL BODY SELECTION<b>)</b></div>
                         </div>
                   </div>
             </div>
