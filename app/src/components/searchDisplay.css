@@ -149,10 +149,11 @@
 .wear:hover .tooltipWear {    /* Uses the adjacent sibling selector */
   background-color: black;
   color: white;
-  font-size: smaller;
-  width: 4.5vw;
-  transform: translate(-55%, -210%);
+  font-size: x-small;
+  width: 16.5vw;
+  transform: translate(-88%, -100%);
   visibility: visible;  /* Or display: block */
+  z-index: 2500 !important;
 }
 
 #title {
@@ -193,7 +194,7 @@
 /*  transform: translate(-50%, -125%);*/
   color: black;
   font-weight: bold;
-  font-size: small;
+  font-size: 105%;
 
   height: 35%;
   width: 100%;
@@ -234,7 +235,7 @@
 
 .wear {
     position: absolute;
-    top: 72%;
+    top: 75%;
     left: 90%;
     /*transform: translate(17.6vw, 62%);*/
 

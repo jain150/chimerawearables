@@ -229,10 +229,10 @@ class FilterBody extends Component {
 
               <div style={{ marginTop: "4%", fontSize: "120%"}}>Filter by:</div>
               <div style={{marginTop: "2%"}}>
-                {(this.props.source === 'Both' || this.props.source === 'Engineering') ? (<Button style={{width: "40%"}} className="btnSelectorClicked" onClick={() => this.onSourceClick("Engineering")}>Engineering</Button>)
-                  : (<Button style={{width: "40%"}} className="btnSelector" onClick={() => this.onSourceClick("Engineering")}>Engineering</Button>)}
-                {(this.props.source === 'Both' || this.props.source === 'Fashion') ? (<Button className="btnSelectorClicked" style={{float: "right", width: "40%"}} onClick={() => this.onSourceClick("Fashion")}>Fashion</Button>)
-                 : (<Button className="btnSelector" style={{float: "right", width: "40%"}} onClick={() => this.onSourceClick("Fashion")}>Fashion</Button>)}
+                {(this.props.source === 'Both' || this.props.source === 'Engineering') ? (<Button style={{width: "40%", transform: "translateX(20%)"}} className="btnSelectorClicked" onClick={() => this.onSourceClick("Engineering")}>Engineering</Button>)
+                  : (<Button style={{width: "40%", transform: "translateX(20%)"}} className="btnSelector" onClick={() => this.onSourceClick("Engineering")}>Engineering</Button>)}
+                {(this.props.source === 'Both' || this.props.source === 'Fashion') ? (<Button className="btnSelectorClicked" style={{float: "right", width: "40%", transform: "translateX(-20%)"}} onClick={() => this.onSourceClick("Fashion")}>Fashion</Button>)
+                 : (<Button className="btnSelector" style={{float: "right", width: "40%", transform: "translateX(-20%)"}} onClick={() => this.onSourceClick("Fashion")}>Fashion</Button>)}
               </div>
 
               <div style={{ marginTop: "3%", fontSize: "120%"}}>
@@ -253,17 +253,17 @@ class FilterBody extends Component {
               </div>
 
               <div style={{marginTop: "10%", marginLeft: "20%"}}>
-                <Button style={{width: "75%"}} onClick={this.toggleDisplay} outline color="secondary">{(this.props.listView) ? ("View Results in Original Form") : ("View Results in List Form")}</Button>{' '}
+                <Button className="btnSelectorEnd" style={{width: "75%"}} onClick={this.toggleDisplay}>{(this.props.listView) ? ("View Results in Original Form") : ("View Results in List Form")}</Button>{' '}
               </div>
 
               {(this.props.loggedIn) ? (<div style={{marginTop: "5%", marginLeft: "20%"}}>
-                <Button style={{width: "75%"}} onClick={this.toggleBookmarks} outline color="secondary">{(this.props.viewBookmarks) ? ("View all Results") : ("View Pinned/Bookmarks")}</Button>{' '}
+                <Button className="btnSelectorEnd" style={{width: "75%"}} onClick={this.toggleBookmarks}>{(this.props.viewBookmarks) ? ("View all Results") : ("View Pinned/Bookmarks")}</Button>{' '}
               </div>) : (<div/>)}
 
               <div style={{marginTop: "5%", marginLeft: "20%", zIndex: "2500 !important"}}>
 
 
-                      <Button style={{width: "75%"}} outline color="secondary" onClick={this.toggleStats}>Resource Statistics</Button>
+                      <Button className="btnSelectorEnd" style={{width: "75%"}} onClick={this.toggleStats}>Resource Statistics</Button>
 
                       <Modal style={{maxWidth: '100%', margin: "0%", maxHeight: '100%', width: '100%', height: '100%'}} isOpen={this.state.modal} toggle={this.toggle}>
                         <ModalHeader close={closeBtn} style={{backgroundColor: "black", color: "white"}} toggle={this.toggleStats}>Resource Statistics</ModalHeader>

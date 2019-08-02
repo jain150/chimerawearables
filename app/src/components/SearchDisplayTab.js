@@ -116,17 +116,17 @@ class SearchDisplayTab extends Component {
       let check = this.props.bookMarks.includes(input["Reference Link"].substring(10));
 
 
-      let wearToken = "wear1";
+      let wearToken = "nwear1";
       if(parseInt(input["Wearability"]) <= 10)
-        wearToken = "wear1";
+        wearToken = "nwear1";
       else if(parseInt(input["Wearability"]) <= 20)
-        wearToken = "wear2";
+        wearToken = "nwear2";
       else if(parseInt(input["Wearability"]) <= 50)
-        wearToken = "wear3";
+        wearToken = "nwear3";
       else if(parseInt(input["Wearability"]) <= 70)
-        wearToken = "wear4";
+        wearToken = "nwear4";
       else if(parseInt(input["Wearability"]) <= 100)
-        wearToken = "wear5";
+        wearToken = "nwear5";
 
       let costToken = "$$"
 
@@ -173,7 +173,7 @@ class SearchDisplayTab extends Component {
             </div>
 
             <div className="imp">
-                  <div style={{height: '30%', width: '75%', backgroundColor: col}}>
+                  <div style={{height: '30%', width: '75%', backgroundColor: col }}>
             </div>
             <div class="tooltipImp">Implementation</div>
 
@@ -181,8 +181,15 @@ class SearchDisplayTab extends Component {
 
             <div className="wear">
                              <img src={"ImageDatabase/Icons/" + wearToken + ".png"}
-                              alt="" style={{height: '30%', width: '75%', objectFit: "cover"}}/>
-                  <div class="tooltipWear">Wearability</div>
+                              alt="" style={{width: '75%', objectFit: "cover", transform: "translateX(-50%)", position: "absolute"}} />
+                  <div class="tooltipWear">
+                    WEARABILITY LEVEL:
+                    Five levels of wearability were defined using
+                    principles such as:
+                    Attachment to the Body, Maintainance required
+                    Activity obstruction, System integration
+                    Context application, Aesthetics consideration
+                  </div>
             </div>
 
 

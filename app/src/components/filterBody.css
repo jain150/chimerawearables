@@ -5,6 +5,16 @@
   height: 36px;
 }
 
+.btnSelectorEnd {
+  background-color: white;
+  color: black;
+}
+
+.btnSelectorEnd:hover {
+
+
+}
+
 .btnSelector:hover {
 
   color: white;
