@@ -116,17 +116,17 @@ class SearchDisplayTab extends Component {
       let check = this.props.bookMarks.includes(input["Reference Link"].substring(10));
 
 
-      let wearToken = "Wear1";
+      let wearToken = "wear1";
       if(parseInt(input["Wearability"]) <= 10)
-        wearToken = "Wear1";
+        wearToken = "wear1";
       else if(parseInt(input["Wearability"]) <= 20)
-        wearToken = "Wear2";
+        wearToken = "wear2";
       else if(parseInt(input["Wearability"]) <= 50)
-        wearToken = "Wear3";
+        wearToken = "wear3";
       else if(parseInt(input["Wearability"]) <= 70)
-        wearToken = "Wear4";
+        wearToken = "wear4";
       else if(parseInt(input["Wearability"]) <= 100)
-        wearToken = "Wear5";
+        wearToken = "wear5";
 
       let costToken = "$$"
 
