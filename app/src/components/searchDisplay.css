@@ -130,18 +130,18 @@
 .cost:hover .tooltipCost {    /* Uses the adjacent sibling selector */
   background-color: black;
   color: white;
-  width: 2.5vw;
-  font-size: smaller;
-  transform: translate(-20%, -200%);
+  width: 800%;
+  font-size: x-small;
+  transform: translate(-88%, -140%);
   visibility: visible;  /* Or display: block */
 }
 
 .imp:hover .tooltipImp {    /* Uses the adjacent sibling selector */
   background-color: black;
   color: white;
-  font-size: smaller;
-  width: 6vw;
-  transform: translate(-40%, -200%);
+  font-size: x-small;
+  width: 950%;
+  transform: translate(-88%, -117%);
   display: block;
   visibility: visible;  /* Or display: block */
 }
@@ -150,8 +150,8 @@
   background-color: black;
   color: white;
   font-size: x-small;
-  width: 16.5vw;
-  transform: translate(-88%, -100%);
+  width: 900%;
+  transform: translate(-88%, -101%);
   visibility: visible;  /* Or display: block */
   z-index: 2500 !important;
 }
@@ -263,6 +263,9 @@
 
 .scrollStyle {
   -webkit-overflow-scrolling: touch;
+  overflow-x: auto;
+  overflow-y: hidden;
+  -ms-overflow-style: none; 
 }
 
 .scrollStyle::-webkit-scrollbar {

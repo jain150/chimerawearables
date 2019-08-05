@@ -205,8 +205,8 @@ class FilterBody extends Component {
       return (
           <div>
               <div style={{ fontSize: "120%"}}>Time Frame</div>
-              <BarChart width={288 * w} height={150 * h} data={yearData}
-                  margin={{top: 5 * h, right: 30 * w, left: 0, bottom: 0}}>
+              <BarChart width={260 * w} height={150 * h} data={yearData}
+                  margin={{top: 5 * h, left: 0, bottom: 0}}>
                   <XAxis dataKey="name" hide={true}/>
                   <Tooltip cursor={false}/>
                   <Bar dataKey="Projects" />
@@ -238,9 +238,9 @@ class FilterBody extends Component {
               <div style={{ marginTop: "3%", fontSize: "120%"}}>
                 % Contribution
               </div>
-              <div style={{marginTop: '3%', marginLeft: '10px'}}>
+              <div style={{marginTop: '3%'}}>
                 {(this.state.showLabels) ? (<><Label style={{transform: "translateY(4px)", backgroundColor: "#f98686"}} key="Orange" />{' '}<span>Engineering</span>{' '}
-                <Label style={{transform: "translateY(4px)", marginLeft: "10px"}} color="red" key="red" />{' '}<span>Fashion</span>{' '}</>) : (<div style={{height: "2vh"}}>Placeholder</div>)}
+                <Label style={{transform: "translateY(4px)"}} color="red" key="red" />{' '}<span>Fashion</span>{' '}</>) : (<div style={{height: "2vh"}}>Placeholder</div>)}
 
                   <br />
                   <div>

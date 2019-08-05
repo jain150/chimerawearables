@@ -168,14 +168,28 @@ class SearchDisplayTab extends Component {
 
 
             <div className="cost"><div style={{backgroundColor: "#f7f7f7", borderRadius: "4px", opacity: "0.75", height: '30%', width: '80%'}}><div style={{ height: "100%", fontSize: "100%"}}>{costToken}</div></div>
-            <div class="tooltipCost">Cost</div>
+            <div class="tooltipCost">
+                        COST LEVEl:
+                        Relationship between materials and the
+                        fabrication technique implemented in
+                        each work.
+            </div>
 
             </div>
 
             <div className="imp">
                   <div style={{height: '30%', width: '75%', backgroundColor: col }}>
             </div>
-            <div class="tooltipImp">Implementation</div>
+            <div class="tooltipImp">
+                  IMPLEMENTATION LEVEL:
+                  This metric takes into consideration
+                  the time taken to implement the functionalities
+                  mentioned in each resource (i.e. function,
+                  coding requirements, etc.).
+                  It is scaled on a red, yellow, green ranking
+                  system from longest to shortest implementation
+                  time respectively."
+            </div>
 
             </div>
 
@@ -210,7 +224,7 @@ class SearchDisplayTab extends Component {
 
         <div className="searchTabContent">
 
-          <div id={"scroller" + this.props.count} className="scrollStyle" style={{display: 'flex', height: "100%", overflowX: 'auto', overflowY: 'hidden', flexWrap: "nowrap"}}>
+          <div id={"scroller" + this.props.count} className="scrollStyle" style={{display: 'flex', height: "100%", flexWrap: "nowrap"}}>
             {inp}
           </div>
 
