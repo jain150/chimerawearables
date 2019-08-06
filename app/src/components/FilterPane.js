@@ -115,7 +115,7 @@ class FilterPane extends Component {
                    </Popover>
             </div>
 
-            <div style={{ marginTop: "400%", color: "white"}}>
+            <div style={{ marginTop: "380%", color: "white"}}>
                 Views: {this.props.viewCount}
             </div>
         </div>
