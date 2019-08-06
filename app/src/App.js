@@ -23,6 +23,7 @@ class App extends Component {
       this.state = {
         data: [],
         displayHome: true,
+        viewCount: 0,
       }
   }
 
@@ -68,6 +69,27 @@ class App extends Component {
             this.props.updateSearchData(temp);
           },
           simpleSheet: false
+        })
+
+        let updateViewCount = this.props.updateViewCount;
+
+        var request = new Request('https://chimerabackend.herokuapp.com/api/viewCounter/', {
+              method: 'GET',
+              headers: {
+                'Content-Type': 'application/json',
+              },
+            });
+        fetch(request).then(function(response){
+           if(response.status.toString() === '200') {
+              response.text().then(function(text) {
+                  var objReceived = JSON.parse(text);
+                  if (objReceived.message === 'SUCCESS') {
+
+                    updateViewCount(objReceived.counter)
+
+                  }
+              })
+            }
         })
 
     }
@@ -307,9 +329,9 @@ class App extends Component {
              <LeftPaneModal />
              <Matrix />
              <BodyZones />
-            <FilterPane toggleBack={this.toggleBack} move={false} showLoop={true} mainPage={true}/>
+            <FilterPane toggleBack={this.toggleBack} move={false} showLoop={true} views={this.state.viewCount} mainPage={true}/>
           </div>) : (<div className="layout"><SearchDisplay backToSearch={this.props.updateSearchDisplay}/>
-          <FilterPane move={true} showLoop={true} mainPage={false}/>
+          <FilterPane move={true} views={this.state.viewCount} showLoop={true} mainPage={false}/>
         </div>)
         )}
         </BrowserRouter>
@@ -327,7 +349,8 @@ const mapStateToProps = state => {
 const mapDispatchToProps = dispatch => {
     return {
         updateSearchData: (value) => dispatch({type: actionTypes.UPDATE_DATA, value: value}),
-        updateSearchDisplay: () => dispatch({type: actionTypes.REMOVE_SEARCH_DISPLAY})
+        updateSearchDisplay: () => dispatch({type: actionTypes.REMOVE_SEARCH_DISPLAY}),
+        updateViewCount:  (value) => dispatch({type: actionTypes.VIEW_COUNTER, val: value}),
     }
 };
 

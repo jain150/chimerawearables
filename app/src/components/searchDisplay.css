@@ -47,9 +47,9 @@
 .corLabel {
   color: white;
   font-weight: 350;
-  font-size: 110%;
+  font-size: 125%;
   background-color: #0F2862;
-  margin-top: 0.2%;
+  margin-top: 0.25%;
   text-align: center;
   margin-left: 22.5%;
   width: 25%;
@@ -64,8 +64,8 @@
 
   color: white;
   font-weight: 350;
-  font-size: 110%;
-  margin-top: 0.2%;
+  font-size: 120%;
+  margin-top: 0.25%;
   background-color: #0F2862;
   text-align: center;
   width: 15%;
@@ -265,7 +265,7 @@
   -webkit-overflow-scrolling: touch;
   overflow-x: auto;
   overflow-y: hidden;
-  -ms-overflow-style: none; 
+  -ms-overflow-style: none;
 }
 
 .scrollStyle::-webkit-scrollbar {

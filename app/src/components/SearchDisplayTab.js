@@ -66,7 +66,36 @@ class SearchDisplayTab extends Component {
 
   window.addEventListener('wheel', function(e) {
 
-      if(e.y < item1.getBoundingClientRect().bottom) {
+      if(e.deltaX !== 0) {
+
+          if(e.y < item1.getBoundingClientRect().bottom) {
+            item1.scrollLeft += e.deltaX;
+
+          }
+
+          else if(e.y < item2.getBoundingClientRect().bottom) {
+     item2.scrollLeft += e.deltaX;
+
+          }
+
+          else if(e.y < item3.getBoundingClientRect().bottom) {
+          item3.scrollLeft += e.deltaX;;
+
+          }
+
+          else if(e.y < item4.getBoundingClientRect().bottom) {
+            item4.scrollLeft += e.deltaX;
+
+          }
+
+          else if(e.y < item5.getBoundingClientRect().bottom) {
+            item5.scrollLeft += e.deltaX;
+          
+          }
+
+      }
+
+      else if(e.y < item1.getBoundingClientRect().bottom) {
         if (e.deltaY > 0) item1.scrollLeft += 100;
         else item1.scrollLeft -= 100;
       }
@@ -92,6 +121,7 @@ class SearchDisplayTab extends Component {
       }
 
     });
+
   }
 
   render() {

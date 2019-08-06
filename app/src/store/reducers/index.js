@@ -9,6 +9,8 @@ const initialState = {
 
     listDisplay: false,
 
+    viewCount: 0,
+
     searchTermDisplay: false,
     searchTermQuery: '',
 
@@ -276,7 +278,7 @@ const reducer = ( state = initialState, action ) => {
               showMat: false,
 
               bookMarks: [],
-              viewBookmarks: false,              
+              viewBookmarks: false,
             }
           }
 
@@ -285,6 +287,14 @@ const reducer = ( state = initialState, action ) => {
             return {
               ...state,
               currentFilteredArray: action.val,
+            }
+          }
+
+          case actionTypes.VIEW_COUNTER: {
+
+            return {
+              ...state,
+              viewCount: action.val,
             }
           }
     }

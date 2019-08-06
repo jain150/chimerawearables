@@ -122,10 +122,10 @@
 #demo-2 input[type=search] {
 	width: 15px;
   height: 90%;
-	padding-left: 10px;
+	padding-left: 9px;
 	color: transparent;
   background-color: white;
-  transform: translate(0px, 10px);
+  transform: translate(0px, 25%);
 	cursor: pointer;
 }
 #demo-2 input[type=search]:hover {

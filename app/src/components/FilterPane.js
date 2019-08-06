@@ -87,34 +87,38 @@ class FilterPane extends Component {
 
       <div className={(this.props.move) ? ((!this.props.listView) ? ("filterTabMove") : ("filterTabExtra")) : ("filterTab")}>
 
-        <div style={{display: "flex"}}>
+          <div style={{display: "flex"}}>
 
-          <div className="searchBar">
-          <form onSubmit={this.handleSubmit} id="demo-2">
-            <input type="search" placeholder="Search" value={this.state.value} onChange={this.handleChange} />
-          </form>
-          </div>
-
-          <div>
-              <img onClick={this.toggleHome} className="homeButton" src={"ImageDatabase/Icons/MiniHome.png"}
-               alt="" style={{width: '60%', height: "100%", transform: "translate(55%, 25%)", objectFit: "cover"}}/>
-          </div>
-      </div>
-
-          <div style={{height: "25%"}}>
-              <div style={{transform: val, height: "100%", zIndex: "999"}}>
-                  <div className="rotate6" style={{ transform:  popVal}} id={'PopoverFilter'}>
-                      <div className="innerText"></div>
-                  </div>
+              <div className="searchBar">
+              <form onSubmit={this.handleSubmit} id="demo-2">
+                <input type="search" placeholder="Search" value={this.state.value} onChange={this.handleChange} />
+              </form>
               </div>
 
+              <div>
+                  <img onClick={this.toggleHome} className="homeButton" src={"ImageDatabase/Icons/MiniHome.png"}
+                   alt="" style={{width: '50%', height: "90%", transform: "translate(20%, 25%)", objectFit: "cover"}}/>
+              </div>
+            </div>
 
-               <Popover hideArrow={true} style={{width: w, maxWidth: w, height: h, maxHeight: h + " !important", color: "black", overflowY: "hide", backgroundColor: "black", zIndex: "10"}} placement="right" isOpen={this.state.popoverOpen} target={'PopoverFilter'} toggle={this.toggle}>
-                 <PopoverHeader style={{fontSize: "150%", width: "100%", height: "5%", backgroundColor: "black", color: "white"}}>Data Filter</PopoverHeader>
-                 <PopoverBody style={{color: "black", width: "100%", height: "95%", fontWeight: "500", backgroundColor: "black", color: "white"}}><FilterBody filterToggle={this.toggleVisibility} showLoop={this.props.showLoop} mainPage={this.props.mainPage}/></PopoverBody>
-               </Popover>
-               </div>
-          </div>
+          <div style={{height: "25%"}}>
+                  <div style={{transform: val, height: "100%", zIndex: "999"}}>
+                      <div className="rotate6" style={{ transform:  popVal}} id={'PopoverFilter'}>
+                          <div className="innerText"></div>
+                      </div>
+                  </div>
+
+
+                   <Popover hideArrow={true} style={{width: w, maxWidth: w, height: h, maxHeight: h + " !important", color: "black", overflowY: "hide", backgroundColor: "black", zIndex: "10"}} placement="right" isOpen={this.state.popoverOpen} target={'PopoverFilter'} toggle={this.toggle}>
+                     <PopoverHeader style={{fontSize: "150%", width: "100%", height: "5%", backgroundColor: "black", color: "white"}}>Data Filter</PopoverHeader>
+                     <PopoverBody style={{color: "black", width: "100%", height: "95%", fontWeight: "500", backgroundColor: "black", color: "white"}}><FilterBody filterToggle={this.toggleVisibility} showLoop={this.props.showLoop} mainPage={this.props.mainPage}/></PopoverBody>
+                   </Popover>
+            </div>
+
+            <div style={{ marginTop: "400%", color: "white"}}>
+                Views: {this.props.viewCount}
+            </div>
+        </div>
         );
     }
 }
@@ -134,6 +138,7 @@ const mapDispatchToProps = dispatch => {
 const mapStateToProps = state => {
     return {
         listView: state.listView,
+        viewCount: state.viewCount,
     }
 };
 
