@@ -35,8 +35,8 @@ svg g text:hover tspan{
 }
 
 svg g text {
-  font-size: 0.1025em;
-  font-weight: 650;
+  font-size: 0.118em;
+  font-weight: 600;
   fill: white;
   fill-opacity: 0.7;
   transition: fill-opacity .5s;

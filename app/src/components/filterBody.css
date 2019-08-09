@@ -35,6 +35,7 @@
      text-align: center;
      height: 100%;
 
+     color: white;
      background-color: black;
      width: 25%;
      float: right;
@@ -50,6 +51,23 @@
   padding-top: 10%;
   padding-bottom: 10%;
 }
+
+.rotate9 {
+     transform: rotate(270deg);
+     margin-top: 220%;
+
+     font-size: 11.9px;
+}
+
+.hackText {
+  color: black;
+}
+
+.hackText:hover {
+  color: white;
+}
+
+
 
 .rotate6:hover .innerText {
 

@@ -104,7 +104,12 @@ class FilterPane extends Component {
           <div style={{height: "25%"}}>
                   <div style={{transform: val, height: "100%", zIndex: "999"}}>
                       <div className="rotate6" style={{ transform:  popVal}} id={'PopoverFilter'}>
-                          <div className="innerText"></div>
+
+                          <div className="rotate9">
+                          <div style={{width: "300%", marginTop: "350%"}}>
+                              DATA<text className="hackText"> _</text>FILTER
+                          </div>
+                          </div>
                       </div>
                   </div>
 

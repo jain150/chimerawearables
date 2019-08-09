@@ -35,6 +35,10 @@ class LeftPanePopoverTab extends Component {
             listArr: tempArr,
         });
 
+        this.onSelect();
+        this.onSelectSubType(subtype, this.props.type);
+
+
     }
 
     componentWillUnmount() {
@@ -64,6 +68,41 @@ class LeftPanePopoverTab extends Component {
 
              //this.props.toggle();
     }
+
+    onSelectSubType = (input, type) => {
+        if(type == 'Function') {
+
+            this.setState({
+               curInp: input,
+            });
+
+
+
+            this.props.onSelectFunction(input);
+        }
+        else if(type == 'BodyZones') {
+
+            this.props.onSelectBodyZones(input);
+             this.setState({
+               curInp: input,
+            });
+
+        }
+        else if(type == 'Fabrication') {
+            this.props.onSelectFabrication(input);
+             this.setState({
+               curInp: input,
+            });
+
+        }
+        else {
+            this.props.onSelectMaterial(input);
+             this.setState({
+               curInp: input,
+            });
+
+        }
+    };
 
 
     render() {
@@ -109,6 +148,11 @@ const mapDispatchToProps = dispatch => {
         onSelBodyZones: (value) => dispatch({type: actionTypes.PRE_SELECT_BOD, value: value}),
         onSelFabrication: (value) => dispatch({type: actionTypes.PRE_SELECT_FAB, value: value}),
         onSelMaterial: (value) => dispatch({type: actionTypes.PRE_SELECT_MAT, value: value}),
+
+        onSelectFunction: (value) => dispatch({type: actionTypes.SELECT_FUNCTION, val: value}),
+        onSelectBodyZones: (value) => dispatch({type: actionTypes.SELECT_BODYZONES, val: value}),
+        onSelectFabrication: (value) => dispatch({type: actionTypes.SELECT_FABRICATION, val: value}),
+        onSelectMaterial: (value) => dispatch({type: actionTypes.SELECT_MATERIAL, val: value}),
 
     }
 };

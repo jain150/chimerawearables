@@ -71,27 +71,35 @@ class App extends Component {
           simpleSheet: false
         })
 
-        let updateViewCount = this.props.updateViewCount;
 
-        var request = new Request('https://chimerabackend.herokuapp.com/api/viewCounter/', {
-              method: 'GET',
-              headers: {
-                'Content-Type': 'application/json',
-              },
-            });
-        fetch(request).then(function(response){
-           if(response.status.toString() === '200') {
-              response.text().then(function(text) {
-                  var objReceived = JSON.parse(text);
-                  if (objReceived.message === 'SUCCESS') {
 
-                    updateViewCount(objReceived.counter)
+    }
 
+    componentWillMount() {
+
+      let updateViewCount = this.props.updateViewCount;
+      let temp = 0;
+
+
+              var request = new Request('https://chimerabackend.herokuapp.com/api/viewCounter/', {
+                    method: 'GET',
+                    headers: {
+                      'Content-Type': 'application/json',
+                    },
+                  });
+              fetch(request).then(function(response){
+                 if(response.status.toString() === '200') {
+                    response.text().then(function(text) {
+                        var objReceived = JSON.parse(text);
+                        if (objReceived.message === 'SUCCESS') {
+                          temp = 1;
+                          updateViewCount(objReceived.counter)
+
+                        }
+                    })
                   }
               })
-            }
-        })
-
+          
     }
 
     computeImplementationMetric = (data) => {
