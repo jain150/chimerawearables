@@ -78,31 +78,26 @@ class FilterBody extends Component {
 
       let temp = value;
 
-      if(this.state.sourceInit != 0) {
       if(value === 'Engineering') {
 
-        if(this.props.source === 'Both')
-          temp = "Fashion"
-        else {
+        if(this.props.source === 'Engineering')
           temp = "Both"
+        else {
+          temp = "Engineering"
         }
 
       }
       else if(value === 'Fashion') {
 
-        if(this.props.source === 'Both')
-          temp = "Engineering"
-        else {
+        if(this.props.source === 'Fashion')
           temp = "Both"
+        else {
+          temp = "Fashion"
         }
       }
-    }
 
-    else {
-      this.setState(prevState => ({
-        sourceInit: !prevState.sourceInit + 1,
-      }));
-    }
+
+
 
     this.props.filterSource(temp);
     }
@@ -229,10 +224,10 @@ class FilterBody extends Component {
 
               <div style={{ marginTop: "4%", fontSize: "120%"}}>Filter by:</div>
               <div style={{marginTop: "2%"}}>
-                {(this.props.source === 'Both' || this.props.source === 'Engineering') ? (<Button style={{width: "40%", transform: "translateX(20%)"}} className="btnSelectorClicked" onClick={() => this.onSourceClick("Engineering")}>Engineering</Button>)
-                  : (<Button style={{width: "40%", transform: "translateX(20%)"}} className="btnSelector" onClick={() => this.onSourceClick("Engineering")}>Engineering</Button>)}
-                {(this.props.source === 'Both' || this.props.source === 'Fashion') ? (<Button className="btnSelectorClicked" style={{float: "right", width: "40%", transform: "translateX(-20%)"}} onClick={() => this.onSourceClick("Fashion")}>Fashion</Button>)
-                 : (<Button className="btnSelector" style={{float: "right", width: "40%", transform: "translateX(-20%)"}} onClick={() => this.onSourceClick("Fashion")}>Fashion</Button>)}
+                {(this.props.source === 'Engineering') ? (<Button style={{width: "40%", transform: "translateX(20%)"}} className="btnSelector" onClick={() => this.onSourceClick("Engineering")}>Engineering</Button>)
+                  : (<Button style={{width: "40%", transform: "translateX(20%)"}} className="btnSelectorClicked" onClick={() => this.onSourceClick("Engineering")}>Engineering</Button>)}
+                {(this.props.source === 'Fashion') ? (<Button className="btnSelector" style={{float: "right", width: "40%", transform: "translateX(-20%)"}} onClick={() => this.onSourceClick("Fashion")}>Fashion</Button>)
+                 : (<Button className="btnSelectorClicked" style={{float: "right", width: "40%", transform: "translateX(-20%)"}} onClick={() => this.onSourceClick("Fashion")}>Fashion</Button>)}
               </div>
 
               <div style={{ marginTop: "3%", fontSize: "120%"}}>
@@ -252,7 +247,7 @@ class FilterBody extends Component {
                   </div>
               </div>
 
-              <div style={{marginTop: "10%", marginLeft: "20%"}}>
+              <div style={{marginTop: "8%", marginLeft: "20%"}}>
                 <Button className="btnSelectorEnd" style={{width: "75%"}} onClick={this.toggleDisplay}>{(this.props.listView) ? ("View Results in Original Form") : ("View Results in List Form")}</Button>{' '}
               </div>
 
@@ -283,6 +278,11 @@ class FilterBody extends Component {
                         </ModalBody>
 
                       </Modal>
+           </div>
+
+           <div>
+               <img className="homeButton" src={"ImageDatabase/Icons/MiniHome.png"}
+                alt="" style={{width: '10%', height: "50%", marginLeft: "47%", objectFit: "cover"}}/>
            </div>
 
           </div>
