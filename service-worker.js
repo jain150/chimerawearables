@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
 
 importScripts(
-  "/chimerawearables/precache-manifest.5dd0373df7e4e9e1b9ccb8d46cc4fe7e.js"
+  "/chimerawearables/precache-manifest.ba16784d060474f68838df87e0f13e06.js"
 );
 
 self.addEventListener('message', (event) => {
