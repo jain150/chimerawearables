@@ -282,7 +282,7 @@ class FilterBody extends Component {
 
            <div>
                <img className="homeButton" src={"ImageDatabase/Icons/MiniHome.png"}
-                alt="" style={{width: '10%', height: "50%", marginLeft: "47%", objectFit: "cover"}}/>
+                alt="" style={{width: '10%', height: "50%", marginLeft: "47%", marginTop: "5%", objectFit: "cover"}}/>
            </div>
 
           </div>
