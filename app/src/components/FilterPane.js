@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 
 import './filterBody.css'
 
-import { Button, Popover, PopoverHeader, PopoverBody } from 'reactstrap';
+import { Button, UncontrolledPopover, Popover, PopoverHeader, PopoverBody } from 'reactstrap';
 
 import FilterBody from './FilterBody';
 import * as actionTypes from '../store/actions';
@@ -73,7 +73,7 @@ class FilterPane extends Component {
 
     render() {
 
-      let val = 'translate(0, 33vh)';
+      let val = 'translate(0, 100%)';
       let popVal = 'translate(0%, 0%)'
 
 
@@ -81,7 +81,7 @@ class FilterPane extends Component {
         popVal = 'translate(-1275%, 0%)';
       }
       let w = window.innerWidth * 0.22
-      let h = window.innerHeight;
+      let h = window.innerHeight * 0.98;
 
       return (
 
@@ -97,7 +97,7 @@ class FilterPane extends Component {
 
               <div>
                   <img onClick={this.toggleHome} className="homeButton" src={"ImageDatabase/Icons/MiniHome.png"}
-                   alt="" style={{width: '50%', height: "90%", transform: "translate(20%, 25%)", objectFit: "cover"}}/>
+                   alt="" style={{width: '50%', transform: "translate(20%, 40%)", objectFit: "cover"}}/>
               </div>
             </div>
 
@@ -114,15 +114,16 @@ class FilterPane extends Component {
                   </div>
 
 
-                   <Popover hideArrow={true} style={{width: w, maxWidth: w, height: h, maxHeight: h + " !important", color: "black", overflowY: "hidden", backgroundColor: "black", zIndex: "10"}} placement="right" isOpen={this.state.popoverOpen} target={'PopoverFilter'} toggle={this.toggle}>
-                     <PopoverHeader style={{fontSize: "150%", width: "100%", height: "5%", backgroundColor: "black", color: "white"}}>Data Filter</PopoverHeader>
-                     <PopoverBody style={{color: "black", width: "100%", height: "95%", fontWeight: "500", backgroundColor: "black", color: "white"}}><FilterBody filterToggle={this.toggleVisibility} showLoop={this.props.showLoop} mainPage={this.props.mainPage}/></PopoverBody>
-                   </Popover>
+                   <UncontrolledPopover hideArrow={true} trigger="legacy" style={{width: w, maxWidth: w, height: h, maxHeight: h + " !important", color: "black", overflowY: "scroll", backgroundColor: "black", zIndex: "10"}} placement="right" isOpen={this.state.popoverOpen} target={'PopoverFilter'} toggle={this.toggle}>
+                     <PopoverHeader style={{fontSize: "150%", width: "100%", height: "5%", backgroundColor: "black", padding: "0 0", color: "white"}}><div style={{marginLeft: "3%", marginTop: "2%"}}>Data Filter</div></PopoverHeader>
+                     <PopoverBody style={{color: "black", width: "100%", height: "95%", fontWeight: "500", padding: "0 .6rem", backgroundColor: "black", color: "white"}}><FilterBody filterToggle={this.toggleVisibility} showLoop={this.props.showLoop} mainPage={this.props.mainPage}/></PopoverBody>
+                   </UncontrolledPopover>
             </div>
 
-            <div style={{ marginTop: "380%", color: "white"}}>
+            {(this.props.showView) ? (<div style={{ marginTop: "380%", color: "white"}}>
                 Views: {this.props.viewCount}
-            </div>
+            </div>) : (<></>)}
+
         </div>
         );
     }

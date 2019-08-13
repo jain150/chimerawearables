@@ -94,12 +94,32 @@ class App extends Component {
                         if (objReceived.message === 'SUCCESS') {
                           temp = 1;
                           updateViewCount(objReceived.counter)
-
                         }
                     })
                   }
               })
-          
+
+              if(temp = 0) {
+
+                request = new Request('https://chimerabackend.herokuapp.com/api/viewCounter/', {
+                      method: 'GET',
+                      headers: {
+                        'Content-Type': 'application/json',
+                      },
+                    });
+                fetch(request).then(function(response){
+                   if(response.status.toString() === '200') {
+                      response.text().then(function(text) {
+                          var objReceived = JSON.parse(text);
+                          if (objReceived.message === 'SUCCESS') {
+                            temp = 1;
+                            updateViewCount(objReceived.counter)
+                          }
+                      })
+                    }
+                })
+              }
+
     }
 
     computeImplementationMetric = (data) => {
@@ -337,9 +357,9 @@ class App extends Component {
              <LeftPaneModal />
              <Matrix />
              <BodyZones />
-            <FilterPane toggleBack={this.toggleBack} move={false} showLoop={true} views={this.state.viewCount} mainPage={true}/>
+            <FilterPane toggleBack={this.toggleBack} move={false} showLoop={true} showView={true} views={this.state.viewCount} mainPage={true}/>
           </div>) : (<div className="layout"><SearchDisplay backToSearch={this.props.updateSearchDisplay}/>
-          <FilterPane move={true} views={this.state.viewCount} showLoop={true} mainPage={false}/>
+          <FilterPane move={true} showView={false} views={this.state.viewCount} showLoop={true} mainPage={false}/>
         </div>)
         )}
         </BrowserRouter>

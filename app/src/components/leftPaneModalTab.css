@@ -8,22 +8,13 @@
 
 }
 
-.modalHover:hover {
-    cursor: pointer;
-    background: black;
-    color: white;
-    font-size: 13px;
+.rotate13 {
+     transform: rotate(270deg);
+     margin-top: 55%;
 }
 
 .modalHover {
-
-    color: white;
-    border-bottom-color: #ACACAC;
-    border-bottom-width: thin;
-    border-bottom-style: solid;
-    /*border-right-color: #ACACAC;
-    border-right-width: thin;
-    border-right-style: solid;*/
-    font-size: 13px;
+    font-size: 120%;
+    font-weight: medium;
 
 }

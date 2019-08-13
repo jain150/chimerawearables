@@ -156,7 +156,8 @@ class SearchDisplay extends Component {
           });
 
           conceptsArr = filterArr.filter((item) => {
-            return item["Design Concepts"].trim() === 'x'
+            console.log(item);
+            return item["Design Concepts"].trim() !== ''
           });
 
           patentsArr = filterArr.filter((item) => {

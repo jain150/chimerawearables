@@ -13,17 +13,18 @@ class LeftPanePopoverTab extends Component {
         this.state = {
 
          listArr: this.props.selArr,
+         curInp: this.props.selArr[0],
         };
     }
 
     onClick = (subtype) => {
 
 
-        let tempArr = this.state.listArr;
+        let tempArr = [];
 
         if(this.state.listArr.includes(subtype)) {
 
-            tempArr.splice(tempArr.indexOf(subtype),1 );
+            tempArr = [];
         }
 
         else {
@@ -35,50 +36,47 @@ class LeftPanePopoverTab extends Component {
             listArr: tempArr,
         });
 
-        this.onSelect();
+        this.onSelect(tempArr);
         this.onSelectSubType(subtype, this.props.type);
 
 
     }
 
-    componentWillUnmount() {
 
-        this.onSelect();
-    }
-
-    onSelect = () => {
+    onSelect = (tempArr) => {
 
             //this.props.types and this.state.listArr
             let type = this.props.type;
 
-
              if(type === 'Function') {
 
-                 this.props.onSelFunction(this.state.listArr);
+                 this.props.onSelFunction(tempArr);
              }
              else if(type === 'BodyZones') {
                  this.props.onSelBodyZones(this.state.listArr);
              }
              else if(type === 'Fabrication') {
-                 this.props.onSelFabrication(this.state.listArr);
+                 this.props.onSelFabrication(tempArr);
              }
              else {
-                 this.props.onSelMaterial(this.state.listArr);
+                 this.props.onSelMaterial(tempArr);
              }
 
              //this.props.toggle();
     }
 
     onSelectSubType = (input, type) => {
+
+        if(input === this.state.curInp)
+          input = '';
         if(type == 'Function') {
 
             this.setState({
                curInp: input,
             });
 
-
-
-            this.props.onSelectFunction(input);
+          console.log(input);
+        this.props.onSelectFunction(input);
         }
         else if(type == 'BodyZones') {
 
@@ -89,6 +87,7 @@ class LeftPanePopoverTab extends Component {
 
         }
         else if(type == 'Fabrication') {
+
             this.props.onSelectFabrication(input);
              this.setState({
                curInp: input,

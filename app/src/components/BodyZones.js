@@ -79,6 +79,8 @@ class BodyZones extends Component {
         this.setState({
           zone: 'none'
         });
+
+          this.props.onSelectBodyZones('');
       }
    }
 	}

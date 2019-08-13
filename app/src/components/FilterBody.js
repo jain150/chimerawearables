@@ -199,7 +199,7 @@ class FilterBody extends Component {
 
       return (
           <div>
-              <div style={{ fontSize: "120%"}}>Time Frame</div>
+              <div style={{ marginTop: "1%", fontSize: "120%"}}>Time Frame</div>
               <BarChart width={260 * w} height={150 * h} data={yearData}
                   margin={{top: 5 * h, left: 0, bottom: 0}}>
                   <XAxis dataKey="name" hide={true}/>
@@ -210,7 +210,6 @@ class FilterBody extends Component {
               <Range handleStyle={[{ backgroundColor: 'black'}, {backgroundColor: 'black' }]} trackStyle={[{ backgroundColor: 'grey', height: 6 * h + "px"}]}
               allowCross={false}  railStyle={{ backgroundColor: 'black' }} min={1990} max={2019} defaultValue={[this.props.minYear, this.props.maxYear]} onChange={(value) => this.onChange(value)} />
               <div>{this.props.minYear}<span style={{float: "right"}}>{this.props.maxYear}</span></div>
-              <br />
 
               <div style={{ marginTop: "1%", fontSize: "120%"}}>Publication Venue</div>
               <ButtonDropdown style={{width:"100%", height: 20 * h + 'px'}} isOpen={this.state.dropdownOpen} toggle={this.toggle}>
@@ -281,8 +280,8 @@ class FilterBody extends Component {
            </div>
 
            <div>
-               <img className="homeButton" src={"ImageDatabase/Icons/MiniHome.png"}
-                alt="" style={{width: '10%', height: "50%", marginLeft: "47%", marginTop: "5%", objectFit: "cover"}}/>
+               <img className="homeButton" src={"ImageDatabase/Icons/Home.png"}
+                alt="" style={{width: '50%', marginLeft: "25%", marginTop: "5%", objectFit: "cover"}}/>
            </div>
 
           </div>
