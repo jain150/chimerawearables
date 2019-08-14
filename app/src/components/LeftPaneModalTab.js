@@ -62,15 +62,11 @@ class LeftPaneModalTab extends Component {
 
             inp = this.props.subtypes.map((input) => {
 
-                return (
-
-                  <div style={{background: 'black', color: 'white'}} onClick={() => this.onSelect(input, this.props.type)}
-                    className='modalHover'
-                    key={input}>
+                return (          
                     <div className="rotate13">
                         {input}
                     </div>
-                  </div>
+
                 );
             }
 

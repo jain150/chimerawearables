@@ -3,8 +3,7 @@ import { connect } from 'react-redux';
 import './bodyZones.css'
 import * as actionTypes from '../store/actions';
 import ImageMapper from 'react-image-mapper';
-import ColCharts from './ColCharts'
-import BodyChart from './BodyChart'
+import ContributePage from './ContributePage';
 import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap';
 
 class BodyZones extends Component {
@@ -140,11 +139,26 @@ class BodyZones extends Component {
           ]
       }
 
-            const closeBtn = <Button onClick={this.toggle} color="secondary">{"Close (X)"}</Button>
-
+        const closeBtn = <Button onClick={this.toggle} color="secondary">{"Close (X)"}</Button>
             return (
              <div className="container">
-                 <div style={{transform: "translate(0%, 20%)"}}>
+                <div style={{height: "10%", display: "flex", color: "white"}}>
+
+                    <div className="contribute" style={{marginTop: "7%", width: "50%", fontSize: "90%"}} onClick={this.toggle}>Contribute</div>
+                    <Modal style={{maxWidth: '100%', margin: "0%", maxHeight: '100%', width: '100%', height: '100%'}} isOpen={this.state.modal} toggle={this.toggle}>
+                      <ModalHeader close={closeBtn} style={{backgroundColor: "black", color: "white", height: "10%"}} toggle={this.toggle}>Contribute</ModalHeader>
+
+                      <ModalBody style={{backgroundColor: "black", overflowY: "auto", height: "90%", width: "100%"}}>
+
+                            <ContributePage />
+
+                      </ModalBody>
+                    </Modal>
+
+                    <div style={{marginTop: "7%", width: "50%", fontSize: "90%"}}>Contact us</div>
+
+                </div>
+                 <div style={{transform: "translate(0%, 8%)"}}>
                        <ImageMapper src={img} map={myMap} width={265 * w} height={400 * h}
                         	onClick={area => this.handleClicks(area)}
                         />

@@ -127,9 +127,6 @@ class SearchDisplay extends Component {
 
             filterArr = filterArr.filter((item) => {
 
-              console.log(item["Reference Link"].substring(10));
-              console.log(this.props.bookMarks);
-
               return this.props.bookMarks.includes(item["Reference Link"].substring(10));
             });
 
@@ -156,8 +153,8 @@ class SearchDisplay extends Component {
           });
 
           conceptsArr = filterArr.filter((item) => {
-            console.log(item);
-            return item["Design Concepts"].trim() !== ''
+
+            return item["Design Concepts"].trim() === 'x'
           });
 
           patentsArr = filterArr.filter((item) => {

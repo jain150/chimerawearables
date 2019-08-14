@@ -1,0 +1,20 @@
+.contributeSplit {
+
+  display: flex;
+  color: white;
+  height: 100%;
+}
+
+.contributeForm {
+
+  width: 58%;
+  margin-left: 1%;
+
+  font-size: small;
+}
+
+.contributeBody {
+
+  width: 40%;
+  margin-left: 1%;
+}

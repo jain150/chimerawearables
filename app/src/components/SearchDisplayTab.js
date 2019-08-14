@@ -90,7 +90,7 @@ class SearchDisplayTab extends Component {
 
           else if(e.y < item5.getBoundingClientRect().bottom) {
             item5.scrollLeft += e.deltaX;
-          
+
           }
 
       }
@@ -225,7 +225,7 @@ class SearchDisplayTab extends Component {
 
             <div className="wear">
                              <img src={"ImageDatabase/Icons/" + wearToken + ".png"}
-                              alt="" style={{width: '75%', objectFit: "cover", transform: "translateX(-50%)", position: "absolute"}} />
+                              alt="" style={{width: '85%', objectFit: "cover", transform: "translate(-50%, 5%)", position: "absolute"}} />
                   <div class="tooltipWear">
                     WEARABILITY LEVEL:
                     Five levels of wearability were defined using

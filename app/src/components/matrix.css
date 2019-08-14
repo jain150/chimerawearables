@@ -1,4 +1,8 @@
 .matrixBody {
-    width: 56%;
+    width: 60%;
     height: 100vh;
+}
+
+.noHover {
+  pointer-events: none;
 }

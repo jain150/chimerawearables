@@ -1,3 +1,15 @@
 .container {
   width: 23%;
 }
+
+.contribute:hover {
+  cursor: pointer;
+}
+
+.modal-content {
+    height: 99%;
+}
+
+.modal-body {
+  padding: 0;
+}
