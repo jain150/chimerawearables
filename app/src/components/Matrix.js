@@ -493,6 +493,52 @@ class Matrix extends Component {
                         </Hexagon>)}
 
 
+                                {/*<Hexagon q={0} r={2} s={0} stroke="green" fill="purple"/>
+                               <Hexagon q={0} r={-2} s={0} stroke="green" fill="purple"/>
+
+
+                               <Hexagon q={1} r={-3} s={0} stroke="white" fill="purple"/>
+                               <Hexagon q={1} r={2} s={0} stroke="white" fill="purple"/>
+
+                               <Hexagon q={-1} r={3} s={0} stroke="white" fill="purple"/>
+                               <Hexagon q={-1} r={-2} s={0} stroke="white" fill="purple"/>
+
+
+                               <Hexagon q={-2} r={-1} s={0} stroke="white" fill="purple"/>
+                               <Hexagon q={-2} r={3} s={0} stroke="white" fill="purple"/>
+
+                               <Hexagon q={2} r={1} s={0} stroke="white" fill="purple"/>
+                               <Hexagon q={2} r={-3} s={0} stroke="white" fill="purple"/>
+
+                              <Hexagon q={-3} r={-1} s={0} stroke="white" fill="purple"/>
+                              <Hexagon q={-3} r={0} s={0} stroke="white" fill="purple"/>
+                              <Hexagon q={-3} r={1} s={0} stroke="white" fill="purple"/>
+                              <Hexagon q={-3} r={2} s={0} stroke="white" fill="purple"/>
+                              <Hexagon q={-3} r={3} s={0} stroke="white" fill="purple"/>
+                              <Hexagon q={-3} r={4} s={0} stroke="white" fill="purple"/>
+
+                              <Hexagon q={3} r={1} s={0} stroke="white" fill="purple"/>
+                              <Hexagon q={3} r={0} s={0} stroke="white" fill="purple"/>
+                              <Hexagon q={3} r={-1} s={0} stroke="white" fill="purple"/>
+                              <Hexagon q={3} r={-2} s={0} stroke="white" fill="purple"/>
+                              <Hexagon q={3} r={-3} s={0} stroke="white" fill="purple"/>
+                              <Hexagon q={3} r={-4} s={0} stroke="white" fill="purple"/>
+
+
+                              <Hexagon q={-4} r={0} s={0} stroke="white" fill="purple"/>
+                              <Hexagon q={-4} r={1} s={0} stroke="white" fill="purple"/>
+                              <Hexagon q={-4} r={2} s={0} stroke="white" fill="purple"/>
+                              <Hexagon q={-4} r={3} s={0} stroke="white" fill="purple"/>
+                              <Hexagon q={-4} r={4} s={0} stroke="white" fill="purple"/>
+
+                              <Hexagon q={4} r={0} s={0} stroke="white" fill="purple"/>
+                              <Hexagon q={4} r={-1} s={0} stroke="white" fill="purple"/>
+                              <Hexagon q={4} r={-2} s={0} stroke="white" fill="purple"/>
+                              <Hexagon q={4} r={-3} s={0} stroke="white" fill="purple"/>
+                              <Hexagon q={4} r={-4} s={0} stroke="white" fill="purple"/>
+                              */}
+
+
           </Layout>
         </HexGrid>
                 </div>
