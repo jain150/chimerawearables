@@ -1,18 +1,18 @@
 {
   "files": {
-    "main.css": "/chimerawearables/static/css/main.57029e70.chunk.css",
-    "main.js": "/chimerawearables/static/js/main.e2cf3f1f.chunk.js",
-    "main.js.map": "/chimerawearables/static/js/main.e2cf3f1f.chunk.js.map",
-    "runtime~main.js": "/chimerawearables/static/js/runtime~main.94edfb0c.js",
-    "runtime~main.js.map": "/chimerawearables/static/js/runtime~main.94edfb0c.js.map",
-    "static/css/2.608411b6.chunk.css": "/chimerawearables/static/css/2.608411b6.chunk.css",
-    "static/js/2.1e7a119b.chunk.js": "/chimerawearables/static/js/2.1e7a119b.chunk.js",
-    "static/js/2.1e7a119b.chunk.js.map": "/chimerawearables/static/js/2.1e7a119b.chunk.js.map",
-    "index.html": "/chimerawearables/index.html",
-    "precache-manifest.44b3e40adf6b79a3ccb65ef48beb1e39.js": "/chimerawearables/precache-manifest.44b3e40adf6b79a3ccb65ef48beb1e39.js",
-    "service-worker.js": "/chimerawearables/service-worker.js",
-    "static/css/2.608411b6.chunk.css.map": "/chimerawearables/static/css/2.608411b6.chunk.css.map",
-    "static/css/main.57029e70.chunk.css.map": "/chimerawearables/static/css/main.57029e70.chunk.css.map",
-    "static/media/index.css": "/chimerawearables/static/media/roboto-latin-900italic.bc833e72.woff"
+    "main.css": "/static/css/main.57029e70.chunk.css",
+    "main.js": "/static/js/main.747f91cb.chunk.js",
+    "main.js.map": "/static/js/main.747f91cb.chunk.js.map",
+    "runtime~main.js": "/static/js/runtime~main.a8a9905a.js",
+    "runtime~main.js.map": "/static/js/runtime~main.a8a9905a.js.map",
+    "static/css/2.c720bc00.chunk.css": "/static/css/2.c720bc00.chunk.css",
+    "static/js/2.99a62c2f.chunk.js": "/static/js/2.99a62c2f.chunk.js",
+    "static/js/2.99a62c2f.chunk.js.map": "/static/js/2.99a62c2f.chunk.js.map",
+    "index.html": "/index.html",
+    "precache-manifest.e9c26f5efc68d855500b8ba6ecae388c.js": "/precache-manifest.e9c26f5efc68d855500b8ba6ecae388c.js",
+    "service-worker.js": "/service-worker.js",
+    "static/css/2.c720bc00.chunk.css.map": "/static/css/2.c720bc00.chunk.css.map",
+    "static/css/main.57029e70.chunk.css.map": "/static/css/main.57029e70.chunk.css.map",
+    "static/media/index.css": "/static/media/roboto-latin-900italic.bc833e72.woff"
   }
 }
