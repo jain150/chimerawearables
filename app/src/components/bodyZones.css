@@ -6,6 +6,11 @@
   cursor: pointer;
 }
 
+.contact:hover {
+  cursor: pointer;
+}
+
+
 .modal-content {
     height: 99%;
 }

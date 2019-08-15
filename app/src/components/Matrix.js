@@ -411,7 +411,7 @@ class Matrix extends Component {
                console.log()
              }
              <div className="matrixSVG">
-                        <HexGrid width={775 * w_f} height={window.innerHeight * 0.98} viewBox={"-47 -56 100 100"}>
+                        <HexGrid width={775 * w_f} height={window.innerHeight * 0.98} viewBox={"-49 -56 100 100"}>
                         <Layout size={hexagonSize} flat={true} spacing={1.05} origin={{ x: 0, y: 0 }}>
 
 
