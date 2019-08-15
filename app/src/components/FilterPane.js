@@ -97,7 +97,7 @@ class FilterPane extends Component {
 
               <div>
                   <img onClick={this.toggleHome} className="homeButton" src={"ImageDatabase/Icons/MiniHome.png"}
-                   alt="" style={{width: '50%', transform: "translate(20%, 40%)", objectFit: "cover"}}/>
+                   alt="" style={{width: '2vw', transform: "translate(20%, 40%)", objectFit: "cover"}}/>
               </div>
             </div>
 
