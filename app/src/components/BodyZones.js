@@ -189,12 +189,6 @@ class BodyZones extends Component {
 
                           <h3>Project Contributors</h3>
 
-                          <div>Luis Parades is a...</div>
-                          <div>Wan Kyn Chan is a...</div>
-                          <div>Caroline McMillan is a...</div>
-                          <div>Ramyak Singh is a...</div>
-                          <div>Karthik Ramani is a...</div>
-                          <div>Danielle Wild is a...</div>
 
                           </div>
                       </div>
