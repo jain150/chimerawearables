@@ -38,4 +38,6 @@
     overflow-x: auto;
     overflow-y: hidden;
     display: flex;
+    background: url('/ImageDatabase/Icons/BackgroundHexagons.png') no-repeat;
+    background-size: 100%;
 }

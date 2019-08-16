@@ -168,6 +168,12 @@ class ContributePage extends Component {
         return temp;
     });
 
+    const numList = [
+                        {key:1, text:1, value: 1},
+                        {key:3, text:3, value: 3},
+                        {key:9, text:9, value: 9}
+                    ]
+
     const funcList = this.props.functionList.map((item) => {
 
         let temp = { key: item, text: item, value: item};
@@ -187,12 +193,12 @@ class ContributePage extends Component {
 
                   <div style={{display: "flex"}}>
 
-                      <div style={{width: "47%"}}>
+                      <div style={{width: "49%"}}>
                           <div>Resource Link</div>
                           <Input style={{ borderRadius: "0px", padding: "0", height: "50%"}} type="text"/>
                       </div>
 
-                      <div style={{width: "47%", marginLeft: "6%"}}>
+                      <div style={{width: "49%", marginLeft: "2%"}}>
                           <div>Resource Main Page</div>
                           <Input style={{ borderRadius: "0px",  padding: "0", height: "50%"}} type="text"/>
                       </div>
@@ -201,12 +207,12 @@ class ContributePage extends Component {
 
                   <div style={{display: "flex"}}>
 
-                      <div style={{width: "47%"}}>
+                      <div style={{width: "49%"}}>
                           <div>Year</div>
                           <Input style={{ borderRadius: "0px",  padding: "0", height: "50%"}} type="text"/>
                       </div>
 
-                      <div style={{width: "47%", marginLeft: "6%"}}>
+                      <div style={{width: "49%", marginLeft: "2%"}}>
                           <div>Venue</div>
                           <Input style={{ borderRadius: "0px",  padding: "0", height: "50%"}} type="text"/>
                       </div>
@@ -226,6 +232,73 @@ class ContributePage extends Component {
                   <div>
                       <div>Function (Pick up to 3 appropriate functions mentioned in the resource. If there are none, please leave this section blank)</div>
                       <Dropdown style={{padding: "0", minHeight: "1%"}} placeholder='Function' fluid multiple selection options={funcList} />
+                  </div>
+
+                  <div style={{display: "flex"}}>
+
+                      <div style={{width: "47%"}}>
+                          <div>Resource Categorization (Select all that apply)</div>
+                          <div style={{display: "flex"}}>
+                              <div style={{backgroundColor: "white", textAlign: "center", color: "black", width: "47%"}}>Tutorials</div>
+                              <div style={{backgroundColor: "white", textAlign: "center", color: "black", marginLeft: "6%", width: "47%"}}>Research</div>
+                          </div>
+                          <div style={{display: "flex", marginTop: "1%"}}>
+                              <div style={{backgroundColor: "white", textAlign: "center", color: "black", width: "47%"}}>Patent</div>
+                              <div style={{backgroundColor: "white", textAlign: "center", color: "black", marginLeft: "6%", width: "47%"}}>Design Concept</div>
+                          </div>
+                          <div style={{display: "flex", marginTop: "1%"}}>
+                              <div style={{backgroundColor: "white", textAlign: "center", color: "black", width: "47%"}}>Aesthetic</div>
+                          </div>
+                      </div>
+                      <div style={{width: "47%", marginLeft: "6%"}}>
+                          <div>Source (Select all that apply)</div>
+                          <div style={{display: "flex"}}>
+                              <div style={{backgroundColor: "white", textAlign: "center", color: "black", width: "47%"}}>Engineering</div>
+                              <div style={{backgroundColor: "white", textAlign: "center", color: "black", marginLeft: "6%", width: "47%"}}>Fashion</div>
+                          </div>
+                      </div>
+                  </div>
+
+                  <div style={{display: "flex"}}>
+
+                      <div style={{width: "49%"}}>
+                          <div>Wearability Rating (Select the most appropriate choice)</div>
+                          <Dropdown style={{padding: "0", minHeight: "1%", height: "75%"}} placeholder='#' fluid selection options={numList} />
+                      </div>
+
+                      <div style={{width: "49%", marginLeft: "2%"}}>
+                          <div>Electronic Integration (Select the most appropriate choice)</div>
+                          <Dropdown style={{padding: "0", minHeight: "1%", height: "75%"}} placeholder='#' fluid selection options={numList} />
+                      </div>
+
+                  </div>
+
+                  <div style={{display: "flex"}}>
+
+                      <div style={{width: "49%", marginTop: "1.5%"}}>
+                          <div style={{fontSize: "97.5%"}}>Maintainence Requirement (Select the most appropriate choice)</div>
+                          <Dropdown style={{padding: "0", minHeight: "1%", height: "75%"}} placeholder='#' fluid selection options={numList} />
+                      </div>
+
+                      <div style={{width: "49%", marginLeft: "2%", marginTop: "1.5%"}}>
+                          <div>Context (Select the most appropriate choice)</div>
+                          <Dropdown style={{padding: "0", minHeight: "1%", height: "75%"}} placeholder='#' fluid selection options={numList} />
+                      </div>
+
+                  </div>
+
+                  <div style={{display: "flex"}}>
+
+                      <div style={{width: "49%", marginTop: "1.5%"}}>
+                          <div>Activity Obstruction (Select the most appropriate choice)</div>
+                          <Dropdown style={{padding: "0", minHeight: "1%", height: "75%"}} placeholder='#' fluid selection options={numList} />
+                      </div>
+
+                      <div style={{width: "49%", marginLeft: "2%", marginTop: "1.5%"}}>
+                          <div>Aesthetic Consideration (Select the most appropriate choice)</div>
+                          <Dropdown style={{padding: "0", minHeight: "1%", height: "75%"}} placeholder='#' fluid selection options={numList} />
+                      </div>
+
                   </div>
 
 

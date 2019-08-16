@@ -153,7 +153,7 @@ class BodyZones extends Component {
              <div className="container">
                 <div style={{height: "10%", display: "flex", color: "white"}}>
 
-                    <div className="contribute" style={{marginTop: "7%", width: "50%", fontSize: "120%"}} onClick={this.toggle}>CONTRIBUTE</div>
+                    <div className="contribute" style={{marginTop: "7%", marginLeft: "20%", width: "35%", fontSize: "125%"}} onClick={this.toggle}>CONTRIBUTE</div>
                     <Modal style={{maxWidth: '100%', margin: "0%", maxHeight: '100%', width: '100%', height: '100%'}} isOpen={this.state.modal} toggle={this.toggle}>
                       <ModalHeader close={closeBtn} style={{backgroundColor: "black", color: "white", height: "10%"}} toggle={this.toggle}>Contribute</ModalHeader>
 
@@ -164,25 +164,40 @@ class BodyZones extends Component {
                       </ModalBody>
                     </Modal>
 
-                    <div className="contact" style={{marginTop: "7%", width: "50%", fontSize: "120%"}} onClick={this.toggle2}>CONTACT US</div>
+                    <div className="contact" style={{marginTop: "7%", marginLeft: "5%", width: "40%", fontSize: "125%"}} onClick={this.toggle2}>CONTACT US</div>
                     <Modal style={{maxWidth: '100%', margin: "0%", maxHeight: '100%', width: '100%', height: '100%'}} isOpen={this.state.modal2} toggle={this.toggle2}>
-                      <ModalHeader close={closeBtn2} style={{backgroundColor: "black", color: "white", height: "10%"}} toggle={this.toggle2}>Contas Us</ModalHeader>
+                      <ModalHeader close={closeBtn2} style={{backgroundColor: "black", color: "white", height: "10%"}} toggle={this.toggle2}>Contact Us</ModalHeader>
 
                       <ModalBody style={{backgroundColor: "black", overflowY: "auto", height: "90%", width: "100%"}}>
 
-                      <div style={{width: "45%", marginLeft: "1%", color: "white"}}>
+                      <div style={{display: "flex"}}>
+                          <div style={{width: "47%", marginLeft: "1%", color: "white"}}>
 
-                        <div>Name</div>
-                        <Input style={{ borderRadius: "0px",  padding: "0", height: "50%"}} type="text"/>
-                        <div>Email Address</div>
-                        <Input style={{ borderRadius: "0px",  padding: "0", height: "50%"}} type="text"/>
-                        <div>Subject</div>
-                        <Input style={{ borderRadius: "0px",  padding: "0", height: "50%"}} type="text"/>
-                        <div>Message</div>
-                        <Input style={{ borderRadius: "0px",  padding: "0", height: "15vh"}} type="text"/>
+                            <h3>Contact Us</h3>
+                            <div>Name</div>
+                            <Input style={{ borderRadius: "0px",  padding: "0", height: "10%"}} type="text"/>
+                            <div>Email Address</div>
+                            <Input style={{ borderRadius: "0px",  padding: "0", height: "10%"}} type="text"/>
+                            <div>Subject</div>
+                            <Input style={{ borderRadius: "0px",  padding: "0", height: "10%"}} type="text"/>
+                            <div>Message</div>
+                            <Input style={{ borderRadius: "0px",  padding: "0", height: "50%"}} type="text"/>
 
+                          </div>
+
+                          <div style={{width: "47%", marginLeft: "5%", color: "white"}}>
+
+                          <h3>Project Contributors</h3>
+
+                          <div>Luis Parades is a...</div>
+                          <div>Wan Kyn Chan is a...</div>
+                          <div>Caroline McMillan is a...</div>
+                          <div>Ramyak Singh is a...</div>
+                          <div>Karthik Ramani is a...</div>
+                          <div>Danielle Wild is a...</div>
+
+                          </div>
                       </div>
-
                       </ModalBody>
                     </Modal>
 
