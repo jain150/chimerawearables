@@ -34,10 +34,20 @@
 
 .layout {
     height: 100vh;
-    background: black;
+    background-color: black;
     overflow-x: auto;
     overflow-y: hidden;
     display: flex;
     background: url('/ImageDatabase/Icons/BackgroundHexagons.png') no-repeat;
     background-size: 100%;
+}
+
+.layoutBlack {
+
+  height: 100vh;
+  background-color: black;
+  overflow-x: auto;
+  overflow-y: hidden;
+  display: flex;
+  background-size: 100%;
 }

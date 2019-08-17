@@ -3,7 +3,7 @@ svg {
 }
 
 svg g {
-  fill: black;
+  fill: transparent;
   fill-opacity: 0.9;
 }
 svg g:hover {

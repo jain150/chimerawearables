@@ -358,7 +358,7 @@ class App extends Component {
              <Matrix />
              <BodyZones />
             <FilterPane toggleBack={this.toggleBack} move={false} showLoop={true} showView={true} views={this.state.viewCount} mainPage={true}/>
-          </div>) : (<div className="layout"><SearchDisplay backToSearch={this.props.updateSearchDisplay}/>
+          </div>) : (<div className="layoutBlack"><SearchDisplay backToSearch={this.props.updateSearchDisplay}/>
           <FilterPane move={true} showView={false} views={this.state.viewCount} showLoop={true} mainPage={false}/>
         </div>)
         )}
