@@ -132,18 +132,18 @@ class BodyZones extends Component {
       let myMap = {
           name: "my-map",
           areas: [
-          {name: "Head", shape: "rect", coords: [93 * w, 0 * h, 133 * w, 57 * h], fillColor: "transparent"},
-          {name: "Chest", shape: "rect", coords: [83 * w, 60 * h, 113 * w, 180 * h], fillColor: "transparent"},
-          {name: "Back", shape: "rect", coords: [113 * w, 60 * h, 143 * w, 180 * h], fillColor: "transparent"},
+          {name: "Head", shape: "rect", coords: [93 * w, 0 * h, 140 * w, 57 * h], fillColor: "transparent"},
+          {name: "Chest", shape: "rect", coords: [83 * w, 60 * h, 120 * w, 180 * h], fillColor: "transparent"},
+          {name: "Back", shape: "rect", coords: [120 * w, 60 * h, 152 * w, 180 * h], fillColor: "transparent"},
           {name: "Pelvic Region", shape: "rect", coords: [73 * w, 168 * h, 153 * w, 214 * h], fillColor: "transparent"},
           {name: "Legs", shape: "rect", coords: [73 * w, 214 * h, 153 * w, 368 * h], fillColor: "transparent"},
-          {name: "Feet", shape: "rect", coords: [58 * w, 368 * h, 148 * w, 400 * h], fillColor: "transparent"},
+          {name: "Feet", shape: "rect", coords: [58 * w, 368 * h, 165 * w, 400 * h], fillColor: "transparent"},
 
           {name: "Arms", shape: "rect", coords: [43 * w, 67 * h, 83 * w, 174 * h], fillColor: "transparent"},
-          {name: "Arms", shape: "rect", coords: [143 * w, 67 * h, 171 * w, 170 * h], fillColor: "transparent"},
+          {name: "Arms", shape: "rect", coords: [152 * w, 67 * h, 185 * w, 170 * h], fillColor: "transparent"},
 
           {name: "Wrist and Hand", shape: "rect", coords: [28 * w, 174 * h, 63 * w, 215 * h], fillColor: "transparent"},
-          {name: "Wrist and Hand", shape: "rect", coords: [158 * w, 174 * h, 193 * w, 215 * h], fillColor: "transparent"}
+          {name: "Wrist and Hand", shape: "rect", coords: [165 * w, 174 * h, 206 * w, 215 * h], fillColor: "transparent"}
           ]
       }
 
