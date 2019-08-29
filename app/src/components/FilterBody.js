@@ -257,10 +257,10 @@ class FilterBody extends Component {
               <div style={{marginTop: "5%", marginLeft: "20%", zIndex: "2500 !important"}}>
 
 
-                      <Button className="btnSelectorEnd" style={{width: "75%"}} onClick={this.toggleStats}>Resource Statistics</Button>
+                      <Button className="btnSelectorEnd" style={{width: "75%"}} onClick={this.toggleStats}>Database Statistics</Button>
 
                       <Modal style={{maxWidth: '100%', margin: "0%", maxHeight: '100%', width: '100%', height: '100%'}} isOpen={this.state.modal} toggle={this.toggle}>
-                        <ModalHeader close={closeBtn} style={{backgroundColor: "black", color: "white"}} toggle={this.toggleStats}>Resource Statistics</ModalHeader>
+                        <ModalHeader close={closeBtn} style={{backgroundColor: "black", color: "white"}} toggle={this.toggleStats}>Database Statistics</ModalHeader>
 
                         <ModalBody style={{backgroundColor: "black", overflowY: "auto"}}>
 

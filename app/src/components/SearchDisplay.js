@@ -226,19 +226,20 @@ class SearchDisplay extends Component {
               </div>
              ) : (
                <div className="layoutSearch">
+                     <div className="bottomBar">
+                       <div onClick={this.props.backToSearch} className="backLabel">
+                           <div style={{height: "50%",fontSize: "120%", padding: "1% 0"}}>{"<---- Go Back to Search"}</div>
+                       </div>
+                       <div className="corLabel">
+                           <div style={{height: "50%", fontSize: "120%", padding: "1% 0"}}>{corLabel}</div>
+                       </div>
+                     </div>
                      <SearchDisplayTab count="0" type='Research' arr={this.shuffleArray(researchArr)}/>
                      <SearchDisplayTab count="1" type='Tutorials' arr={this.shuffleArray(tutorialsArr)}/>
                      <SearchDisplayTab count="2" type='Aesthetics' arr={this.shuffleArray(aestheticsArr)}/>
                      <SearchDisplayTab count="3" type='Concepts' arr={this.shuffleArray(conceptsArr)}/>
                     <SearchDisplayTab count="4" type='Patents' arr={this.shuffleArray(patentsArr)}/>
-                    <div className="bottomBar">
-                    <div onClick={this.props.backToSearch} className="backLabel">
-                        <div style={{height: "50%",fontSize: "120%", padding: "1% 0"}}>{"<---- Go Back to Search"}</div>
-                    </div>
-                      <div className="corLabel">
-                          <div style={{height: "50%", fontSize: "120%", padding: "1% 0"}}>{corLabel}</div>
-                      </div>
-                    </div>
+
              </div>)}
              </div>
         );
