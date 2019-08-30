@@ -92,7 +92,7 @@ class LeftPaneTab extends Component {
                          .props
                          .name}>
 
-                              <PopoverHeader style={{color: "white", backgroundColor: "black", transform: "translateX(-4.8%)"}}>{this.props.name}</PopoverHeader>
+            
                                <PopoverBody style={{padding: '0', color: "#A7AFBA", backgroundColor: "black", transform: "translateX(-4.8%)"}}><LeftPanePopoverTab
                                                         type={this.props.name}
                                                         subtypes={arr}

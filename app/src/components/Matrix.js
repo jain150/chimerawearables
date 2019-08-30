@@ -86,7 +86,7 @@ class Matrix extends Component {
             });
             funcCount = funcCount.length;
 
-            if(bool_array[0]) {
+            if(bool_array[0] && !name_array[0].toLowerCase().trim().includes('all functions')) {
 
               let curFuncCount = filterArr.filter((item) => {
                 return item["Function 1"].toLowerCase().trim().includes(name_array[0].toLowerCase().trim())
@@ -101,7 +101,7 @@ class Matrix extends Component {
             });
             fabCount = fabCount.length;
 
-            if(bool_array[2]) {
+            if(bool_array[2] && !name_array[2].toLowerCase().trim().includes('all fabrications')) {
 
               let curFabCount = filterArr.filter((item) => {
                 return item["Fabrication 1"].toLowerCase().trim().includes(name_array[2].toLowerCase().trim())
@@ -115,7 +115,7 @@ class Matrix extends Component {
             });
             matCount = matCount.length;
 
-            if(bool_array[3]) {
+            if(bool_array[3]  && !name_array[3].toLowerCase().trim().includes('all materials')) {
 
               let curMatCount = filterArr.filter((item) => {
                 return item["Material 1"].toLowerCase().trim().includes(name_array[3].toLowerCase().trim())
@@ -150,7 +150,7 @@ class Matrix extends Component {
             });
             funcBodCount = funcBodCount.length;
 
-            if(bool_array[0] && bool_array[1]) {
+            if(bool_array[0] && bool_array[1] && !name_array[0].toLowerCase().trim().includes('all functions')) {
 
               let curFuncBodCount = filterArr.filter((item) => {
                 return (item["Body Zone 1"].toLowerCase().trim().includes(name_array[1].toLowerCase().trim())
@@ -171,7 +171,7 @@ class Matrix extends Component {
             });
             matBodCount = matBodCount.length;
 
-            if(bool_array[1] && bool_array[3]) {
+            if(bool_array[1] && bool_array[3] && !name_array[3].toLowerCase().trim().includes('all materials')) {
 
               let curMatBodCount = filterArr.filter((item) => {
                 return (item["Body Zone 1"].toLowerCase().trim().includes(name_array[1].toLowerCase().trim())
@@ -190,7 +190,7 @@ class Matrix extends Component {
             });
             fabBodCount = fabBodCount.length;
 
-            if(bool_array[1] && bool_array[2]) {
+            if(bool_array[1] && bool_array[2] && !name_array[2].toLowerCase().trim().includes('all fabrications')) {
 
               let curFabBodCount = filterArr.filter((item) => {
                 return (item["Body Zone 1"].toLowerCase().trim().includes(name_array[1].toLowerCase().trim())
@@ -415,60 +415,60 @@ class Matrix extends Component {
                         <Layout size={hexagonSize} flat={true} spacing={1.05} origin={{ x: 0, y: 0 }}>
 
                                     {(bool_array[0] && bool_array[1] && bool_array[2] && bool_array[3]) ? ((allCount !== 0) ? (<Hexagon onClick={() => this.onClick(name_array, bool_array[0] && bool_array[1] && bool_array[2] && bool_array[3], ['BodyZones', 'Fabrication', 'Material', 'Function'])} q={0} r={0} s={0}><text x="0" y="0" textAnchor="middle"><tspan x="0" dy="-1.2em" fill="rgb(172, 216, 206)">{name_array[0]}</tspan><tspan x="0" dy="1.2em" fill="rgb(239,122,134)">+ {name_array[1]}</tspan><tspan x="0" dy="1.2em" fill="rgb(133, 194, 219)">+ {name_array[2]}</tspan><tspan x="0" dy="1.2em" fill="rgb(254, 205, 102)">+ {name_array[3]}</tspan><tspan x="0" dy="1.2em">{"(" + allCount + ")"}</tspan></text></Hexagon>) : (<Hexagon className="noHover" q={0} r={0} s={0}><text x="0" y="0" textAnchor="middle"><tspan x="0" dy="-1.2em" fill="rgb(172, 216, 206)">{name_array[0]}</tspan><tspan x="0" dy="1.2em" fill="rgb(239,122,134)">+ {name_array[1]}</tspan><tspan x="0" dy="1.2em" fill="rgb(133, 194, 219)">+ {name_array[2]}</tspan><tspan x="0" dy="1.2em" fill="rgb(254, 205, 102)">+ {name_array[3]}</tspan><tspan x="0" dy="1.2em">{"(No Results)"}</tspan></text></Hexagon>)) :
-                                     (<Hexagon cellStyle={{stroke: "rgb(90, 90, 90)", strokeWidth: "0.4", transition: "fill-opacity .5s"}} className="noHover" onClick={() => this.onClick(name_array, bool_array[0] && bool_array[1] && bool_array[2] && bool_array[3], ['BodyZones', 'Fabrication', 'Material', 'Function'])} q={0} r={0} s={0}><text x="0" y="0" textAnchor="middle"><tspan fill="red" x="0" dy="-2em">{"\"Select\""}</tspan><tspan x="0" dy="1.2em">
+                                     (<Hexagon cellStyle={{stroke: "rgb(90, 90, 90)", strokeWidth: "0.4", transition: "fill-opacity .5s"}} className="noHover" onClick={() => this.onClick(name_array, bool_array[0] && bool_array[1] && bool_array[2] && bool_array[3], ['BodyZones', 'Fabrication', 'Material', 'Function'])} q={0} r={0} s={0}><text x="0" y="0" textAnchor="middle"><tspan fill="red" x="0" dy="-2em">{"Select"}</tspan><tspan x="0" dy="1.2em">
                                     Function</tspan><tspan x="0" dy="1.2em">+ BodyZones</tspan><tspan x="0" dy="1.2em">+ Fabrication</tspan><tspan x="0" dy="1.2em">+ Material</tspan></text></Hexagon>)}
 
                                    {(bool_array[1] && bool_array[2]) ? ((fabBodCount !== 0) ? (<Hexagon onClick={() => this.onClick(name_array, bool_array[1] && bool_array[2], ['BodyZones', 'Fabrication'])} q={0} r={1} s={0}><text x="0" y="0" textAnchor="middle"><tspan x="0" dy="0em" fill="rgb(239,122,134)">{name_array[1]}</tspan><tspan x="0" dy="1.2em" fill="rgb(133, 194, 219)">+ {name_array[2]}</tspan><tspan x="0" dy="1.2em">{"(" + fabBodCount + ")"}</tspan></text></Hexagon>) : (
                                      <Hexagon className="noHover" q={0} r={1} s={0}><text x="0" y="0" textAnchor="middle"><tspan x="0" dy="0em" fill="rgb(239,122,134)">{name_array[1]}</tspan><tspan x="0" dy="1.2em" fill="rgb(133, 194, 219)">+ {name_array[2]}</tspan><tspan x="0" dy="1.2em">{"(No Results)"}</tspan></text></Hexagon>
                                    )) :
-                                    (<Hexagon cellStyle={{stroke: "rgb(90, 90, 90)", strokeWidth: "0.4", transition: "fill-opacity .5s"}} className="noHover" onClick={() => this.onClick(name_array, bool_array[1] && bool_array[2], ['BodyZones', 'Fabrication'])} q={0} r={1} s={0}><text x="0" y="0" textAnchor="middle"><tspan fill="red" x="0" dy="-1.6em">{"\"Select\""}</tspan><tspan x="0" dy="1.2em">BodyZones</tspan><tspan x="0" dy="1.2em">+ Fabrication</tspan></text></Hexagon>)}
+                                    (<Hexagon cellStyle={{stroke: "rgb(90, 90, 90)", strokeWidth: "0.4", transition: "fill-opacity .5s"}} className="noHover" onClick={() => this.onClick(name_array, bool_array[1] && bool_array[2], ['BodyZones', 'Fabrication'])} q={0} r={1} s={0}><text x="0" y="0" textAnchor="middle"><tspan fill="red" x="0" dy="-1.6em">{"Select"}</tspan><tspan x="0" dy="1.2em">BodyZones</tspan><tspan x="0" dy="1.2em">+ Fabrication</tspan></text></Hexagon>)}
 
                                   {(bool_array[0] && bool_array[3]) ? ((matFuncCount !== 0) ? (<Hexagon onClick={() => this.onClick(name_array, bool_array[0] && bool_array[3], ['Function', 'Material'])} q={0} r={-1} s={0}><text x="0" y="0" textAnchor="middle"><tspan x="0" dy="0em" fill="rgb(172, 216, 206)">{name_array[0]}</tspan><tspan x="0" dy="1.2em" fill="rgb(254, 205, 102)">+ {name_array[3]}</tspan><tspan x="0" dy="1.2em">{"(" + matFuncCount + ")"}</tspan></text></Hexagon>) : (
                                     <Hexagon className="noHover" q={0} r={-1} s={0}><text x="0" y="0" textAnchor="middle"><tspan x="0" dy="0em" fill="rgb(172, 216, 206)">{name_array[0]}</tspan><tspan x="0" dy="1.2em" fill="rgb(254, 205, 102)">+ {name_array[3]}</tspan><tspan x="0" dy="1.2em">{"(No Results)"}</tspan></text></Hexagon>
                                   )) :
-                                   (<Hexagon cellStyle={{stroke: "rgb(90, 90, 90)", strokeWidth: "0.4", transition: "fill-opacity .5s"}} className="noHover" onClick={() => this.onClick(name_array, bool_array[0] && bool_array[3], ['Function', 'Material'])} q={0} r={-1} s={0}><text x="0" y="0" textAnchor="middle"><tspan fill="red" x="0" dy="-1.6em">{"\"Select\""}</tspan><tspan x="0" dy="1.2em">Function</tspan><tspan x="0" dy="1.2em">+ Material</tspan></text></Hexagon>)}
+                                   (<Hexagon cellStyle={{stroke: "rgb(90, 90, 90)", strokeWidth: "0.4", transition: "fill-opacity .5s"}} className="noHover" onClick={() => this.onClick(name_array, bool_array[0] && bool_array[3], ['Function', 'Material'])} q={0} r={-1} s={0}><text x="0" y="0" textAnchor="middle"><tspan fill="red" x="0" dy="-1.6em">{"Select"}</tspan><tspan x="0" dy="1.2em">Function</tspan><tspan x="0" dy="1.2em">+ Material</tspan></text></Hexagon>)}
 
                                    {(bool_array[2] && bool_array[3]) ? ((matFabCount !== 0) ? (<Hexagon onClick={() => this.onClick(name_array, bool_array[2] && bool_array[3], ['Material', 'Fabrication'])} q={1} r={-2} s={0}> <text x="0" y="0" textAnchor="middle"><tspan x="0" dy="0em" fill="rgb(133, 194, 219)">{name_array[2]}</tspan><tspan x="0" dy="1.2em" fill="rgb(254, 205, 102)">+ {name_array[3]}</tspan><tspan x="0" dy="1.2em">{"(" + matFabCount + ")"}</tspan></text></Hexagon>) : (
                                      <Hexagon className="noHover" q={1} r={-2} s={0}> <text x="0" y="0" textAnchor="middle"><tspan x="0" dy="0em" fill="rgb(133, 194, 219)">{name_array[2]}</tspan><tspan x="0" dy="1.2em" fill="rgb(254, 205, 102)">+ {name_array[3]}</tspan><tspan x="0" dy="1.2em">{"(No Results)"}</tspan></text></Hexagon>
                                    )) :
-                                    (<Hexagon cellStyle={{stroke: "rgb(90, 90, 90)", strokeWidth: "0.4", transition: "fill-opacity .5s"}} className="noHover" onClick={() => this.onClick(name_array, bool_array[2] && bool_array[3], ['Material', 'Fabrication'])} q={1} r={-2} s={0}> <text x="0" y="0" textAnchor="middle"><tspan fill="red" x="0" dy="-1.6em">{"\"Select\""}</tspan><tspan x="0" dy="1.2em">Fabrication</tspan><tspan x="0" dy="1.2em">+ Material</tspan></text></Hexagon>)}
+                                    (<Hexagon cellStyle={{stroke: "rgb(90, 90, 90)", strokeWidth: "0.4", transition: "fill-opacity .5s"}} className="noHover" onClick={() => this.onClick(name_array, bool_array[2] && bool_array[3], ['Material', 'Fabrication'])} q={1} r={-2} s={0}> <text x="0" y="0" textAnchor="middle"><tspan fill="red" x="0" dy="-1.6em">{"Select"}</tspan><tspan x="0" dy="1.2em">Fabrication</tspan><tspan x="0" dy="1.2em">+ Material</tspan></text></Hexagon>)}
 
 
                                     {(bool_array[0] && bool_array[1]) ? ((funcBodCount !== 0) ? (<Hexagon onClick={() => this.onClick(name_array, bool_array[0] && bool_array[1], ['Function', 'BodyZones'])} q={-1} r={-1} s={0}><text x="0" y="0" textAnchor="middle"><tspan x="0" dy="0em" fill="rgb(172, 216, 206)">{name_array[0]}</tspan><tspan x="0" dy="1.2em" fill="rgb(239,122,134)">+ {name_array[1]}</tspan><tspan x="0" dy="1.2em">{"(" + funcBodCount + ")"}</tspan></text></Hexagon>) : (
                                       <Hexagon className="noHover" q={-1} r={-1} s={0}><text x="0" y="0" textAnchor="middle"><tspan x="0" dy="0em" fill="rgb(172, 216, 206)">{name_array[0]}</tspan><tspan x="0" dy="1.2em" fill="rgb(239,122,134)">+ {name_array[1]}</tspan><tspan x="0" dy="1.2em">{"(No Results)"}</tspan></text></Hexagon>
                                     )) :
-                                     (<Hexagon cellStyle={{stroke: "rgb(90, 90, 90)", strokeWidth: "0.4", transition: "fill-opacity .5s"}} className="noHover" onClick={() => this.onClick(name_array, bool_array[0] && bool_array[1], ['Function', 'BodyZones'])} q={-1} r={-1} s={0}><text x="0" y="0" textAnchor="middle"><tspan fill="red" x="0" dy="-1.6em">{"\"Select\""}</tspan><tspan x="0" dy="1.2em">Function</tspan><tspan x="0" dy="1.2em">+ BodyZones</tspan></text></Hexagon>)}
+                                     (<Hexagon cellStyle={{stroke: "rgb(90, 90, 90)", strokeWidth: "0.4", transition: "fill-opacity .5s"}} className="noHover" onClick={() => this.onClick(name_array, bool_array[0] && bool_array[1], ['Function', 'BodyZones'])} q={-1} r={-1} s={0}><text x="0" y="0" textAnchor="middle"><tspan fill="red" x="0" dy="-1.6em">{"Select"}</tspan><tspan x="0" dy="1.2em">Function</tspan><tspan x="0" dy="1.2em">+ BodyZones</tspan></text></Hexagon>)}
 
 
                                     {(bool_array[1] && bool_array[3]) ? ((matBodCount !== 0) ? (<Hexagon onClick={() => this.onClick(name_array, bool_array[1] && bool_array[3], ['BodyZones', 'Material'])} q={2} r={-1} s={0}><text x="0" y="0" textAnchor="middle"><tspan x="0" dy="0em" fill="rgb(239,122,134)">{name_array[1]}</tspan><tspan x="0" dy="1.2em" fill="rgb(254, 205, 102)">+ {name_array[3]}</tspan><tspan x="0" dy="1.2em">{"(" + matBodCount + ")"}</tspan></text></Hexagon>) : (
                                       <Hexagon className="noHover" q={2} r={-1} s={0}><text x="0" y="0" textAnchor="middle"><tspan x="0" dy="0em" fill="rgb(239,122,134)">{name_array[1]}</tspan><tspan x="0" dy="1.2em" fill="rgb(254, 205, 102)">+ {name_array[3]}</tspan><tspan x="0" dy="1.2em">{"(No Results)"}</tspan></text></Hexagon>
                                     )) :
-                                     (<Hexagon cellStyle={{stroke: "rgb(90, 90, 90)", strokeWidth: "0.4", transition: "fill-opacity .5s"}} className="noHover" onClick={() => this.onClick(name_array, bool_array[1] && bool_array[3], ['BodyZones', 'Material'])} q={2} r={-1} s={0}><text x="0" y="0" textAnchor="middle"><tspan fill="red" x="0" dy="-1.6em">{"\"Select\""}</tspan><tspan x="0" dy="1.2em">BodyZones</tspan><tspan x="0" dy="1.2em">+ Material</tspan></text></Hexagon>)}
+                                     (<Hexagon cellStyle={{stroke: "rgb(90, 90, 90)", strokeWidth: "0.4", transition: "fill-opacity .5s"}} className="noHover" onClick={() => this.onClick(name_array, bool_array[1] && bool_array[3], ['BodyZones', 'Material'])} q={2} r={-1} s={0}><text x="0" y="0" textAnchor="middle"><tspan fill="red" x="0" dy="-1.6em">{"Select"}</tspan><tspan x="0" dy="1.2em">BodyZones</tspan><tspan x="0" dy="1.2em">+ Material</tspan></text></Hexagon>)}
 
                                      {(bool_array[0] && bool_array[2]) ? ((fabFuncCount !== 0) ? (<Hexagon onClick={() => this.onClick(name_array, bool_array[0] && bool_array[2], ['Function', 'Fabrication'])} q={-2} r={1} s={0}><text x="0" y="0" textAnchor="middle"><tspan x="0" dy="0em" fill="rgb(172, 216, 206)">{name_array[0]}</tspan><tspan x="0" dy="1.2em" fill="rgb(133, 194, 219)">+ {name_array[2]}</tspan><tspan x="0" dy="1.2em">{"(" + fabFuncCount + ")"}</tspan></text></Hexagon>) : (
                                        <Hexagon className="noHover" q={-2} r={1} s={0}><text x="0" y="0" textAnchor="middle"><tspan x="0" dy="0em" fill="rgb(172, 216, 206)">{name_array[0]}</tspan><tspan x="0" dy="1.2em" fill="rgb(133, 194, 219)">+ {name_array[2]}</tspan><tspan x="0" dy="1.2em">{"(No Results)"}</tspan></text></Hexagon>
                                      )) :
-                                      (<Hexagon cellStyle={{stroke: "rgb(90, 90, 90)", strokeWidth: "0.4", transition: "fill-opacity .5s"}} className="noHover" onClick={() => this.onClick(name_array, bool_array[0] && bool_array[2], ['Function', 'Fabrication'])} q={-2} r={1} s={0}><text x="0" y="0" textAnchor="middle"><tspan fill="red" x="0" dy="-1.6em">{"\"Select\""}</tspan><tspan x="0" dy="1.2em">Function</tspan><tspan x="0" dy="1.2em">+ Fabrication</tspan></text></Hexagon>)}
+                                      (<Hexagon cellStyle={{stroke: "rgb(90, 90, 90)", strokeWidth: "0.4", transition: "fill-opacity .5s"}} className="noHover" onClick={() => this.onClick(name_array, bool_array[0] && bool_array[2], ['Function', 'Fabrication'])} q={-2} r={1} s={0}><text x="0" y="0" textAnchor="middle"><tspan fill="red" x="0" dy="-1.6em">{"Select"}</tspan><tspan x="0" dy="1.2em">Function</tspan><tspan x="0" dy="1.2em">+ Fabrication</tspan></text></Hexagon>)}
 
 
 
                                    {(bool_array[0] && bool_array[1] && bool_array[3]) ? ((funcMatBodCount !== 0) ? (<Hexagon onClick={() => this.onClick(name_array, bool_array[0] && bool_array[1] && bool_array[3], ['Function', 'BodyZones', 'Material'])} q={-1} r={0} s={0}><text x="0" y="0" textAnchor="middle"><tspan x="0" dy="-1.2em" fill="rgb(172, 216, 206)">{name_array[0]}</tspan><tspan x="0" dy="1.2em" fill="rgb(239,122,134)">+ {name_array[1]}</tspan><tspan x="0" dy="1.2em" fill="rgb(254, 205, 102)">+ {name_array[3]}</tspan><tspan x="0" dy="1.2em">{"(" + funcMatBodCount + ")"}</tspan></text>  </Hexagon>) : (
                                      <Hexagon className="noHover" q={-1} r={0} s={0}><text x="0" y="0" textAnchor="middle"><tspan x="0" dy="-1.2em" fill="rgb(172, 216, 206)">{name_array[0]}</tspan><tspan x="0" dy="1.2em" fill="rgb(239,122,134)">+ {name_array[1]}</tspan><tspan x="0" dy="1.2em" fill="rgb(254, 205, 102)">+ {name_array[3]}</tspan><tspan x="0" dy="1.2em">{"(No Results)"}</tspan></text>  </Hexagon>
                                    )) :
-                                    (<Hexagon cellStyle={{stroke: "rgb(90, 90, 90)", strokeWidth: "0.4", transition: "fill-opacity .5s"}} className="noHover" onClick={() => this.onClick(name_array, bool_array[0] && bool_array[1] && bool_array[3], ['Function', 'BodyZones', 'Material'])} q={-1} r={0} s={0}><text x="0" y="0" textAnchor="middle"><tspan fill="red" x="0" dy="-1.8em">{"\"Select\""}</tspan><tspan x="0" dy="1.2em">Function</tspan><tspan x="0" dy="1.2em">+ BodyZones</tspan><tspan x="0" dy="1.2em">+ Material</tspan></text>  </Hexagon>)}
+                                    (<Hexagon cellStyle={{stroke: "rgb(90, 90, 90)", strokeWidth: "0.4", transition: "fill-opacity .5s"}} className="noHover" onClick={() => this.onClick(name_array, bool_array[0] && bool_array[1] && bool_array[3], ['Function', 'BodyZones', 'Material'])} q={-1} r={0} s={0}><text x="0" y="0" textAnchor="middle"><tspan fill="red" x="0" dy="-1.8em">{"Select"}</tspan><tspan x="0" dy="1.2em">Function</tspan><tspan x="0" dy="1.2em">+ BodyZones</tspan><tspan x="0" dy="1.2em">+ Material</tspan></text>  </Hexagon>)}
 
 
                                       {(bool_array[1] && bool_array[2] && bool_array[3]) ? ((matFabBodCount !== 0) ? (<Hexagon onClick={() => this.onClick(name_array, bool_array[1] && bool_array[2] && bool_array[3], ['BodyZones', 'Material', 'Fabrication'])} q={1} r={0} s={0}><text x="0" y="0" textAnchor="middle"><tspan x="0" dy="-1.2em" fill="rgb(239,122,134)">{name_array[1]}</tspan><tspan x="0" dy="1.2em" fill="rgb(133, 194, 219)">+ {name_array[2]}</tspan><tspan x="0" dy="1.2em" fill="rgb(254, 205, 102)">+ {name_array[3]}</tspan><tspan x="0" dy="1.2em">{"(" + matFabBodCount + ")"}</tspan></text></Hexagon>) : (
                                         <Hexagon className="noHover" q={1} r={0} s={0}><text x="0" y="0" textAnchor="middle"><tspan x="0" dy="-1.2em" fill="rgb(239,122,134)">{name_array[1]}</tspan><tspan x="0" dy="1.2em" fill="rgb(133, 194, 219)">+ {name_array[2]}</tspan><tspan x="0" dy="1.2em" fill="rgb(254, 205, 102)">+ {name_array[3]}</tspan><tspan x="0" dy="1.2em">{"(No Results)"}</tspan></text></Hexagon>
                                       )) :
-                                       (<Hexagon cellStyle={{stroke: "rgb(90, 90, 90)", strokeWidth: "0.4", transition: "fill-opacity .5s"}} className="noHover" onClick={() => this.onClick(name_array, bool_array[1] && bool_array[2] && bool_array[3], ['BodyZones', 'Material', 'Fabrication'])} q={1} r={0} s={0}><text x="0" y="0" textAnchor="middle"><tspan fill="red" x="0" dy="-1.8em">{"\"Select\""}</tspan><tspan x="0" dy="1.2em">BodyZones</tspan><tspan x="0" dy="1.2em">+ Material</tspan><tspan x="0" dy="1.2em">+ Fabrication</tspan></text></Hexagon>)}
+                                       (<Hexagon cellStyle={{stroke: "rgb(90, 90, 90)", strokeWidth: "0.4", transition: "fill-opacity .5s"}} className="noHover" onClick={() => this.onClick(name_array, bool_array[1] && bool_array[2] && bool_array[3], ['BodyZones', 'Material', 'Fabrication'])} q={1} r={0} s={0}><text x="0" y="0" textAnchor="middle"><tspan fill="red" x="0" dy="-1.8em">{"Select"}</tspan><tspan x="0" dy="1.2em">BodyZones</tspan><tspan x="0" dy="1.2em">+ Material</tspan><tspan x="0" dy="1.2em">+ Fabrication</tspan></text></Hexagon>)}
 
 
 
                                      {(bool_array[0] && bool_array[1] && bool_array[2]) ? ((funcFabBodCount !== 0) ? (<Hexagon onClick={() => this.onClick(name_array, bool_array[0] && bool_array[1] && bool_array[2], ['Function', 'BodyZones', 'Fabrication'])} q={-1} r={1} s={0}><text x="0" y="0" textAnchor="middle"><tspan x="0" dy="-1.2em" fill="rgb(172, 216, 206)">{name_array[0]}</tspan><tspan x="0" dy="1.2em" fill="rgb(239,122,134)">+ {name_array[1]}</tspan><tspan x="0" dy="1.2em" fill="rgb(133, 194, 219)">+ {name_array[2]}</tspan><tspan x="0" dy="1.2em">{"(" + funcFabBodCount + ")"}</tspan></text></Hexagon>) : (
                                        <Hexagon className="noHover" q={-1} r={1} s={0}><text x="0" y="0" textAnchor="middle"><tspan x="0" dy="-1.2em" fill="rgb(172, 216, 206)">{name_array[0]}</tspan><tspan x="0" dy="1.2em" fill="rgb(239,122,134)">+ {name_array[1]}</tspan><tspan x="0" dy="1.2em" fill="rgb(133, 194, 219)">+ {name_array[2]}</tspan><tspan x="0" dy="1.2em">{"(No Results)"}</tspan></text></Hexagon>
                                      )) :
-                                      (<Hexagon cellStyle={{stroke: "rgb(90, 90, 90)", strokeWidth: "0.4", transition: "fill-opacity .5s"}} className="noHover" onClick={() => this.onClick(name_array, bool_array[0] && bool_array[1] && bool_array[2], ['Function', 'BodyZones', 'Fabrication'])} q={-1} r={1} s={0}><text x="0" y="0" textAnchor="middle"><tspan fill="red" x="0" dy="-1.8em">{"\"Select\""}</tspan><tspan x="0" dy="1.2em">Function</tspan><tspan x="0" dy="1.2em">+ BodyZones</tspan><tspan x="0" dy="1.2em">+ Fabrication</tspan></text></Hexagon>)}
+                                      (<Hexagon cellStyle={{stroke: "rgb(90, 90, 90)", strokeWidth: "0.4", transition: "fill-opacity .5s"}} className="noHover" onClick={() => this.onClick(name_array, bool_array[0] && bool_array[1] && bool_array[2], ['Function', 'BodyZones', 'Fabrication'])} q={-1} r={1} s={0}><text x="0" y="0" textAnchor="middle"><tspan fill="red" x="0" dy="-1.8em">{"Select"}</tspan><tspan x="0" dy="1.2em">Function</tspan><tspan x="0" dy="1.2em">+ BodyZones</tspan><tspan x="0" dy="1.2em">+ Fabrication</tspan></text></Hexagon>)}
 
 
 
@@ -476,7 +476,7 @@ class Matrix extends Component {
                                     {(bool_array[0] && bool_array[2] && bool_array[3]) ? ((matFabFuncCount !== 0) ? (<Hexagon onClick={() => this.onClick(name_array, bool_array[0] && bool_array[2] && bool_array[3],  ['Function', 'Material', 'Fabrication'])} q={1} r={-1} s={0}><text x="0" y="0" textAnchor="middle"><tspan x="0" dy="-1.2em" fill="rgb(172, 216, 206)">{name_array[0]}</tspan><tspan x="0" dy="1.2em" fill="rgb(133, 194, 219)">+ {name_array[2]}</tspan><tspan x="0" dy="1.2em" fill="rgb(254, 205, 102)">+ {name_array[3]}</tspan><tspan x="0" dy="1.2em">{"(" + matFabFuncCount + ")"}</tspan></text></Hexagon>) : (
                                       <Hexagon className="noHover" q={1} r={-1} s={0}><text x="0" y="0" textAnchor="middle"><tspan x="0" dy="-1.2em" fill="rgb(172, 216, 206)">{name_array[0]}</tspan><tspan x="0" dy="1.2em" fill="rgb(133, 194, 219)">+ {name_array[2]}</tspan><tspan x="0" dy="1.2em" fill="rgb(254, 205, 102)">+ {name_array[3]}</tspan><tspan x="0" dy="1.2em">{"(No Results)"}</tspan></text></Hexagon>
                                     )) :
-                                     (<Hexagon cellStyle={{stroke: "rgb(90, 90, 90)", strokeWidth: "0.4", transition: "fill-opacity .5s"}} className="noHover" onClick={() => this.onClick(name_array, bool_array[0] && bool_array[2] && bool_array[3],  ['Function', 'Material', 'Fabrication'])} q={1} r={-1} s={0}><text x="0" y="0" textAnchor="middle"><tspan fill="red" x="0" dy="-1.8em">{"\"Select\""}</tspan><tspan x="0" dy="1.2em">Function</tspan><tspan x="0" dy="1.2em">+ Material</tspan><tspan x="0" dy="1.2em">+ Fabrication</tspan></text></Hexagon>)}
+                                     (<Hexagon cellStyle={{stroke: "rgb(90, 90, 90)", strokeWidth: "0.4", transition: "fill-opacity .5s"}} className="noHover" onClick={() => this.onClick(name_array, bool_array[0] && bool_array[2] && bool_array[3],  ['Function', 'Material', 'Fabrication'])} q={1} r={-1} s={0}><text x="0" y="0" textAnchor="middle"><tspan fill="red" x="0" dy="-1.8em">{"Select"}</tspan><tspan x="0" dy="1.2em">Function</tspan><tspan x="0" dy="1.2em">+ Material</tspan><tspan x="0" dy="1.2em">+ Fabrication</tspan></text></Hexagon>)}
 
 
                                 {(bool_array[2])? ((fabCount !== 0) ? (<Hexagon onClick={() => this.onClick(name_array, bool_array[2], ['Fabrication'])} q={-2} r={2} s={0}>
@@ -486,7 +486,7 @@ class Matrix extends Component {
                                      <text x="0" y="0" textAnchor="middle"><tspan x="0" dy="0em" fill="rgb(133, 194, 219)">{name_array[2]}</tspan><tspan x="0" dy="1.2em">{"(No Results)"}</tspan></text>
                                 </Hexagon>
                                )) : (<Hexagon cellStyle={{stroke: "rgb(90, 90, 90)", strokeWidth: "0.4", transition: "fill-opacity .5s"}} className="noHover" onClick={() => this.onClick(name_array, bool_array[2], ['Fabrication'])} q={-2} r={2} s={0}>
-                                   <text x="0" y="0" textAnchor="middle"><tspan fill="red" x="0" dy="-1.0em">{"\"Select\""}</tspan><tspan x="0" dy="1.2em" fill="rgb(133, 194, 219)">{name_array[2]}</tspan></text>
+                                   <text x="0" y="0" textAnchor="middle"><tspan fill="red" x="0" dy="-1.0em">{"Select"}</tspan><tspan x="0" dy="1.2em" fill="rgb(133, 194, 219)">{name_array[2]}</tspan></text>
                               </Hexagon>)}
 
 
@@ -497,7 +497,7 @@ class Matrix extends Component {
                                    <text x="0" y="0" textAnchor="middle"><tspan x="0" dy="0em" fill="rgb(254, 205, 102)">{name_array[3]}</tspan><tspan x="0" dy="1.2em">{"(No Results)"}</tspan></text>
                                   </Hexagon>
                                )) : (<Hexagon cellStyle={{stroke: "rgb(90, 90, 90)", strokeWidth: "0.4", transition: "fill-opacity .5s"}} className="noHover" onClick={() => this.onClick(name_array, bool_array[3], ['Material'])} q={2} r={-2} s={0}>
-                                 <text x="0" y="0" textAnchor="middle"><tspan fill="red" x="0" dy="-1.0em">{"\"Select\""}</tspan><tspan x="0" dy="1.2em" fill="rgb(254, 205, 102)">{name_array[3]}</tspan></text>
+                                 <text x="0" y="0" textAnchor="middle"><tspan fill="red" x="0" dy="-1.0em">{"Select"}</tspan><tspan x="0" dy="1.2em" fill="rgb(254, 205, 102)">{name_array[3]}</tspan></text>
 
                                 </Hexagon>)}
 
@@ -511,7 +511,7 @@ class Matrix extends Component {
                                <text x="0" y="0" textAnchor="middle"><tspan x="0" dy="0em" fill="rgb(172, 216, 206)">{name_array[0]}</tspan><tspan x="0" dy="1.2em">{"(No Results)"}</tspan></text>
                             </Hexagon>
                            )) : (<Hexagon cellStyle={{stroke: "rgb(90, 90, 90)", strokeWidth: "0.4", transition: "fill-opacity .5s"}} className="noHover" onClick={() => this.onClick(name_array, bool_array[0], ['Function'])} q={-2} r={0} s={0}>
-                             <text x="0" y="0" textAnchor="middle"><tspan fill="red" x="0" dy="-1.0em">{"\"Select\""}</tspan><tspan x="0" dy="1.2em" fill="rgb(172, 216, 206)">{name_array[0]}</tspan></text>
+                             <text x="0" y="0" textAnchor="middle"><tspan fill="red" x="0" dy="-1.0em">{"Select"}</tspan><tspan x="0" dy="1.2em" fill="rgb(172, 216, 206)">{name_array[0]}</tspan></text>
                           </Hexagon>)}
 
 
@@ -524,7 +524,7 @@ class Matrix extends Component {
                            <text x="0" y="0" textAnchor="middle"><tspan x="0" dy="0em" fill="rgb(239,122,134)">{name_array[1]}</tspan><tspan x="0" dy="1.2em">{"(No Results)"}</tspan></text>
                           </Hexagon>
                          )) : (<Hexagon cellStyle={{stroke: "rgb(90, 90, 90)", strokeWidth: "0.4", transition: "fill-opacity .5s"}} className="noHover" onClick={() => this.onClick(name_array, bool_array[1], ['BodyZones'])} q={2} r={0} s={0}>
-                         <text x="0" y="0" textAnchor="middle"><tspan fill="red" x="0" dy="-1.0em">{"\"Select\""}</tspan><tspan x="0" dy="1.2em" fill="rgb(239,122,134)">{name_array[1]}</tspan></text>
+                         <text x="0" y="0" textAnchor="middle"><tspan fill="red" x="0" dy="-1.0em">{"Select"}</tspan><tspan x="0" dy="1.2em" fill="rgb(239,122,134)">{name_array[1]}</tspan></text>
                         </Hexagon>)}
 
 

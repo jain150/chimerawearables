@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import './leftPanePopoverTab.css';
 import { Button, CustomInput, Form, FormGroup, Label } from 'reactstrap';
+import { PopoverHeader } from 'reactstrap';
 import * as actionTypes from '../store/actions';
 
 
@@ -132,9 +133,13 @@ class LeftPanePopoverTab extends Component {
             }
             )
             return (
-                        <div style={{width: '100%', color: "white", backgroundColor: "black"}}>
+                <div>
+                        <h6 onClick={() => this.onClick("All " + this.props.type + "s")} style={{marginLeft: "7%", cursor: "pointer"}}>All {this.props.type}s</h6>
+
+                        <div style={{width: '100%', color: "white", borderTop: "solid", backgroundColor: "black"}}>
                           {inp}
                         </div>
+              </div>
 
 
             );

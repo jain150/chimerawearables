@@ -32,6 +32,9 @@ class SearchDisplay extends Component {
 
     filterFunc = (item) => {
 
+      if(this.props.names[0].toLowerCase().trim().includes("all functions"))
+        return (item["Function 1"] !== "" || item["Function 2"] !== "" || item["Function 3"] !== "");
+
       return (item["Function 1"].toLowerCase().trim().includes(this.props.names[0].toLowerCase().trim()) || item["Function 2"].toLowerCase().trim().includes(this.props.names[0].toLowerCase().trim()) || item["Function 3"].toLowerCase().trim().includes(this.props.names[0].toLowerCase().trim()))
     }
 
@@ -40,10 +43,18 @@ class SearchDisplay extends Component {
     }
 
     filterFab = (item) => {
+
+      if(this.props.names[2].toLowerCase().trim().includes("all fabrications"))
+        return (item["Fabrication 1"] !== "" || item["Fabrication 2"] !== "");
+
       return (item["Fabrication 1"].toLowerCase().trim().includes(this.props.names[2].toLowerCase().trim()) || item["Fabrication 2"].toLowerCase().trim().includes(this.props.names[2].toLowerCase().trim()))
     }
 
     filterMat = (item) => {
+
+      if(this.props.names[3].toLowerCase().trim().includes("all material"))
+        return (item["Material 1"] !== "" || item["Material 2"] !== "" || item["Material 3"] !== "");
+
       return (item["Material 1"].toLowerCase().trim().includes(this.props.names[3].toLowerCase().trim()) || item["Material 2"].toLowerCase().trim().includes(this.props.names[3].toLowerCase().trim()) || item["Material 3"].toLowerCase().trim().includes(this.props.names[3].toLowerCase().trim()))
     }
 
