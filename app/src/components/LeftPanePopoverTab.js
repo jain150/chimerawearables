@@ -107,10 +107,19 @@ class LeftPanePopoverTab extends Component {
 
     render() {
 
-            let inp = '';
+            let inp = this.props.subtypes;
+
+            inp = inp.sort();
+
+            let index = inp.indexOf("All " + this.props.type + "s");
+            if (index > -1) {
+               inp.splice(index, 1);
+
+            }
+            inp.unshift("All " + this.props.type + "s");
 
             let selArr = this.state.listArr;
-            inp = this.props.subtypes.sort().map((input) => {
+            inp = inp.map((input) => {
 
                 return (
 
@@ -134,9 +143,7 @@ class LeftPanePopoverTab extends Component {
             )
             return (
                 <div>
-                        <h6 onClick={() => this.onClick("All " + this.props.type + "s")} style={{marginLeft: "7%", cursor: "pointer"}}>All {this.props.type}s</h6>
-
-                        <div style={{width: '100%', color: "white", borderTop: "solid", backgroundColor: "black"}}>
+                        <div style={{width: '100%', color: "white", backgroundColor: "black"}}>
                           {inp}
                         </div>
               </div>

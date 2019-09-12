@@ -219,7 +219,7 @@ class HomePage extends Component {
 
          <div style={{color: "white", textAlign: "center", marginLeft: "5%", marginTop: "5%"}}>Welcome to Chimera, an interactive search engine for Wearables</div>
 
-         <Button outline size="lg" style={{color: "white", marginLeft: "50%", marginTop: "2%", borderStyle: "thin", borderColor: "white", borderRadius: "2px"}} color="black" onClick={this.props.toggle}>Guest Mode</Button>{' '}
+         <Button size="lg" onClick={this.props.toggle} style={{marginTop: "2%", marginLeft: "49%"}} color="secondary">Guest Mode</Button>{' '}
 
          <Modal size="lg" style={{backgroundColor: "black", maxWidth: '90vw',  maxHeight: '90vh', width: '90vw', height: '90vh'}} isOpen={this.state.modal} toggle={this.toggle}>
 

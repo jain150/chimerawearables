@@ -5,7 +5,7 @@
     font-weight: 350;
     font-size: 110%;
     color: white;
-    background-color: #0F2862;
+    background-color: #c578d2;
     border-style: solid;
     border-color: black;
     border-width: 0.5px;
@@ -47,7 +47,7 @@
 .corLabel {
   color: white;
   font-weight: 350;
-  background-color: #0F2862;
+  background-color: #c578d2;
   margin-top: 0.25%;
   text-align: center;
   margin-left: 22.5%;
@@ -64,7 +64,7 @@
   color: white;
   font-weight: 350;
   margin-top: 0.25%;
-  background-color: #0F2862;
+  background-color: #c578d2;
   text-align: center;
   width: 15%;
 }
