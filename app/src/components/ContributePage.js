@@ -273,7 +273,6 @@ handleSubmit = () => {
       values: arr
       };
 
-
       console.log(window.gapi);
       window.gapi.client.sheets.spreadsheets.values.append({
        spreadsheetId: '1yYtQWLapVdWpoLk7lQ1_dyMn-Nc2IXOHNvHJNna62Kc',
@@ -283,6 +282,9 @@ handleSubmit = () => {
       var result = response.result;
       console.log(`${result.updates.updatedCells} cells appended.`)
     });
+
+
+//    Sheetsu.write("https://sheetsu.com/apis/v1.0su/7f7ddd0aa5e9", this.state, {}, () => console.log("LOL"));
   }
 
   render() {
