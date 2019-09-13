@@ -228,7 +228,10 @@ class FilterBody extends Component {
                 {(this.props.source === 'Fashion') ? (<Button className="btnSelector" style={{float: "right", width: "40%", transform: "translateX(-20%)"}} onClick={() => this.onSourceClick("Fashion")}>Fashion</Button>)
                  : (<Button className="btnSelectorClicked" style={{float: "right", width: "40%", transform: "translateX(-20%)"}} onClick={() => this.onSourceClick("Fashion")}>Fashion</Button>)}
               </div>
-
+              <div style={{textAlign: "center"}}>
+                  {(this.props.source === 'Engineering') ? (<div>Engineering</div>)
+                   : ((this.props.source === "Fashion") ? (<div>Fashion</div>) : (<div>Engineering + Fashion</div>))}
+              </div>
               <div style={{ marginTop: "3%", fontSize: "120%"}}>
                 % Contribution
               </div>

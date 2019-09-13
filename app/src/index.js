@@ -9,9 +9,23 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
+import gapi from 'gapi-client'
 
 const rootReducer = reducer;
 const store = createStore(rootReducer);
+
+gapi.load('client:auth2', initClient);
+
+// Initialize the API client library
+function initClient() {
+  gapi.client.init({
+    discoveryDocs: ["https://www.googleapis.com/discovery/v1/apis/drive/v3/rest"],
+    clientId: '1030014197436-1oftnoda9j1qk7qgv0cpjbc625q1qr2k.apps.googleusercontent.com',
+    scope: 'https://www.googleapis.com/auth/drive.metadata.readonly'
+  }).then(function () {
+    console.log('it worked');
+  });
+}
 
 ReactDOM.render(<Provider store={store}><App /></Provider>, document.getElementById('root'));
 

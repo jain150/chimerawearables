@@ -114,7 +114,6 @@ class LeftPanePopoverTab extends Component {
             let index = inp.indexOf("All " + this.props.type + "s");
             if (index > -1) {
                inp.splice(index, 1);
-
             }
             inp.unshift("All " + this.props.type + "s");
 

@@ -235,6 +235,21 @@ class Matrix extends Component {
               }
             }
 
+            else {
+
+              if(bool_array[0] && bool_array[2]) {
+                let curFabFuncCount = filterArr.filter((item) => {
+                  return (item["Fabrication 1"].toLowerCase().trim().includes(name_array[2].toLowerCase().trim())
+                  || item["Fabrication 2"].toLowerCase().trim().includes(name_array[2].toLowerCase().trim())) &&
+                  (item["Function 1"].toLowerCase().trim().includes(name_array[0].toLowerCase().trim())
+                  || item["Function 2"].toLowerCase().trim().includes(name_array[0].toLowerCase().trim())
+                  || item["Function 3"].toLowerCase().trim().includes(name_array[0].toLowerCase().trim()))
+              
+                });
+                fabFuncCount = curFabFuncCount.length;
+              }
+            }
+
 
 
             let matFuncCount = filterArr.filter((item) => {
@@ -261,6 +276,21 @@ class Matrix extends Component {
               if(bool_array[0] && bool_array[3]) {
                 let curMatFuncCount = filterArr.filter((item) => {
                   return (item["Material 1"] !== "" || item["Material 2"] !== "" || item["Material 3"] !== "") &&
+                  (item["Function 1"].toLowerCase().trim().includes(name_array[0].toLowerCase().trim())
+                  || item["Function 2"].toLowerCase().trim().includes(name_array[0].toLowerCase().trim())
+                  || item["Function 3"].toLowerCase().trim().includes(name_array[0].toLowerCase().trim()))
+                });
+                matFuncCount = curMatFuncCount.length;
+              }
+            }
+
+            else {
+
+              if(bool_array[0] && bool_array[3]) {
+                let curMatFuncCount = filterArr.filter((item) => {
+                  return (item["Material 1"].toLowerCase().trim().includes(name_array[3].toLowerCase().trim())
+                  || item["Material 2"].toLowerCase().trim().includes(name_array[3].toLowerCase().trim())
+                  || item["Material 3"].toLowerCase().trim().includes(name_array[3].toLowerCase().trim())) &&
                   (item["Function 1"].toLowerCase().trim().includes(name_array[0].toLowerCase().trim())
                   || item["Function 2"].toLowerCase().trim().includes(name_array[0].toLowerCase().trim())
                   || item["Function 3"].toLowerCase().trim().includes(name_array[0].toLowerCase().trim()))
@@ -297,6 +327,19 @@ class Matrix extends Component {
               if(bool_array[2] && bool_array[3]) {
                 let curMatFabCount = filterArr.filter((item) => {
                   return (item["Material 1"] !== "" || item["Material 2"] !== "" || item["Material 3"] !== "") &&
+                  (item["Fabrication 1"].toLowerCase().trim().includes(name_array[2].toLowerCase().trim())
+                  || item["Fabrication 2"].toLowerCase().trim().includes(name_array[2].toLowerCase().trim()))
+                });
+                matFabCount = curMatFabCount.length;
+              }
+            }
+
+            else {
+              if(bool_array[2] && bool_array[3]) {
+                let curMatFabCount = filterArr.filter((item) => {
+                  return (item["Material 1"].toLowerCase().trim().includes(name_array[3].toLowerCase().trim())
+                  || item["Material 2"].toLowerCase().trim().includes(name_array[3].toLowerCase().trim())
+                  || item["Material 3"].toLowerCase().trim().includes(name_array[3].toLowerCase().trim())) &&
                   (item["Fabrication 1"].toLowerCase().trim().includes(name_array[2].toLowerCase().trim())
                   || item["Fabrication 2"].toLowerCase().trim().includes(name_array[2].toLowerCase().trim()))
                 });

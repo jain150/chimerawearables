@@ -1,11 +1,10 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import * as actionTypes from '../store/actions';
-import { Form, FormGroup, Label, Input, FormText } from 'reactstrap';
+import { Form, FormGroup, Label, Input, FormText, Button } from 'reactstrap';
 import { Dropdown } from 'semantic-ui-react'
 import ImageMapper from 'react-image-mapper';
 import './contributePage.css'
-
 
 
 class ContributePage extends Component {
@@ -24,8 +23,152 @@ class ContributePage extends Component {
                 dropdownOpenMat: false,
                 dropdownOpenFunc: false,
                 zone: 'none',
+                title: '',
+                link: '',
+                mainpage: '',
+                year: '',
+                venue: '',
+                fab: '',
+                mat: '',
+                func: '',
+                wearability: '',
+                electronicIntegration: '',
+                maintainence: '',
+                context: '',
+                activity: '',
+                aesthetic: '',
+                resourceCategorization: [],
+                source: '',
         };
   }
+
+  onAChange = (event, data) => {
+    this.setState({
+      wearability: data.value,
+    });
+  }
+
+  onBChange = (event, data) => {
+    this.setState({
+      electronicIntegration: data.value,
+    });
+  }
+
+  onCChange = (event, data) => {
+    this.setState({
+      maintainence: data.value,
+    });
+  }
+
+  onDChange = (event, data) => {
+    this.setState({
+      context: data.value,
+    });
+  }
+
+  onEChange = (event, data) => {
+    this.setState({
+      activity: data.value,
+    });
+  }
+
+  onFChange = (event, data) => {
+    this.setState({
+      aesthetic: data.value,
+    });
+  }
+
+  onTitleChange = (event) => {
+
+    this.setState({
+      title: event.target.value,
+    });
+  }
+
+  onLinkChange = (event) => {
+
+    this.setState({
+      link: event.target.value,
+    });
+  }
+
+  onMainpageChange = (event) => {
+
+    this.setState({
+      mainpage: event.target.value,
+    });
+  }
+
+  handleResCatChange = (res) => {
+
+      let index = this.state.resourceCategorization.indexOf(res);
+      let temp = this.state.resourceCategorization;
+      if (index > -1) {
+         temp.splice(index, 1);
+      }
+
+      else {
+        temp.unshift(res);
+      }
+
+      this.setState({
+        resourceCategorization: temp,
+      });
+  }
+
+  handleSourceChange = (source) => {
+
+    if(this.state.source === '') {
+      this.setState({
+        source: source,
+      });
+    }
+    else if(this.state.source === source) {
+      this.setState({
+        source: '',
+      });
+    }
+
+    else {
+      this.setState({
+        source: 'Both',
+      });
+    }
+  }
+
+  onYearChange = (event) => {
+
+    this.setState({
+      year: event.target.value,
+    });
+  }
+
+  onVenueChange = (event) => {
+
+    this.setState({
+      venue: event.target.value,
+    });
+  }
+
+  onFabChange = (event, data) => {
+    this.setState({
+      fab: data.value.toString(),
+    });
+  }
+
+  onMatChange = (event, data) => {
+    this.setState({
+      mat: data.value.toString(),
+    });
+  }
+
+  onFuncChange = (event, data) => {
+    this.setState({
+      func: data.value.toString(),
+    });
+  }
+
+
 
   handleClicks2 = (area) => {
     if (this.clickTimeout !== null) {
@@ -38,7 +181,7 @@ class ContributePage extends Component {
       this.clicked(area)
       clearTimeout(this.clickTimeout)
         this.clickTimeout = null
-      }, 325)
+      }, 225)
     }
   }
 
@@ -100,6 +243,47 @@ class ContributePage extends Component {
      dropdownOpenFunc: !prevState.dropdownOpenFunc,
    }));
 }
+
+handleSubmit = () => {
+
+      let temp = Object.assign({}, this.state.resourceCategorization);
+      let tempResCat = temp.toString();
+
+      let arr = [];
+
+      arr.push(this.state.title);
+      arr.push(this.state.link);
+      arr.push(this.state.mainpage);
+      arr.push(this.state.year);
+      arr.push(this.state.venue);
+      arr.push(this.state.fab);
+      arr.push(this.state.mat);
+      arr.push(this.state.func);
+      arr.push(this.state.zone);
+      arr.push(this.state.wearability);
+      arr.push(this.state.electronicIntegration);
+      arr.push(this.state.maintainence);
+      arr.push(this.state.context);
+      arr.push(this.state.activity);
+      arr.push(this.state.aesthetic);
+      arr.push(this.state.source);
+      arr.push(this.state.tempResat);
+
+      var body = {
+      values: arr
+      };
+
+
+      console.log(window.gapi);
+      window.gapi.client.sheets.spreadsheets.values.append({
+       spreadsheetId: '1yYtQWLapVdWpoLk7lQ1_dyMn-Nc2IXOHNvHJNna62Kc',
+       valueInputOption: 'USER_ENTERED',
+       resource: body
+    }).then((response) => {
+      var result = response.result;
+      console.log(`${result.updates.updatedCells} cells appended.`)
+    });
+  }
 
   render() {
 
@@ -188,19 +372,19 @@ class ContributePage extends Component {
 
                   <div>
                       <div>Resource Title</div>
-                      <Input style={{ borderRadius: "0px", padding: "0", height: "5%"}} type="text"/>
+                      <Input value={this.state.title} onChange={(event) => this.onTitleChange(event)} style={{ borderRadius: "0px", padding: "0", height: "5%"}} type="text"/>
                   </div>
 
                   <div style={{display: "flex"}}>
 
                       <div style={{width: "49%"}}>
                           <div>Resource Link</div>
-                          <Input style={{ borderRadius: "0px", padding: "0", height: "50%"}} type="text"/>
+                          <Input value={this.state.link} onChange={(event) => this.onLinkChange(event)} style={{ borderRadius: "0px", padding: "0", height: "50%"}} type="text"/>
                       </div>
 
                       <div style={{width: "49%", marginLeft: "2%"}}>
                           <div>Resource Main Page</div>
-                          <Input style={{ borderRadius: "0px",  padding: "0", height: "50%"}} type="text"/>
+                          <Input value={this.state.mainpage} onChange={(event) => this.onMainpageChange(event)} style={{ borderRadius: "0px",  padding: "0", height: "50%"}} type="text"/>
                       </div>
 
                   </div>
@@ -209,29 +393,29 @@ class ContributePage extends Component {
 
                       <div style={{width: "49%"}}>
                           <div>Year</div>
-                          <Input style={{ borderRadius: "0px",  padding: "0", height: "50%"}} type="text"/>
+                          <Input value={this.state.year} onChange={(event) => this.onYearChange(event)} style={{ borderRadius: "0px",  padding: "0", height: "50%"}} type="text"/>
                       </div>
 
                       <div style={{width: "49%", marginLeft: "2%"}}>
                           <div>Venue</div>
-                          <Input style={{ borderRadius: "0px",  padding: "0", height: "50%"}} type="text"/>
+                          <Input value={this.state.venue} onChange={(event) => this.onVenueChange(event)} style={{ borderRadius: "0px",  padding: "0", height: "50%"}} type="text"/>
                       </div>
 
                   </div>
 
                   <div>
                       <div>Fabrication (Pick up to 2 appropriate fabrication methods mentioned in the resource. If there are none, please leave this section blank)</div>
-                      <Dropdown style={{padding: "0", minHeight: "1%"}} placeholder='Fabrication' fluid multiple selection options={fabList} />
+                      <Dropdown onChange={this.onFabChange} style={{padding: "0", minHeight: "1%"}} placeholder='Fabrication' fluid multiple selection options={fabList} />
                   </div>
 
                   <div>
                       <div>Material (Pick up to 3 appropriate materials mentioned in the resource. If there are none, please leave this section blank)</div>
-                      <Dropdown style={{padding: "0", minHeight: "1%"}} placeholder='Material' fluid multiple selection options={matList} />
+                      <Dropdown onChange={this.onMatChange} style={{padding: "0", minHeight: "1%"}} placeholder='Material' fluid multiple selection options={matList} />
                   </div>
 
                   <div>
                       <div>Function (Pick up to 3 appropriate functions mentioned in the resource. If there are none, please leave this section blank)</div>
-                      <Dropdown style={{padding: "0", minHeight: "1%"}} placeholder='Function' fluid multiple selection options={funcList} />
+                      <Dropdown onChange={this.onFuncChange} style={{padding: "0", minHeight: "1%"}} placeholder='Function' fluid multiple selection options={funcList} />
                   </div>
 
                   <div style={{display: "flex"}}>
@@ -239,22 +423,22 @@ class ContributePage extends Component {
                       <div style={{width: "47%"}}>
                           <div>Resource Categorization (Select all that apply)</div>
                           <div style={{display: "flex"}}>
-                              <div style={{backgroundColor: "white", textAlign: "center", color: "black", width: "47%"}}>Tutorials</div>
-                              <div style={{backgroundColor: "white", textAlign: "center", color: "black", marginLeft: "6%", width: "47%"}}>Research</div>
+                              <div onClick={() => this.handleResCatChange('Tutorials')} style={{backgroundColor: "white", textAlign: "center", color: "black", width: "47%"}}>Tutorials</div>
+                              <div onClick={() => this.handleResCatChange('Research')} style={{backgroundColor: "white", textAlign: "center", color: "black", marginLeft: "6%", width: "47%"}}>Research</div>
                           </div>
                           <div style={{display: "flex", marginTop: "1%"}}>
-                              <div style={{backgroundColor: "white", textAlign: "center", color: "black", width: "47%"}}>Patent</div>
-                              <div style={{backgroundColor: "white", textAlign: "center", color: "black", marginLeft: "6%", width: "47%"}}>Design Concept</div>
+                              <div onClick={() => this.handleResCatChange('Patent')} style={{backgroundColor: "white", textAlign: "center", color: "black", width: "47%"}}>Patent</div>
+                              <div onClick={() => this.handleResCatChange('Design Concept')} style={{backgroundColor: "white", textAlign: "center", color: "black", marginLeft: "6%", width: "47%"}}>Design Concept</div>
                           </div>
                           <div style={{display: "flex", marginTop: "1%"}}>
-                              <div style={{backgroundColor: "white", textAlign: "center", color: "black", width: "47%"}}>Aesthetic</div>
+                              <div onClick={() => this.handleResCatChange('Aesthetics')} style={{backgroundColor: "white", textAlign: "center", color: "black", width: "47%"}}>Aesthetic</div>
                           </div>
                       </div>
                       <div style={{width: "47%", marginLeft: "6%"}}>
                           <div>Source (Select all that apply)</div>
                           <div style={{display: "flex"}}>
-                              <div style={{backgroundColor: "white", textAlign: "center", color: "black", width: "47%"}}>Engineering</div>
-                              <div style={{backgroundColor: "white", textAlign: "center", color: "black", marginLeft: "6%", width: "47%"}}>Fashion</div>
+                              <div onClick={() => this.handleSourceChange('Engineering')} style={{backgroundColor: "white", textAlign: "center", color: "black", width: "47%"}}>Engineering</div>
+                              <div onClick={() => this.handleSourceChange('Fashion')} style={{backgroundColor: "white", textAlign: "center", color: "black", marginLeft: "6%", width: "47%"}}>Fashion</div>
                           </div>
                       </div>
                   </div>
@@ -263,12 +447,12 @@ class ContributePage extends Component {
 
                       <div style={{width: "49%"}}>
                           <div>Wearability Rating (Select the most appropriate choice)</div>
-                          <Dropdown style={{padding: "0", minHeight: "1%", height: "75%"}} placeholder='#' fluid selection options={numList} />
+                          <Dropdown onChange={this.onAChange} style={{padding: "0", minHeight: "1%", height: "75%"}} placeholder='#' fluid selection options={numList} />
                       </div>
 
                       <div style={{width: "49%", marginLeft: "2%"}}>
                           <div>Electronic Integration (Select the most appropriate choice)</div>
-                          <Dropdown style={{padding: "0", minHeight: "1%", height: "75%"}} placeholder='#' fluid selection options={numList} />
+                          <Dropdown onChange={this.onBChange} style={{padding: "0", minHeight: "1%", height: "75%"}} placeholder='#' fluid selection options={numList} />
                       </div>
 
                   </div>
@@ -277,12 +461,12 @@ class ContributePage extends Component {
 
                       <div style={{width: "49%", marginTop: "1.5%"}}>
                           <div style={{fontSize: "97.5%"}}>Maintainence Requirement (Select the most appropriate choice)</div>
-                          <Dropdown style={{padding: "0", minHeight: "1%", height: "75%"}} placeholder='#' fluid selection options={numList} />
+                          <Dropdown onChange={this.onCChange} style={{padding: "0", minHeight: "1%", height: "75%"}} placeholder='#' fluid selection options={numList} />
                       </div>
 
                       <div style={{width: "49%", marginLeft: "2%", marginTop: "1.5%"}}>
                           <div>Context (Select the most appropriate choice)</div>
-                          <Dropdown style={{padding: "0", minHeight: "1%", height: "75%"}} placeholder='#' fluid selection options={numList} />
+                          <Dropdown onChange={this.onDChange} style={{padding: "0", minHeight: "1%", height: "75%"}} placeholder='#' fluid selection options={numList} />
                       </div>
 
                   </div>
@@ -291,12 +475,12 @@ class ContributePage extends Component {
 
                       <div style={{width: "49%", marginTop: "1.5%"}}>
                           <div>Activity Obstruction (Select the most appropriate choice)</div>
-                          <Dropdown style={{padding: "0", minHeight: "1%", height: "75%"}} placeholder='#' fluid selection options={numList} />
+                          <Dropdown onChange={this.onEChange} style={{padding: "0", minHeight: "1%", height: "75%"}} placeholder='#' fluid selection options={numList} />
                       </div>
 
                       <div style={{width: "49%", marginLeft: "2%", marginTop: "1.5%"}}>
                           <div>Aesthetic Consideration (Select the most appropriate choice)</div>
-                          <Dropdown style={{padding: "0", minHeight: "1%", height: "75%"}} placeholder='#' fluid selection options={numList} />
+                          <Dropdown onChange={this.onFChange} style={{padding: "0", minHeight: "1%", height: "75%"}} placeholder='#' fluid selection options={numList} />
                       </div>
 
                   </div>
@@ -307,11 +491,13 @@ class ContributePage extends Component {
 
 
           <div className="contributeBody">
-          <div  style={{transform: "translate(40%, 20%)", width: "50%"}}>
-          <ImageMapper src={img} map={myMap2} width={265 * w} height={400 * h}
-             onClick={area => this.handleClicks2(area)}
-           />
-          </div>
+            <div  style={{transform: "translate(40%, 20%)", width: "50%"}}>
+            <ImageMapper src={img} map={myMap2} width={265 * w} height={400 * h}
+               onClick={area => this.handleClicks2(area)}
+             />
+            </div>
+
+             <Button size="lg" onClick={() => this.handleSubmit()} style={{marginTop: "17%", marginLeft: "34%", textAlign: "center"}} color="secondary">Submit</Button>{' '}
           </div>
 
       </div>
