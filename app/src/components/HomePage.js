@@ -36,6 +36,9 @@ class HomePage extends Component {
 
       this.onSignUpSubmit = this.onSignUpSubmit.bind(this);
       this.onLoginSubmit = this.onLoginSubmit.bind(this);
+
+      this.onGoogleLoginSubmit = this.onGoogleLoginSubmit.bind(this);
+      this.onGoogleSignUpSubmit = this.onGoogleSignUpSubmit.bind(this);
   }
 
     toggle = () => {
@@ -95,6 +98,59 @@ class HomePage extends Component {
       });
     }
 
+    onGoogleLoginSubmit = (username, password, email) => {
+
+      let success = true;
+      let bookMarks = [];
+
+      let authSuccess = this.props.authSuccess;
+      let toggleDisp = this.props.toggle;
+
+      let onLoginWarningChange = this.onLoginWarningChange;
+
+      let onGoogleSignUpSubmit = this.onGoogleSignUpSubmit;
+
+      let jsonToSend = JSON.stringify({
+           username: username,
+           password: password
+       })
+
+       let pwd = password;
+
+       var request = new Request('https://chimerabackend.herokuapp.com/api/login/', {
+             method: 'POST',
+             headers: {
+               'Content-Type': 'application/json',
+             },
+             body: jsonToSend
+           });
+       fetch(request).then(function(response){
+
+          if(response.status.toString() === '200') {
+             response.text().then(function(text) {
+
+                 var objReceived = JSON.parse(text);
+                 if (objReceived.message === 'SUCCESS') {
+
+                    authSuccess(objReceived.username, pwd, objReceived.bookmarks);
+                    toggleDisp();
+                 }
+                 else {
+
+                     onGoogleSignUpSubmit(username, email, password);
+
+
+                 }
+             })
+           }
+
+           else {
+             onGoogleSignUpSubmit(username, email, password);
+           }
+       })
+
+    }
+
     onLoginSubmit = () => {
 
       let success = true;
@@ -148,8 +204,68 @@ class HomePage extends Component {
 
   responseGoogle = (response) => {
    console.log(response);
+
+   this.onGoogleLoginSubmit(response.profileObj.name,response.profileObj.name,response.profileObj.email);
+
+   /*
+    If successful, use the username to login with same password, if login fails, try signup with that username password
+   */
   }
 
+  responseGoogleError = (response) => {
+   console.log("error");
+  }
+
+  onGoogleSignUpSubmit = (username, email, password) => {
+
+    let success = true;
+    let bookMarks = [];
+
+    let authSuccess = this.props.authSuccess;
+    let toggleDisp = this.props.toggle;
+
+    let onSignUpWarningChange = this.onSignUpWarningChange;
+
+    let pwd = password;
+
+    let jsonToSend = JSON.stringify({
+         username: username,
+         email: email,
+         password: password
+     })
+
+     var request = new Request('https://chimerabackend.herokuapp.com/api/signup/', {
+           method: 'POST',
+           headers: {
+             'Content-Type': 'application/json',
+           },
+           body: jsonToSend
+         });
+     fetch(request).then(function(response){
+
+        if(response.status.toString() === '200') {
+           response.text().then(function(text) {
+
+               var objReceived = JSON.parse(text);
+               if (objReceived.message === 'SUCCESS') {
+
+                  console.log(objReceived);
+                  authSuccess(objReceived.username, pwd, objReceived.bookmarks);
+                  toggleDisp();
+               }
+               else {
+
+                   onSignUpWarningChange();
+
+               }
+           })
+         }
+
+         else {
+           onSignUpWarningChange();
+         }
+     })
+  }
 
     onSignUpSubmit = () => {
 
@@ -243,14 +359,16 @@ class HomePage extends Component {
 
                      <Button onClick={this.onLoginSubmit} style={{marginTop: "10%", marginLeft: "38%"}} color="secondary">Login</Button>
 
-                     <GoogleLogin
-                      clientId="1030014197436-1oftnoda9j1qk7qgv0cpjbc625q1qr2k.apps.googleusercontent.com"
-                      buttonText="Login"
-                      onSuccess={this.responseGoogle}
-                      onFailure={this.responseGoogle}
-                      cookiePolicy={'single_host_origin'}
-                    />
                 </Form>
+                <div style={{marginTop: "10%", marginLeft: "25%"}}>
+                  <GoogleLogin
+                   clientId="1030014197436-1oftnoda9j1qk7qgv0cpjbc625q1qr2k.apps.googleusercontent.com"
+                   buttonText="Google Login"
+                   onSuccess={this.responseGoogle}
+                   onFailure={this.responseGoogleError}
+                   cookiePolicy={'single_host_origin'}               
+                 />
+               </div>
             </div>
             <div style={{width: "30%", marginLeft: "7%"}}>
                <Form>
