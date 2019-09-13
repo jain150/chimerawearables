@@ -7,8 +7,25 @@ import ImageMapper from 'react-image-mapper';
 import './contributePage.css'
 
 
+import gapi from 'gapi-client'
+
+
+
 class ContributePage extends Component {
 
+  componentDidMount() {
+    
+    gapi.load('client:auth2', () => {
+      gapi.client.init({
+        discoveryDocs: ["https://www.googleapis.com/discovery/v1/apis/drive/v3/rest"],
+        apiKey: 'AIzaSyBOoFBxxw4w3hphPBGb_P4nKriNBPFf_n4',
+        clientId: '1030014197436-1oftnoda9j1qk7qgv0cpjbc625q1qr2k.apps.googleusercontent.com',
+        scope: 'https://www.googleapis.com/auth/drive.metadata.readonly'
+      }).then(function () {
+        console.log('it worked');
+      });
+    });
+  }
   constructor(props) {
 
       super(props);
@@ -273,8 +290,7 @@ handleSubmit = () => {
       values: arr
       };
 
-      console.log(window.gapi);
-      window.gapi.client.sheets.spreadsheets.values.append({
+      gapi.client.sheets.spreadsheets.values.append({
        spreadsheetId: '1yYtQWLapVdWpoLk7lQ1_dyMn-Nc2IXOHNvHJNna62Kc',
        valueInputOption: 'USER_ENTERED',
        resource: body
