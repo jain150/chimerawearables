@@ -20,7 +20,7 @@ class ContributePage extends Component {
         discoveryDocs: ["https://www.googleapis.com/discovery/v1/apis/drive/v3/rest"],
         apiKey: 'AIzaSyBOoFBxxw4w3hphPBGb_P4nKriNBPFf_n4',
         clientId: '1030014197436-1oftnoda9j1qk7qgv0cpjbc625q1qr2k.apps.googleusercontent.com',
-        scope: 'https://www.googleapis.com/auth/drive.metadata.spreadsheets'
+        scope: 'https://www.googleapis.com/auth/spreadsheets'
       }).then(function () {
         console.log('it worked');
       });
