@@ -6,8 +6,6 @@ import { Dropdown } from 'semantic-ui-react'
 import ImageMapper from 'react-image-mapper';
 import './contributePage.css'
 
-const fs = require('browserify-fs');
-
 class ContributePage extends Component {
 
 
@@ -275,10 +273,6 @@ handleSubmit = () => {
       values: arr
       };
 
-      fs.writeFile('ImageDatabase/contributions.txt', JSON.stringify(this.state), (err) => {
-        if (err) console.log("ERROR")
-        else console.log("LOL")
-      })
 
 /*
       gapi.client.sheets.spreadsheets.values.append({
