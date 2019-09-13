@@ -6,26 +6,11 @@ import { Dropdown } from 'semantic-ui-react'
 import ImageMapper from 'react-image-mapper';
 import './contributePage.css'
 
-
-import gapi from 'gapi-client'
-
-
+const fs = require('browserify-fs');
 
 class ContributePage extends Component {
 
-  componentDidMount() {
 
-    gapi.load('client:auth2', () => {
-      gapi.client.init({
-        discoveryDocs: ["https://www.googleapis.com/discovery/v1/apis/drive/v3/rest"],
-        apiKey: 'AIzaSyBOoFBxxw4w3hphPBGb_P4nKriNBPFf_n4',
-        clientId: '1030014197436-1oftnoda9j1qk7qgv0cpjbc625q1qr2k.apps.googleusercontent.com',
-        scope: 'https://www.googleapis.com/auth/spreadsheets'
-      }).then(function () {
-        console.log('it worked');
-      });
-    });
-  }
   constructor(props) {
 
       super(props);
@@ -290,6 +275,12 @@ handleSubmit = () => {
       values: arr
       };
 
+      fs.writeFile('ImageDatabase/contributions.txt', JSON.stringify(this.state), (err) => {
+        if (err) console.log("ERROR")
+        else console.log("LOL")
+      })
+
+/*
       gapi.client.sheets.spreadsheets.values.append({
        spreadsheetId: '1yYtQWLapVdWpoLk7lQ1_dyMn-Nc2IXOHNvHJNna62Kc',
        valueInputOption: 'USER_ENTERED',
@@ -297,7 +288,7 @@ handleSubmit = () => {
     }).then((response) => {
       var result = response.result;
       console.log(`${result.updates.updatedCells} cells appended.`)
-    });
+    });*/
 
 
 //    Sheetsu.write("https://sheetsu.com/apis/v1.0su/7f7ddd0aa5e9", this.state, {}, () => console.log("LOL"));
