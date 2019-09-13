@@ -17,6 +17,7 @@
     "react-awesome-popover": "^4.0.2",
     "react-bootstrap": "^1.0.0-beta.9",
     "react-dom": "^16.8.6",
+    "react-google-login": "^5.0.5",
     "react-hexagon": "^1.1.3",
     "react-hexgrid": "^1.0.3",
     "react-image-mapper": "0.0.14",

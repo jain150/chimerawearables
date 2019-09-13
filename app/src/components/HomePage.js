@@ -5,6 +5,7 @@ import * as actionTypes from '../store/actions';
 import {Alert} from 'reactstrap';
 import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap';
 import { Form, FormGroup, Label, Input, FormText } from 'reactstrap';
+import GoogleLogin from 'react-google-login';
 
 class HomePage extends Component {
 
@@ -144,6 +145,12 @@ class HomePage extends Component {
 
     }
 
+
+  responseGoogle = (response) => {
+   console.log(response);
+  }
+
+
     onSignUpSubmit = () => {
 
       let success = true;
@@ -219,7 +226,7 @@ class HomePage extends Component {
 
          <div style={{color: "white", textAlign: "center", marginLeft: "5%", marginTop: "5%"}}>Welcome to Chimera, an interactive search engine for Wearables</div>
 
-         <Button size="lg" onClick={this.props.toggle} style={{marginTop: "2%", marginLeft: "49%"}} color="secondary">Guest Mode</Button>{' '}
+         <Button size="lg" onClick={this.toggle} style={{marginTop: "2%", marginLeft: "49%"}} color="secondary">Enter</Button>{' '}
 
          <Modal size="lg" style={{backgroundColor: "black", maxWidth: '90vw',  maxHeight: '90vh', width: '90vw', height: '90vh'}} isOpen={this.state.modal} toggle={this.toggle}>
 
@@ -235,6 +242,14 @@ class HomePage extends Component {
                        <Input style={{ borderRadius: "0px"}} type="password" onChange={this.onLoginPasswordChange} value={this.state.loginPassword} />
 
                      <Button onClick={this.onLoginSubmit} style={{marginTop: "10%", marginLeft: "38%"}} color="secondary">Login</Button>
+
+                     <GoogleLogin
+                      clientId="1030014197436-1oftnoda9j1qk7qgv0cpjbc625q1qr2k.apps.googleusercontent.com"
+                      buttonText="Login"
+                      onSuccess={this.responseGoogle}
+                      onFailure={this.responseGoogle}
+                      cookiePolicy={'single_host_origin'}
+                    />
                 </Form>
             </div>
             <div style={{width: "30%", marginLeft: "7%"}}>
