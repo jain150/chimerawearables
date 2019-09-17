@@ -359,7 +359,7 @@ class App extends Component {
              <BodyZones />
             <FilterPane toggleBack={this.toggleBack} move={false} showLoop={true} showView={true} views={this.state.viewCount} mainPage={true}/>
           </div>) : (<div className="layoutBlack"><SearchDisplay backToSearch={this.props.updateSearchDisplay}/>
-          <FilterPane move={true} showView={false} views={this.state.viewCount} showLoop={true} mainPage={false}/>
+          <FilterPane toggleMainDisplay={this.props.updateSearchDisplay} move={true} toggleBack={this.toggleBack} showView={false} views={this.state.viewCount} showLoop={true} mainPage={false}/>
         </div>)
         )}
         </BrowserRouter>
@@ -379,6 +379,7 @@ const mapDispatchToProps = dispatch => {
         updateSearchData: (value) => dispatch({type: actionTypes.UPDATE_DATA, value: value}),
         updateSearchDisplay: () => dispatch({type: actionTypes.REMOVE_SEARCH_DISPLAY}),
         updateViewCount:  (value) => dispatch({type: actionTypes.VIEW_COUNTER, val: value}),
+        toggleMainDisplay: () => dispatch({type: actionTypes.SEARCH_DISPLAY}),
     }
 };
 

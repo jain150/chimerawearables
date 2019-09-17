@@ -68,6 +68,9 @@ class FilterPane extends Component {
    toggleHome = () => {
 
      this.props.toggleBack();
+
+     if(this.props.move)
+      this.props.toggleMainDisplay();
      this.props.logout();
   }
 

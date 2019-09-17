@@ -23,7 +23,7 @@ function initClient() {
     discoveryDocs: ["https://sheets.googleapis.com/$discovery/rest?version=v4"],
     apiKey: 'AIzaSyBOoFBxxw4w3hphPBGb_P4nKriNBPFf_n4',
     clientId: '1030014197436-1oftnoda9j1qk7qgv0cpjbc625q1qr2k.apps.googleusercontent.com',
-    scope: "https://www.googleapis.com/auth/drive https://www.googleapis.com/auth/spreadsheets"
+    scope: "https://www.googleapis.com/auth/spreadsheets"
 
   }).then(function () {
     // do stuff with loaded APIs
