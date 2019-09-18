@@ -427,81 +427,85 @@ handleSubmit = () => {
 
           <div className="contributeForm">
 
-                  <div>
-                      <div>Resource Title</div>
-                      <Input value={this.state.title} onChange={(event) => this.onTitleChange(event)} style={{ borderRadius: "0px", padding: "0", height: "5%"}} type="text"/>
+                <div style={{height: "29%", marginTop: "2%"}}>
+                    <div style={{height: "40%"}}>
+                        <div>Resource Title</div>
+                        <Input value={this.state.title} onChange={(event) => this.onTitleChange(event)} style={{ borderRadius: "0px", padding: "0", height: "50%"}} type="text"/>
+                    </div>
+
+                    <div style={{display: "flex", marginTop: "1%"}}>
+
+                        <div style={{width: "49%"}}>
+                            <div>Resource Link</div>
+                            <Input value={this.state.link} onChange={(event) => this.onLinkChange(event)} style={{ borderRadius: "0px", padding: "0", height: "50%"}} type="text"/>
+                        </div>
+
+                        <div style={{width: "49%", marginLeft: "2%"}}>
+                            <div>Resource Main Page</div>
+                            <Input value={this.state.mainpage} onChange={(event) => this.onMainpageChange(event)} style={{ borderRadius: "0px",  padding: "0", height: "50%"}} type="text"/>
+                        </div>
+
+                    </div>
+
+                    <div style={{display: "flex", marginTop: "1%"}}>
+
+                        <div style={{width: "49%"}}>
+                            <div>Year</div>
+                            <Input value={this.state.year} onChange={(event) => this.onYearChange(event)} style={{ borderRadius: "0px",  padding: "0", height: "50%"}} type="text"/>
+                        </div>
+
+                        <div style={{width: "49%", marginLeft: "2%"}}>
+                            <div>Venue</div>
+                            <Input value={this.state.venue} onChange={(event) => this.onVenueChange(event)} style={{ borderRadius: "0px",  padding: "0", height: "50%"}} type="text"/>
+                        </div>
+
+                    </div>
                   </div>
 
-                  <div style={{display: "flex"}}>
-
-                      <div style={{width: "49%"}}>
-                          <div>Resource Link</div>
-                          <Input value={this.state.link} onChange={(event) => this.onLinkChange(event)} style={{ borderRadius: "0px", padding: "0", height: "50%"}} type="text"/>
+                  <div style={{height: "33%", borderTop: "solid", marginTop: "1%"}}>
+                      <div style={{height: "38%"}}>
+                          <div>Fabrication (Pick up to 2 appropriate fabrication methods mentioned in the resource. If there are none, please leave this section blank)</div>
+                          <Dropdown onChange={this.onFabChange} style={{padding: "0", minHeight: "1%"}} placeholder='Fabrication' fluid multiple selection options={fabList} />
                       </div>
 
-                      <div style={{width: "49%", marginLeft: "2%"}}>
-                          <div>Resource Main Page</div>
-                          <Input value={this.state.mainpage} onChange={(event) => this.onMainpageChange(event)} style={{ borderRadius: "0px",  padding: "0", height: "50%"}} type="text"/>
+                      <div style={{height: "30%", marginTop: "1%"}}>
+                          <div>Material (Pick up to 3 appropriate materials mentioned in the resource. If there are none, please leave this section blank)</div>
+                          <Dropdown onChange={this.onMatChange} style={{padding: "0", minHeight: "1%"}} placeholder='Material' fluid multiple selection options={matList} />
                       </div>
 
-                  </div>
-
-                  <div style={{display: "flex"}}>
-
-                      <div style={{width: "49%"}}>
-                          <div>Year</div>
-                          <Input value={this.state.year} onChange={(event) => this.onYearChange(event)} style={{ borderRadius: "0px",  padding: "0", height: "50%"}} type="text"/>
+                      <div style={{height: "30%", marginTop: "1%"}}>
+                          <div>Function (Pick up to 3 appropriate functions mentioned in the resource. If there are none, please leave this section blank)</div>
+                          <Dropdown onChange={this.onFuncChange} style={{padding: "0", minHeight: "1%"}} placeholder='Function' fluid multiple selection options={funcList} />
                       </div>
-
-                      <div style={{width: "49%", marginLeft: "2%"}}>
-                          <div>Venue</div>
-                          <Input value={this.state.venue} onChange={(event) => this.onVenueChange(event)} style={{ borderRadius: "0px",  padding: "0", height: "50%"}} type="text"/>
-                      </div>
-
                   </div>
 
-                  <div style={{borderTop: "solid", marginTop: "0.75%"}}>
-                      <div>Fabrication (Pick up to 2 appropriate fabrication methods mentioned in the resource. If there are none, please leave this section blank)</div>
-                      <Dropdown onChange={this.onFabChange} style={{padding: "0", minHeight: "1%"}} placeholder='Fabrication' fluid multiple selection options={fabList} />
-                  </div>
+                  <div style={{display: "flex", borderTop: "solid", marginTop: "2%", height: "33%"}}>
 
-                  <div>
-                      <div>Material (Pick up to 3 appropriate materials mentioned in the resource. If there are none, please leave this section blank)</div>
-                      <Dropdown onChange={this.onMatChange} style={{padding: "0", minHeight: "1%"}} placeholder='Material' fluid multiple selection options={matList} />
-                  </div>
-
-                  <div>
-                      <div>Function (Pick up to 3 appropriate functions mentioned in the resource. If there are none, please leave this section blank)</div>
-                      <Dropdown onChange={this.onFuncChange} style={{padding: "0", minHeight: "1%"}} placeholder='Function' fluid multiple selection options={funcList} />
-                  </div>
-
-                  <div style={{display: "flex", borderTop: "solid", marginTop: "0.75%"}}>
-
-                      <div style={{width: "47%"}}>
+                      <div style={{width: "47%", marginTop: "1%"}}>
                           <div>Resource Categorization (Select all that apply)</div>
-                          <div style={{display: "flex"}}>
+                          <div style={{display: "flex", height:"20%", fontSize: "105%"}}>
                                 {(this.state.resourceCategorization.includes("Tutorials")) ? (<div onClick={() => this.handleResCatChange('Tutorials')} style={{backgroundColor: "grey", textAlign: "center", color: "black", width: "47%"}}>Tutorials</div>) : (<div onClick={() => this.handleResCatChange('Tutorials')} style={{backgroundColor: "white", textAlign: "center", color: "black", width: "47%"}}>Tutorials</div>)}
                                 {(this.state.resourceCategorization.includes("Research")) ? (<div onClick={() => this.handleResCatChange('Research')} style={{backgroundColor: "grey",  marginLeft: "6%", textAlign: "center", color: "black", width: "47%"}}>Research</div>) : (<div onClick={() => this.handleResCatChange('Research')} style={{backgroundColor: "white",  marginLeft: "6%", textAlign: "center", color: "black", width: "47%"}}>Research</div>)}
 
                           </div>
-                          <div style={{display: "flex", marginTop: "1%"}}>
+                          <div style={{display: "flex", marginTop: "1%", height:"20%", fontSize: "105%"}}>
                               {(this.state.resourceCategorization.includes("Patent")) ? (<div onClick={() => this.handleResCatChange('Patent')} style={{backgroundColor: "grey", textAlign: "center", color: "black", width: "47%"}}>Patent</div>) : (<div onClick={() => this.handleResCatChange('Patent')} style={{backgroundColor: "white", textAlign: "center", color: "black", width: "47%"}}>Patent</div>)}
                               {(this.state.resourceCategorization.includes("Design Concept")) ? (<div onClick={() => this.handleResCatChange('Design Concept')} style={{backgroundColor: "grey", textAlign: "center", color: "black", marginLeft: "6%", width: "47%"}}>Design Concept</div>) : (<div onClick={() => this.handleResCatChange('Design Concept')} style={{backgroundColor: "white", textAlign: "center", color: "black", marginLeft: "6%", width: "47%"}}>Design Concept</div>)}
                           </div>
-                          <div style={{display: "flex", marginTop: "1%"}}>
+                          <div style={{display: "flex", marginTop: "1%", height:"20%", fontSize: "105%"}}>
                               {(this.state.resourceCategorization.includes("Aesthetics")) ? (<div onClick={() => this.handleResCatChange('Aesthetics')} style={{backgroundColor: "grey", textAlign: "center", color: "black", width: "47%"}}>Aesthetic</div>) : (<div onClick={() => this.handleResCatChange('Aesthetics')} style={{backgroundColor: "white", textAlign: "center", color: "black", width: "47%"}}>Aesthetic</div>)}
                           </div>
                       </div>
-                      <div style={{width: "47%", marginLeft: "6%"}}>
+                      <div style={{width: "47%", marginLeft: "6%", marginTop: "1%"}}>
                           <div>Source (Select all that apply)</div>
-                          <div style={{display: "flex"}}>
+                          <div style={{display: "flex", height: "20%", fontSize: "105%"}}>
                               {(this.state.source === "Engineering") ? (<div onClick={() => this.handleSourceChange('Engineering')} style={{backgroundColor: "grey", textAlign: "center", color: "black", width: "47%"}}>Engineering</div>) : (<div onClick={() => this.handleSourceChange('Engineering')} style={{backgroundColor: "white", textAlign: "center", color: "black", width: "47%"}}>Engineering</div>)}
                               {(this.state.source === "Fashion") ? (<div onClick={() => this.handleSourceChange('Fashion')} style={{backgroundColor: "grey", textAlign: "center", color: "black", marginLeft: "6%", width: "47%"}}>Fashion</div>) : (<div onClick={() => this.handleSourceChange('Fashion')} style={{backgroundColor: "white", textAlign: "center", color: "black", marginLeft: "6%", width: "47%"}}>Fashion</div>)}
                           </div>
                       </div>
                   </div>
 
-                  <div style={{display: "flex", borderTop: "solid", marginTop: "0.75%"}}>
+                  {/*<div style={{display: "flex", borderTop: "solid", marginTop: "0.75%"}}>
 
                       <div style={{width: "49%"}}>
                           <div>Wearability Rating (Select the most appropriate choice)</div>
@@ -541,7 +545,7 @@ handleSubmit = () => {
                           <Dropdown onChange={this.onFChange} style={{padding: "0", minHeight: "1%", height: "75%"}} placeholder='#' fluid selection options={numList} />
                       </div>
 
-                  </div>
+                  </div>*/}
 
 
 
