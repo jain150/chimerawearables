@@ -430,19 +430,19 @@ handleSubmit = () => {
                 <div style={{height: "29%", marginTop: "2%"}}>
                     <div style={{height: "40%"}}>
                         <div>Resource Title</div>
-                        <Input value={this.state.title} onChange={(event) => this.onTitleChange(event)} style={{ borderRadius: "0px", padding: "0", height: "50%"}} type="text"/>
+                        <Input value={this.state.title} onChange={(event) => this.onTitleChange(event)} style={{ borderRadius: "0px", padding: "0", height: "40%"}} type="text"/>
                     </div>
 
                     <div style={{display: "flex", marginTop: "1%"}}>
 
                         <div style={{width: "49%"}}>
                             <div>Resource Link</div>
-                            <Input value={this.state.link} onChange={(event) => this.onLinkChange(event)} style={{ borderRadius: "0px", padding: "0", height: "50%"}} type="text"/>
+                            <Input value={this.state.link} onChange={(event) => this.onLinkChange(event)} style={{ borderRadius: "0px", padding: "0", height: "60%"}} type="text"/>
                         </div>
 
                         <div style={{width: "49%", marginLeft: "2%"}}>
                             <div>Resource Main Page</div>
-                            <Input value={this.state.mainpage} onChange={(event) => this.onMainpageChange(event)} style={{ borderRadius: "0px",  padding: "0", height: "50%"}} type="text"/>
+                            <Input value={this.state.mainpage} onChange={(event) => this.onMainpageChange(event)} style={{ borderRadius: "0px",  padding: "0", height: "60%"}} type="text"/>
                         </div>
 
                     </div>
@@ -451,18 +451,18 @@ handleSubmit = () => {
 
                         <div style={{width: "49%"}}>
                             <div>Year</div>
-                            <Input value={this.state.year} onChange={(event) => this.onYearChange(event)} style={{ borderRadius: "0px",  padding: "0", height: "50%"}} type="text"/>
+                            <Input value={this.state.year} onChange={(event) => this.onYearChange(event)} style={{ borderRadius: "0px",  padding: "0", height: "60%"}} type="text"/>
                         </div>
 
                         <div style={{width: "49%", marginLeft: "2%"}}>
                             <div>Venue</div>
-                            <Input value={this.state.venue} onChange={(event) => this.onVenueChange(event)} style={{ borderRadius: "0px",  padding: "0", height: "50%"}} type="text"/>
+                            <Input value={this.state.venue} onChange={(event) => this.onVenueChange(event)} style={{ borderRadius: "0px",  padding: "0", height: "60%"}} type="text"/>
                         </div>
 
                     </div>
                   </div>
 
-                  <div style={{height: "45%", borderTop: "solid",  borderWidth: "thick", marginTop: "5%", display: "flex", textAlign: "center"}}>
+                  <div style={{height: "45%", borderTop: "solid", paddingTop: "2%", borderWidth: "thick", marginTop: "5%", display: "flex", textAlign: "center"}}>
 
                     <div style={{width: "45%"}}>
                               <div style={{height: "30%", marginTop: "2%"}}>
@@ -486,24 +486,24 @@ handleSubmit = () => {
                             <div style={{width: "100%", height: "15%", marginTop: "1%", marginLeft: "3%"}}>
                                 <div>Source (Select all that apply)</div>
                                 <div style={{display: "flex", height: "100%", fontSize: "105%"}}>
-                                    {(this.state.source === "Engineering") ? (<Button onClick={() => this.handleSourceChange('Engineering')} style={{backgroundColor: "grey", textAlign: "center", color: "black", width: "47%"}}>Engineering</Button>) : (<Button onClick={() => this.handleSourceChange('Engineering')} style={{backgroundColor: "white", textAlign: "center", color: "black", width: "47%"}}>Engineering</Button>)}
-                                    {(this.state.source === "Fashion") ? (<Button onClick={() => this.handleSourceChange('Fashion')} style={{backgroundColor: "grey", textAlign: "center", color: "black", marginLeft: "6%", width: "47%"}}>Fashion</Button>) : (<Button onClick={() => this.handleSourceChange('Fashion')} style={{backgroundColor: "white", textAlign: "center", color: "black", marginLeft: "6%", width: "47%"}}>Fashion</Button>)}
+                                    {(this.state.source === "Engineering") ? (<Button onClick={() => this.handleSourceChange('Engineering')} style={{backgroundColor: "#5a6268", textAlign: "center", color: "black", width: "47%"}}>Engineering</Button>) : (<Button onClick={() => this.handleSourceChange('Engineering')} style={{backgroundColor: "white", textAlign: "center", color: "black", width: "47%"}}>Engineering</Button>)}
+                                    {(this.state.source === "Fashion") ? (<Button onClick={() => this.handleSourceChange('Fashion')} style={{backgroundColor: "#5a6268", textAlign: "center", color: "black", marginLeft: "6%", width: "47%"}}>Fashion</Button>) : (<Button onClick={() => this.handleSourceChange('Fashion')} style={{backgroundColor: "white", textAlign: "center", color: "black", marginLeft: "6%", width: "47%"}}>Fashion</Button>)}
                                 </div>
                             </div>
 
                             <div style={{width: "100%", height: "65%", marginTop: "12%", marginLeft: "3%"}}>
                                 <div>Resource Categorization (Select all that apply)</div>
                                 <div style={{display: "flex",  height:"25%",fontSize: "105%"}}>
-                                      {(this.state.resourceCategorization.includes("Tutorials")) ? (<Button onClick={() => this.handleResCatChange('Tutorials')} style={{backgroundColor: "grey", textAlign: "center", color: "black", width: "47%"}}>Tutorials</Button>) : (<Button onClick={() => this.handleResCatChange('Tutorials')} style={{backgroundColor: "white", textAlign: "center", color: "black", width: "47%"}}>Tutorials</Button>)}
-                                      {(this.state.resourceCategorization.includes("Research")) ? (<Button onClick={() => this.handleResCatChange('Research')} style={{backgroundColor: "grey",  marginLeft: "6%", textAlign: "center", color: "black", width: "47%"}}>Research</Button>) : (<Button onClick={() => this.handleResCatChange('Research')} style={{backgroundColor: "white",  marginLeft: "6%", textAlign: "center", color: "black", width: "47%"}}>Research</Button>)}
+                                      {(this.state.resourceCategorization.includes("Tutorials")) ? (<Button onClick={() => this.handleResCatChange('Tutorials')} style={{backgroundColor: "#5a6268", textAlign: "center", color: "black", width: "47%"}}>Tutorials</Button>) : (<Button onClick={() => this.handleResCatChange('Tutorials')} style={{backgroundColor: "white", textAlign: "center", color: "black", width: "47%"}}>Tutorials</Button>)}
+                                      {(this.state.resourceCategorization.includes("Research")) ? (<Button onClick={() => this.handleResCatChange('Research')} style={{backgroundColor: "#5a6268",  marginLeft: "6%", textAlign: "center", color: "black", width: "47%"}}>Research</Button>) : (<Button onClick={() => this.handleResCatChange('Research')} style={{backgroundColor: "white",  marginLeft: "6%", textAlign: "center", color: "black", width: "47%"}}>Research</Button>)}
 
                                 </div>
                                 <div style={{display: "flex", marginTop: "1%", height:"25%", fontSize: "105%"}}>
-                                    {(this.state.resourceCategorization.includes("Patent")) ? (<Button onClick={() => this.handleResCatChange('Patent')} style={{backgroundColor: "grey", textAlign: "center", color: "black", width: "47%"}}>Patent</Button>) : (<Button onClick={() => this.handleResCatChange('Patent')} style={{backgroundColor: "white", textAlign: "center", color: "black", width: "47%"}}>Patent</Button>)}
-                                    {(this.state.resourceCategorization.includes("Design Concept")) ? (<Button onClick={() => this.handleResCatChange('Design Concept')} style={{backgroundColor: "grey", textAlign: "center", color: "black", marginLeft: "6%", width: "47%"}}>Design Concept</Button>) : (<Button onClick={() => this.handleResCatChange('Design Concept')} style={{backgroundColor: "white", textAlign: "center", color: "black", marginLeft: "6%", width: "47%"}}>Design Concept</Button>)}
+                                    {(this.state.resourceCategorization.includes("Patent")) ? (<Button onClick={() => this.handleResCatChange('Patent')} style={{backgroundColor: "#5a6268", textAlign: "center", color: "black", width: "47%"}}>Patent</Button>) : (<Button onClick={() => this.handleResCatChange('Patent')} style={{backgroundColor: "white", textAlign: "center", color: "black", width: "47%"}}>Patent</Button>)}
+                                    {(this.state.resourceCategorization.includes("Design Concept")) ? (<Button onClick={() => this.handleResCatChange('Design Concept')} style={{backgroundColor: "#5a6268", textAlign: "center", color: "black", marginLeft: "6%", width: "47%"}}>Design Concept</Button>) : (<Button onClick={() => this.handleResCatChange('Design Concept')} style={{backgroundColor: "white", textAlign: "center", color: "black", marginLeft: "6%", width: "47%"}}>Design Concept</Button>)}
                                 </div>
                                 <div style={{display: "flex", marginTop: "1%", height:"25%", fontSize: "105%"}}>
-                                    {(this.state.resourceCategorization.includes("Aesthetics")) ? (<Button onClick={() => this.handleResCatChange('Aesthetics')} style={{backgroundColor: "grey", textAlign: "center", color: "black", width: "47%"}}>Aesthetic</Button>) : (<Button onClick={() => this.handleResCatChange('Aesthetics')} style={{backgroundColor: "white", textAlign: "center", color: "black", width: "47%"}}>Aesthetic</Button>)}
+                                    {(this.state.resourceCategorization.includes("Aesthetics")) ? (<Button onClick={() => this.handleResCatChange('Aesthetics')} style={{backgroundColor: "#5a6268", textAlign: "center", color: "black", width: "47%"}}>Aesthetic</Button>) : (<Button onClick={() => this.handleResCatChange('Aesthetics')} style={{backgroundColor: "white", textAlign: "center", color: "black", width: "47%"}}>Aesthetic</Button>)}
                                 </div>
                             </div>
 
@@ -512,7 +512,7 @@ handleSubmit = () => {
                 </div>
 
                 <img src={"ImageDatabase/Icons/Home.png"}
-                 alt="" style={{width: '25%', objectFit: "cover", marginLeft: "40%"}}/>
+                 alt="" style={{width: '30%', objectFit: "cover", marginLeft: "40%", marginTop: "2%"}}/>
 
 
 
@@ -564,13 +564,15 @@ handleSubmit = () => {
 
 
           <div className="contributeBody">
-            <div  style={{transform: "translate(40%, 20%)", width: "50%"}}>
+            <div  style={{transform: "translate(40%, 15%)", width: "50%"}}>
             <ImageMapper src={img} map={myMap2} width={265 * w} height={400 * h}
                onClick={area => this.handleClicks2(area)}
              />
+             <div style={{ fontSize: "smaller", marginLeft: "26%"}}><b>(</b>DOUBLE CLICK FOR</div>
+             <div style={{ fontSize: "smaller", marginLeft: "25%"}}>FULL BODY SELECTION<b>)</b></div>
             </div>
 
-             <Button size="lg" onClick={() => this.handleSubmit()} style={{marginTop: "17%", marginLeft: "34%", textAlign: "center"}} color="secondary">Submit</Button>{' '}
+             <Button size="lg" onClick={() => this.handleSubmit()} style={{marginTop: "14%", marginLeft: "34%", textAlign: "center"}} color="secondary">Submit</Button>{' '}
           </div>
 
       </div>

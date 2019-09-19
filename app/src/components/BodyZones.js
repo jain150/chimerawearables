@@ -155,7 +155,7 @@ class BodyZones extends Component {
 
                     <div className="contribute" style={{marginTop: "7%", marginLeft: "20%", width: "35%", fontSize: "125%"}} onClick={this.toggle}>CONTRIBUTE</div>
                     <Modal style={{maxWidth: '100%', margin: "0%", maxHeight: '100%', width: '100%', height: '100%'}} isOpen={this.state.modal} toggle={this.toggle}>
-                      <ModalHeader close={closeBtn} style={{backgroundColor: "black", color: "white", height: "7%", padding: "0.5rem 0.5rem"}} toggle={this.toggle}>Contribute</ModalHeader>
+                      <ModalHeader close={closeBtn} style={{backgroundColor: "black", color: "white", height: "8%", padding: "0.5rem 0.5rem"}} toggle={this.toggle}>CONTRIBUTE</ModalHeader>
 
                       <ModalBody style={{backgroundColor: "black", overflowY: "auto", height: "90%", width: "100%"}}>
 
