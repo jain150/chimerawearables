@@ -462,48 +462,59 @@ handleSubmit = () => {
                     </div>
                   </div>
 
-                  <div style={{height: "33%", borderTop: "solid", marginTop: "1%"}}>
-                      <div style={{height: "38%"}}>
-                          <div>Fabrication (Pick up to 2 appropriate fabrication methods mentioned in the resource. If there are none, please leave this section blank)</div>
-                          <Dropdown onChange={this.onFabChange} style={{padding: "0", minHeight: "1%"}} placeholder='Fabrication' fluid multiple selection options={fabList} />
-                      </div>
+                  <div style={{height: "45%", borderTop: "solid",  borderWidth: "thick", marginTop: "5%", display: "flex", textAlign: "center"}}>
 
-                      <div style={{height: "30%", marginTop: "1%"}}>
-                          <div>Material (Pick up to 3 appropriate materials mentioned in the resource. If there are none, please leave this section blank)</div>
-                          <Dropdown onChange={this.onMatChange} style={{padding: "0", minHeight: "1%"}} placeholder='Material' fluid multiple selection options={matList} />
-                      </div>
+                    <div style={{width: "45%"}}>
+                              <div style={{height: "30%", marginTop: "2%"}}>
+                                  <div>Fabrication (Pick up to 2 that apply)</div>
+                                  <Dropdown onChange={this.onFabChange} style={{padding: "0", minHeight: "1%"}} placeholder='Fabrication' fluid multiple selection options={fabList} />
+                              </div>
 
-                      <div style={{height: "30%", marginTop: "1%"}}>
-                          <div>Function (Pick up to 3 appropriate functions mentioned in the resource. If there are none, please leave this section blank)</div>
-                          <Dropdown onChange={this.onFuncChange} style={{padding: "0", minHeight: "1%"}} placeholder='Function' fluid multiple selection options={funcList} />
-                      </div>
-                  </div>
+                              <div style={{height: "30%", marginTop: "3%"}}>
+                                  <div>Material (Pick up to 3 that apply)</div>
+                                  <Dropdown onChange={this.onMatChange} style={{padding: "0", minHeight: "1%"}} placeholder='Material' fluid multiple selection options={matList} />
+                              </div>
 
-                  <div style={{display: "flex", borderTop: "solid", marginTop: "2%", height: "33%"}}>
+                              <div style={{height: "30%", marginTop: "3%"}}>
+                                  <div>Function (Pick up to 3 that apply)</div>
+                                  <Dropdown onChange={this.onFuncChange} style={{padding: "0", minHeight: "1%"}} placeholder='Function' fluid multiple selection options={funcList} />
+                              </div>
+                    </div>
+                    <div style={{marginLeft: "5%", width: "50%", borderLeft: "solid", borderWidth: "thick"}}>
 
-                      <div style={{width: "47%", marginTop: "1%"}}>
-                          <div>Resource Categorization (Select all that apply)</div>
-                          <div style={{display: "flex", height:"20%", fontSize: "105%"}}>
-                                {(this.state.resourceCategorization.includes("Tutorials")) ? (<div onClick={() => this.handleResCatChange('Tutorials')} style={{backgroundColor: "grey", textAlign: "center", color: "black", width: "47%"}}>Tutorials</div>) : (<div onClick={() => this.handleResCatChange('Tutorials')} style={{backgroundColor: "white", textAlign: "center", color: "black", width: "47%"}}>Tutorials</div>)}
-                                {(this.state.resourceCategorization.includes("Research")) ? (<div onClick={() => this.handleResCatChange('Research')} style={{backgroundColor: "grey",  marginLeft: "6%", textAlign: "center", color: "black", width: "47%"}}>Research</div>) : (<div onClick={() => this.handleResCatChange('Research')} style={{backgroundColor: "white",  marginLeft: "6%", textAlign: "center", color: "black", width: "47%"}}>Research</div>)}
 
-                          </div>
-                          <div style={{display: "flex", marginTop: "1%", height:"20%", fontSize: "105%"}}>
-                              {(this.state.resourceCategorization.includes("Patent")) ? (<div onClick={() => this.handleResCatChange('Patent')} style={{backgroundColor: "grey", textAlign: "center", color: "black", width: "47%"}}>Patent</div>) : (<div onClick={() => this.handleResCatChange('Patent')} style={{backgroundColor: "white", textAlign: "center", color: "black", width: "47%"}}>Patent</div>)}
-                              {(this.state.resourceCategorization.includes("Design Concept")) ? (<div onClick={() => this.handleResCatChange('Design Concept')} style={{backgroundColor: "grey", textAlign: "center", color: "black", marginLeft: "6%", width: "47%"}}>Design Concept</div>) : (<div onClick={() => this.handleResCatChange('Design Concept')} style={{backgroundColor: "white", textAlign: "center", color: "black", marginLeft: "6%", width: "47%"}}>Design Concept</div>)}
-                          </div>
-                          <div style={{display: "flex", marginTop: "1%", height:"20%", fontSize: "105%"}}>
-                              {(this.state.resourceCategorization.includes("Aesthetics")) ? (<div onClick={() => this.handleResCatChange('Aesthetics')} style={{backgroundColor: "grey", textAlign: "center", color: "black", width: "47%"}}>Aesthetic</div>) : (<div onClick={() => this.handleResCatChange('Aesthetics')} style={{backgroundColor: "white", textAlign: "center", color: "black", width: "47%"}}>Aesthetic</div>)}
-                          </div>
-                      </div>
-                      <div style={{width: "47%", marginLeft: "6%", marginTop: "1%"}}>
-                          <div>Source (Select all that apply)</div>
-                          <div style={{display: "flex", height: "20%", fontSize: "105%"}}>
-                              {(this.state.source === "Engineering") ? (<div onClick={() => this.handleSourceChange('Engineering')} style={{backgroundColor: "grey", textAlign: "center", color: "black", width: "47%"}}>Engineering</div>) : (<div onClick={() => this.handleSourceChange('Engineering')} style={{backgroundColor: "white", textAlign: "center", color: "black", width: "47%"}}>Engineering</div>)}
-                              {(this.state.source === "Fashion") ? (<div onClick={() => this.handleSourceChange('Fashion')} style={{backgroundColor: "grey", textAlign: "center", color: "black", marginLeft: "6%", width: "47%"}}>Fashion</div>) : (<div onClick={() => this.handleSourceChange('Fashion')} style={{backgroundColor: "white", textAlign: "center", color: "black", marginLeft: "6%", width: "47%"}}>Fashion</div>)}
-                          </div>
-                      </div>
-                  </div>
+                            <div style={{width: "100%", height: "15%", marginTop: "1%", marginLeft: "3%"}}>
+                                <div>Source (Select all that apply)</div>
+                                <div style={{display: "flex", height: "100%", fontSize: "105%"}}>
+                                    {(this.state.source === "Engineering") ? (<Button onClick={() => this.handleSourceChange('Engineering')} style={{backgroundColor: "grey", textAlign: "center", color: "black", width: "47%"}}>Engineering</Button>) : (<Button onClick={() => this.handleSourceChange('Engineering')} style={{backgroundColor: "white", textAlign: "center", color: "black", width: "47%"}}>Engineering</Button>)}
+                                    {(this.state.source === "Fashion") ? (<Button onClick={() => this.handleSourceChange('Fashion')} style={{backgroundColor: "grey", textAlign: "center", color: "black", marginLeft: "6%", width: "47%"}}>Fashion</Button>) : (<Button onClick={() => this.handleSourceChange('Fashion')} style={{backgroundColor: "white", textAlign: "center", color: "black", marginLeft: "6%", width: "47%"}}>Fashion</Button>)}
+                                </div>
+                            </div>
+
+                            <div style={{width: "100%", height: "65%", marginTop: "12%", marginLeft: "3%"}}>
+                                <div>Resource Categorization (Select all that apply)</div>
+                                <div style={{display: "flex",  height:"25%",fontSize: "105%"}}>
+                                      {(this.state.resourceCategorization.includes("Tutorials")) ? (<Button onClick={() => this.handleResCatChange('Tutorials')} style={{backgroundColor: "grey", textAlign: "center", color: "black", width: "47%"}}>Tutorials</Button>) : (<Button onClick={() => this.handleResCatChange('Tutorials')} style={{backgroundColor: "white", textAlign: "center", color: "black", width: "47%"}}>Tutorials</Button>)}
+                                      {(this.state.resourceCategorization.includes("Research")) ? (<Button onClick={() => this.handleResCatChange('Research')} style={{backgroundColor: "grey",  marginLeft: "6%", textAlign: "center", color: "black", width: "47%"}}>Research</Button>) : (<Button onClick={() => this.handleResCatChange('Research')} style={{backgroundColor: "white",  marginLeft: "6%", textAlign: "center", color: "black", width: "47%"}}>Research</Button>)}
+
+                                </div>
+                                <div style={{display: "flex", marginTop: "1%", height:"25%", fontSize: "105%"}}>
+                                    {(this.state.resourceCategorization.includes("Patent")) ? (<Button onClick={() => this.handleResCatChange('Patent')} style={{backgroundColor: "grey", textAlign: "center", color: "black", width: "47%"}}>Patent</Button>) : (<Button onClick={() => this.handleResCatChange('Patent')} style={{backgroundColor: "white", textAlign: "center", color: "black", width: "47%"}}>Patent</Button>)}
+                                    {(this.state.resourceCategorization.includes("Design Concept")) ? (<Button onClick={() => this.handleResCatChange('Design Concept')} style={{backgroundColor: "grey", textAlign: "center", color: "black", marginLeft: "6%", width: "47%"}}>Design Concept</Button>) : (<Button onClick={() => this.handleResCatChange('Design Concept')} style={{backgroundColor: "white", textAlign: "center", color: "black", marginLeft: "6%", width: "47%"}}>Design Concept</Button>)}
+                                </div>
+                                <div style={{display: "flex", marginTop: "1%", height:"25%", fontSize: "105%"}}>
+                                    {(this.state.resourceCategorization.includes("Aesthetics")) ? (<Button onClick={() => this.handleResCatChange('Aesthetics')} style={{backgroundColor: "grey", textAlign: "center", color: "black", width: "47%"}}>Aesthetic</Button>) : (<Button onClick={() => this.handleResCatChange('Aesthetics')} style={{backgroundColor: "white", textAlign: "center", color: "black", width: "47%"}}>Aesthetic</Button>)}
+                                </div>
+                            </div>
+
+                    </div>
+
+                </div>
+
+                <img src={"ImageDatabase/Icons/Home.png"}
+                 alt="" style={{width: '25%', objectFit: "cover", marginLeft: "40%"}}/>
+
+
 
                   {/*<div style={{display: "flex", borderTop: "solid", marginTop: "0.75%"}}>
 
