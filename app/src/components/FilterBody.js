@@ -21,6 +21,10 @@ const Range = Slider.Range;
 
 class FilterBody extends Component {
 
+  /*
+    Make the UI changes using reactstrap
+  */
+
     constructor(props) {
           super(props);
 
