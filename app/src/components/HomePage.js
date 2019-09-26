@@ -346,10 +346,14 @@ class HomePage extends Component {
              <div style={{marginLeft: "38%"}}>
                <GoogleLogin
                 clientId="1030014197436-1oftnoda9j1qk7qgv0cpjbc625q1qr2k.apps.googleusercontent.com"
+                render={renderProps => (
+                    <Button color="secondary" onClick={renderProps.onClick}>Google Login</Button>
+                  )}
                 buttonText="Google Login"
                 onSuccess={this.responseGoogle}
                 onFailure={this.responseGoogleError}
                 cookiePolicy={'single_host_origin'}
+
               />
             </div>
 

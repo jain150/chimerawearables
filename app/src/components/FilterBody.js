@@ -34,6 +34,8 @@ class FilterBody extends Component {
             showLabels: true,
 
             sourceInit: 0,
+
+            metricsModal: 0,
           };
     }
 
@@ -44,6 +46,12 @@ class FilterBody extends Component {
 
       this.props.filterToggle();
 
+    }
+
+    toggleMetrics = () => {
+      this.setState(prevState => ({
+        metricsModal: !prevState.metricsModal
+      }));
     }
 
     toggle() {
@@ -196,7 +204,7 @@ class FilterBody extends Component {
       }
 
         const closeBtn = <Button onClick={this.toggleStats} color="secondary">{"Close (X)"}</Button>
-
+        const closeBtnMetrics = <Button onClick={this.toggleMetrics} color="secondary">{"Close (X)"}</Button>
       return (
           <div>
               <div style={{ marginTop: "1%", fontSize: "120%"}}>Time Frame</div>
@@ -281,6 +289,43 @@ class FilterBody extends Component {
 
                       </Modal>
            </div>
+
+           <div style={{marginTop: "5%", marginLeft: "20%"}}>
+
+
+                   <Button className="btnSelectorEnd" style={{width: "75%"}} onClick={this.toggleMetrics}>Metrics Description</Button>
+
+                   <Modal style={{maxWidth: '100%', margin: "0%", maxHeight: '100%', width: '100%', height: '100%'}} isOpen={this.state.metricsModal}>
+                     <ModalHeader close={closeBtnMetrics} style={{backgroundColor: "black", color: "white"}}>Metrics Description</ModalHeader>
+
+                     <ModalBody style={{backgroundColor: "black", overflowY: "scroll"}}>
+
+                        <div>
+
+
+                              <div style={{marginTop: "2.5%"}}>
+                                <div style={{marginLeft: "20%", color: "white"}}><h5>Cost Metric</h5></div>
+                                <img src={"ImageDatabase/Icons/Metrics2.jpg"}
+                                 alt="" style={{width: '60%', height: "60%", marginLeft: "20%", objectFit: "cover"}}/>
+                               </div>
+
+                               <div style={{marginTop: "-20%"}}>
+                                     <div style={{marginLeft: "20%", marginTop: "5%", color: "white"}}><h4>Wearability Metric</h4></div>
+                                     <img src={"ImageDatabase/Icons/Metrics1.jpg"}
+                                      alt="" style={{width: '60%', height: "60%", marginLeft: "20%", marginTop: "2.5%", objectFit: "cover"}}/>
+
+                                       <img src={"ImageDatabase/Icons/Metrics3.jpg"}
+                                        alt="" style={{width: '60%', height: "60%", marginLeft: "20%", marginTop: "-10%", objectFit: "cover"}}/>
+
+                                        <img src={"ImageDatabase/Icons/Metrics4.jpg"}
+                                         alt="" style={{width: '60%', height: "60%", marginLeft: "20%", marginTop: "0%", objectFit: "cover"}}/>
+                              </div>
+                        </div>
+
+                     </ModalBody>
+
+                   </Modal>
+        </div>
 
            <div>
                <img className="homeButton" src={"ImageDatabase/Icons/Home.png"}
