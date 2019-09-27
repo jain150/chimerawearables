@@ -308,21 +308,55 @@ class FilterBody extends Component {
 
 
                               <div style={{marginTop: "2.5%"}}>
-                                <div style={{marginLeft: "20%", color: "white"}}><h5>Cost Metric</h5></div>
+                                <div style={{ textAlign: "center", color: "white", padding: "1%"}}>
+                                    <h5 style={{}}>Cost Metric</h5>
+                                    <p>To generate the cost rating system of the CHIMERA resources, we made classify the categories Fabrication and Material according to the cost of each one using USA costs as references. This analysis generates a 3 level ranking expressed by symbols on the interface ($ - $$ - $$$). This provides the user a matric that allow to compare between resources in terms of cost of implementation.</p>
+
+                                    <p>
+
+                                    The elements of each main category were classified from low to high cost, and then grouped in three common groups of price level. We applied a scale of 1-3-9 being 1 the lowest cost representation and 9 the highest. Then we grade each of the resources on the database according to what elements in Fabrication and materials uses. Then these values are combined when the user makes the correlations on the interface. This correlation generates another three level ranking of the cost that results in the selection of the corresponding symbol of $, $$, or $$$ presented on the low right corner of each work included in CHIMERA’s results page. In case a project presents multiple fabrication steps or multiple materials, the system selects the one with the highest value in the list and proceeds to generate the comparisons.
+                                    </p>
+
+                                    <div>
+                                          COST LEVEL: Highest Fabrication Value + Highest Material value
+                                    </div>
+
+
+                                    </div>
+
                                 <img src={"ImageDatabase/Icons/Metrics2.jpg"}
                                  alt="" style={{width: '60%', height: "60%", marginLeft: "20%", objectFit: "cover"}}/>
                                </div>
 
-                               <div style={{marginTop: "-20%"}}>
-                                     <div style={{marginLeft: "20%", marginTop: "5%", color: "white"}}><h4>Wearability Metric</h4></div>
+                               <div style={{marginTop: "-25%", color: "white", textAlign: "center"}}>
+                                     <div style={{marginTop: "5%", color: "white"}}><h4>Wearability Metric</h4></div>
+
+                                     <div>
+                                       <p>The metrics used to evaluate the physical wearability of the current work in wearable devices was developed by a combination of criteria. Six principles categories for grading were evaluated for each one of the works included in the interface, which represent basic components and principles of what conforms a wearable device. This principle answer questions of How does the wearable attaches to the body? What is the maintenance level required? What is the impact in body movement and in regular activities? What is the level of integration of the elements in the garment/device? In which contexts the wearable is useful? and What is the level of Aesthetics considered (Aesthetics vs Functionality)?
+                                       </p>
+
+                                     <p>By analyzing each work, we generate the evaluation ranking for wearability. This ranking will add all the points given in each one of the six categories and categorize in five defined groups described in Figure 1.</p>
+                                     </div>
+                                     <img src={"ImageDatabase/Icons/Metrics4.jpg"}
+                                      alt="" style={{width: '60%', height: "60%", marginTop: "2%", objectFit: "cover"}}/>
+
+                                      <div style={{marginTop: "-7.5%"}}>
+                                      <p>Each principle considered grading is shown in the tables below.
+                                       This grading system helps to differentiate between selections, generate groups, and avoid the tendency to grade most of the elements around a
+                                        mean point. This type of scale is used in design process to define priorities of the elements in a particular design.</p>
+
+                                        <p>This ranking will help the user analyze the presented work before accessing the information. The Higher in the scale the more optimal to wear it is. Depending on the users’ needs this information can help filter and identify desired requirements.</p>
+
+                                        <div>The following table shows an example on how the metric is calculated for each resource.</div>
+                                      </div>
                                      <img src={"ImageDatabase/Icons/Metrics1.jpg"}
-                                      alt="" style={{width: '60%', height: "60%", marginLeft: "20%", marginTop: "2.5%", objectFit: "cover"}}/>
+                                      alt="" style={{width: '60%', height: "60%",  marginTop: "2.5%", objectFit: "cover"}}/>
 
+                                      <div style={{marginTop: "-7.5%"}}>Points assigned for each category to calculate Wearability: </div>
                                        <img src={"ImageDatabase/Icons/Metrics3.jpg"}
-                                        alt="" style={{width: '60%', height: "60%", marginLeft: "20%", marginTop: "-10%", objectFit: "cover"}}/>
+                                        alt="" style={{width: '60%', height: "60%", marginTop: "0%", objectFit: "cover"}}/>
 
-                                        <img src={"ImageDatabase/Icons/Metrics4.jpg"}
-                                         alt="" style={{width: '60%', height: "60%", marginLeft: "20%", marginTop: "0%", objectFit: "cover"}}/>
+
                               </div>
                         </div>
 
