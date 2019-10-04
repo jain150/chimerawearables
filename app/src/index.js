@@ -15,6 +15,8 @@ import gapi from 'gapi-client';
 const rootReducer = reducer;
 const store = createStore(rootReducer);
 
+
+/*
 gapi.load('client:auth2', initClient);
 
 // Initialize the API client library
@@ -32,6 +34,8 @@ function initClient() {
     console.log(error);
   });
 }
+
+*/
 
 ReactDOM.render(<Provider store={store}><App /></Provider>, document.getElementById('root'));
 

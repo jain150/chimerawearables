@@ -303,6 +303,7 @@ handleSubmit = () => {
       values: arr
       };
 
+    /*
     gapi.client.sheets.spreadsheets.values.append({
      spreadsheetId: '1yYtQWLapVdWpoLk7lQ1_dyMn-Nc2IXOHNvHJNna62Kc',
      valueInputOption: 'USER_ENTERED',
@@ -314,6 +315,8 @@ handleSubmit = () => {
   }, (error) => {
     console.log(error);
   });
+  */
+
 
 
 

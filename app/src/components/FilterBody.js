@@ -308,7 +308,7 @@ class FilterBody extends Component {
 
 
                               <div style={{marginTop: "2.5%"}}>
-                                <div style={{ textAlign: "center", color: "white", padding: "1%"}}>
+                                <div style={{ textAlign: "center", color: "white", padding: "1% 20% 1% 20%"}}>
                                     <h5 style={{}}>Cost Metric</h5>
                                     <p>To generate the cost rating system of the CHIMERA resources, we made classify the categories Fabrication and Material according to the cost of each one using USA costs as references. This analysis generates a 3 level ranking expressed by symbols on the interface ($ - $$ - $$$). This provides the user a matric that allow to compare between resources in terms of cost of implementation.</p>
 
@@ -325,10 +325,10 @@ class FilterBody extends Component {
                                     </div>
 
                                 <img src={"ImageDatabase/Icons/Metrics2.jpg"}
-                                 alt="" style={{width: '60%', height: "60%", marginLeft: "20%", objectFit: "cover"}}/>
+                                 alt="" style={{width: '90%', height: "60%", marginLeft: "5%", objectFit: "cover"}}/>
                                </div>
 
-                               <div style={{marginTop: "-25%", color: "white", textAlign: "center"}}>
+                               <div style={{marginTop: "-25%", color: "white", textAlign: "center", padding: "1% 20% 1% 20%"}}>
                                      <div style={{marginTop: "5%", color: "white"}}><h4>Wearability Metric</h4></div>
 
                                      <div>
@@ -350,14 +350,24 @@ class FilterBody extends Component {
                                         <div>The following table shows an example on how the metric is calculated for each resource.</div>
                                       </div>
                                      <img src={"ImageDatabase/Icons/Metrics1.jpg"}
-                                      alt="" style={{width: '60%', height: "60%",  marginTop: "2.5%", objectFit: "cover"}}/>
+                                      alt="" style={{width: '80%', height: "60%",  marginTop: "2.5%", marginLeft: '5%', objectFit: "cover"}}/>
 
                                       <div style={{marginTop: "-7.5%"}}>Points assigned for each category to calculate Wearability: </div>
                                        <img src={"ImageDatabase/Icons/Metrics3.jpg"}
-                                        alt="" style={{width: '60%', height: "60%", marginTop: "0%", objectFit: "cover"}}/>
-
+                                        alt="" style={{width: '80%', height: "60%", marginTop: "0%", marginLeft: '5%', objectFit: "cover"}}/>
 
                               </div>
+
+                              <div style={{ textAlign: "center", color: "white", padding: "1% 20% 1% 20%"}}>
+                                  <h5 style={{}}>Implementation Metric</h5>
+                                  <p>This metric compares resources in terms of how complex and time-consuming their Fabrication and Functionality are. Each resource is allocated two main Fabrication methods, and three main Function methods. Both category elements were ranked from lower to
+                                   higher complexity and grouped using the 1-3-9 scale (similar to the Cost metric) [18]. Using this scale, the Fabrication values were added together and the result multiplied by the highest-ranked value in the Function category. The resulting Implementation
+                                    Complexity level is displayed using a traffic light metaphor with the colors green, yellow, and red, where green means a short or relatively straightforward predicted implementation, and red a high predicted implementation in terms of complexity and time.
+                                     There are a number of exceptions to this metric where the rating of the implementation time cannot be calculated due to the nature of the source. Examples include design patents (i.e. drawings of a design with no material, fabrication or function specification), design concepts that have not yet been implemented and behavioral research (i.e. studies on how people use or interact with wearables). These exceptions are displayed as white blocks with an X in the center.</p>
+
+                             </div>
+
+
                         </div>
 
                      </ModalBody>
