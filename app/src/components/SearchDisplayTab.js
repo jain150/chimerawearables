@@ -175,12 +175,7 @@ class SearchDisplayTab extends Component {
       else if(parseInt(input["impMetric"]) === 2)
         col = "yellow";
 
-      if(input["PIC ID"] === undefined || input["PIC ID"].length == 0)
-        return (
-          <div />
-        )
 
-      else {
       return (
 
         <div className="itemStyle">
@@ -241,7 +236,7 @@ class SearchDisplayTab extends Component {
         </div>
 
       )
-    }
+    
     });
 
 
