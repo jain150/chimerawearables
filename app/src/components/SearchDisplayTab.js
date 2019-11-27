@@ -183,7 +183,7 @@ class SearchDisplayTab extends Component {
           <div className="bgimg">
             <a  href={input["Reference Link"]} target="_blank">
 
-            <img id="image" src={"ImageDatabase/" + input["PIC ID"] + ".jpg"}  onerror={"this.onerror=null; this.src=" + "ImageDatabase/" + input["PIC ID"] + ".png"} alt="" style={{height: '20vh', width: '100%', objectFit: 'cover'}}/>
+            <img id="image" src={"ImageDatabase/" + input["PIC ID"] + ".jpg"}  onError={(e) => {e.target.error = null; e.target.src = "ImageDatabase/" + input["PIC ID"] + ".png"}} alt="" style={{height: '20vh', width: '100%', objectFit: 'cover'}}/>
             </a>
             <a  href={input["Reference Link"]} target="_blank">
             <div id="title" className="centered">{(input["Reference Name"].length < 40) ? (input["Reference Name"]) : (input["Reference Name"].substring(0, 40) + "...")}</div>
@@ -236,7 +236,7 @@ class SearchDisplayTab extends Component {
         </div>
 
       )
-    
+
     });
 
 
