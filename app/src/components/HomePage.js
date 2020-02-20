@@ -343,7 +343,7 @@ class HomePage extends Component {
          <div style={{color: "white", textAlign: "center", marginLeft: "5%", marginTop: "5%"}}>Welcome to Chimera, an interactive search engine for Wearables</div>
 
          <div style={{display: "flex", marginTop: "3%"}}>
-             <div style={{marginLeft: "38%"}}>
+             {/*<div style={{marginLeft: "38%"}}>
                <GoogleLogin
                 clientId="1030014197436-1oftnoda9j1qk7qgv0cpjbc625q1qr2k.apps.googleusercontent.com"
                 render={renderProps => (
@@ -355,9 +355,9 @@ class HomePage extends Component {
                 cookiePolicy={'single_host_origin'}
 
               />
-            </div>
+                </div>*/}
 
-             <Button onClick={this.props.toggle} style={{ marginLeft: "10%"}} color="secondary">Guest Mode</Button>
+             <Button onClick={this.props.toggle} style={{ marginLeft: "0 auto" }} color="secondary">Enter</Button>
          </div>
 
          <Modal size="lg" style={{backgroundColor: "black", maxWidth: '90vw',  maxHeight: '90vh', width: '90vw', height: '90vh'}} isOpen={this.state.modal} toggle={this.toggle}>
