@@ -64,13 +64,14 @@
   color: white;
   font-weight: 350;
   margin-top: 0.25%;
-  background-color: #c578d2;
+  background-color: #197cb4;
   text-align: center;
   width: 15%;
 }
 
 .backLabel:hover {
   cursor: pointer;
+  background-color: rgb(130, 183, 230);
 }
 
 .listSearch {
@@ -275,4 +276,8 @@
   border-width: medium;
   border-style: solid;
   flex: 0 0 auto;
+}
+
+.itemStyle:hover{
+  transform: scale(1.1);
 }

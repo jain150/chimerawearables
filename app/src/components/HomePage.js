@@ -340,7 +340,11 @@ class HomePage extends Component {
 
          <div className="containerHome">
 
-         <div style={{color: "white", textAlign: "center", marginLeft: "5%", marginTop: "5%"}}>Welcome to Chimera, an interactive search engine for Wearables</div>
+         <div style={{color: "white", textAlign: "center", margin: "5% 25%"}}>
+         Welcome to Chimera, an interactive database for wearables development & information awareness.
+         It includes Research - Tutorials - Patents - Concepts and Aesthetic approaches used by the wearables
+         community to inspire & boost the wearables development from different field perspectives.
+         </div>
 
          <div style={{display: "flex", marginTop: "3%"}}>
              {/*<div style={{marginLeft: "38%"}}>
@@ -357,7 +361,7 @@ class HomePage extends Component {
               />
                 </div>*/}
 
-             <Button onClick={this.props.toggle} style={{ marginLeft: "0 auto" }} color="secondary">Enter</Button>
+             <Button onClick={this.props.toggle} style={{ margin: "0 auto" }} color="secondary">Enter</Button>
          </div>
 
          <Modal size="lg" style={{backgroundColor: "black", maxWidth: '90vw',  maxHeight: '90vh', width: '90vw', height: '90vh'}} isOpen={this.state.modal} toggle={this.toggle}>

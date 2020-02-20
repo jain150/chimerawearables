@@ -34,9 +34,9 @@
      border-radius: 2px;
      text-align: center;
      height: 100%;
-
+     background-color: #197cb4;
      color: white;
-     background-color: black;
+     /*background-color: black;*/
      width: 25%;
      float: right;
      /*width: "180px", height: "25px"*/
@@ -55,7 +55,7 @@
 .rotate9 {
      transform: rotate(270deg);
      margin-top: 220%;
-
+  
      font-size: 100%;
 }
 
