@@ -106,7 +106,7 @@ class BodyZones extends Component {
         img = "ImageDatabase/HumanBody/Androgynous_chest.png";
 
       else if(this.state.zone === 'Back')
-        img = "ImageDatabase/HumanBody/Androgynous_arm.png";
+        img = "ImageDatabase/HumanBody/Androgynous_back.png";
 
       else if(this.state.zone === 'Pelvic Region')
         img = "ImageDatabase/HumanBody/Androgynous_pelvicregion.png";
