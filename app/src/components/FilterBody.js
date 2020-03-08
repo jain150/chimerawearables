@@ -235,8 +235,12 @@ class FilterBody extends Component {
 
               <div style={{ marginTop: "4%", fontSize: "120%"}}>Filter by:</div>
               <div style={{marginTop: "2%"}}>
+              {(this.props.source === 'Engineering') ? (<Button style={{width: "40%", transform: "translateX(20%)"}} className="btnSelector" onClick={() => this.onSourceClick("Engineering")}>Engineering</Button>)
+                  : (<Button style={{width: "40%", transform: "translateX(20%)"}} className="btnSelectorClicked" onClick={() => this.onSourceClick("Engineering")}>HCI</Button>)}
+                
                 {(this.props.source === 'Engineering') ? (<Button style={{width: "40%", transform: "translateX(20%)"}} className="btnSelector" onClick={() => this.onSourceClick("Engineering")}>Engineering</Button>)
-                  : (<Button style={{width: "40%", transform: "translateX(20%)"}} className="btnSelectorClicked" onClick={() => this.onSourceClick("Engineering")}>Engineering</Button>)}
+                  : (<Button style={{width: "40%", transform: "translateX(20%)"}} className="btnSelectorClicked" onClick={() => this.onSourceClick("Engineering")}>Technology</Button>)}
+               
                 {(this.props.source === 'Fashion') ? (<Button className="btnSelector" style={{float: "right", width: "40%", transform: "translateX(-20%)"}} onClick={() => this.onSourceClick("Fashion")}>Fashion</Button>)
                  : (<Button className="btnSelectorClicked" style={{float: "right", width: "40%", transform: "translateX(-20%)"}} onClick={() => this.onSourceClick("Fashion")}>Fashion</Button>)}
               </div>
