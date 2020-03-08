@@ -1,6 +1,7 @@
 .leftPanePopoverTabBody {
 
     width: 100%;
+    height:30px;
     padding-left: 10px;
     border-bottom-color: #ACACAC;
     border-bottom-style: solid;
