@@ -235,18 +235,20 @@ class FilterBody extends Component {
 
               <div style={{ marginTop: "4%", fontSize: "120%"}}>Filter by:</div>
               <div style={{marginTop: "2%"}}>
-              {(this.props.source === 'Engineering') ? (<Button style={{width: "40%", transform: "translateX(20%)"}} className="btnSelector" onClick={() => this.onSourceClick("Engineering")}>Engineering</Button>)
-                  : (<Button style={{width: "40%", transform: "translateX(20%)"}} className="btnSelectorClicked" onClick={() => this.onSourceClick("Engineering")}>HCI</Button>)}
-                
-                {(this.props.source === 'Engineering') ? (<Button style={{width: "40%", transform: "translateX(20%)"}} className="btnSelector" onClick={() => this.onSourceClick("Engineering")}>Engineering</Button>)
-                  : (<Button style={{width: "40%", transform: "translateX(20%)"}} className="btnSelectorClicked" onClick={() => this.onSourceClick("Engineering")}>Technology</Button>)}
-               
+              {(this.props.source === 'HCI') ? (<Button style={{width: "40%", transform: "translateX(20%)"}} className="btnSelector" onClick={() => this.onSourceClick("HCI")}>HCI</Button>)
+                  : (<Button style={{width: "40%", transform: "translateX(20%)"}} className="btnSelectorClicked" onClick={() => this.onSourceClick("HCI")}>HCI</Button>)}
+             
                 {(this.props.source === 'Fashion') ? (<Button className="btnSelector" style={{float: "right", width: "40%", transform: "translateX(-20%)"}} onClick={() => this.onSourceClick("Fashion")}>Fashion</Button>)
                  : (<Button className="btnSelectorClicked" style={{float: "right", width: "40%", transform: "translateX(-20%)"}} onClick={() => this.onSourceClick("Fashion")}>Fashion</Button>)}
               </div>
+              <div style={{marginTop: "2%"}}>
+             
+                {(this.props.source === 'Technology') ? (<Button style={{width: "40%", transform: "translateX(20%)"}} className="btnSelector" onClick={() => this.onSourceClick("Technology")}>Technology</Button>)
+                  : (<Button style={{width: "40%", transform: "translateX(20%)"}} className="btnSelectorClicked" onClick={() => this.onSourceClick("Engineering")}>Technology</Button>)}
+              </div>
               <div style={{textAlign: "center"}}>
-                  {(this.props.source === 'Engineering') ? (<div>Engineering</div>)
-                   : ((this.props.source === "Fashion") ? (<div>Fashion</div>) : (<div>Engineering + Fashion</div>))}
+                  {(this.props.source === 'HCI') ? (<div>HCI</div>) : (this.props.source === 'Technology') ? (<div>Technology</div>)
+                   : ((this.props.source === "Fashion") ? (<div>Fashion</div>) : (<div>HCI + Fashion + Technology</div>))}
               </div>
               <div style={{ marginTop: "3%", fontSize: "120%"}}>
                 % Contribution
