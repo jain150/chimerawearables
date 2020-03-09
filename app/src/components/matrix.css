@@ -3,6 +3,8 @@
     height: 100vh;
 }
 
-.noHover {
+.noHover{
   pointer-events: none;
+  stroke: red !important;
+  stroke-width: 0.0;
 }
