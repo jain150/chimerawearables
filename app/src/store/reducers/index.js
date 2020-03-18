@@ -26,7 +26,7 @@ const initialState = {
     functions: ['Storage', 'Breathability', 'Energy Harvesting', 'Feedback',
      'Display', 'Electronic Connections', 'Wireless Communication', 'Control', 'Movement',
       'Sensing', 'Protective', 'Magnetic', 'Cognitive', 'Modularity', 'Emissivity',
-    'Wearability', 'Morphology', 'Aesthetics', 'Gestures'],
+    'Wearability', 'Morphology', 'Aesthetics', 'Gestures', 'Studies', 'Interfaces', 'Skins', 'Interactions'],
     bodyZones: ['Head', 'Chest', 'Pelvic Region', 'Arms', 'Legs',
     'Wrist and Hand', 'Back', 'Full Body', 'Feet'],
     fabrication: ['Stiching/Sewing', 'Laser Cutting', 'Weaving', '3D Printing',
