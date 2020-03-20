@@ -250,10 +250,10 @@ class FilterBody extends Component {
                   {(this.props.source === 'HCI') ? (<div>HCI</div>) : (this.props.source === 'Technology') ? (<div>Technology</div>)
                    : ((this.props.source === "Fashion") ? (<div>Fashion</div>) : (<div>HCI + Fashion + Technology</div>))}
               </div>
-              <div style={{ marginTop: "3%", fontSize: "120%"}}>
+              {/*<div style={{ marginTop: "3%", fontSize: "120%"}}>
                 % Contribution
-              </div>
-              <div style={{marginTop: '3%'}}>
+      </div>*/}
+              {/*<div style={{marginTop: '3%'}}>
                 {(this.state.showLabels) ? (<><Label style={{transform: "translateY(4px)", backgroundColor: "#f98686"}} key="Orange" />{' '}<span>Engineering</span>{' '}
                 <Label style={{transform: "translateY(4px)"}} color="red" key="red" />{' '}<span>Fashion</span>{' '}</>) : (<div style={{height: "2vh"}}>Placeholder</div>)}
 
@@ -264,8 +264,8 @@ class FilterBody extends Component {
                     <Progress className="engStyle" bar value={engLength} />
                     <Progress bar color="danger" value={fashLength} />
                   </Progress>
-                  </div>
-              </div>
+    </div>
+    </div>*/}
 
               <div style={{marginTop: "8%", marginLeft: "20%"}}>
                 <Button className="btnSelectorEnd" style={{width: "75%"}} onClick={this.toggleDisplay}>{(this.props.listView) ? ("View Results in Original Form") : ("View Results in List Form")}</Button>{' '}
