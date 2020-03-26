@@ -303,7 +303,7 @@ class FilterBody extends Component {
            <div style={{marginTop: "5%", marginLeft: "20%"}}>
 
 
-                   <Button className="btnSelectorEnd" style={{width: "75%"}} onClick={this.toggleMetrics}>Metrics Description</Button>
+                  {/*} <Button className="btnSelectorEnd" style={{width: "75%"}} onClick={this.toggleMetrics}>Metrics Description</Button>*/}
 
                    <Modal style={{maxWidth: '100%', margin: "0%", maxHeight: '100%', width: '100%', height: '100%'}} isOpen={this.state.metricsModal}>
                      <ModalHeader close={closeBtnMetrics} style={{backgroundColor: "black", color: "white"}}>Metrics Description</ModalHeader>
