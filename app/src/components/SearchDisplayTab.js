@@ -192,7 +192,7 @@ class SearchDisplayTab extends Component {
             {(this.props.loggedIn) ? (<div id="title" className="ticker"><Input checked={check} onClick={() => this.updateBookmark(input["Reference Link"])} type="checkbox" />{' '}</div>) : (<div/>)}
 
 
-            <div className="cost"><div style={{backgroundColor: "#f7f7f7", borderRadius: "4px", opacity: "0.75", height: '30%', width: '80%'}}><div style={{ height: "100%", fontSize: "100%"}}>{costToken}</div></div>
+           {/* <div className="cost"><div style={{backgroundColor: "#f7f7f7", borderRadius: "4px", opacity: "0.75", height: '30%', width: '80%'}}><div style={{ height: "100%", fontSize: "100%"}}>{costToken}</div></div>
             <div class="tooltipCost">
                         COST LEVEl:
                         Relationship between materials and the
@@ -200,9 +200,9 @@ class SearchDisplayTab extends Component {
                         each work.
             </div>
 
-            </div>
+      </div>*/}
 
-            <div className="imp">
+           {/* <div className="imp">
                   <div style={{height: '30%', width: '75%', backgroundColor: col }}>
             </div>
             <div class="tooltipImp">
@@ -216,9 +216,9 @@ class SearchDisplayTab extends Component {
                   time respectively."
             </div>
 
-            </div>
+                  </div>*/}
 
-            <div className="wear">
+           {/* <div className="wear">
                              <img src={"ImageDatabase/Icons/" + wearToken + ".png"}
                               alt="" style={{width: '85%', objectFit: "cover", transform: "translate(-50%, 5%)", position: "absolute"}} />
                   <div class="tooltipWear">
@@ -229,7 +229,7 @@ class SearchDisplayTab extends Component {
                     Activity obstruction, System integration
                     Context application, Aesthetics consideration
                   </div>
-            </div>
+                </div>*/}
 
 
           </div>
