@@ -233,7 +233,7 @@ class FilterBody extends Component {
                       </DropdownMenu>
               </ButtonDropdown>
 
-              <div style={{ marginTop: "4%", fontSize: "120%"}}>Filter by:</div>
+              {/*<div style={{ marginTop: "4%", fontSize: "120%"}}>Filter by:</div>
               <div style={{marginTop: "2%"}}>
               {(this.props.source === 'HCI') ? (<Button style={{width: "40%", transform: "translateX(20%)"}} className="btnSelector" onClick={() => this.onSourceClick("HCI")}>HCI</Button>)
                   : (<Button style={{width: "40%", transform: "translateX(20%)"}} className="btnSelectorClicked" onClick={() => this.onSourceClick("HCI")}>HCI</Button>)}
@@ -249,7 +249,7 @@ class FilterBody extends Component {
               <div style={{textAlign: "center"}}>
                   {(this.props.source === 'HCI') ? (<div>HCI</div>) : (this.props.source === 'Technology') ? (<div>Technology</div>)
                    : ((this.props.source === "Fashion") ? (<div>Fashion</div>) : (<div>HCI + Fashion + Technology</div>))}
-              </div>
+      </div>*/}
               {/*<div style={{ marginTop: "3%", fontSize: "120%"}}>
                 % Contribution
       </div>*/}
