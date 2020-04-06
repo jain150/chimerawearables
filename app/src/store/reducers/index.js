@@ -29,7 +29,7 @@ const initialState = {
        'Morphology', 'Aesthetics', 'Gestures', 'Studies', 'Interfaces', 'Skins', 'Interactions'],
     bodyZones: ['Head', 'Chest', 'Pelvic Region', 'Arms', 'Legs',
     'Wrist and Hand', 'Back', 'Full Body', 'Feet'],
-    fabrication: ['StiTching/Sewing', 'Laser Cutting', '3D Printing',
+    fabrication: ['Stitching/Sewing', 'Laser Cutting', '3D Printing',
      'Layering', 'Printing', 'Sticking', 'Heat Transfer',
       'Soldering', 'Origami', 'Molding and Casting', 'Pleating and Folding',
       'Knit', 'Embroidery and Applique', 'Woven', 'Machining', 'Painting'],

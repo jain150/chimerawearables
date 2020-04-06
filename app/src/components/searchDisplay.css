@@ -155,11 +155,16 @@
   z-index: 2500 !important;
 }
 
+#author {
+  display: block;
+  margin-top: 100px;
+  color: white;
+  background-color:black;
+}
 #title {
   display: block;
   padding-top: 0px;
 }
-
 #title1 {
   display: block;
   padding-top: 0px;

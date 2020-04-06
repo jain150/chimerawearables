@@ -188,6 +188,9 @@ class SearchDisplayTab extends Component {
             <a  href={input["Reference Link"]} target="_blank">
             <div id="title" className="centered">{(input["Reference Name"].length < 40) ? (input["Reference Name"]) : (input["Reference Name"].substring(0, 40) + "...")}</div>
             </a>
+            <a  href={input["Reference Link"]} target="_blank">
+            <div id="author" className="centered">{(input["AUTHORS"].length < 40) ? (input["AUTHORS"]) : (input["AUTHORS"].substring(0, 40) + "...")}</div>
+            </a>
 
             {(this.props.loggedIn) ? (<div id="title" className="ticker"><Input checked={check} onClick={() => this.updateBookmark(input["Reference Link"])} type="checkbox" />{' '}</div>) : (<div/>)}
 
