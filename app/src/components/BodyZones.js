@@ -6,6 +6,7 @@ import * as actionTypes from '../store/actions';
 import ImageMapper from 'react-image-mapper';
 import ContributePage from './ContributePage';
 import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap';
+import Tabletop from 'tabletop';
 
 class BodyZones extends Component {
 
@@ -17,8 +18,20 @@ class BodyZones extends Component {
           zone: 'none',
           modal: false,
           modal2: false,
+          modal3: false,
+          authoritems: [],
+          nameitems: [],
         };
   }
+
+  componentDidMount() {
+
+    
+    
+
+
+
+}
 
   toggle = () => {
     this.setState(prevState => ({
@@ -31,7 +44,11 @@ class BodyZones extends Component {
       modal2: !prevState.modal2
     }));
   }
-
+  toggle3 = () => {
+    this.setState(prevState => ({
+      modal3: !prevState.modal3
+    }));
+  }
   componentWillMount = props => {
     this.clickTimeout = null
   }
@@ -93,9 +110,37 @@ class BodyZones extends Component {
 	}
 
     render() {
+      const finalitems = [];
+      const namefinalitems = [];
+      Tabletop.init({
+        key: '19SNEbgmJqzFkXajdTnCDN5S6-PHmqFIGoN_MCFeOMcc',
+        callback: googleData => {
+  
+          let temp = googleData["Sheet1"].elements;
+          let authors = [];
+          let names = [];
+         {/*} for(let i = 0; i < 2; i++) {
+            alert(temp[i]["AUTHORS"]);
+            
+           }*/}
+           for(let i = 0; i < temp.length; i++) {
 
+            authors.push(temp[i]["AUTHORS"])
+            names.push(temp[i]["Reference Name"])
+          }
+
+          this.setState({authoritems: authors, nameitems: names,})
+          
+        },
+        simpleSheet: false
+      })
       let img = "ImageDatabase/HumanBody/Androgynous.png";
-
+      for (const [index, value] of this.state.authoritems.entries()) {
+        finalitems.push(<li key={index}>{value}</li>)
+      }
+      for (const [index, value] of this.state.nameitems.entries()) {
+        namefinalitems.push(<li key={index}>{value}</li>)
+      }
       if(this.state.zone === 'Full Body')
         img = "ImageDatabase/HumanBody/Androgynous_fullbody.png";
 
@@ -149,11 +194,12 @@ class BodyZones extends Component {
 
         const closeBtn = <Button size="sm" onClick={this.toggle} color="secondary">{"Close (X)"}</Button>
         const closeBtn2 = <Button onClick={this.toggle2} color="secondary">{"Close (X)"}</Button>
+        const closeBtn3 = <Button onClick={this.toggle3} color="secondary">{"Close (X)"}</Button>
             return (
              <div className="container">
-                <div style={{height: "10%", display: "flex", color: "white"}}>
+                <div style={{height: "10%", display: "flex", color: "white", marginRight:"12%"}}>
 
-                    <div className="contribute" style={{marginTop: "7%", marginLeft: "20%", width: "35%", fontSize: "125%"}} onClick={this.toggle}>CONTRIBUTE</div>
+                    <div className="contribute" style={{marginTop: "7%", marginRight:"5%", width: "35%", fontSize: "125%"}} onClick={this.toggle}>CONTRIBUTE</div>
                     <Modal style={{maxWidth: '100%', margin: "0%", maxHeight: '100%', width: '100%', height: '100%'}} isOpen={this.state.modal} toggle={this.toggle}>
                       <ModalHeader close={closeBtn} style={{backgroundColor: "black", color: "white", height: "8%", padding: "0.5rem 0.5rem"}} toggle={this.toggle}>CONTRIBUTE</ModalHeader>
 
@@ -188,14 +234,36 @@ class BodyZones extends Component {
                           <div style={{width: "47%", marginLeft: "5%", color: "white"}}>
 
                           <h3>Project Contributors</h3>
+                          {finalitems}
+                          </div>
+                      </div>
+                      </ModalBody>
+                    </Modal>
+                    
+                    <div className="contact" style={{marginTop: "7%", marginLeft: "5%", width: "40%", fontSize: "125%"}} onClick={this.toggle3}>DATASET</div>
+                    <Modal style={{maxWidth: '100%', margin: "0%", maxHeight: '100%', width: '100%', height: '100%'}} isOpen={this.state.modal3} toggle={this.toggle3}>
+                      <ModalHeader close={closeBtn3} style={{backgroundColor: "black", color: "white", height: "10%"}} toggle={this.toggle3}>Dataset</ModalHeader>
 
+                      <ModalBody style={{backgroundColor: "black", overflowY: "auto", height: "90%", width: "100%"}}>
 
+                      <div style={{display: "flex"}}>
+                          <div style={{width: "47%", marginLeft: "1%", color: "white"}}>
+
+                            <h3>Names</h3>
+                            {namefinalitems}
+                          </div>
+
+                          <div style={{width: "47%", marginLeft: "5%", color: "white"}}>
+
+                          <h3>Authors</h3>
+                          {finalitems}
                           </div>
                       </div>
                       </ModalBody>
                     </Modal>
 
                 </div>
+                
                  <div style={{transform: "translate(0%, 8%)"}}>
                        <ImageMapper strokeColor="transparent" src={img} map={myMap} width={265 * w} height={400 * h}
                         	onClick={area => this.handleClicks(area)}
