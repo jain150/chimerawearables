@@ -132,7 +132,7 @@ class BodyZones extends Component {
       let img = "ImageDatabase/HumanBody/Androgynous.png";
       
       for (const [index, value] of this.state.nameitems.entries()) {
-        namefinalitems.push(<li key={index}>{value}</li>)
+        namefinalitems.push(<li style={{padding: "5px 5px", border: "1px grey solid"}} key={index}>{value}</li>)
       }
       if(this.state.zone === 'Full Body')
         img = "ImageDatabase/HumanBody/Androgynous_fullbody.png";
