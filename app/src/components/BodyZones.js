@@ -19,7 +19,6 @@ class BodyZones extends Component {
           modal: false,
           modal2: false,
           modal3: false,
-          authoritems: [],
           nameitems: [],
         };
   }
@@ -110,34 +109,28 @@ class BodyZones extends Component {
 	}
 
     render() {
-      const finalitems = [];
       const namefinalitems = [];
       Tabletop.init({
         key: '19SNEbgmJqzFkXajdTnCDN5S6-PHmqFIGoN_MCFeOMcc',
         callback: googleData => {
   
           let temp = googleData["Sheet1"].elements;
-          let authors = [];
           let names = [];
          {/*} for(let i = 0; i < 2; i++) {
             alert(temp[i]["AUTHORS"]);
             
            }*/}
            for(let i = 0; i < temp.length; i++) {
-
-            authors.push(temp[i]["AUTHORS"])
-            names.push(temp[i]["Reference Name"])
+            names.push(temp[i]["Reference Name"] + " - " + temp[i]["AUTHORS"])
           }
 
-          this.setState({authoritems: authors, nameitems: names,})
+          this.setState({nameitems: names,})
           
         },
         simpleSheet: false
       })
       let img = "ImageDatabase/HumanBody/Androgynous.png";
-      for (const [index, value] of this.state.authoritems.entries()) {
-        finalitems.push(<li key={index}>{value}</li>)
-      }
+      
       for (const [index, value] of this.state.nameitems.entries()) {
         namefinalitems.push(<li key={index}>{value}</li>)
       }
@@ -234,7 +227,6 @@ class BodyZones extends Component {
                           <div style={{width: "47%", marginLeft: "5%", color: "white"}}>
 
                           <h3>Project Contributors</h3>
-                          {finalitems}
                           </div>
                       </div>
                       </ModalBody>
@@ -247,17 +239,13 @@ class BodyZones extends Component {
                       <ModalBody style={{backgroundColor: "black", overflowY: "auto", height: "90%", width: "100%"}}>
 
                       <div style={{display: "flex"}}>
-                          <div style={{width: "47%", marginLeft: "1%", color: "white"}}>
+                          <div style={{width: "100%", marginLeft: "1%", color: "white"}}>
 
-                            <h3>Names</h3>
-                            {namefinalitems}
+                            <h3>Names - Authors</h3>
+                            <ol>{namefinalitems} </ol> 
                           </div>
 
-                          <div style={{width: "47%", marginLeft: "5%", color: "white"}}>
-
-                          <h3>Authors</h3>
-                          {finalitems}
-                          </div>
+                         
                       </div>
                       </ModalBody>
                     </Modal>
