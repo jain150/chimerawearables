@@ -374,7 +374,7 @@ class HomePage extends Component {
           <Button style={{ margin: "0 auto"}} color = "secondary" onClick={() => this.simpleDialog.show()}>Watch Tutorial</Button>
         <SkyLight hideOnOverlayClicked ref={ref => this.simpleDialog = ref} title="Welcome to Chimera Wearables!">
           
-        <video src={tutorial} width="100%" height="100%" controls="controls" autoplay="false" />
+        <video src={tutorial} width="100%" height="100%" controls = "controls" />
 
         </SkyLight>
          </div>
