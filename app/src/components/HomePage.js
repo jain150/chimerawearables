@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import SkyLight from 'react-skylight';
 import { connect } from 'react-redux';
 import './HomePage.css'
 import * as actionTypes from '../store/actions';
@@ -6,6 +7,7 @@ import {Alert} from 'reactstrap';
 import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap';
 import { Form, FormGroup, Label, Input, FormText } from 'reactstrap';
 import GoogleLogin from 'react-google-login';
+import tutorial from '../ImageDatabase/tutorial.mp4';
 
 class HomePage extends Component {
 
@@ -317,11 +319,12 @@ class HomePage extends Component {
            }
        })
     }
+    
 
     render() {
 
       const closeBtn = <Button onClick={this.toggle} color="secondary">{"Close (X)"}</Button>
-
+      
       /*
         Make sign up warning and login warning in store and if success, call searchDisplay or toggleSearchDisplay.
         Whateva
@@ -362,8 +365,19 @@ class HomePage extends Component {
                 </div>*/}
 
              <Button onClick={this.props.toggle} style={{ margin: "0 auto" }} color="secondary">Enter</Button>
+             
          </div>
+         <div style={{display: "flex", marginTop: "1%"}}>
+             
 
+             
+          <Button style={{ margin: "0 auto"}} color = "secondary" onClick={() => this.simpleDialog.show()}>Watch Tutorial</Button>
+        <SkyLight hideOnOverlayClicked ref={ref => this.simpleDialog = ref} title="Welcome to Chimera Wearables!">
+          
+        <video src={tutorial} width="100%" height="100%" controls="controls" autoplay="false" />
+
+        </SkyLight>
+         </div>
          <Modal size="lg" style={{backgroundColor: "black", maxWidth: '90vw',  maxHeight: '90vh', width: '90vw', height: '90vh'}} isOpen={this.state.modal} toggle={this.toggle}>
 
            <ModalBody style={{backgroundColor: "black", color: "white"}}>
