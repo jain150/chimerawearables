@@ -235,14 +235,13 @@ class BodyZones extends Component {
                     
                     <div className="contact" style={{marginTop: "7%", marginLeft: "5%", width: "40%", fontSize: "125%"}} onClick={this.toggle3}>DATASET</div>
                     <Modal style={{maxWidth: '100%', margin: "0%", maxHeight: '100%', width: '100%', height: '100%'}} isOpen={this.state.modal3} toggle={this.toggle3}>
-                      <ModalHeader close={closeBtn3} style={{backgroundColor: "black", color: "white", height: "10%"}} toggle={this.toggle3}>Dataset</ModalHeader>
+                      <ModalHeader close={closeBtn3} style={{backgroundColor: "black", color: "white", height: "12%"}} toggle={this.toggle3}>
+                      <h2>CHIMERA</h2>Dataset</ModalHeader>
 
                       <ModalBody style={{backgroundColor: "black", overflowY: "auto", height: "90%", width: "100%"}}>
 
                       <div style={{display: "flex"}}>
                           <div style={{width: "100%", marginLeft: "1%", color: "white"}}>
-
-                            <h3>Names - Authors</h3>
                             <ol>{namefinalitems} </ol> 
                           </div>
 
