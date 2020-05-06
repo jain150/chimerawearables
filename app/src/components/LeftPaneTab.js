@@ -75,15 +75,16 @@ class LeftPaneTab extends Component {
             //console.log(store.getState());
             return (
 
-             <div id={'Popover-'+this.props.name} className={myVal}>
+             <div id={'Popover-'+this.props.name} className="overallpop">
 
-                 <div className="rotate5 move">{this.props
+                 <div className={myVal}>{this.props
                  .name}
+                 <img id="image" src={"ImageDatabase/Icons/" + this.props.name + ".png"}
+                  alt="" className="imgStyle"/>
                  </div>
 
 
-                 <img id="image" src={"ImageDatabase/Icons/" + this.props.name + ".png"}
-                  alt="" className="imgStyle"/>
+                 
 
                          <UncontrolledPopover style={{ backgroundColor: "black"}} hideArrow={true} modifiers={{offset: '-5vw'}} trigger="legacy" target={'Popover-'
                          +

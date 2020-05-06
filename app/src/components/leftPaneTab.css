@@ -14,13 +14,12 @@
     font-size: 150%;
     background-color: rgb(172, 216, 206);
     border-color: rgb(110, 169, 155);
-    color: white;
+    color: black;
     border-style: solid;
     border-width: thin;
     opacity: 1;
     margin-top: 5px;
-    margin-left: 150%;
-    padding-left:20%; 
+    padding-left:20px; 
   box-shadow: 2px 3px #888888;
 }
 
@@ -29,15 +28,14 @@
     width: 280px;
   font-weight: 400;
   font-size: 150%;
-  color: white;
+  color: black;
   border-color: rgb(254, 172, 0);
   border-style: solid;
   border-width: thin;
   opacity: 1;
   background-color: rgb(254, 205, 102);
   margin-top: 5px;
-  margin-left: 150%;
-  padding-left:20%;
+  padding-left:20px;
   box-shadow: 2px 3px #888888;
 }
 
@@ -46,33 +44,32 @@
   background-color: rgb(133, 194, 219);
   border-color: rgb(0, 181, 254);
   height: 40px;
-    width: 280px;
+  width: 280px;
   font-weight: 400;
   font-size: 150%;
-  color: white;
+  color: black;
   border-style: solid;
   border-width: thin;
   opacity: 1;
   margin-top: 5px;
-  margin-left: 150%;
-  padding-left:20%;
+  padding-left:20px;
   box-shadow: 2px 3px #888888;
 }
 
 
 .funcColor:hover {
-  background-color: rgb(110, 169, 155);
-  cursor: pointer;
+  background-color: rgb(110, 169, 155) !important;
+  cursor: pointer !important;
 }
 
 .matColor:hover {
-  background-color: rgb(254, 172, 0);
-  cursor: pointer;
+  background-color: rgb(254, 172, 0) !important;
+  cursor: pointer !important;
 }
 
 .fabColor:hover {
-  background-color: rgb(0, 181, 254);
-  cursor: pointer;
+  background-color: rgb(0, 181, 254) !important;
+  cursor: pointer !important;
 }
 
 .rotate5:hover {
@@ -83,7 +80,5 @@
 .imgStyle {
 
   width: 40px;
-margin-left: 80%;
-margin-top:-55px;
   
 }

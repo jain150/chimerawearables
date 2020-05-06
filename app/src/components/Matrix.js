@@ -690,9 +690,9 @@ class Matrix extends Component {
                
                console.log()
              }
-             <div style={{height: "10%", display: "flex", color: "white", marginRight:"12%"}}>
+             <div style={{paddingLeft:"50%",height: "10%", display: "flex", color: "white", marginRight:"-2%"}}>
 
-<div className="contact" style={{marginTop: "3%", marginLeft: "38%", width: "40%", fontSize: "125%"}} onClick={this.toggle3}>DATASET</div>
+<div className="contact" style={{marginTop: "4%", fontSize: "125%"}} onClick={this.toggle3}>DATASET</div>
 <Modal style={{maxWidth: '100%', margin: "0%", maxHeight: '100%', width: '100%', height: '100%'}} isOpen={this.state.modal3} toggle={this.toggle3}>
   <ModalHeader close={closeBtn3} style={{backgroundColor: "black", color: "white", height: "12%"}} toggle={this.toggle3}>
   <h2>CHIMERA</h2>Dataset</ModalHeader>
@@ -708,7 +708,7 @@ class Matrix extends Component {
   </div>
   </ModalBody>
 </Modal>
-<div className="contribute" style={{marginTop: "3%", marginRight:"3%", width: "35%", fontSize: "125%"}} onClick={this.toggle}>CONTRIBUTE</div>
+<div className="contribute" style={{marginTop: "4%", marginLeft:"8%", fontSize: "125%"}} onClick={this.toggle}>CONTRIBUTE</div>
 <Modal style={{maxWidth: '100%', margin: "0%", maxHeight: '100%', width: '100%', height: '100%'}} isOpen={this.state.modal} toggle={this.toggle}>
   <ModalHeader close={closeBtn} style={{backgroundColor: "black", color: "white", height: "8%", padding: "0.5rem 0.5rem"}} toggle={this.toggle}>CONTRIBUTE</ModalHeader>
 
@@ -719,7 +719,7 @@ class Matrix extends Component {
   </ModalBody>
 </Modal>
 
-<div className="contact" style={{marginTop: "3%", marginLeft: "5%", width: "40%", fontSize: "125%"}} onClick={this.toggle2}>CONTACT US</div>
+<div className="contact" style={{marginTop: "4%", marginLeft: "8%", fontSize: "125%"}} onClick={this.toggle2}>CONTACT US</div>
 <Modal style={{maxWidth: '100%', margin: "0%", maxHeight: '100%', width: '100%', height: '100%'}} isOpen={this.state.modal2} toggle={this.toggle2}>
   <ModalHeader close={closeBtn2} style={{backgroundColor: "black", color: "white", height: "10%"}} toggle={this.toggle2}>Contact Us</ModalHeader>
 
@@ -751,7 +751,7 @@ class Matrix extends Component {
 
 </div>
              <div className="matrixSVG">
-                        <HexGrid width={775 * w_f} height={window.innerHeight * 0.98} viewBox={"-49 -56 100 100"}>
+                        <HexGrid width={760 * w_f} height={window.innerHeight * 0.87} viewBox={"-49 -56 100 100"}>
                         <Layout size={hexagonSize} flat={true} spacing={1.05} origin={{ x: 0, y: 0 }}>
                                   <linearGradient id="gall" x1="0%" y1="0%" x2="0%" y2="100%">
                                       <stop offset="0%" stop-color="#71BDAB" />
