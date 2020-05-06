@@ -3,6 +3,11 @@ import { connect } from 'react-redux';
 import './matrix.css'
 import './matrixSVG.css'
 import { GridGenerator, HexGrid, Layout, Path, Hexagon, Text, Pattern, Hex } from 'react-hexgrid';
+import { Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap';
+import { Form, FormGroup, Label, Input, FormText } from 'reactstrap';
+import ContributePage from './ContributePage';
+import './bodyZones.css'
+import Tabletop from 'tabletop';
 
 import { Card, Button, CardTitle, CardText } from 'reactstrap';
 
@@ -10,6 +15,18 @@ import * as actionTypes from '.././store/actions';
 
 class Matrix extends Component {
 
+  constructor(props) {
+
+    super(props);
+
+      this.state = {
+        zone: 'none',
+        modal: false,
+        modal2: false,
+        modal3: false,
+        nameitems: [],
+      };
+}
     onClick = (name_array, bool_param, query_param_array) => {
 
         if(bool_param) {
@@ -18,7 +35,22 @@ class Matrix extends Component {
           this.props.toggleDisplay();
         }
     };
-
+    toggle = () => {
+      this.setState(prevState => ({
+        modal: !prevState.modal
+      }));
+    }
+  
+    toggle2 = () => {
+      this.setState(prevState => ({
+        modal2: !prevState.modal2
+      }));
+    }
+    toggle3 = () => {
+      this.setState(prevState => ({
+        modal3: !prevState.modal3
+      }));
+    }
     /*
 
       For every hexagon:
@@ -39,9 +71,31 @@ class Matrix extends Component {
     */
 
     render() {
+      const namefinalitems = [];
+      Tabletop.init({
+        key: '19SNEbgmJqzFkXajdTnCDN5S6-PHmqFIGoN_MCFeOMcc',
+        callback: googleData => {
+  
+          let temp = googleData["Sheet1"].elements;
+          let names = [];
+         {/*} for(let i = 0; i < 2; i++) {
+            alert(temp[i]["AUTHORS"]);
+            
+           }*/}
+           for(let i = 0; i < temp.length; i++) {
+            names.push("<h4>&nbsp;&nbsp;&nbsp;&nbsp;"+temp[i]["Reference Name"] +"</h4>"+ "<h6>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"
+            + temp[i]["AUTHORS"] + "</h6>")
+          }
 
+          this.setState({nameitems: names,})
+          
+        },
+        simpleSheet: false
+      })
             let filterArr = this.props.searchData;
-
+            for (const [index, value] of this.state.nameitems.entries()) {
+              namefinalitems.push(<li style={{padding: "5px 5px"}} key={index}><span dangerouslySetInnerHTML={{__html:value}}></span></li>)
+            }
             if(this.props.filter) {
 
               filterArr = filterArr.filter(this.filterYear);
@@ -624,13 +678,78 @@ class Matrix extends Component {
 
 
             const hexagonSize = { x: 12.5, y:  12.5};
-
+            const closeBtn = <Button size="sm" onClick={this.toggle} color="secondary">{"Close (X)"}</Button>
+        const closeBtn2 = <Button onClick={this.toggle2} color="secondary">{"Close (X)"}</Button>
+        const closeBtn3 = <Button onClick={this.toggle3} color="secondary">{"Close (X)"}</Button>
+           
             return (
 
+            
              <div className="matrixBody">
              {
+               
                console.log()
              }
+             <div style={{height: "10%", display: "flex", color: "white", marginRight:"12%"}}>
+
+<div className="contact" style={{marginTop: "3%", marginLeft: "38%", width: "40%", fontSize: "125%"}} onClick={this.toggle3}>DATASET</div>
+<Modal style={{maxWidth: '100%', margin: "0%", maxHeight: '100%', width: '100%', height: '100%'}} isOpen={this.state.modal3} toggle={this.toggle3}>
+  <ModalHeader close={closeBtn3} style={{backgroundColor: "black", color: "white", height: "12%"}} toggle={this.toggle3}>
+  <h2>CHIMERA</h2>Dataset</ModalHeader>
+
+  <ModalBody style={{backgroundColor: "black", overflowY: "auto", height: "90%", width: "100%"}}>
+
+  <div style={{display: "flex"}}>
+      <div style={{width: "100%", marginLeft: "1%", color: "white"}}>
+        <ol>{namefinalitems} </ol> 
+      </div>
+
+     
+  </div>
+  </ModalBody>
+</Modal>
+<div className="contribute" style={{marginTop: "3%", marginRight:"3%", width: "35%", fontSize: "125%"}} onClick={this.toggle}>CONTRIBUTE</div>
+<Modal style={{maxWidth: '100%', margin: "0%", maxHeight: '100%', width: '100%', height: '100%'}} isOpen={this.state.modal} toggle={this.toggle}>
+  <ModalHeader close={closeBtn} style={{backgroundColor: "black", color: "white", height: "8%", padding: "0.5rem 0.5rem"}} toggle={this.toggle}>CONTRIBUTE</ModalHeader>
+
+  <ModalBody style={{backgroundColor: "black", overflowY: "auto", height: "90%", width: "100%"}}>
+
+        <ContributePage />
+
+  </ModalBody>
+</Modal>
+
+<div className="contact" style={{marginTop: "3%", marginLeft: "5%", width: "40%", fontSize: "125%"}} onClick={this.toggle2}>CONTACT US</div>
+<Modal style={{maxWidth: '100%', margin: "0%", maxHeight: '100%', width: '100%', height: '100%'}} isOpen={this.state.modal2} toggle={this.toggle2}>
+  <ModalHeader close={closeBtn2} style={{backgroundColor: "black", color: "white", height: "10%"}} toggle={this.toggle2}>Contact Us</ModalHeader>
+
+  <ModalBody style={{backgroundColor: "black", overflowY: "auto", height: "90%", width: "100%"}}>
+
+  <div style={{display: "flex"}}>
+      <div style={{width: "47%", marginLeft: "1%", color: "white"}}>
+
+        <h3>Contact Us</h3>
+        <div>Name</div>
+        <Input style={{ borderRadius: "0px",  padding: "0", height: "10%"}} type="text"/>
+        <div>Email Address</div>
+        <Input style={{ borderRadius: "0px",  padding: "0", height: "10%"}} type="text"/>
+        <div>Subject</div>
+        <Input style={{ borderRadius: "0px",  padding: "0", height: "10%"}} type="text"/>
+        <div>Message</div>
+        <Input style={{ borderRadius: "0px",  padding: "0", height: "50%"}} type="text"/>
+
+      </div>
+
+      <div style={{width: "47%", marginLeft: "5%", color: "white"}}>
+
+      <h3>Project Contributors</h3>
+      </div>
+  </div>
+  </ModalBody>
+</Modal>
+
+
+</div>
              <div className="matrixSVG">
                         <HexGrid width={775 * w_f} height={window.innerHeight * 0.98} viewBox={"-49 -56 100 100"}>
                         <Layout size={hexagonSize} flat={true} spacing={1.05} origin={{ x: 0, y: 0 }}>

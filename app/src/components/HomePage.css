@@ -9,3 +9,9 @@ modal-content  {
     border-color: white;
     border-style: solid;
 }
+
+.skylight-dialog{
+    width: 75% !important;
+    top: 40% !important;
+    left: 38% !important;
+}

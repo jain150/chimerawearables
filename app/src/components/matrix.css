@@ -1,6 +1,7 @@
 .matrixBody {
     width: 60%;
     height: 100vh;
+    padding-top: -5%;
 }
 
 .noHover{

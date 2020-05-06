@@ -127,15 +127,15 @@ class App extends Component {
       let fabricationChart =
       {"laser cutting":	3,"3d printing":	9,"layering": 1,"printing": 3,"painting": 3,
       "sticking": 1,"heat pressing": 9,"heat transfer": 9,"soldering":	3,"origami":	1,"molding and casting":	9,"pleating and folding": 3,
-       "knit": 9,"embroidery and applique":	9,
-       "patchwork and patterning": 3,"woven": 3,"non woven":	3,
+       "knitting": 9,"embroidery and applique":	9,
+       "patchwork and patterning": 3,"weaving": 3,"non woven":	3,
       "machining":	3,"cut and sew":	1, "joining": 1};
 
       let functionChart =
-        {'storage': 1, 'breathability': 3, 'energy harvesting': 9, 'feedback': 9,
-         'display': 3, 'electronic connections': 3, 'wireless communication': 9, 'control': 9, 'movement': 3,
+        {'storage': 1, 'breathability': 3, 'energy harvesting': 9, 'feeling/sensation/haptics': 9,
+         'display': 3, 'electronic connections': 3, 'wireless communication': 9, 'movement': 3,
           'sensing': 3, 'protective': 1, 'magnetic': 1, 'cognitive': 9, 'modularity': 3, 'emissivity': 3,
-        'wearability': 3, 'morphology': 3, 'aesthetics': 3, 'gestures': 3, 'studies': 3, 'interfaces':3, 'skins':3, 'interactions':3};
+        'wearability': 3, 'shape changing': 3, 'aesthetics': 3, 'gestures': 3, 'studies/reviews': 3, 'interfaces':3, 'skins':3, 'interactions/Control':3};
 
       let impMetric = [];
 
@@ -189,8 +189,8 @@ class App extends Component {
       let fabricationChart =
       {"laser cutting":	9,"3d printing":	9,"layering": 3,"printing": 3,"painting": 3,
       "sticking": 1,"heat pressing": 9,"heat transfer": 3,"soldering":	1,"origami":	1,"molding and casting":	9,"pleating and folding": 3,
-       "knit": 1,"embroidery and applique":	3,
-       "patchwork and patterning": 3,"woven": 9,"non woven":	9,
+       "knitting": 1,"embroidery and applique":	3,
+       "patchwork and patterning": 3,"weaving": 9,"non woven":	9,
        "machining":	9,"cut and wew":	1, "joining": 3};
 
 
@@ -209,8 +209,8 @@ class App extends Component {
           "electronics": 9,
           "textiles and composites": 1,
           "hide":	1,
-          "hardware": 1,
-          "organic materials": 9,
+          "clips/Velcro/pins/zippers": 1,
+          "Bio-materials/organic materials": 9,
           "inks & finishes": 0,
           "metal": 3,
           "shape memory alloy": 9
@@ -354,9 +354,10 @@ class App extends Component {
             width: window.innerWidth
           }}>
              <LeftPane />
-             <LeftPaneModal />
-             <Matrix />
+             
              <BodyZones />
+             <Matrix />
+             
             <FilterPane toggleBack={this.toggleBack} move={false} showLoop={true} showView={true} views={this.state.viewCount} mainPage={true}/>
           </div>) : (<div className="layoutBlack"><SearchDisplay backToSearch={this.props.updateSearchDisplay}/>
           <FilterPane toggleMainDisplay={this.props.updateSearchDisplay} move={true} toggleBack={this.toggleBack} showView={false} views={this.state.viewCount} showLoop={true} mainPage={false}/>

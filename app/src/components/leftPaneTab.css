@@ -3,46 +3,58 @@
 }
 
 .rotate5 {
-     transform: rotate(270deg);
-     margin-top: 220%;
+    
      color: black;
 }
 
 .funcColor {
-    height: 33.33%;
+    height: 40px;
+    width: 280px;
     font-weight: 400;
-    font-size: 200%;
+    font-size: 150%;
     background-color: rgb(172, 216, 206);
     border-color: rgb(110, 169, 155);
     color: white;
     border-style: solid;
     border-width: thin;
     opacity: 1;
+    margin-top: 5px;
+    margin-left: 150%;
+    padding-left:20%;
 }
 
 .matColor {
-  height: 33.33%;
+  height: 40px;
+    width: 280px;
   font-weight: 400;
-  font-size: 200%;
+  font-size: 150%;
   color: white;
   border-color: rgb(254, 172, 0);
   border-style: solid;
   border-width: thin;
   opacity: 1;
   background-color: rgb(254, 205, 102);
+  margin-top: 5px;
+  margin-left: 150%;
+  padding-left:20%;
 }
 
 .fabColor {
 
   background-color: rgb(133, 194, 219);
   border-color: rgb(0, 181, 254);
-  height: 33.33%;
+  height: 40px;
+    width: 280px;
   font-weight: 400;
-  font-size: 200%;
+  font-size: 150%;
   color: white;
   border-style: solid;
   border-width: thin;
   opacity: 1;
+  margin-top: 5px;
+  margin-left: 150%;
+  padding-left:20%;
+  
 }
 
 
@@ -68,8 +80,8 @@
 
 .imgStyle {
 
-  width: 100%;
-
-  object-fit: cover;
-  margin-top: 40%
+  width: 40px;
+margin-left: 80%;
+margin-top:-55px;
+  
 }
