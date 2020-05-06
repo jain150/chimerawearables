@@ -7,7 +7,7 @@ svg g {
   fill-opacity: 0.9;
 }
 svg g:hover {
-  fill: white;
+  fill: white !important;
   fill-opacity: 1.0;
   cursor: pointer;
 }
@@ -27,7 +27,8 @@ svg g polygon {
 }
 
 svg g polygon:hover {
-  fill: white;
+  fill: white !important;
+  stroke: grey !important;
 }
 
 svg g text:hover tspan{
@@ -49,5 +50,5 @@ svg path {
 }
 
 svg path:hover {
-  fill: white;
+  fill: white !important;
 }

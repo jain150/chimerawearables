@@ -238,8 +238,8 @@ class SearchDisplay extends Component {
              ) : (
                <div className="layoutSearch">
                      <div className="bottomBar">
-                       <div onClick={this.props.backToSearch} className="backLabel">
-                           <div style={{height: "50%",fontSize: "120%", padding: "1% 0"}}>{"<---- Go Back to Search"}</div>
+                       <div onClick={this.props.backToSearch}className="backLabel">
+                           <div style={{ height: "50%",fontSize: "100%", padding: "1% 0"}}>{"<- Go Back to Search"}</div>
                        </div>
                        <div className="corLabel">
                            <div style={{height: "50%", fontSize: "120%", padding: "1% 0"}}>{corLabel}</div>

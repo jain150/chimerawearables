@@ -63,14 +63,17 @@
 
   color: white;
   font-weight: 350;
-  margin-top: 0.25%;
   background-color: #197cb4;
   text-align: center;
   width: 15%;
+  height:75%;
+  box-shadow: 1px 2px #888888;
+  margin:.5%;
 }
 
 .backLabel:hover {
   cursor: pointer;
+  color:black;
   background-color: rgb(130, 183, 230);
 }
 
