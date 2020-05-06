@@ -106,7 +106,7 @@ class FilterPane extends Component {
 
           <div style={{height: "25%"}}>
                   <div style={{transform: val, height: "100%", zIndex: "999"}}>
-                      <div className="rotate6" style={{ border:"3px solid white", transform:  popVal}} id={'PopoverFilter'}>
+                      <div className="rotate6" style={{ border:"2px solid white", transform:  popVal}} id={'PopoverFilter'}>
 
                           <div className="rotate9">
                           <div style={{width: "450%", transform: "translateX(-57.5%)"}}>
