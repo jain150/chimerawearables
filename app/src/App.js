@@ -354,7 +354,6 @@ class App extends Component {
             width: window.innerWidth
           }}>
              <LeftPane />
-             
              <BodyZones />
              <Matrix />
              
