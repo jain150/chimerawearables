@@ -92,11 +92,11 @@ class FilterPane extends Component {
 
           <div style={{display: "flex"}}>
 
-              {/*<div className="searchBar">
+              {<div className="searchBar">
               <form onSubmit={this.handleSubmit} id="demo-2">
                 <input type="search" placeholder="Search" value={this.state.value} onChange={this.handleChange} />
               </form>
-      </div>*/}
+      </div>}
 
               <div>
                   <img onClick={this.toggleHome} className="homeButton" src={"ImageDatabase/Icons/MiniHome.png"}
