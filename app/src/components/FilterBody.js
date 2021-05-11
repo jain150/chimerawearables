@@ -36,9 +36,8 @@ class FilterBody extends Component {
             venue: 'All',
             modal: false,
             showLabels: true,
-
+            author: 'All',
             sourceInit: 0,
-
             metricsModal: 0,
           };
     }
@@ -86,6 +85,18 @@ class FilterBody extends Component {
       this.props.filterVenue(val[0]);
     }
 
+    onAuthorClick = (value) => {
+
+      let val = value.split(" (");
+
+      console.log(val[0]);
+      this.setState({
+        author: val[0],
+      });
+
+      // this.props.filterVenue(val[0]);
+    }
+
     onSourceClick = (value) => {
 
       let temp = value;
@@ -119,14 +130,29 @@ class FilterBody extends Component {
       let w = window.innerWidth / 1280;
       let h = window.innerHeight / 610;
 
-      let venueArr = this.props.searchData;
+      let searchData = this.props.searchData;
+      let venueArr = []
+      let authorArr = []
+
+      //TODO: Create author array from this.props.searchData
+      for(let i = 0; i < searchData.length; i++) {
+        venueArr.push(searchData[i]["Conference (VENUE)"])
+
+        let authors = searchData[i]["AUTHORS"]
+        let splitAuthors = authors.split(",")
+
+        for(let j = 0; j < splitAuthors.length; j++) {
+          authorArr.push(splitAuthors[j].trim())
+        }
+      }
 
       if(!this.props.mainPage) {
 
-        venueArr = this.props.curSearchData
+        searchData = this.props.curSearchData
       }
-      venueArr = venueArr.map((venue) => venue["Conference (VENUE)"]);
+      //venueArr = searchData.map((venue) => venue["Conference (VENUE)"]);
       venueArr.unshift('All')
+      authorArr.unshift('All')
 
       venueArr = venueArr.map((venue) => {
 
@@ -151,6 +177,31 @@ class FilterBody extends Component {
 
       });
 
+//Author filter
+      authorArr = authorArr.map((author) => {
+
+        if(this.props.mainPage) {
+              if(author === 'All')
+                  return author + " (" + this.props.searchData.length + ")";
+
+              let authorArticles = this.props.searchData.filter((item) => item["AUTHORS"].toLowerCase().includes(author.toLowerCase()));
+
+
+              return author + " (" + authorArticles.length + ")";
+          }
+          else {
+
+            if(author === 'All')
+              return author + " (" + this.props.curSearchData.length + ")";
+            let authorArticles = this.props.curSearchData.filter((item) => item["AUTHORS"].toLowerCase().includes(author.toLowerCase()));
+
+            return author + " (" + authorArticles.length + ")";
+          }
+          return author;
+
+      });
+
+console.log(authorArr)
 
       let myData = this.props.searchData;
 
@@ -176,6 +227,14 @@ class FilterBody extends Component {
       venueArr = venueArr.map((venue) => {
         return (
           <DropdownItem onClick={() => this.onVenueClick(venue)}>{venue}</DropdownItem>
+        )
+      });
+
+      authorArr = [...new Set(authorArr)];
+
+      authorArr = authorArr.map((author) => {
+        return (
+          <DropdownItem onClick={() => this.onAuthorClick(author)}>{author}</DropdownItem>
         )
       });
 
@@ -233,16 +292,29 @@ class FilterBody extends Component {
                       </DropdownMenu>
               </ButtonDropdown>
 
+              <div style={{ marginTop: "1%", fontSize: "120%"}}>Authors</div>
+              <ButtonDropdown style={{width:"100%", height: 20 * h + 'px'}} isOpen={this.state.dropdownOpen} toggle={this.toggle}>
+                      <DropdownToggle style={{backgroundColor: "white", color: "black"}} caret>
+                        <div style={{ transform: "translateY(-25%)"}}>{this.state.author}</div>
+                      </DropdownToggle>
+                      <DropdownMenu className="dropdownStyle" style={{width:"100%", overflowY:"scroll", height: window.innerHeight * 0.4}}>
+                        {authorArr}
+                      </DropdownMenu>
+              </ButtonDropdown>
+
+              //TODO: Make unique dropdown + toggle functions
+
+
               {/*<div style={{ marginTop: "4%", fontSize: "120%"}}>Filter by:</div>
               <div style={{marginTop: "2%"}}>
               {(this.props.source === 'HCI') ? (<Button style={{width: "40%", transform: "translateX(20%)"}} className="btnSelector" onClick={() => this.onSourceClick("HCI")}>HCI</Button>)
                   : (<Button style={{width: "40%", transform: "translateX(20%)"}} className="btnSelectorClicked" onClick={() => this.onSourceClick("HCI")}>HCI</Button>)}
-             
+
                 {(this.props.source === 'Fashion') ? (<Button className="btnSelector" style={{float: "right", width: "40%", transform: "translateX(-20%)"}} onClick={() => this.onSourceClick("Fashion")}>Fashion</Button>)
                  : (<Button className="btnSelectorClicked" style={{float: "right", width: "40%", transform: "translateX(-20%)"}} onClick={() => this.onSourceClick("Fashion")}>Fashion</Button>)}
               </div>
               <div style={{marginTop: "2%"}}>
-             
+
                 {(this.props.source === 'Technology') ? (<Button style={{width: "40%", transform: "translateX(20%)"}} className="btnSelector" onClick={() => this.onSourceClick("Technology")}>Technology</Button>)
                   : (<Button style={{width: "40%", transform: "translateX(20%)"}} className="btnSelectorClicked" onClick={() => this.onSourceClick("Engineering")}>Technology</Button>)}
               </div>
