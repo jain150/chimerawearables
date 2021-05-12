@@ -18,8 +18,9 @@ const initialState = {
 
     filter: true,
     minYear: 1990,
-    maxYear: 2019,
+    maxYear: 2021,
     venueFilter: 'All',
+    authorFilter: 'All',
     sourceFilter: 'Both',
 
     categories: ['Function', 'BodyZones', 'Fabrication', 'Material'],
@@ -167,6 +168,11 @@ const reducer = ( state = initialState, action ) => {
             return {
               ...state,
               venueFilter: action.val,
+            }
+          case actionTypes.FILTER_AUTHOR:
+            return {
+              ...state,
+              authorFilter: action.val,
             }
           case actionTypes.FILTER_SOURCE:
             return {

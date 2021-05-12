@@ -27,12 +27,11 @@ class FilterBody extends Component {
 
     constructor(props) {
           super(props);
-
-
-
-        this.toggle = this.toggle.bind(this);
+          this.toggleAuthor = this.toggleAuthor.bind(this);
+          this.toggleVenue = this.toggleVenue.bind(this);
           this.state = {
-            dropdownOpen: false,
+            dropdownVenueOpen: false,
+            dropdownAuthorOpen: false,
             venue: 'All',
             modal: false,
             showLabels: true,
@@ -57,13 +56,21 @@ class FilterBody extends Component {
       }));
     }
 
-    toggle() {
+    toggleVenue() {
 
       this.setState(prevState => ({
-        dropdownOpen: !prevState.dropdownOpen,
+        dropdownVenueOpen: !prevState.dropdownVenueOpen,
         showLabels: !prevState.showLabels
       }));
    }
+
+   toggleAuthor() {
+
+     this.setState(prevState => ({
+       dropdownAuthorOpen: !prevState.dropdownAuthorOpen,
+       showLabels: !prevState.showLabels
+     }));
+  }
 
      onChange = (value) => {
 
@@ -94,7 +101,7 @@ class FilterBody extends Component {
         author: val[0],
       });
 
-      // this.props.filterVenue(val[0]);
+      this.props.filterAuthor(val[0]);
     }
 
     onSourceClick = (value) => {
@@ -283,7 +290,7 @@ console.log(authorArr)
               <div>{this.props.minYear}<span style={{float: "right"}}>{this.props.maxYear}</span></div>
 
               <div style={{ marginTop: "1%", fontSize: "120%"}}>Publication Venue</div>
-              <ButtonDropdown style={{width:"100%", height: 20 * h + 'px'}} isOpen={this.state.dropdownOpen} toggle={this.toggle}>
+              <ButtonDropdown style={{width:"100%", height: 20 * h + 'px'}} isOpen={this.state.dropdownVenueOpen} toggle={this.toggleVenue}>
                       <DropdownToggle style={{backgroundColor: "white", color: "black"}} caret>
                         <div style={{ transform: "translateY(-25%)"}}>{this.state.venue}</div>
                       </DropdownToggle>
@@ -293,7 +300,7 @@ console.log(authorArr)
               </ButtonDropdown>
 
               <div style={{ marginTop: "1%", fontSize: "120%"}}>Authors</div>
-              <ButtonDropdown style={{width:"100%", height: 20 * h + 'px'}} isOpen={this.state.dropdownOpen} toggle={this.toggle}>
+              <ButtonDropdown style={{width:"100%", height: 20 * h + 'px'}} isOpen={this.state.dropdownAuthorOpen} toggle={this.toggleAuthor}>
                       <DropdownToggle style={{backgroundColor: "white", color: "black"}} caret>
                         <div style={{ transform: "translateY(-25%)"}}>{this.state.author}</div>
                       </DropdownToggle>
@@ -301,8 +308,6 @@ console.log(authorArr)
                         {authorArr}
                       </DropdownMenu>
               </ButtonDropdown>
-
-              //TODO: Make unique dropdown + toggle functions
 
 
               {/*<div style={{ marginTop: "4%", fontSize: "120%"}}>Filter by:</div>
@@ -481,6 +486,7 @@ const mapDispatchToProps = dispatch => {
         filterData: () => dispatch({type: actionTypes.FILTER_DATA}),
         filterYear: (minYear, maxYear) => dispatch({type: actionTypes.FILTER_YEAR, minYear: minYear, maxYear: maxYear}),
         filterVenue: (venue) => dispatch({type: actionTypes.FILTER_VENUE, val: venue}),
+        filterAuthor: (author) => dispatch({type: actionTypes.FILTER_AUTHOR, val: author}),
         filterSource: (source) => dispatch({type: actionTypes.FILTER_SOURCE, val: source}),
         toggleDisplay: () => dispatch({type: actionTypes.TOGGLE_DISPLAY}),
         toggleBookmarks: () =>  dispatch({type: actionTypes.VIEW_BOOKMARKS}),

@@ -70,6 +70,11 @@ class SearchDisplay extends Component {
       return (this.props.venue === 'All' || item["Conference (VENUE)"].toLowerCase() === this.props.venue.toLowerCase())
     }
 
+    filterAuthor = (item) => {
+
+      return (this.props.author === 'All' || item["AUTHORS"].toLowerCase().includes(this.props.venue.toLowerCase()))
+    }
+
     filterSource = (item) => {
 
             if(item["Source"] === "" || item["Source"] === "Both")
@@ -104,6 +109,7 @@ class SearchDisplay extends Component {
 
                             filterArr = filterArr.filter(this.filterYear);
                             filterArr = filterArr.filter(this.filterVenue);
+                            filterArr = filterArr.filter(this.filterAuthor);
                             filterArr = filterArr.filter(this.filterSource);
                           }
                             console.log(filterArr);
