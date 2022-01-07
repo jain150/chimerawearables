@@ -8,6 +8,8 @@ import ContributePage from './ContributePage';
 import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap';
 import Tabletop from 'tabletop';
 
+const SHEET_ID = '19SNEbgmJqzFkXajdTnCDN5S6-PHmqFIGoN_MCFeOMcc';
+const ACCESS_TOKEN = 'AIzaSyBhtelk0uYpfhyFPHF6VRx9_V7AgFHTsNk';
 class BodyZones extends Component {
 
   constructor(props) {
@@ -110,29 +112,17 @@ class BodyZones extends Component {
 
     render() {
       const namefinalitems = [];
-      Tabletop.init({
-        key: '19SNEbgmJqzFkXajdTnCDN5S6-PHmqFIGoN_MCFeOMcc',
-        callback: googleData => {
-  
-          let temp = googleData["Sheet1"].elements;
-          let names = [];
-         {/*} for(let i = 0; i < 2; i++) {
-            alert(temp[i]["AUTHORS"]);
-            
-           }*/}
-           for(let i = 0; i < temp.length; i++) {
-            names.push("<h4>&nbsp;&nbsp;&nbsp;&nbsp;"+temp[i]["Reference Name"] +"</h4>"+ "<h6>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"
-            + temp[i]["AUTHORS"] + "</h6>")
-          }
 
-          this.setState({nameitems: names,})
-          
-        },
-        simpleSheet: false
-      })
+      let sheet1Data = this.props.searchData
+      let names = [];
+      for(let i = 0; i < sheet1Data.length; i++) {
+        names.push("<h4>&nbsp;&nbsp;&nbsp;&nbsp;"+sheet1Data[i]["Reference Name"] +"</h4>"+ "<h6>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"
+        + sheet1Data[i]["AUTHORS"] + "</h6>")
+      }
+
       let img = "ImageDatabase/HumanBody/Androgynous.png";
       
-      for (const [index, value] of this.state.nameitems.entries()) {
+      for (const [index, value] of names.entries()) {
         namefinalitems.push(<li style={{padding: "5px 5px"}} key={index}><span dangerouslySetInnerHTML={{__html:value}}></span></li>)
       }
       if(this.state.zone === 'Full Body')
@@ -207,10 +197,16 @@ class BodyZones extends Component {
     }
 }
 
+const mapStateToProps = state => {
+  return {
+      searchData: state.searchData,
+  }
+};
+
 const mapDispatchToProps = dispatch => {
     return {
         onSelectBodyZones: (value) => dispatch({type: actionTypes.SELECT_BODYZONES, val: value}),
     }
 };
 
-export default connect(null, mapDispatchToProps)(BodyZones);
+export default connect(mapStateToProps, mapDispatchToProps)(BodyZones);

@@ -71,8 +71,12 @@ class SearchDisplay extends Component {
     }
 
     filterAuthor = (item) => {
+      let authors = ""
+      if("AUTHORS" in item) {
+        authors = item["AUTHORS"]
+      }
 
-      return (this.props.author === 'All' || item["AUTHORS"].toLowerCase().includes(this.props.venue.toLowerCase()))
+      return (this.props.author === 'All' || authors.toLowerCase().includes(this.props.venue.toLowerCase()))
     }
 
     filterSource = (item) => {

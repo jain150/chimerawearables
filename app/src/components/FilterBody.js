@@ -145,7 +145,10 @@ class FilterBody extends Component {
       for(let i = 0; i < searchData.length; i++) {
         venueArr.push(searchData[i]["Conference (VENUE)"])
 
-        let authors = searchData[i]["AUTHORS"]
+        let authors = ""
+        if("AUTHORS" in searchData[i]) {
+          authors = searchData[i]["AUTHORS"]
+        }
         let splitAuthors = authors.split(",")
 
         for(let j = 0; j < splitAuthors.length; j++) {
@@ -191,7 +194,13 @@ class FilterBody extends Component {
               if(author === 'All')
                   return author + " (" + this.props.searchData.length + ")";
 
-              let authorArticles = this.props.searchData.filter((item) => item["AUTHORS"].toLowerCase().includes(author.toLowerCase()));
+              let authorArticles = this.props.searchData.filter((item) => {
+                let authors = ""
+                if("AUTHORS" in item) {
+                  authors = item["AUTHORS"]
+                }
+                authors.toLowerCase().includes(author.toLowerCase())
+              });
 
 
               return author + " (" + authorArticles.length + ")";
@@ -200,15 +209,17 @@ class FilterBody extends Component {
 
             if(author === 'All')
               return author + " (" + this.props.curSearchData.length + ")";
-            let authorArticles = this.props.curSearchData.filter((item) => item["AUTHORS"].toLowerCase().includes(author.toLowerCase()));
+            let authorArticles = this.props.curSearchData.filter((item) => {
+              let authors = ""
+              if("AUTHORS" in item) {
+                authors = item["AUTHORS"]
+              }
+              authors.toLowerCase().includes(author.toLowerCase())
+            });
 
             return author + " (" + authorArticles.length + ")";
           }
-          return author;
-
       });
-
-console.log(authorArr)
 
       let myData = this.props.searchData;
 

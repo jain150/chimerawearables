@@ -10,11 +10,12 @@ import SearchDisplay from './components/SearchDisplay';
 import FilterPane from './components/FilterPane';
 import BodyZones from './components/BodyZones';
 import HomePage from './components/HomePage'
-import { Button, Fade } from 'reactstrap';
-import Tabletop from 'tabletop';
 import { BrowserRouter, Route } from 'react-router-dom';
 
 import * as actionTypes from './store/actions';
+
+const SHEET_ID = '19SNEbgmJqzFkXajdTnCDN5S6-PHmqFIGoN_MCFeOMcc';
+const ACCESS_TOKEN = 'AIzaSyBhtelk0uYpfhyFPHF6VRx9_V7AgFHTsNk';
 
 class App extends Component {
 
@@ -45,34 +46,60 @@ class App extends Component {
     1) Create a modal for login when start is clicked
     2) Make a state variable, isLoggen in, only display bookmark related features if user is indeed logged in
 */
-    componentDidMount() {
+    async componentDidMount() {
+        const sheet1Response = await fetch(`https://sheets.googleapis.com/v4/spreadsheets/${SHEET_ID}/values/Sheet1!A1:AR807?key=${ACCESS_TOKEN}`,
+        {
+          headers: {
+            "Content-Type": "application/json",
+        }
+        });
+        const wearabilityResponse = await fetch(`https://sheets.googleapis.com/v4/spreadsheets/${SHEET_ID}/values/Wearability!A1:J807?key=${ACCESS_TOKEN}`,
+        {
+          headers: {
+            "Content-Type": "application/json",
+        }
+        });
 
-        Tabletop.init({
-          key: '19SNEbgmJqzFkXajdTnCDN5S6-PHmqFIGoN_MCFeOMcc',
-          callback: googleData => {
+        const sheet1Info = await sheet1Response.json()
+        const wearabilityInfo = await wearabilityResponse.json()
 
-            let temp = googleData["Sheet1"].elements;
+        const sheet1ArrayData = sheet1Info["values"]
+        const wearabilityArrayData = wearabilityInfo["values"]
 
-            let wearability = this.computeWearability(googleData["Wearability"].elements);
-            let costmetric = this.computeCostMetric(googleData["Sheet1"].elements);
-            let impMetric = this.computeImplementationMetric(googleData["Sheet1"].elements);
-            for(let i = 0; i < temp.length; i++) {
-                  temp[i] = {
-                 ...temp[i],
-                 Wearability: wearability[i]["Wearability"],
-                 costMetric: costmetric[i]["costMetric"],
-                 impMetric: impMetric[i]["impMetric"],
-               };
-            }
+        let sheet1Data = []
+        let wearabilityData = []
 
-            console.log(temp);
-            this.props.updateSearchData(temp);
-          },
-          simpleSheet: false
-        })
+        const sheet1Headers = sheet1ArrayData[0]
+        for(let i = 1; i < sheet1ArrayData.length; i++) {
+          let tempMap = {}
+          let currentRow = sheet1ArrayData[i];
+          for(let j = 0; j < currentRow.length; j++) {
+            tempMap[sheet1Headers[j]] = currentRow[j]; 
+          }
+          sheet1Data.push(tempMap)
+        }
 
-
-
+        const wearabilityHeaders = wearabilityArrayData[0]
+        for(let i = 1; i < wearabilityArrayData.length; i++) {
+          let tempMap = {}
+          let currentRow = wearabilityArrayData[i];
+          for(let j = 0; j < currentRow.length; j++) {
+            tempMap[wearabilityHeaders[j]] = currentRow[j]; 
+          }
+          wearabilityData.push(tempMap)
+        }
+        let costmetric = this.computeCostMetric(sheet1Data);
+        let impMetric = this.computeImplementationMetric(sheet1Data);
+        let wearability = this.computeWearability(wearabilityData);
+        for(let i = 0; i < sheet1Data.length; i++) {
+          sheet1Data[i] = {
+              ...sheet1Data[i],
+              Wearability: wearability[i]["Wearability"],
+              costMetric: costmetric[i]["costMetric"],
+              impMetric: impMetric[i]["impMetric"],
+            };
+        }
+        this.props.updateSearchData(sheet1Data);
     }
 
     componentWillMount() {
