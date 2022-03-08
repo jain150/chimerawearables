@@ -109,13 +109,13 @@ class SearchDisplay extends Component {
                   if(!this.props.searchDisplay) {
 
 
-                          if(this.props.filter) {
+                          // if(this.props.filter) {
 
-                            filterArr = filterArr.filter(this.filterYear);
-                            filterArr = filterArr.filter(this.filterVenue);
-                            filterArr = filterArr.filter(this.filterAuthor);
-                            filterArr = filterArr.filter(this.filterSource);
-                          }
+                          //   filterArr = filterArr.filter(this.filterYear);
+                          //   filterArr = filterArr.filter(this.filterVenue);
+                          //   filterArr = filterArr.filter(this.filterAuthor);
+                          //   filterArr = filterArr.filter(this.filterSource);
+                          // }
                             console.log(filterArr);
 
                           if(this.props.params.includes('Function')) {
