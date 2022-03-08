@@ -162,23 +162,32 @@ class SearchDisplay extends Component {
           let patentsArr = [];
 
           researchArr = filterArr.filter((item) => {
+            if(item["Research"] === undefined)
+              return false
             return item["Research"].trim() === 'x'
           });
 
           tutorialsArr = filterArr.filter((item) => {
+            if(item["Tutorial"] === undefined)
+              return false
             return item["Tutorial"].trim() === 'x'
           });
 
           aestheticsArr = filterArr.filter((item) => {
+            if(item["Aesthetic Approach"] === undefined)
+              return false
             return item["Aesthetic Approach"].trim() === 'x'
           });
 
           conceptsArr = filterArr.filter((item) => {
-
+            if(item["Design Concepts"] === undefined)
+              return false
             return item["Design Concepts"].trim() === 'x'
           });
 
           patentsArr = filterArr.filter((item) => {
+            if(item["Patents"] === undefined)
+              return false
             return item["Patents"].trim() === 'x'
           });
 
