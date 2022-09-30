@@ -33,7 +33,7 @@
     "react-svg-donut-chart": "^1.1.0",
     "reactjs-popup": "^1.5.0",
     "reactstrap": "^8.1.1",
-    "recharts": "^1.8.5",
+    "recharts": "^2.1.14",
     "redux": "^4.0.4",
     "semantic-ui-react": "^0.87.3",
     "tabletop": "^1.6.2",
